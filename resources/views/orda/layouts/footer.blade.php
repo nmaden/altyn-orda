@@ -25,25 +25,6 @@
 
 
 
-@php
-$route = Route::currentRouteName();
-@endphp
-
-
-
-
-
-@if($route == 'route-item')
-
-@else
-		
-	<!----------------относятся к page_map--------------->
-    
-@endif
-
-<script src="/js/script.js"></script>
-
-
 
 
 
