@@ -17,13 +17,19 @@ class CalendarUpdateAction {
 
     function run(){
         $this->saveMain();
+<<<<<<< HEAD
 		//$this->saveApplication();
+=======
+		//dd($this->request->all());exit();
+		$this->saveCoords();
+>>>>>>> 2a66976... 31.08.2020
         //$this->saveRequirement();
     }
 
     private function saveMain(){
 	
         $ar = $this->request->all();
+<<<<<<< HEAD
 		
         $ar['user_id'] = $this->request->user()->id;
     
@@ -32,6 +38,13 @@ class CalendarUpdateAction {
 			
 		   
 		    if(is_file(public_path($this->model->photo))){
+=======
+		$ar['user_id'] = $this->request->user()->id;
+    
+	 	if ($this->request->has('photo')){
+			
+			if(is_file(public_path($this->model->photo))){
+>>>>>>> 2a66976... 31.08.2020
 	          Storage::delete($this->model->photo);
             }
             $ar['photo'] = UploadPhoto::upload($this->request->photo,$this->model->photo);
@@ -46,6 +59,7 @@ class CalendarUpdateAction {
         $this->model->save();
     }
 
+<<<<<<< HEAD
    private function saveApplication(){
         if (!method_exists($this->model, 'relApplication'))
             return true;
@@ -64,6 +78,13 @@ class CalendarUpdateAction {
       }
 
  
+=======
+   function saveCoords(){
+	   
+	   $this->model->coords()->updateOrCreate(['routes_id' => $this->model->id],['coord_a'=>$this->request->coord_a,'coord_b'=>$this->request->coord_b,'coord_c'=>$this->request->coord_с,'coord_d'=>$this->request->coord_d]);
+	   
+   }
+>>>>>>> 2a66976... 31.08.2020
 
 
 

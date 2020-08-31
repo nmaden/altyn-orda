@@ -1,14 +1,13 @@
 <?php
-namespace Modules\Entity\Model\Routes;
+namespace Modules\Entity\Model\Coords;
 
 use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
-class Routes extends ModelParent {
-    protected $table = 'routes';
+class Coords extends ModelParent {
+    protected $table = 'lib_coord';
+	protected $fillable = [ 'coord_a','coord_b','coord_c','coord_d','routes_id','user_id'];
 	
-	
-    protected $fillable = [ 'photo','name','description','user_id','city_id','props_1','props_3','price','coord','coord_name'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -16,23 +15,18 @@ class Routes extends ModelParent {
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
 	
-<<<<<<< HEAD
-=======
-	 function coords(){
-        return $this->hasMany('Modules\Entity\Model\Coords\Coords', 'routes_id');
+	 function sights(){
+        return $this->belongsToMany('Modules\Entity\Model\Sights\Sights','Modules\Entity\Model\Home\SightsLib','home_id','sight_id');
     }
 	
->>>>>>> 2a66976... 31.08.2020
+	
 	 function relInforms(){
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
     }
 	
-<<<<<<< HEAD
 	function relApplication(){
         return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
     }
-=======
->>>>>>> 2a66976... 31.08.2020
 	
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');

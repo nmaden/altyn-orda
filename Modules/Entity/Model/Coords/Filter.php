@@ -1,5 +1,5 @@
 <?php
-namespace Modules\Entity\Model\Calendar;
+namespace Modules\Entity\Model\Coords;
 
 use Modules\Entity\Services\ModelFilter;
 

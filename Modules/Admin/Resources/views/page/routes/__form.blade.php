@@ -85,6 +85,7 @@ placeholder="{{$page ? '': 'О маршруте'}} "
  </div>
 
 
+<<<<<<< HEAD
 
 <br><br>
 @if($page == false)
@@ -120,6 +121,48 @@ type="text"/>
 <br><br>
 
  
+=======
+<br><br>
+<div>
+
+ 
+<label for="title"><b>Координата 1</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" 
+value="{{isset($model->coords[0]->coord_a) ? $model->coords[0]->coord_a : ''}}" 
+name='coord_a' placeholder="{{$page ? '': 'Координа 1'}} " 
+class="form-control"/>
+</div>
+<div>  
+<label for="title"><b>Координата 2</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" 
+value="{{isset($model->coords[0]->coord_b) ? $model->coords[0]->coord_b : ''}}" 
+
+name='coord_b' placeholder="{{$page ? '': 'Координа 2'}} " 
+class="form-control"/>
+</div>
+
+<div>  
+<label for="title"><b>Координата 3</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text"
+value="{{isset($model->coords[0]->coord_c) ? $model->coords[0]->coord_c : ''}}" 
+name='coord_с' placeholder="{{$page ? '': 'Координа 3'}} " 
+class="form-control"/>
+</div>
+<div>  
+<label for="title"><b>Координата 4</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" 
+value="{{isset($model->coords[0]->coord_d) ? $model->coords[0]->coord_d : ''}}" 
+name='coord_d' placeholder="{{$page ? '': 'Координа 4'}} " 
+class="form-control"/>
+</div>
+<br><br>
+
+
+>>>>>>> 2a66976... 31.08.2020
 
 
 
@@ -142,6 +185,7 @@ type="text"/>
 		
 
 	
+<<<<<<< HEAD
  @section('script')
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDql8ox3Z7AQIpoGzNYEztSLaCe_kwVuwE&callback=initMap"
   type="text/javascript"></script>
@@ -250,3 +294,9 @@ $('#latitude').bind('keyup',function(){
  
   
 @endsection
+=======
+
+ 
+  
+
+>>>>>>> 2a66976... 31.08.2020
