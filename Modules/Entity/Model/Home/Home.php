@@ -42,16 +42,4 @@ class Home extends ModelParent {
 	  function getElIdAttribute(){
         return $this->id;
     }
-/*
- function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gallery\TransGallery', 'el_id');
-    }
-*/
-   
-
-  
-    
-
-
-  
 }

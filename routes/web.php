@@ -49,11 +49,6 @@ Route::get('route-item/{routes}',['uses' => 'RoutesController@item'])->name('rou
 Route::get('/home',['uses' => 'Admin\ArticlesController@index'])->name('home');
 
 
-
-
-
-
-
     
     Route::group(['namespace' => 'User'], function () {
 	    Route::get('login/{phone?}', 'LoginController@index')->name('login');

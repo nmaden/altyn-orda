@@ -21,15 +21,16 @@
             </div>
 
             <div class="section__filter">
-                <div class="row">
+                <form class="row" action="/calendars" method="get">
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct">
-                                  <option selected disabled>По дате</option>
-                                  <option value="1">Категория 1</option>
-                                  <option value="2">Категория 2</option>
-                                  <option value="3">Категория 3</option>
+                                <select name="sort_date" id="slct" onchange="this.form.submit();">
+                                  <option selected disabled >По дате</option>
+                                  @foreach($sort_calendars as $key=>$sort_calendar) 
+                                    <option  value="{{$key}}">{{$sort_calendar}}</option>
+                                
+                                  @endforeach
                                 </select>
                             </div>
                         </div>
@@ -37,11 +38,11 @@
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct">
+                                <select name="city_id" id="slct" type="submit" onchange="this.form.submit();">
                                   <option selected disabled>По региону</option>
-                                  <option value="1">Регион 1</option>
-                                  <option value="2">Регион 2</option>
-                                  <option value="3">Регион 3</option>
+                                  @foreach($cities as $city)
+                                        <option value="{{$city->id}}">{{ $city->name}}</option>
+                                  @endforeach
                                 </select>
                             </div>
                         </div>
@@ -49,24 +50,24 @@
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct">
+                                <select name="category_id" id="slct" onchange="this.form.submit();">
                                   <option selected disabled>По категории</option>
-                                  <option value="1">Регион 1</option>
-                                  <option value="2">Регион 2</option>
-                                  <option value="3">Регион 3</option>
+                                  @foreach($categories as $category)
+                                  <option value="{{  $category->id}}">{{ $category->name }}</option>
+                                  @endforeach 
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                </form>
             </div>
 
             <div class="page__description--text">
 
                 <div class="sights__block calendar__block">
                     <div class="row">
-                   @foreach($items as $item)
+                    @foreach($items as $item)
                         <div class="col-lg-4 col-md-6">
                             <div class="calendar__item">
                                 <div class="calendar__item--cat">
@@ -92,7 +93,7 @@
                                     <div class="calendar__item--title">
                                         <a href="{{route('calendar-item',$item)}}">
 									
-						{!! mb_substr($item->headers_title,0,65) !!}
+						                 {!! mb_substr($item->headers_title,0,65) !!}
 										
                                         </a>
                                     </div>
@@ -115,4 +116,6 @@
 
         </div>
     </div>
+
+    
 

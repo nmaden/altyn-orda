@@ -12,6 +12,10 @@ use Modules\Entity\Model\Routes\Routes;
 use App\Repositories\GidsPepository;
 
 use App\Http\Controllers\SiteController;
+use Modules\Entity\Model\Categories\Categories;
+use Modules\Entity\Model\LibCity\LibCity;
+use Illuminate\Support\Facades\DB;
+
 
 class RoutesController extends SiteController
 {
@@ -30,9 +34,13 @@ class RoutesController extends SiteController
     public function index(Request $request)
     {
 		
-	  $items = Routes::filter($request)->latest()->paginate(10);
+		$items = Routes::filter($request)->latest()->paginate(10);
+		
+		$cities = LibCity::query()->get();
+		$categories = DB::table('categories')->get();
+
 	  $gids = $this->getTabs();
-      $sights_page = view('orda'.'.routes.routes')->with(['items'=>$items,'gid'=>$gids,'request'=>$request])->render();
+      $sights_page = view('orda'.'.routes.routes')->with(['items'=>$items, 'cities'=>$cities, 'categories'=>$categories, 'gid'=>$gids,'request'=>$request])->render();
 	  
 	  
 	    $content=$sights_page;

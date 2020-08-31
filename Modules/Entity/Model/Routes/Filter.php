@@ -23,11 +23,17 @@ class Filter extends ModelFilter {
             $this->query->whereHas('relUniversity', function($q) use ($request){
                 $q->where('univer_id', $request->univer_id);
             });
-
+        
         if ($this->request->has('city_id') && $this->request->city_id)
-            $this->query->whereHas('relUniversity', function($q) use ($request){
-                $q->where('city_id', $request->city_id);
-            });
+            $this->query->where('city_id', $request->city_id);
+        
+        if ($this->request->has('category_id') && $this->request->category_id)
+            $this->query->where('category_id', $request->category_id);
+         
+        // if ($this->request->has('city_id') && $this->request->city_id)
+        //     $this->query->whereHas('relUniversity', function($q) use ($request){
+        //         $q->where('city_id', $request->city_id);
+        //     });
        
         if ($this->request->has('degree_id') && $this->request->degree_id){
 			//echo $this->request->degree_id;exit();
