@@ -16,23 +16,21 @@ class Routes extends ModelParent {
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
 	
-<<<<<<< HEAD
-=======
+
 	 function coords(){
         return $this->hasMany('Modules\Entity\Model\Coords\Coords', 'routes_id');
     }
 	
->>>>>>> 2a66976... 31.08.2020
+
 	 function relInforms(){
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
     }
 	
-<<<<<<< HEAD
+
 	function relApplication(){
         return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
     }
-=======
->>>>>>> 2a66976... 31.08.2020
+
 	
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
@@ -46,12 +44,7 @@ class Routes extends ModelParent {
 	  function getElIdAttribute(){
         return $this->id;
     }
-/*
- function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gallery\TransGallery', 'el_id');
-    }
-*/
-   
+
 
   
     

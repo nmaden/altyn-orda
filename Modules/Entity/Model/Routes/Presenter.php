@@ -18,8 +18,7 @@ trait Presenter {
 		}
 		 return $ar;
 		  }
-<<<<<<< HEAD
-=======
+
 		  /*
 	function getCoords(){
 		return relСoords::pluck('name', 'id')->toArray();
@@ -49,7 +48,7 @@ function getCoordsAr(){
 		
 
 }		
->>>>>>> 2a66976... 31.08.2020
+
 	function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 
