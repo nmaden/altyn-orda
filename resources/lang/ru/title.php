@@ -1,0 +1,34 @@
+<?php
+
+return [
+    'main'=>'Главная',
+	'gallery_update'=>'Обновление',
+	'gallery'=>'Календарь',
+	'gallery_show'=>'Просмотр',
+	'gallery_create'=>'Создание',
+	
+	'lib_language_update'=>'Обновление',
+	'lib_language'=>'Языки',
+	'lib_language_show'=>'Просмотр',
+	'lib_language_create'=>'Создание',
+	
+	'lib_city_update'=>'Обновление',
+	'lib_city'=>'Города',
+	'lib_city_show'=>'Просмотр',
+	'lib_city_create'=>'Создание',
+	
+    'gid'=>'Гиды',
+	'gid_update'=>'Обновление',
+	'gid_create'=>'Создать',
+	'gid_show'=>'Просмотр',
+	
+	'routes'=>'Маршруты',
+	'routes_show'=>'Просмотр',
+	'routes_create'=>'Создание ',
+	'routes_update'=>'Обновление',
+	
+	'sights'=>'Достопримечательности',
+	'sights_show'=>'Просмотр',
+	'sights_create'=>'Создание ',
+	'sights_update'=>'Обновление'
+];
