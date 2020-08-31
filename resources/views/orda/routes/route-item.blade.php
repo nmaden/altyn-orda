@@ -197,9 +197,15 @@
                                 </div>
                             </div>
                             <div class="route__item--btn">
+							@if(isset($item->end_point))
                                 <a>
-                                    Конечная точка
+								{{$item->end_point}}
                                 </a>
+								@else
+									 <a>
+									Конечная точка
+									 </a>
+								@endif
                             </div>
                         </div>
                     </div>

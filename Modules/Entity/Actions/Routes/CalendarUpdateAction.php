@@ -1,5 +1,5 @@
 <?php
-namespace Modules\Entity\Actions\Calendar;
+namespace Modules\Entity\Actions\Routes;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -17,7 +17,9 @@ class CalendarUpdateAction {
 
     function run(){
         $this->saveMain();
-		
+		//dd($this->request->all());exit();
+		$this->saveCoords();
+        //$this->saveRequirement();
     }
 
     private function saveMain(){
@@ -42,7 +44,11 @@ class CalendarUpdateAction {
         $this->model->save();
     }
 
- 
+   function saveCoords(){
+	   
+	   $this->model->coords()->updateOrCreate(['routes_id' => $this->model->id],['coord_a'=>$this->request->coord_a,'coord_b'=>$this->request->coord_b,'coord_c'=>$this->request->coord_с,'coord_d'=>$this->request->coord_d]);
+	   
+   }
 
 
 

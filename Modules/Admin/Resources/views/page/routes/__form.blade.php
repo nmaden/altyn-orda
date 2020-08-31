@@ -85,10 +85,19 @@ placeholder="{{$page ? '': 'О маршруте'}} "
  </div>
 
 
-<br><br>
-<div>
 
- 
+
+
+<br><br>
+
+<div> 
+<label for="title"><b>Конечная точка</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->end_point) ? $model->end_point : ''}}' name='end_point' placeholder="Конечная точка" class="form-control"/>
+</div>
+
+<br><br>
+
+<div>
 <label for="title"><b>Координата 1</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" 
