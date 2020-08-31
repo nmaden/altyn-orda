@@ -19,15 +19,11 @@ trait Presenter {
 		 return $ar;
 		  }
 
-		  /*
-	function getCoords(){
-		return relСoords::pluck('name', 'id')->toArray();
-	}
-		*/ 
-
 function getCoordsAr(){
 	
-	if(isset($this->coords[0])){
+	if(isset($this->coords[0]) && isset($this->coords[0]->coord_a))
+	{
+		
 		return $this->coords[0];
 		
 	}else{
@@ -48,6 +44,7 @@ function getCoordsAr(){
 		
 
 }		
+
 
 	function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
