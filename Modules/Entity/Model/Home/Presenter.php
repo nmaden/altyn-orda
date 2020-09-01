@@ -22,7 +22,19 @@ trait Presenter {
 	 function getArSlidersAttribute(){
 	   //return $this->relSliders()->pluck('sight_id')->toArray();
      }
-	
+		function getArMapPoint(){
+			if(isset($this->sights[0]->coord)){
+
+				return $this->sights;
+			}else{
+		     $ar = [
+		      'coord'=>'48.703801, 67.904896',
+		       'name'=>'Мавзолей Алаша хана'
+		     ];
+		    return $ar;
+		}
+		  }
+
 	function getAddress2Attribute($v){
 	   
 	     $ar= explode(',',$this->coord);

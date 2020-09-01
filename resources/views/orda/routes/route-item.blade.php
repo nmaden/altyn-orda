@@ -222,8 +222,9 @@
     </div>
 
 
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=e65e00dd-dbe3-4020-a0f5-272019ac69a9&lang=ru_RU"
-        type="text/javascript"></script>
+ <script src="https://api-maps.yandex.ru/2.1/?apikey=e65e00dd-dbe3-4020-a0f5-272019ac69a9&lang=ru_RU"
+        type="text/javascript">
+	</script>
 <script>
 
  var coord= "{{$item->getCoordsAr()['coord_a']}}";
