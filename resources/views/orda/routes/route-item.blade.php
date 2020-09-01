@@ -238,9 +238,8 @@
     </div>
 
 
- <script src="https://api-maps.yandex.ru/2.1/?apikey=e65e00dd-dbe3-4020-a0f5-272019ac69a9&lang=ru_RU"
-        type="text/javascript">
-	</script>
+
+	
 <script>
 
  var coord= "{{$item->getCoordsAr()['coord_a']}}";
@@ -248,6 +247,7 @@
      var index = coord.indexOf(',');
 	 var coord_a_1 = coord.substr(0,index);
      var coord_a_2 = coord.substr(index+1);
+	 
    }
    
    var coord= "{{$item->getCoordsAr()['coord_b']}}";
