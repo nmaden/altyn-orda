@@ -89,6 +89,21 @@ placeholder="{{$page ? '': 'О маршруте'}} "
 
 
 <br><br>
+<div> 
+<label for="title"><b>название -  точка-1</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->first_point) ? $model->first_point : ''}}' name='first_point' placeholder="точка-1" class="form-control"/>
+</div>
+<br>
+<div>
+<label for="title"><b>название -  точка-2</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->two_point) ? $model->two_point : ''}}' name='two_point' placeholder="точка-2" class="form-control"/>
+</div>
+<br>
+<div>
+<label for="title"><b>название -  точка-3</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->three_point) ? $model->three_point : ''}}' name='three_point' placeholder="точка-3" class="form-control"/>
+</div>
+<br>
 
 <div> 
 <label for="title"><b>Конечная точка</b></label> 

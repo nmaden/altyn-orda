@@ -56,18 +56,32 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=e65e00dd-dbe3-4020-a0f5-272019ac69a9&lang=ru_RU" type="text/javascript"></script>
 
 @php
-$a= array(['a'=>1,'b'=>2]);
-$php_json = urlencode(json_encode($a,JSON_NUMERIC_CHECK));
+$a= $home->getArMapPoint();
+$php_json = urlencode(json_encode($a));
 //dd($php_json);
 @endphp
 <script>
 
 var json = "{{$php_json}}";
-	//var arrs= jQuery.parseJSON("{{$php_json}}");
-	//var json= JSON.parse("{{$php_json}}");
-	console.log(JSON.parse(decodeURIComponent(json)));
-	//alert(arrs[0]['coord'])
+	var json_model= JSON.parse(decodeURIComponent(json));
+	var keys = Object.keys(json_model);
+	var obj = {};
+	var sights =[];
+			//var Ad = {name:'s',coord:'coord'};
+			function Ad(name,coord){
+				this.name= name;
+				this.coord= coord;
 
+			}; 
+
+//console.log(Ad);
+	keys.forEach(key => {
+		var name=json_model[key].name;
+		var coord=json_model[key].coord;
+        sights.push(new Ad(name,coord));
+
+	})
+				console.log(sights);
 
 </script>
 

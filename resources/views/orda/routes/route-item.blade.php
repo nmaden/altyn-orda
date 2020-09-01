@@ -129,7 +129,7 @@
           
             <div class="route__line--block">
                 <div class="route__line">
-                   
+                   @if(isset($item->coord[0]))
                     <div class="route__line--li">
                         <div class="route__line--item">
                             <div class="route__item--absol">
@@ -142,13 +142,18 @@
                             </div>
                             <div class="route__item--btn">
                                 <a>
-                                    По следам Золотой Орды
+                                    @if(isset($item->first_point))
+									{{$item->first_point}}
+								     @else
+									 По следам Золотой Орды
+                                     @endif
                                 </a>
                             </div>
                         </div>
                     </div>
-					
-					
+					@endif
+				@if(isset($item->coord[1]))
+
                     <div class="route__line--li">
                         <div class="route__line--item">
                             <div class="route__item--absol">
@@ -161,12 +166,18 @@
                             </div>
                             <div class="route__item--btn">
                                 <a>
-                                    По следам Золотой Орды
+                                    @if(isset($item->two_point))
+									{{$item->two_point}}
+								     @else
+									 По следам Золотой Орды
+                                     @endif
                                 </a>
                             </div>
                         </div>
                     </div>
-					
+					@endif
+				@if(isset($item->coord[2]))
+
                     <div class="route__line--li">
                         <div class="route__line--item">
                             <div class="route__item--absol">
@@ -179,13 +190,18 @@
                             </div>
                             <div class="route__item--btn">
                                 <a>
-                                    По следам Золотой Орды
+                                    @if(isset($item->three_point))
+									{{$item->three_point}}
+								     @else
+									 По следам Золотой Орды
+                                     @endif
                                 </a>
                             </div>
                         </div>
                     </div>
-					
-					
+					@endif
+					@if(isset($item->coord[4]))
+
                     <div class="route__line--li">
                         <div class="route__line--item route__line--active">
                             <div class="route__item--absol">
@@ -209,7 +225,7 @@
                             </div>
                         </div>
                     </div>
-           
+           @endif
                 </div>
             </div>
 
