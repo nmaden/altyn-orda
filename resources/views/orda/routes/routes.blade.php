@@ -29,7 +29,7 @@
                             <div class="filter--select">
                                 <select name="category_id" id="category_id" onchange="send_to_search('category_id')">
                                   <option selected disabled>По категории</option>
-                                  <option value="all_category">Весь категория</option>
+                                  <option value="all_category">Все категории</option>
                                   @foreach($categories as $key=>$category)
                                   <option value="{{$key}}">{{$category->name}}</option>
                                   @endforeach

@@ -38,7 +38,7 @@ class CalendarsController extends SiteController
 
 		//dd($items);
 
-		$sort_calendar = ["Все мероприятий",'Следующий неделя','Следующий месяць','Следующий год'];
+		$sort_calendar = ["Все мероприятия",'Следующая неделя','Следующий месяц','Следующий год'];
 		$gids = $this->getTabs();
 		
 		
