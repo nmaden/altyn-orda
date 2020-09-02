@@ -159,7 +159,7 @@ function send_to_search(param) {
 
         var new_url = url.toString();
        
-
+        console.log(new_url);
         window.location.replace(new_url);
     
       
