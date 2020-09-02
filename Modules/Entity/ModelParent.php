@@ -4,7 +4,6 @@ namespace Modules\Entity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 use Modules\Entity\Traits\DateHelper;
 use Modules\Entity\Traits\FilterModel;
 use Modules\Entity\Traits\RoleModel;
@@ -36,7 +35,7 @@ class ModelParent extends Model {
     }
 
     protected function getTransField($field, $v){
-		
+		$this->tab();
 		$lang = CurrentLang::url();
         if($lang!=false){
 			if($lang == 'ru'){

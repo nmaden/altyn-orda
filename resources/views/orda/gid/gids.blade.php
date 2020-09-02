@@ -96,7 +96,7 @@
                                 <div class="gid__item--info">
                                     <div class="gid__item--toptext">
 									@if(isset($item->name))
-									{{$item->name}}
+									{{URL::asset($item->photo)}}
 								    @endif
                                     </div>
                                     <div class="gid__item--title">

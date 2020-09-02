@@ -8,7 +8,7 @@ class Routes extends ModelParent {
     protected $table = 'routes';
 	
 	
-    protected $fillable = [ 'photo','name','description','user_id','city_id','props_1','props_3','price','coord','coord_name'];
+    protected $fillable = [ 'photo','name','description','user_id','city_id','props_1','props_3','price','coord','coord_name','end_point','first_point','end_point','two_point','three_point'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -16,13 +16,21 @@ class Routes extends ModelParent {
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
 	
+
+	 function coords(){
+        return $this->hasMany('Modules\Entity\Model\Coords\Coords', 'routes_id');
+    }
+	
+
 	 function relInforms(){
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
     }
 	
+
 	function relApplication(){
         return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
     }
+
 	
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
@@ -36,12 +44,7 @@ class Routes extends ModelParent {
 	  function getElIdAttribute(){
         return $this->id;
     }
-/*
- function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gallery\TransGallery', 'el_id');
-    }
-*/
-   
+
 
   
     

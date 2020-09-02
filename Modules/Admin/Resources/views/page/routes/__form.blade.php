@@ -86,40 +86,69 @@ placeholder="{{$page ? '': 'О маршруте'}} "
 
 
 
+
+
 <br><br>
-@if($page == false)
+<div> 
+<label for="title"><b>название -  точка-1</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->first_point) ? $model->first_point : ''}}' name='first_point' placeholder="точка-1" class="form-control"/>
+</div>
+<br>
 <div>
-<label>Адрес для поиска: если объект не определяется, попробуйте вручную вбить координаты </label>
-<input 
-type='hidden' 
-name="coord" 
-id="coord"
-type="text"/>
+<label for="title"><b>название -  точка-2</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->two_point) ? $model->two_point : ''}}' name='two_point' placeholder="точка-2" class="form-control"/>
+</div>
+<br>
+<div>
+<label for="title"><b>название -  точка-3</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->three_point) ? $model->three_point : ''}}' name='three_point' placeholder="точка-3" class="form-control"/>
+</div>
+<br>
 
-<input 
-class="form-control" 
-placeholder="Вводить название объекта"  
-value="{{isset($model->coord_name) ? $model->coord_name : ''}}"
-name="coord_name"  
-id="address" 
-type="text"/>
+<div> 
+<label for="title"><b>Конечная точка</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->end_point) ? $model->end_point : ''}}' name='end_point' placeholder="Конечная точка" class="form-control"/>
+</div>
 
- <label>Широта (latitude): </label>
- <input id="latitude" 
- value="{{ isset($model->address2[0]) ? $model->address2[0]: 59.9342802 }}"
- type="text"/>
- 
- <label>Длогота (longitude): </label>
- <input id="longitude" 
-  value="{{ isset($model->address2[1]) ? $model->address2[1]: 30.335098600000038 }}"
-type="text"/>
-  @endif
- <div id="map_canvas" style="width:800px; height:600px"></div>
- </div>
- 
 <br><br>
 
- 
+<div>
+<label for="title"><b>Координата 1</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" 
+value="{{isset($model->coords[0]->coord_a) ? $model->coords[0]->coord_a : ''}}" 
+name='coord_a' placeholder="{{$page ? '': 'Координа 1'}} " 
+class="form-control"/>
+</div>
+<div>  
+<label for="title"><b>Координата 2</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" 
+value="{{isset($model->coords[0]->coord_b) ? $model->coords[0]->coord_b : ''}}" 
+
+name='coord_b' placeholder="{{$page ? '': 'Координа 2'}} " 
+class="form-control"/>
+</div>
+
+<div>  
+<label for="title"><b>Координата 3</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text"
+value="{{isset($model->coords[0]->coord_c) ? $model->coords[0]->coord_c : ''}}" 
+name='coord_с' placeholder="{{$page ? '': 'Координа 3'}} " 
+class="form-control"/>
+</div>
+<div>  
+<label for="title"><b>Координата 4</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" 
+value="{{isset($model->coords[0]->coord_d) ? $model->coords[0]->coord_d : ''}}" 
+name='coord_d' placeholder="{{$page ? '': 'Координа 4'}} " 
+class="form-control"/>
+</div>
+<br><br>
+
+
 
 
 
@@ -142,111 +171,7 @@ type="text"/>
 		
 
 	
- @section('script')
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDql8ox3Z7AQIpoGzNYEztSLaCe_kwVuwE&callback=initMap"
-  type="text/javascript"></script>
-   <script type="text/javascript" src="/geo/jquery-ui-1.8.1.custom.min.js"></script> 
 
- 
- <script type="text/javascript">
- 
-var geocoder;
-var map;
-var marker;
-var markers = [];
- function initMap(){
-function initialize(){
-	
-	
-	  var latlng = new google.maps.LatLng(
-	  {{isset($model->address2[0]) ? $model->address2[0]: 59.9342802}},
-{{isset($model->address2[1]) ? $model->address2[1] : 30.335098600000038}});
-
-
-            var options = {
-                zoom: 16,
-                center: latlng,
-				//mapTypeId: google.maps.MapTypeId.SATELLITE
-
-            };
-            map = new google.maps.Map(document.getElementById('map_canvas'), options);
-            geocoder = new google.maps.Geocoder();
-	
-	
-	
-
- 
-  marker = new google.maps.Marker({
-    map: map,
-    draggable: true
-  });
- 
-}
- 
-$(document).ready(function() { 
- var coord1 = "<?=$model->address2[0]?>";
-   var coord2 = "<?=$model->address2[1]?>";
-   var coord =  coord1+','+coord2;
-   $("#coord").val(coord);
-  initialize();
- 
-  $(function() {
-    $("#address").autocomplete({
-      //Определяем значение для адреса при геокодировании
-      source: function(request, response) {
-        geocoder.geocode( {'address': request.term}, function(results, status) {
-          response($.map(results, function(item) {
-            return {
-              label:  item.formatted_address,
-              value: item.formatted_address,
-              latitude: item.geometry.location.lat(),
-              longitude: item.geometry.location.lng()
-            }
-          }));
-        })
-      },
-      //Выполняется при выборе конкретного адреса
-      select: function(event, ui) {
-        $("#latitude").val(ui.item.latitude);
-        $("#longitude").val(ui.item.longitude);
-		var coord = ui.item.latitude + ',' + ui.item.longitude;
-		$("#coord").val(coord);
-
-        var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
-        marker.setPosition(location);
-        map.setCenter(location);
-      }
-    });
-  });
- 
-  //Добавляем слушателя события обратного геокодирования для маркера при его перемещении  
-  google.maps.event.addListener(marker, 'drag', function() {
-    geocoder.geocode({'latLng': marker.getPosition()}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        if (results[0]) {
-          $('#address').val(results[0].formatted_address);
-          $('#latitude').val(marker.getPosition().lat());
-          $('#longitude').val(marker.getPosition().lng());
-        }
-      }
-    });
-  });
- 
-});
-
-$('#latitude').bind('keyup',function(){
-	var coord = $("#latitude").val() + ',' + $("#longitude").val();
-	$("#coord").val(coord);
-})
-    $('#longitude').bind('keyup',function(){
-	var coord = $("#latitude").val() + ',' + $("#longitude").val();
-	$("#coord").val(coord);
-
-})
-
- }
-</script> 
-	
  
   
-@endsection
+

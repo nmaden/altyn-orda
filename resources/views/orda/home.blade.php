@@ -1,52 +1,23 @@
-    <div class="section__home--bg">
-	@if(isset($home->description))
+
+<div class="section__home--bg">
+ @if(isset($home->description))
 	{!!  $home->description !!}
-    @endif
+ @endif
+	
+
+
 	@if(isset($home->sights))
-        <div class="section__map">
-            <div class="container">
-                <div class="section__map--block">
-                    <div class="section__map--main">
-                        <img src="/img/gold__maps.svg" alt="">
-                    </div>
+      <div id="inter__map" class="section__map--home">
+  
+  </div>
+    @endif
 
-                    <div class="section__map--markers">
-@php
-$count = 0;
-$length= count($home->sights);
-@endphp
- @foreach($home->sights as $value_sight)
-@php
-$count ++;
-@endphp
-                        <div class="section__map--item section__map--item-{{$count}} {{$count == $length ? 'section__map--active' : ''}}">
-                            <div class="section__map--mark"></div>
-                            <div class="section__map--info">
-                                <div class="section__map--img">
-                                    <img src="{{URL::asset($value_sight->photo)}}" alt="">
-                                </div>
-                                <div class="section__map--title">
-								{{$value_sight->name}}
-                                </div>
-                                <a href="#" class="section__map--linck">Подробнее</a>
-                            </div>
-                        </div>
-@endforeach
-                  
-    
-                   
-                    
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-@endif
     </div>
 
     <div class="section__calendar">
-        <div class="container">
+		
+
+	<div class="container">
 
             <div class="section__title--block">
                 <div class="section__title">
@@ -55,8 +26,11 @@ $count ++;
             </div>
 					@include('orda.components.calendar-slider',$gid)
         </div>
+		
+        
     </div>
 @if(isset($gid))
+
     <div class="section__gid">
         <div class="container">
 
@@ -72,4 +46,14 @@ $count ++;
 
         </div>
     </div>
+	
 @endif
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    
+@php
+$php_json = $home->getArMapPoint();
+@endphp
+<script>var json = "{{$php_json}}";</script>
+

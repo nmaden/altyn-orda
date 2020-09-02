@@ -17,5 +17,7 @@ trait FilterModel  {
       
         return $filter->getQuery();
     }
-
+public function tab(){
+	//dd(600);
+}
 }

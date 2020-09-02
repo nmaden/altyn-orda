@@ -4,7 +4,10 @@
 /storage/*.key
 /vendor
 .env
+<<<<<<< HEAD
 .env.backup
+=======
+>>>>>>> 2a66976... 31.08.2020
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml

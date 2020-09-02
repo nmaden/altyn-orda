@@ -85,8 +85,8 @@
                 <div class="about__text">
                     <p>
 					@if(isset($calendar->text))
-					    {!! $calendar->text !!}
-				    @endif
+					{!! $calendar->text !!}
+				@endif
                     </p>
                 </div>
             </div>

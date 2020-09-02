@@ -17,21 +17,17 @@ class CalendarUpdateAction {
 
     function run(){
         $this->saveMain();
-		//$this->saveApplication();
-        //$this->saveRequirement();
+		
     }
 
     private function saveMain(){
 	
         $ar = $this->request->all();
-		
-        $ar['user_id'] = $this->request->user()->id;
+		$ar['user_id'] = $this->request->user()->id;
     
 	 	if ($this->request->has('photo')){
 			
-			
-		   
-		    if(is_file(public_path($this->model->photo))){
+			if(is_file(public_path($this->model->photo))){
 	          Storage::delete($this->model->photo);
             }
             $ar['photo'] = UploadPhoto::upload($this->request->photo,$this->model->photo);
@@ -45,23 +41,6 @@ class CalendarUpdateAction {
         $this->model->fill($ar);
         $this->model->save();
     }
-
-   private function saveApplication(){
-        if (!method_exists($this->model, 'relApplication'))
-            return true;
-		
-		
-		$this->model->relApplication->update(['date' => $this->request->date,'description' => $this->request->description]);
-		
-        }
-
-    private function saveRequirement(){
-        if (!method_exists($this->model, 'relRequirement'))
-            return true;
-		
-		$this->model->relRequirement()->create(['text' => $this->request->text]);
-        
-      }
 
  
 
