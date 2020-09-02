@@ -39,6 +39,7 @@ class CalendarUpdateAction {
       
         //dd($this->model->photo);
         $this->model->fill($ar);
+        $this->model->category_id = $this->model->category_id;
         $this->model->save();
     }
 

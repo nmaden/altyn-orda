@@ -1,4 +1,5 @@
 @php
+use Illuminate\Support\Facades\DB;
 
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
@@ -6,6 +7,8 @@ $page = false;
 if(in_array('show',$ar)){
 	$page = true;
 }
+
+$categories = DB::table('categories')->get();
 
 @endphp
 <div>
@@ -58,7 +61,24 @@ value='' name='text'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-de
 
 
 <br><br>
-
+<div>   
+		Выберите категорию 
+	
+			<select {{$page ? 'disabled': ''}} name="category_id" id="category_id" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+			
+		
+			@if(count($categories) > 0)
+					
+            @foreach ($categories as $k => $v)
+                <option value="{{ $k }}" {{ $model->category_id == $k ? 'selected' : '' }}>{{ $v->name }}</option>
+						@endforeach
+						
+			@else
+				ничего нет
+			@endif
+        </select>
+</div>
  <div>   
     Выберите город
 			<select {{$page ? 'disabled': ''}} name="city_id" id="city_id" class="form-control select2">

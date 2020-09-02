@@ -8,7 +8,7 @@ class Calendar extends ModelParent {
     protected $table = 'galleries';
 	
 	
-    protected $fillable = [ 'photo','headers_title','text','user_id','city_id','date'];
+    protected $fillable = [ 'photo','headers_title','text','user_id','city_id','category_id','date'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

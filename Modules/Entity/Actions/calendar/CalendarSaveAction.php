@@ -15,6 +15,8 @@ class CalendarSaveAction {
     }
 
     function run(){
+
+        
         $this->saveMain();
 		
 		//$this->saveApplication();
@@ -24,7 +26,7 @@ class CalendarSaveAction {
     private function saveMain(){
 		
         $ar = $this->request->all();
-		
+       
         $ar['user_id'] = $this->request->user()->id;
 
        if ($this->request->has('photo')){
@@ -38,9 +40,12 @@ class CalendarSaveAction {
 	   }
         else {
             unset($ar['photo']);
-		}
-		
+        }
+        
+        
+        $this->model->category_id = $this->model->category_id;
         $this->model->fill($ar);
+
         $this->model->save();
     }
     private function saveInforms(){

@@ -2,7 +2,7 @@
 namespace Modules\Entity\Model\Calendar;
 
 use Modules\Entity\Services\ModelFilter;
-
+use Carbon\Carbon;
 class Filter extends ModelFilter {
     public function filter(){
 		
@@ -24,15 +24,32 @@ class Filter extends ModelFilter {
                 $q->where('univer_id', $request->univer_id);
             });
 
-        if ($this->request->has('city_id') && $this->request->city_id)
-            $this->query->whereHas('relUniversity', function($q) use ($request){
-                $q->where('city_id', $request->city_id);
-            });
+        // if ($this->request->has('city_id') && $this->request->city_id)
+        //     $this->query->whereHas('relUniversity', function($q) use ($request){
+        //         $q->where('city_id', $request->city_id);
+        //     });
        
         if ($this->request->has('degree_id') && $this->request->degree_id){
 			//echo $this->request->degree_id;exit();
             $this->query->where('degree_id', $request->degree_id);
-		}
+        }
+        if ($this->request->has('sort_date') && $this->request->sort_date)
+            if ($this->request->sort_date==0)
+                $this->query;
+            if ($this->request->sort_date==1)
+              
+                $this->query->where('date', '>=',Carbon::now())->where('date', '<=',Carbon::now()->addWeek(1));
+            if ($this->request->sort_date==2)  
+                $this->query->where('date', '>=',Carbon::now())->where('date', '<=',Carbon::now()->addMonth(1));
+            if ($this->request->sort_date==3)
+                $this->query->where('date', '>=',Carbon::now())->where('date', '<=',Carbon::now()->addYear(1));
+            
+        if ($this->request->has('city_id') && $this->request->city_id)
+            $this->query->where('city_id', $request->city_id);
+        
+        if ($this->request->has('category_id') && $this->request->category_id)
+            $this->query->where('category_id', $request->category_id);
+        
 		
 
 			if ($this->request->has('discipline_id') && is_array($this->request->discipline_id) && $this->request->discipline_id !='all'){

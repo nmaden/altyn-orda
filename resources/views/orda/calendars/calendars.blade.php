@@ -21,15 +21,15 @@
             </div>
 
             <div class="section__filter">
-                <div class="row">
+                <form class="row">
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct">
+                                <select name="date" id="sort_date" onchange="send_to_search('sort_date')">
                                   <option selected disabled>По дате</option>
-                                  <option value="1">Категория 1</option>
-                                  <option value="2">Категория 2</option>
-                                  <option value="3">Категория 3</option>
+                                  @foreach($sort_calendars as $key=>$sort_calendar)
+                                  <option value="{{$key}}">{{$sort_calendar}}</option>
+                                  @endforeach
                                 </select>
                             </div>
                         </div>
@@ -37,11 +37,13 @@
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct">
+                            
+                                <select name="city_id" id="city_id" onchange="send_to_search('city_id')">
                                   <option selected disabled>По региону</option>
-                                  <option value="1">Регион 1</option>
-                                  <option value="2">Регион 2</option>
-                                  <option value="3">Регион 3</option>
+                                  <option  value="all_city">Весь регион</option>
+                                  @foreach($cities as $key=>$city)
+                                  <option value="{{$city->id}}">{{$city->name}}</option>
+                                  @endforeach
                                 </select>
                             </div>
                         </div>
@@ -49,15 +51,18 @@
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct">
+                        
+                                <select name="category_id" id="category_id" onchange="send_to_search('category_id')">
                                   <option selected disabled>По категории</option>
-                                  <option value="1">Регион 1</option>
-                                  <option value="2">Регион 2</option>
-                                  <option value="3">Регион 3</option>
+                                  <option value="all_category">Весь категория</option>
+                                  @foreach($categories as $key=>$category)
+                                  <option value="{{$key}}">{{$category->name}}</option>
+                                  @endforeach
+                               
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                 </div>
             </div>
@@ -115,4 +120,50 @@
 
         </div>
     </div>
+    <input id="root_adress" type="hidden" value="{{$protocol.''.$_SERVER['HTTP_HOST']}}" name="root_adress"></input>
 
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+<script>
+
+function send_to_search(param) {
+
+      
+        let value = document.querySelector("#"+param).value;
+      
+       
+        var url = new URL(window.location["href"]);
+
+        var search_params = url.searchParams;
+    
+      
+        if(value==0) {
+            
+            search_params.delete(param);
+           
+        }
+        else if(value=="all_city") {
+            
+            search_params.delete(param);
+           
+        }
+        else if( value=="all_category") {
+            search_params.delete(param);
+            
+        }
+        else {
+            search_params.set(param, value);
+        }
+        
+
+        url.search = search_params.toString();
+
+        var new_url = url.toString();
+       
+
+        window.location.replace(new_url);
+    
+      
+    }
+      
+
+</script>
