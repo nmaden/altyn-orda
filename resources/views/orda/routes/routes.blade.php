@@ -69,7 +69,7 @@
                                 <div class="sights__item--info">
 								@if(isset($item->name))
                                     <div class="sights__item--title">
-                                                                           <a href="{{route('route-item',$item)}}">
+                                        <a href="{{route('route-item',$item)}}">
 
 										{{$item->name}}
                                         </a>
