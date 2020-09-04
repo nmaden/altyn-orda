@@ -27,7 +27,7 @@
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct" class="slct-0 js--select js--select-0">
+                                <select name="slct0" id="slct0" class="slct-0 js--select js--select-0">
                                   <option selected disabled>Регионы</option>
                                   <option value="1">Категория 1</option>
                                   <option value="2">Категория 2</option>
@@ -39,7 +39,7 @@
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct" class="slct-1 js--select js--select-1">
+                                <select name="slct1" id="slct1" class="slct-1 js--select js--select-1">
                                   <option selected disabled>Языки</option>
                                   <option value="1">Регион 1</option>
                                   <option value="2">Регион 2</option>
@@ -51,7 +51,7 @@
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="slct" id="slct" class="slct-2 js--select js--select-2">
+                                <select name="slct2" id="slct2" class="slct-2 js--select js--select-2">
                                   <option selected disabled>Специализация</option>
                                   <option value="1">Регион 1</option>
                                   <option value="2">Регион 2</option>
