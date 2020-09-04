@@ -27,7 +27,7 @@
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="city_id" id="city_id slct0" class="slct-0 js--select js--select-0" onchange="send_to_search('city_id')">
+                                <select name="city_id" id="city_id" class="slct-0 js--select js--select-0" onchange="send_to_search('city_id')">
                                   <option selected disabled>Регионы</option>
                                 
                                   <option  value="all_city">Весь регион</option>
@@ -52,7 +52,7 @@
 
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="lang_id" id="lang_id slct1" class="slct-1 js--select js--select-1" onchange="send_to_search('lang_id')">
+                                <select name="lang_id" id="lang_id" class="slct-1 js--select js--select-1" onchange="send_to_search('lang_id')">
                                 
                                   <option selected disabled>Языки</option>
                                  
@@ -80,7 +80,7 @@
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="category_id" id="category_id slct2"  class="slct-2 js--select js--select-2" onchange="send_to_search('category_id')">
+                                <select name="category_id" id="category_id"  class="slct-2 js--select js--select-2" onchange="send_to_search('category_id')">
                                
                                   <option selected disabled>Специализация</option>
                                   <option value="all_category">Все специализации</option>
@@ -219,8 +219,7 @@
 <script>
 
 function send_to_search(param) {
-
-      
+       
         let value = document.querySelector("#"+param).value;
       
        
