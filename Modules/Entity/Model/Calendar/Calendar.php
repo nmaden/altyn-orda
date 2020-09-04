@@ -9,6 +9,7 @@ class Calendar extends ModelParent {
 	
 	
     protected $fillable = [ 'photo','headers_title','text','user_id','city_id','category_id','date'];
+	
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -16,21 +17,12 @@ class Calendar extends ModelParent {
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
 	
-	function relApplication(){
-        return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
-    }
 	
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\Calendar\TransCalendar', 'el_id');
     }
 	
-  function relUniversity(){
-        return $this->belongsTo('Modules\Entity\Model\University\University', 'univer_id','id');
-    }
-	
-	function relRequirement(){
-        return $this->belongsTo('Modules\Entity\Model\Calendar\Requirement', 'requirement_id','id');
-    }
+ 
 	   function getTransTableNameAttribute(){
         return $this->getTable();
     }

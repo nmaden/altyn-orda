@@ -216,10 +216,13 @@ class="{{$page ? 'form-control' : 'wysihtml5 wysihtml5-default form-control'}} "
  {{$page ? 'disabled': ''}}
  multiple
      >
+	 @php
+	 //dd($model->arLangId);
+	 @endphp
 @foreach ($model->getLangAr() as $k => $v)
 <option 
 value="{{ $k }}" 
-{{ is_array($model->sights) && in_array($k, $model->ar_lang_id) ? 'selected' : '' }}
+{{ is_array($model->arLangId) && in_array($v, $model->ar_lang_id) ? 'selected' : '' }}
 >{{ $v }}</option>
             @endforeach
         </select>

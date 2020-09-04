@@ -17,8 +17,7 @@ class DefaultUpdateAction {
 
     function run(){
         $this->saveMain();
-		//$this->saveApplication();
-        //$this->saveRequirement();
+	
     }
 
     private function saveMain(){
@@ -63,7 +62,9 @@ class DefaultUpdateAction {
         
       }
 
- 
+     private function saveInforms(){
+        $this->model->relInforms->updateOrCreate(['gid_id' => $this->model->id], $this->request->data);
+    }
 
 
 

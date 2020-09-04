@@ -15,8 +15,10 @@ class Gid extends ModelParent {
     function relCity(){
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
-	 function relLang(){
-        return $this->hasMany('Modules\Entity\Model\Gid\GidLang', 'gid_id');
+	 function langGid(){
+        return $this->belongsToMany(
+		'Modules\Entity\Model\LibLanguage\LibLanguage',
+		'Modules\Entity\Model\Gid\GidLang', 'gid_id','lang_id');
     }
     function langs() {
         return $this->hasMany('Modules\Entity\Model\Gid\GidLang','gid_id','id');
@@ -25,9 +27,6 @@ class Gid extends ModelParent {
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
     }
 	
-	function relApplication(){
-        return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
-    }
 	
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');

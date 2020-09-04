@@ -17,7 +17,8 @@ trait Presenter {
     }
 	
 	 function getArLangIdAttribute(){
-	   return $this->relLang()->pluck('lang_id')->toArray();
+		//dd($this->langGid);
+	   return $this->langGid->pluck('name','id')->toArray();
      }
 	 
 	function getCityAr(){

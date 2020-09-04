@@ -46,21 +46,31 @@ class CalendarUpdateAction {
         $this->model->save();
     }
  private function saveLang(){
-	 
-	  
-        $this->model->relLang()->delete();
-        if (is_array($this->request->lang_id) && count($this->request->lang_id)){
+	
+	    //$this->model->relLang()->delete();
+		/*
+		 if(count($this->model->arLangId) > count($this->request->lang_id)){
+		$array1 = $this->model->arLangId;
+        $array2 = $this->request->lang_id;
+$result = array_diff($array1, $array2);
+$keys = array_keys($result);
+		 		dd($result);exit();
+
+		 		dd($keys);exit();
+
+	 }
+*/	
+        //$this->model->relLang()->delete();
+        if (is_array($this->request->lang_id) && count($this->request->lang_id))
+			{
+			$this->model->langGid()->detach();
+			//dd($this->request->lang_id);
             foreach ($this->request->lang_id as $lang_id) {
-                $this->model->relLang()->create(['lang_id' => $lang_id]);
-            }
-        }
-    }
- 
+				$this->model->langGid()->attach($lang_id);
+				}
+			}else{
+			$this->model->langGid()->detach();}
+ }
 
   
-
- 
-
-
-
 }

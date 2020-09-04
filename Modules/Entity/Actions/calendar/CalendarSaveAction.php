@@ -42,8 +42,9 @@ class CalendarSaveAction {
             unset($ar['photo']);
         }
         
-        
+        if(isset($this->model->category_id)){
         $this->model->category_id = $this->model->category_id;
+	    }
         $this->model->fill($ar);
 
         $this->model->save();

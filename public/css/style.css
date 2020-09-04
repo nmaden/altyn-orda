@@ -2009,3 +2009,22 @@ div#interactive__map-main.interactive__map-active div#inter__map {
 .about__text {
     text-align: justify;
 }
+
+/* width */
+.select2-container *::-webkit-scrollbar {
+    width: 5px;
+}
+/* Track */
+.select2-container *::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/* Handle */
+.select2-container *::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px
+}
+/* Handle on hover */
+.select2-container *::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+  

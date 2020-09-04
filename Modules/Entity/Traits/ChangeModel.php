@@ -6,12 +6,13 @@ use Route;
 trait ChangeModel {
     protected static function boot(){
 
+/*
         static::updating(function ($el) {
 			
            //ChangeModelService::createUpdateNote($el);
             return true;
         });
-
+*/
         static::created(function ($el) {
 		
             //ChangeModelService::createCreateNote($el);

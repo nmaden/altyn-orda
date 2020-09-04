@@ -79,6 +79,11 @@
                 </div>
               @endif
                 <div class="route__page--list">
+                    <div class="sights__list--item">
+                        <div class="sights__list--text">
+						    Выставка
+                        </div>
+                    </div>  
            @if(isset($item->relCity->name))
 
                     <div class="sights__list--item">

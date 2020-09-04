@@ -17,7 +17,7 @@ class CalendarSaveAction {
     function run(){
         $this->saveMain();
 		$this->saveLang();
-        //$this->saveRequirement();
+        
     }
 
     private function saveMain(){
@@ -43,29 +43,19 @@ class CalendarSaveAction {
   private function saveLang(){
 	  
 	  
-        $this->model->relLang()->delete();
-        if (is_array($this->request->lang_id) && count($this->request->lang_id)){
+              
+        if (is_array($this->request->lang_id) && count($this->request->lang_id))
+			{
+			$this->model->langGid()->detach();
+
             foreach ($this->request->lang_id as $lang_id) {
-                $this->model->relLang()->create(['lang_id' => $lang_id]);
-            }
-        }
-    }
-   private function saveApplication(){
-        if (!method_exists($this->model, 'relApplication'))
-            return true;
-		
-		$this->model->relApplication()->create(['date' => $this->request->date,'description' => $this->request->description]);
-		
-        }
+				$this->model->langGid()->attach($lang_id);
+				}
+			}else{
+			$this->model->langGid()->detach();}
+ }
 
-    private function saveRequirement(){
-        if (!method_exists($this->model, 'relRequirement'))
-            return true;
-		
-		$this->model->relRequirement()->create(['text' => $this->request->text]);
-        
-      }
-
+    
  
 
 

@@ -1,48 +1,21 @@
 <?php
-namespace App\Helper;
+namespace Modules\Entity\Traits;
 
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
-class CurrentLang {
+trait FilterModel  {
+    protected $filter_class = false;
+
+    public function scopeFilter($query, Request $request){
 	
-	
-	static function url(){
-		$url_get = $_SERVER['REQUEST_URI'];
-        $admin = strpos($url_get, "admin");
-		if($admin){
-			$lang = Request::get('lang');
-			return $lang;
-		}
-		return false;
-		
-		
-	}
-	
-    static function get(){
-        if (session('current_lang')){
-            \App::setLocale(session('current_lang'));
-            return session('current_lang');
-        }
-        \App::setLocale('en');
+        if (! $this->filter_class)
+            return $query;
 
-
-        return 'en';
+        $filter_class = $this->filter_class;
+        $filter = new $filter_class($query, $request);
+        $filter->filter();
+      
+        return $filter->getQuery();
     }
 
-    static function set($lang){
-        if (!in_array($lang, ['ru', 'en']))
-            return 'ru';
-
-        \App::setLocale($lang);
-        session(['current_lang' => $lang]);
-        session()->save();
-
-        return $lang;
-    }
-
-    static function getAr(){
-        return [
-            'en' => 'English', 'ru' => 'Русский'
-        ];
-    }
 }

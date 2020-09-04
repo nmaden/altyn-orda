@@ -103,13 +103,14 @@ class IndexController extends SiteController
 	
 	public function map()
     {
+      
+        //$sliderItems = $this->getSliders();
         
-        $sliderItems = $this->getSliders();
-        
-        $sliders = view('orda'.'.slider')->with('sliders',$sliderItems)->render();
-		$this->vars['sliders'] = $sliders;
-		
-		$page_map = view('orda'.'.map')->render();
+        //$sliders = view('orda'.'.slider')->with('sliders',$sliderItems)->render();
+		//$this->vars['sliders'] = $sliders;
+		$home = Home::take(1)->first();
+
+		$page_map = view('orda'.'.map')->with(['home'=>$home])->render();
 
         $content=$page_map;
         $this->vars['content']= $content;

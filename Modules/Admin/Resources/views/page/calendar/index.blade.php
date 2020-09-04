@@ -79,7 +79,7 @@
 				</tbody>
 			</table>
 			<div class="panel-footer text-right">
-								{!! $items->appends($request->all())->links() !!}
+			{!! $items->appends($request->all())->links() !!}
 
 			</div>
 		</div>
