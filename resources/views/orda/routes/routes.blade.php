@@ -31,7 +31,7 @@
                                   <option selected disabled>По категории</option>
                                   <option value="all_category">Все категории</option>
                                   @foreach($categories as $key=>$category)
-                                  <option value="{{$key}}">{{$category->name}}</option>
+                                        <option value="{{$key+1}}">{{$category->name}}</option>
                                   @endforeach
                                
                                 </select>
@@ -45,7 +45,7 @@
                                   <option selected disabled>По региону</option>
                                   <option  value="all_city">Весь регион</option>
                                   @foreach($cities as $key=>$city)
-                                  <option value="{{$city->id}}">{{$city->name}}</option>
+                                    <option value="{{$city->id}}">{{$city->name}}</option>
                                   @endforeach
                                 </select>
                             </div>

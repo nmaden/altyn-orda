@@ -28,7 +28,25 @@
                                 <select name="date" id="sort_date" onchange="send_to_search('sort_date')">
                                   <option selected disabled>По дате</option>
                                   @foreach($sort_calendars as $key=>$sort_calendar)
-                                  <option value="{{$key}}">{{$sort_calendar}}</option>
+                                        @if(isset($_GET['sort_date'])) 
+                                         
+                                            @if($_GET['sort_date']==$key and $key==0)
+                                                <option value="all_date" selected>{{$sort_calendar}}</option>
+                                            @elseif($_GET['sort_date']==$key and $key!=0)
+                                                <option value="{{$key}}" selected>{{$sort_calendar}}</option>
+                                            @elseif($_GET['sort_date']==$key and $_GET['sort_date']=="all_date")
+                                                <option value="all_date" >{{$sort_calendar}}</option>
+                                            @else
+                                                <option value="{{$key}}">{{$sort_calendar}}</option>
+                                            @endif
+                                        @else
+                                            @if($key==0)
+                                                <option value="all_date">{{$sort_calendar}}</option>
+                                            @else
+                                                <option value="{{$key}}">{{$sort_calendar}}</option>
+                                            @endif
+                                        @endif
+                                       
                                   @endforeach
                                 </select>
                             </div>
@@ -42,7 +60,17 @@
                                   <option selected disabled>По региону</option>
                                   <option  value="all_city">Весь регион</option>
                                   @foreach($cities as $key=>$city)
-                                  <option value="{{$city->id}}">{{$city->name}}</option>
+                                  
+                                  @if(isset($_GET['city_id']))
+                                    @if($_GET["city_id"]==$city->id)
+                                        <option value="{{$city->id}}" selected>{{$city->name}}</option>
+                                    @else
+                                        <option value="{{$city->id}}">{{$city->name}}</option>
+                                    @endif
+                                  @else
+                                    <option value="{{$city->id}}">{{$city->name}}</option>
+                                  @endif
+                                  
                                   @endforeach
                                 </select>
                             </div>
@@ -56,7 +84,18 @@
                                   <option selected disabled>По категории</option>
                                   <option value="all_category">Все категории</option>
                                   @foreach($categories as $key=>$category)
-                                  <option value="{{$key}}">{{$category->name}}</option>
+                                  
+                                    @if(isset($_GET['category_id']))
+                                        @if($_GET["category_id"]==$key)
+                                            <option value="{{$key}}" selected>{{$category->name}}</option>
+                                        @else
+                                            <option value="{{$key}}">{{$category->name}}</option>
+                                        @endif
+                                    @else
+                                        <option value="{{$key}}">{{$category->name}}</option>
+                                    @endif
+
+
                                   @endforeach
                                
                                 </select>
@@ -136,7 +175,7 @@ function send_to_search(param) {
         var search_params = url.searchParams;
     
       
-        if(value==0) {
+        if(value=="all_date") {
             
             search_params.delete(param);
            
