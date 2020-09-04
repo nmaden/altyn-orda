@@ -121,7 +121,7 @@
 
 
             <div class="way__block">
-                <a href="/" class="way__linck">
+                <a href="#routemap" class="way__linck">
                     Отправиться в путь <img src="/img/chevron-right-white.svg" alt="">
                 </a>
             </div>
@@ -233,7 +233,7 @@
         </div>
     </div>
 
-    <div class="route__line--maps">
+    <div class="route__line--maps" id="routemap">
         <div id="maps"></div>
     </div>
 

@@ -38,7 +38,7 @@ $cssVersion="3.4.3";
     <link rel="stylesheet" href="/css/nouislider.min.css">
 
     <link rel="stylesheet" href="/css/swiper-bundle.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css?v=3.4.4">
     <link rel="stylesheet" href="/css/media.css">
 	

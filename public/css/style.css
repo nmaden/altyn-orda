@@ -668,6 +668,24 @@ a.section__map--linck {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 15px;
+    color: #a5a5a5;
+    transition: all 0.5s ease;
+}
+.calendar__item:hover .calendar__item--cat {
+    color: #fff;
+}
+.calendar__item:hover {
+    background: #B77F04;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+}
+.calendar__item:hover .calendar__item--date {
+    color: #fff;
+}
+.calendar__item:hover .calendar__item--title a {
+    color: #fff;
+}
+.calendar__item--date {
+    transition: all 0.5s ease;
 }
 
 .calendar__item--img {
@@ -1874,7 +1892,10 @@ div#maps {
             flex-direction: column;
     z-index: 1000;
 }
-
+#routemap .interactive__map--controller {
+    top: 50%;
+    transform: translateY(-50%);
+}
 .interactive__map--controller .interactive__map--cont {
     margin: 5px 0;
     cursor: pointer;

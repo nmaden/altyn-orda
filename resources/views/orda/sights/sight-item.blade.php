@@ -140,7 +140,7 @@
            @endif
 		   
 		   @if(isset($item->props_5))
-            <div class="page__description--3d">
+            <div class="page__description--3d" id="d3tours">
                 <div class="section__title--desc">
                     <div class="section__title">
                         3D тур

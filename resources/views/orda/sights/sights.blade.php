@@ -61,8 +61,8 @@
                                         <div class="sights__list--item">
 										 @if(isset($item->props_1))
                                             <div class="sights__list--img">
-										     <a href="{{route('sight-item',$item)}}">
-                                                <img src="/img/3d-list-icon.svg" alt="">
+										        <a href="{{route('sight-item',$item)}}#d3tours">
+                                                    <img src="/img/3d-list-icon.svg" alt="">
 												</a>
                                             </div>
                                             <div class="sights__list--text">
