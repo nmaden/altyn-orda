@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use Config;
 
+use Modules\Entity\Model\About\About;
+
 class AboutController extends SiteController
 {
     
@@ -24,10 +26,8 @@ class AboutController extends SiteController
     public function index()
     {
       
-        
-     
-		
-		$about_page = view('orda'.'.about')->render();
+       $about = About::take(1)->first();
+       $about_page = view('orda'.'.about')->with(['about'=>$about])->render();
 		
         $content=$about_page;
         $this->vars['content']= $content;

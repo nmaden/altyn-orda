@@ -21,7 +21,7 @@ class CalendarUpdateAction {
     }
 
     private function saveMain(){
-	
+
         $ar = $this->request->all();
 		$ar['user_id'] = $this->request->user()->id;
     
@@ -39,7 +39,9 @@ class CalendarUpdateAction {
       
         //dd($this->model->photo);
         $this->model->fill($ar);
+		if(isset($this->model->category_id)){
         $this->model->category_id = $this->model->category_id;
+		}
         $this->model->save();
     }
 

@@ -4,59 +4,54 @@ namespace Modules\Entity\Actions\Defaults;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
-
+use Storage;
+use DB;
 class DefaultSaveAction {
     private $model = false;
     private $request = false;
 
     function __construct(Model $model, Request $request){
+		
         $this->model = $model; 
         $this->request = $request; 
     }
 
     function run(){
         $this->saveMain();
-		//$this->saveLang();
-        //$this->saveRequirement();
+	
     }
 
     private function saveMain(){
-	
+		
         $ar = $this->request->all();
 		
         $ar['user_id'] = $this->request->user()->id;
-
-       if ($this->request->has('photo')){
-		   /*
-		   if(!is_dir($dir)) {
-             mkdir($dir, 0777, true);
-             }
-			 */
+    
+	 	if ($this->request->has('photo')){
 			
-            $ar['photo'] = UploadPhoto::upload($this->request->photo);
+			
+		   
+		    if(is_file(public_path($this->model->photo))){
+	          Storage::delete($this->model->photo);
+            }
+            $ar['photo'] = UploadPhoto::upload($this->request->photo,$this->model->photo);
 	   }
-        else{
+        else {
             unset($ar['photo']);
 		}
-		
+      
+      
+        //dd($this->model->photo);
         $this->model->fill($ar);
         $this->model->save();
     }
-  private function saveLang(){
-	  
-	  
-        $this->model->relLang()->delete();
-        if (is_array($this->request->lang_id) && count($this->request->lang_id)){
-            foreach ($this->request->lang_id as $lang_id) {
-                $this->model->relLang()->create(['lang_id' => $lang_id]);
-            }
-        }
-    }
+
    private function saveApplication(){
         if (!method_exists($this->model, 'relApplication'))
             return true;
 		
-		$this->model->relApplication()->create(['date' => $this->request->date,'description' => $this->request->description]);
+		
+		$this->model->relApplication->update(['date' => $this->request->date,'description' => $this->request->description]);
 		
         }
 
@@ -68,7 +63,9 @@ class DefaultSaveAction {
         
       }
 
- 
+     private function saveInforms(){
+        $this->model->relInforms->updateOrCreate(['gid_id' => $this->model->id], $this->request->data);
+    }
 
 
 

@@ -1,6 +1,7 @@
 @php
 $route = Route::currentRouteName();
 $ar=explode('_',$route);
+//dd($route);
 @endphp
 <div class="sidebar sidebar-main sidebar-default">
     <div class="sidebar-content">
@@ -78,7 +79,29 @@ $ar=explode('_',$route);
 	   </span></a>
 	   </li>
 	   
-	   
+	                     
+                    <li class="">
+                        <a href="#" class="has-ul"><i class="icon-database-menu"></i><span>
+						О золотой орде
+						
+						</span></a>
+                        <ul class="hidden-ul" style="display: none;background:rgba(0,0,0,0.04)">
+					    <li>
+							
+							<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
+                             <a href="{{ route('admin_about') }}"><span>
+							 Общие элементы страницы
+							 
+							 </span></a>
+							 </li>
+							
+							 <li  style="border: {{in_array('tabs',$ar) ? ' 1px solid #ccc' : '' }}">
+                             <a href="{{ route('admin_tabs') }}"><span>табы</span></a>
+							 </li>
+							 
+                        </ul>
+                    </li>
+
 	   
                   
                     <li class="">

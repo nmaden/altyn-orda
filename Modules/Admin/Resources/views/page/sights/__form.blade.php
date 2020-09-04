@@ -1,5 +1,4 @@
-  @php
-
+@php
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
 $page = false;
@@ -206,7 +205,6 @@ type="text"/>
 
  
  <script type="text/javascript">
- 
 var geocoder;
 var map;
 var marker;

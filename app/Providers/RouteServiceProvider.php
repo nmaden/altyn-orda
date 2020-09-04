@@ -43,6 +43,8 @@ class RouteServiceProvider extends ServiceProvider
 		  Route::model('sights', \Modules\Entity\Model\Sights\Sights::class);
 		  Route::model('home', \Modules\Entity\Model\Home\Home::class);
 		  Route::model('slider', \Modules\Entity\Model\Slider\Slider::class);
+		  Route::model('about', \Modules\Entity\Model\About\About::class);
+		  Route::model('tabs', \Modules\Entity\Model\Tabs\Tabs::class);
 
 
     }

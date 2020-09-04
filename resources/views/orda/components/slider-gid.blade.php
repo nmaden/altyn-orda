@@ -26,7 +26,7 @@
                                         </a>
                                     </div>
                                     <div class="gid__item--lang">
-                               @if($item->getLangAr() >= 0)
+                               @if($item->getArLangId >= 0)
 							      @include('orda.components.item-lang',$item)
 								@endif
 										

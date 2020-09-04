@@ -46,6 +46,7 @@ class HomeUpdateAction {
         $this->model->save();
     }
  private function saveSights(){
+	 
 	   //$this->model->relSights()->delete();
 	   
 	   //$result = array_intersect($this->request->sight_id, $this->model->arsights); 
@@ -59,7 +60,12 @@ class HomeUpdateAction {
 				
 				
 				}
-        }
+				
+        }else{
+			$this->model->sights()->detach();
+
+		}
+		
     }
  
 

@@ -4,7 +4,7 @@ if(isset($item)){
 }
 $language='';
 
-foreach($gid->getLangAr() as $gid_lang){
+foreach($gid->arLangId as $gid_lang){
 	$language .= $gid_lang.', ';
 }
 

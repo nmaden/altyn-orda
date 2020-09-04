@@ -1,4 +1,4 @@
-<!-- -->
+
     <div class="route__desc page__description">
         <div class="container">
 
@@ -83,7 +83,7 @@
                         <div class="sights__list--text">
 						    Выставка
                         </div>
-                    </div>   
+                    </div>  
            @if(isset($item->relCity->name))
 
                     <div class="sights__list--item">

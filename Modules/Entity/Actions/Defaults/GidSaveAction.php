@@ -1,11 +1,11 @@
 <?php
-namespace Modules\Entity\Actions\Gid;
+namespace Modules\Entity\Actions\Defaults;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 
-class GidSaveAction {
+class DefaultsSaveAction {
     private $model = false;
     private $request = false;
 

@@ -182,6 +182,63 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	    });
 	  
 		
+	    Route::group(['prefix' => 'about', 'namespace' => 'About'], function () {
+          Route::get('/', 'AboutController@index')
+             ->name('admin_about');
+
+	       Route::get('create', 'AboutController@create')
+                ->name('admin_about_create');
+				
+			  Route::post('create', 'AboutController@saveCreate')
+               ->name('admin_about_create_save');
+			   
+			  Route::get('update/{about}', 'AboutController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_about_update');
+			   
+			   Route::post('update/{about}', 'AboutController@saveUpdate')
+               ->name('admin_about_update_save');
+			   
+			   Route::get('delete/{about}', 'AboutController@delete')
+               ->name('admin_about_delete');
+			   
+			     Route::get('view/{about}', 'AboutController@show')
+               ->name('admin_about_show');
+			   
+			   
+			   
+			   
+		Route::group(['prefix' => 'tabs', 'namespace' => 'Tabs'], function () {
+          Route::get('/', 'TabsController@index')
+             ->name('admin_tabs');
+
+	       Route::get('create', 'TabsController@create')
+                ->name('admin_tabs_create');
+				
+			  Route::post('create', 'TabsController@saveCreate')
+               ->name('admin_tabs_create_save');
+			   
+			  Route::get('update/{tabs}', 'TabsController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_tabs_update');
+			   
+			   Route::post('update/{tabs}', 'TabsController@saveUpdate')
+               ->name('admin_tabs_update_save');
+			   
+			   Route::get('delete/{tabs}', 'TabsController@delete')
+               ->name('admin_tabs_delete');
+			   
+			     Route::get('view/{tabs}', 'TabsController@show')
+               ->name('admin_tabs_show');
+			   
+			   
+			   
+			   
+       
+	    });
+	
+	
+	  });
 		
 	  
     Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
