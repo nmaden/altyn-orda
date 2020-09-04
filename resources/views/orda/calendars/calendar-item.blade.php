@@ -30,7 +30,7 @@
             </div>
 
             <div class="calendar__list--list">
-
+                <!-- -->
                 <div class="calendar__list--item">
                     <strong>Ярмарка</strong> 
                 </div>

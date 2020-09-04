@@ -1,4 +1,4 @@
-
+<!-- -->
     <div class="section_about--banner">
         <div class="about__banner--img sight__banner--img">
 		@if(isset($item->photo))
