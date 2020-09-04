@@ -27,11 +27,7 @@
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-<<<<<<< HEAD
-                                <select name="city_id" id="city_id" onchange="send_to_search('city_id')">
-=======
-                                <select name="slct0" id="slct0" class="slct-0 js--select js--select-0">
->>>>>>> 9135bd088502fb3218b1bc6f4062e06cd0d326c1
+                                <select name="city_id" id="city_id slct0" class="slct-0 js--select js--select-0" onchange="send_to_search('city_id')">
                                   <option selected disabled>Регионы</option>
                                 
                                   <option  value="all_city">Весь регион</option>
@@ -56,12 +52,8 @@
 
                         <div class="filter__item">
                             <div class="filter--select">
-<<<<<<< HEAD
-                                <select name="lang_id" id="lang_id" onchange="send_to_search('lang_id')">
+                                <select name="lang_id" id="lang_id slct1" class="slct-1 js--select js--select-1" onchange="send_to_search('lang_id')">
                                 
-=======
-                                <select name="slct1" id="slct1" class="slct-1 js--select js--select-1">
->>>>>>> 9135bd088502fb3218b1bc6f4062e06cd0d326c1
                                   <option selected disabled>Языки</option>
                                  
                                     <option  value="all_lang">Весь язык</option>
@@ -88,11 +80,8 @@
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-<<<<<<< HEAD
-                                <select name="category_id" id="category_id" onchange="send_to_search('category_id')">
-=======
-                                <select name="slct2" id="slct2" class="slct-2 js--select js--select-2">
->>>>>>> 9135bd088502fb3218b1bc6f4062e06cd0d326c1
+                                <select name="category_id" id="category_id slct2"  class="slct-2 js--select js--select-2" onchange="send_to_search('category_id')">
+                               
                                   <option selected disabled>Специализация</option>
                                   <option value="all_category">Все специализации</option>
                                   @foreach($categories as $key=>$category)
