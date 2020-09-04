@@ -15,6 +15,10 @@ var swiper = new Swiper('.calendar__slider', {
     spaceBetween: 40,
     centeredSlides: true,
     loop: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
     navigation: {
         nextEl: '.calendar__arrow-next',
         prevEl: '.calendar__arrow-prev',
