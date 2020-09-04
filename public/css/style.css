@@ -1892,7 +1892,10 @@ div#maps {
             flex-direction: column;
     z-index: 1000;
 }
-
+#routemap .interactive__map--controller {
+    top: 50%;
+    transform: translateY(-50%);
+}
 .interactive__map--controller .interactive__map--cont {
     margin: 5px 0;
     cursor: pointer;

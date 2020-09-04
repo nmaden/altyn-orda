@@ -25,7 +25,7 @@
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="date" id="sort_date" onchange="send_to_search('sort_date')">
+                                <select name="date" id="sort_date" class="slct-0 js--select js--select-0" onchange="send_to_search('sort_date')">
                                   <option selected disabled>По дате</option>
                                   @foreach($sort_calendars as $key=>$sort_calendar)
                                   <option value="{{$key}}">{{$sort_calendar}}</option>
@@ -38,7 +38,7 @@
                         <div class="filter__item">
                             <div class="filter--select">
                             
-                                <select name="city_id" id="city_id" onchange="send_to_search('city_id')">
+                                <select name="city_id" id="city_id" class="slct-1 js--select js--select-1" onchange="send_to_search('city_id')">
                                   <option selected disabled>По региону</option>
                                   <option  value="all_city">Весь регион</option>
                                   @foreach($cities as $key=>$city)
@@ -52,7 +52,7 @@
                         <div class="filter__item">
                             <div class="filter--select">
                         
-                                <select name="category_id" id="category_id" onchange="send_to_search('category_id')">
+                                <select name="category_id" id="category_id" class="slct-2 js--select js--select-2" onchange="send_to_search('category_id')">
                                   <option selected disabled>По категории</option>
                                   <option value="all_category">Все категории</option>
                                   @foreach($categories as $key=>$category)
