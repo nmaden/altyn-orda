@@ -27,11 +27,22 @@
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="category_id" id="category_id" class="slct-0 js--select js--select-0"  onchange="send_to_search('category_id')">
+                                <select name="category_id" id="category_id" class="slct-2 js--select js--select-2" onchange="send_to_search('category_id')">
                                   <option selected disabled>По категории</option>
                                   <option value="all_category">Все категории</option>
                                   @foreach($categories as $key=>$category)
-                                        <option value="{{$key+1}}">{{$category->name}}</option>
+                                  
+                                    @if(isset($_GET['category_id']))
+                                        @if($_GET["category_id"]==$key)
+                                            <option value="{{$key}}" selected>{{$category->name}}</option>
+                                        @else
+                                            <option value="{{$key}}">{{$category->name}}</option>
+                                        @endif
+                                    @else
+                                        <option value="{{$key}}">{{$category->name}}</option>
+                                    @endif
+
+
                                   @endforeach
                                
                                 </select>
@@ -41,11 +52,21 @@
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="city_id" id="city_id" class="slct-1 js--select js--select-1"  onchange="send_to_search('city_id')">
+                                <select name="city_id" id="city_id" class="slct-1 js--select js--select-1" onchange="send_to_search('city_id')">
                                   <option selected disabled>По региону</option>
                                   <option  value="all_city">Весь регион</option>
                                   @foreach($cities as $key=>$city)
+                                  
+                                  @if(isset($_GET['city_id']))
+                                    @if($_GET["city_id"]==$city->id)
+                                        <option value="{{$city->id}}" selected>{{$city->name}}</option>
+                                    @else
+                                        <option value="{{$city->id}}">{{$city->name}}</option>
+                                    @endif
+                                  @else
                                     <option value="{{$city->id}}">{{$city->name}}</option>
+                                  @endif
+                                  
                                   @endforeach
                                 </select>
                             </div>
@@ -144,12 +165,7 @@
                 var search_params = url.searchParams;
 
 
-                if(value==0) {
-                    
-                    search_params.delete(param);
-                
-                }
-                else if(value=="all_city") {
+                if(value=="all_city") {
                     
                     search_params.delete(param);
                 
@@ -163,12 +179,9 @@
                 }
 
 
-                url.search = search_params.toString();
-
-                var new_url = url.toString();
-
-
-                window.location.replace(new_url);
+                    url.search = search_params.toString();
+                    var new_url = url.toString();
+                    window.location.replace(new_url);
 
 
                 }

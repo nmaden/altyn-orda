@@ -1,4 +1,5 @@
 @php
+use Illuminate\Support\Facades\DB;
 
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
@@ -7,6 +8,8 @@ if(in_array('show',$ar)){
 	$page = true;
 }
 
+
+$categories = DB::table('routes_categories')->get();
 @endphp
 <div>
 <label for="photo"><b>Фото</b></label>
@@ -46,8 +49,27 @@ class="form-control"
 placeholder="{{$page ? '': 'О маршруте'}} "
 />
 </div>
+<br><br>
 
-
+<div>   
+		<label for="title"><b>Выберите категорию</b></label> 
+		 
+	
+			<select {{$page ? 'disabled': ''}} name="category_id" id="category_id" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+			
+		
+			@if(count($categories) > 0)
+					
+            @foreach ($categories as $k => $v)
+                <option value="{{ $k }}" {{ $model->category_id == $k-1 ? 'selected' : '' }}>{{ $v->name }}</option>
+						@endforeach
+						
+			@else
+				ничего нет
+			@endif
+        </select>
+</div>
 
 </br></br>
 
