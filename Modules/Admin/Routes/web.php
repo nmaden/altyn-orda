@@ -240,7 +240,31 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	
 	  });
 		
-	  
+	    
+	    Route::group(['prefix' => 'coords', 'namespace' => 'routes'], function () {
+          Route::get('/', 'CoordController@index')
+             ->name('admin_coords');
+
+	       Route::get('create', 'CoordController@create')
+                ->name('admin_coords_create');
+				
+			  Route::post('create', 'CoordController@saveCreate')
+               ->name('admin_coords_create_save');
+			   
+			  Route::get('update/{coords}', 'CoordController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_coords_update');
+			   
+			   Route::post('update/{coords}', 'CoordController@saveUpdate')
+               ->name('admin_coords_update_save');
+			   
+			   Route::get('delete/{coords}', 'CoordController@delete')
+               ->name('admin_coords_delete');
+			   
+			     Route::get('view/{coords}', 'CoordController@show')
+               ->name('admin_coords_show');
+		});
+			 
     Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
 
 	Route::group(['prefix' => 'city'], function () {

@@ -52,7 +52,7 @@
             <div class="page__description--text">
 				@if(isset($about->description))
                <div class="about__text">
-				<!----{!! $about->description !!}------->
+				{!! $about->description !!}
                 </div>
                 @endif
 				

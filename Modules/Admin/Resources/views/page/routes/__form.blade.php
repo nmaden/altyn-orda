@@ -1,3 +1,9 @@
+<style>
+#divs,#divs2{
+	margin-bottom:10px;
+}
+</style>
+
 @php
 
 $route = Route::currentRouteName();
@@ -35,7 +41,6 @@ class="form-control"/>
 
 <br><br>
 
-
 <div>  
 <label for="title"><b>Подзаголовок</b></label> 
 <input {{$page ? 'disabled': ''}} 
@@ -46,8 +51,6 @@ class="form-control"
 placeholder="{{$page ? '': 'О маршруте'}} "
 />
 </div>
-
-
 
 </br></br>
 
@@ -86,75 +89,48 @@ placeholder="{{$page ? '': 'О маршруте'}} "
 
 
 
-
-
 <br><br>
+
+<div style='border:1px solid #ccc;padding:20px 10px;'>
+@if(count($model->coords) > 0)
+@foreach($model->coords as $k=>$coord)
 <div> 
-<label for="title"><b>название -  точка-1</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->first_point) ? $model->first_point : ''}}' name='first_point' placeholder="точка-1" class="form-control"/>
+<label for="title"><b>координата {{$k+1}} (<span style='font-size:11px;color:#ccc'>для удаления сделайте поле пустым</span>)</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($coord->coord) ? $coord->coord : ''}}' name='coord[]' placeholder="координаты" class="form-control"/>
 </div>
-<br>
-<div>
-<label for="title"><b>название -  точка-2</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->two_point) ? $model->two_point : ''}}' name='two_point' placeholder="точка-2" class="form-control"/>
-</div>
-<br>
-<div>
-<label for="title"><b>название -  точка-3</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->three_point) ? $model->three_point : ''}}' name='three_point' placeholder="точка-3" class="form-control"/>
-</div>
-<br>
+@endforeach
+@endif
 
+<div class="input_fields_wrap">
+    <button class="add_field_button btn btn-success
+">Добавить координату</button>
+<br>
+</div>
+
+</div>
+
+<br><br>
+
+
+<div style='border:1px solid #ccc;padding:20px 10px;'>
+@if(count($model->coords) > 0)
+@foreach($model->coords as $k=>$coord)
 <div> 
-<label for="title"><b>Конечная точка</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->end_point) ? $model->end_point : ''}}' name='end_point' placeholder="Конечная точка" class="form-control"/>
+<label for="title"><b>название координаты {{$k+1}}</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($coord->coord_name) ? $coord->coord_name : ''}}' name='coord_name[]' placeholder="координаты" class="form-control"/>
+</div>
+@endforeach
+@endif
+
+<div class="input_fields_wrap2">
+ 
+</div>
 </div>
 
 <br><br>
 
-<div>
-<label for="title"><b>Координата 1</b></label> 
-<input {{$page ? 'disabled': ''}} 
-type="text" 
-value="{{isset($model->coords[0]->coord_a) ? $model->coords[0]->coord_a : ''}}" 
-name='coord_a' placeholder="{{$page ? '': 'Координа 1'}} " 
-class="form-control"/>
-</div>
-<div>  
-<label for="title"><b>Координата 2</b></label> 
-<input {{$page ? 'disabled': ''}} 
-type="text" 
-value="{{isset($model->coords[0]->coord_b) ? $model->coords[0]->coord_b : ''}}" 
 
-name='coord_b' placeholder="{{$page ? '': 'Координа 2'}} " 
-class="form-control"/>
-</div>
-
-<div>  
-<label for="title"><b>Координата 3</b></label> 
-<input {{$page ? 'disabled': ''}} 
-type="text"
-value="{{isset($model->coords[0]->coord_c) ? $model->coords[0]->coord_c : ''}}" 
-name='coord_с' placeholder="{{$page ? '': 'Координа 3'}} " 
-class="form-control"/>
-</div>
-<div>  
-<label for="title"><b>Координата 4</b></label> 
-<input {{$page ? 'disabled': ''}} 
-type="text" 
-value="{{isset($model->coords[0]->coord_d) ? $model->coords[0]->coord_d : ''}}" 
-name='coord_d' placeholder="{{$page ? '': 'Координа 4'}} " 
-class="form-control"/>
-</div>
-<br><br>
-
-
-
-
-
-
-
- <div>   
+<div>   
     Выберите город
 			<select {{$page ? 'disabled': ''}} name="city_id" id="city_id" class="form-control select2">
 			<option value="">@lang('model.disabled')</option>
@@ -168,10 +144,53 @@ class="form-control"/>
 			@endif
         </select>
 		</div>
-		
 
+  
+
+<script>	
+   $(document).ready(function() {
+    var max_fields = 10; //maximum input boxes allowed
+    var wrapper = $(".input_fields_wrap"); //Fields wrapper
+	var wrapper2 = $(".input_fields_wrap2"); //Fields wrapper
+
+    var add_button = $(".add_field_button"); //Add button ID
+	var add_button2 = $(".add_field_button2"); //Add button ID
+
+
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){
+		
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $("#rm").remove(); 
+
+               $(wrapper).append('<div id="divs"><input type="text" name="coord[]"  class="form-control"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
+                
+				$(add_button2).trigger( "click" );
+				
+				 $(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  class="form-control" placeholder="название координаты"/></div>'); //add input box
+               
+				
+        }
+    });
+	
+$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); 
+		$("#divs").remove(); x--;
+		$("#divs2").remove(); x--;
+       
+
+    })
 	
 
  
-  
+
+
+
+    
+});
+	
+</script>
+ 
 

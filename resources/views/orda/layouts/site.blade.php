@@ -1,6 +1,6 @@
 <?php
 header("Cache-Control: no-store, no-cache, must-revalidate");
-$cssVersion="3.4.3";
+$cssVersion="3.4.8";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,35 +27,28 @@ $cssVersion="3.4.3";
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-	    <title>Золотая Орда</title>
+	<title>Золотая Орда</title>
 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	
-	
-	
-	
+	<link rel="stylesheet" href="/css/swiper-bundle.min.css">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/nouislider.min.css">
 
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css?v=3.4.4">
+    <link rel="stylesheet" href="/css/style.css?v=3.5.0">
     <link rel="stylesheet" href="/css/media.css">
 	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 	
-	
-    
+	</head>
 
-   
-	
-</head>
-
-   <body>
- @yield('navigation')
+    <body>
+    @yield('navigation')
  
- @yield('slider')
+    @yield('slider')
  
- @yield('content')
+    @yield('content')
 
- @yield('footer')
+    @yield('footer')
 

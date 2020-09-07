@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Alert;
 trait MainUpdateMethod  {
     public function update(Request $request, ModelParent $item) {
-	//dd($item->arLangId);
+		
 	if($request->lang != 'ru'){
 	   $item->setLocale($request->lang);
 	}
@@ -30,7 +30,8 @@ trait MainUpdateMethod  {
 
     public function saveUpdate(Request $request, ModelParent $item) {
 		
-	
+		//dd($request->all());
+
     if ($request->lang && $request->lang != 'ru'){
 	
             $model = $item->relTrans()->firstOrCreate(['lang'=>$request->lang]);

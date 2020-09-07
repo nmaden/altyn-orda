@@ -2,7 +2,7 @@
 namespace Modules\Entity\Model\Coords;
 
 use Modules\Entity\Model\LibCity\LibCity;
-use Modules\Entity\Model\Sights\Sights;
+use Modules\Entity\Model\Routes\Routes;
 
 
 //use Modules\Entity\Model\LibRequirement\LibRequirement;
@@ -10,8 +10,8 @@ use Modules\Entity\Model\Sights\Sights;
 use Cache;
 
 trait Presenter {
-	function getSightsAr(){
-		return Sights::pluck('name', 'id')->toArray();
+	function getRoutersAr(){
+		return Routes::pluck('name', 'id')->toArray();
     }
 	
 	

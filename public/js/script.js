@@ -225,13 +225,15 @@ $(document).ready(function() {
         var prefix = '';
     }
     $navSelect.each(function (index) {
+		
         $('#slct-'+prefix+index).select2({
             "language": {
                 "noResults": function(){
                     return "Не найдено";
-                }
+                },
             },
         });
+		
     });
     
 });

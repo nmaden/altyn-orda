@@ -34,7 +34,7 @@ class RoutesController extends SiteController
     public function index(Request $request)
     {
 		
-		$items = Routes::filter($request)->latest()->paginate(10);
+		$items = Routes::filter($request)->latest()->paginate(9);
 		
 		$cities = LibCity::query()->get();
 		$categories = DB::table('categories')->get();
@@ -55,7 +55,22 @@ class RoutesController extends SiteController
     {
 	  
 	  $gids = $this->getTabs();
-      $item_page = view('orda'.'.routes.route-item')->with(['item'=>$routes,'gid'=>$gids])->render();
+     
+	  $coords = $routes->coords->toArray();
+	  $count = count($coords);
+		   if($count <=0 ){
+			   $php_json = 0;
+		   }else{
+			  $php_json = urlencode(json_encode($coords));
+
+		   }
+		   
+	   $item_page = view('orda'.'.routes.route-item')->with([
+	   'item'=>$routes,
+	   'gid'=>$gids,
+	   'php_json'=>$php_json
+	   ])->render();
+	  
 	    $content=$item_page;
         $this->vars['content']= $content;
         $this->keywords = '';

@@ -30,8 +30,13 @@ Route::get('calendars',['uses' => 'CalendarsController@index'])->name('calendars
 Route::get('gids',['uses' => 'GidsController@index'])->name('gids');
 Route::get('gid-item/{gid}',['uses' => 'GidsController@item'])->name('gid-item');
 
+//map
+Route::get('page-map',['uses' => 'MapController@map'])->name('map');
+Route::get('region/{id}',['uses' => 'MapController@city'])->name('filter-map');
+Route::get('sights-map',['uses' => 'MapController@sights'])->name('sights-map');
+Route::get('routes-map',['uses' => 'MapController@routes'])->name('routes-map');
 
-Route::get('page-map',['uses' => 'IndexController@map'])->name('map');
+//o-nas
 Route::get('about',['uses' => 'AboutController@index'])->name('about');
 
 
