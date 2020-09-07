@@ -19,37 +19,47 @@ use Illuminate\Support\Facades\DB;
 
 class RoutesController extends SiteController
 {
-    
-    public function __construct(GidsPepository $gid_rep) {
-    	
-	
-    	 
+
+	public function __construct(GidsPepository $gid_rep)
+	{
+
+
+
 		$this->gid_rep = $gid_rep;
-        $this->template = 'orda'.'.index';
-				
-
+		$this->template = 'orda' . '.index';
 	}
-    
-    
-    public function index(Request $request)
-    {
-		
-		$items = Routes::filter($request)->latest()->paginate(9);
-		
-		$cities = LibCity::query()->get();
-		$categories = DB::table('categories')->get();
 
-	  $gids = $this->getTabs();
-      $sights_page = view('orda'.'.routes.routes')->with(['items'=>$items, 'cities'=>$cities, 'categories'=>$categories, 'gid'=>$gids,'request'=>$request])->render();
-	  
-	  
-	    $content=$sights_page;
-        $this->vars['content']= $content;
-        $this->keywords = '';
+    
+    
+  
+		
+		
+
+
+
+	public function index(Request $request)
+	{
+
+		$items = Routes::filter($request)->latest()->paginate(10);
+
+
+		$cities = LibCity::query()->get();
+		$categories = DB::table('routes_categories')->get();
+
+		
+
+		$gids = $this->getTabs();
+		$sights_page = view('orda' . '.routes.routes')->with(['items' => $items, 'cities' => $cities, 'categories' => $categories, 'gid' => $gids, 'request' => $request])->render();
+
+
+		$content = $sights_page;
+		$this->vars['content'] = $content;
+		$this->keywords = '';
 		$this->meta_desc = '';
 		$this->title = '';
-		
+
 		return $this->renderOutput();
+
     }
 	public function item(Request $request,Routes $routes)
     {
@@ -74,20 +84,20 @@ class RoutesController extends SiteController
 	    $content=$item_page;
         $this->vars['content']= $content;
         $this->keywords = '';
+		
 		$this->meta_desc = '';
 		$this->title = '';
-		
+
 		return $this->renderOutput();
-    }
-	
-	protected function getTabs() {
-		       
+
+	}
+
+	protected function getTabs()
+	{
+
 
 		//dd($this->gid_rep->get('*',3));
-		$gids= $this->gid_rep->get('*',3);
+		$gids = $this->gid_rep->get('*', 3);
 		return $gids;
-    	
-    }	
-    
-
+	}
 }

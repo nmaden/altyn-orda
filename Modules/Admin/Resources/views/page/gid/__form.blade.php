@@ -1,4 +1,6 @@
 @php
+use Illuminate\Support\Facades\DB;
+
 
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
@@ -6,6 +8,9 @@ $page = false;
 if(in_array('show',$ar)){
 	$page = true;
 }
+
+
+$categories = DB::table('gid_speacialisations')->get();
 @endphp
 
 <div>
@@ -88,9 +93,8 @@ value="{{isset(Session::get('old')['opyt']) ? Session::get('old')['opyt'] : ''}}
 name='phone' placeholder="Телефон" class="form-control"></input>
 </div>
 
-<br><br>
 
-
+{{--
 <div>  
  <label for="title"><b>Тип гида</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
@@ -107,6 +111,7 @@ name='name' placeholder="{{$page ? '': 'Туристический гид'}}" cl
    </span>
 @endif
 </div>
+--}}
 
 
 <br><br>
@@ -137,6 +142,7 @@ value=1
 
 <br><br>
 
+{{--
 <div>
 <label for="text"><b>Языки: выбрать один или несколько </b></label> 
 <select name="lang_id[]" 
@@ -153,7 +159,7 @@ value="{{ $k }}"
             @endforeach
         </select>
 </div> 
-
+--}}
 
 <br><br>
 
@@ -180,7 +186,26 @@ class="{{$page ? 'form-control' : 'wysihtml5 wysihtml5-default form-control'}} "
 @endif
 </textarea>
 </div>
-
+<br><br>
+<div>   
+		<label for="title"><b>Выберите специализацию</b></label> 
+		 
+	
+			<select {{$page ? 'disabled': ''}} name="spec_id" id="spec_id" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+			
+		
+			@if(count($categories) > 0)
+					
+            @foreach ($categories as $k => $v)
+                <option value="{{ $k }}" {{ $model->spec_id == $k ? 'selected' : '' }}>{{ $v->name }}</option>
+						@endforeach
+						
+			@else
+				ничего нет
+			@endif
+        </select>
+</div>
 <br><br>
 
 <div>

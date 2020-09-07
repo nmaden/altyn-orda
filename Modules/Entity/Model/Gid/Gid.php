@@ -8,7 +8,7 @@ class Gid extends ModelParent {
     protected $table = 'gids';
 	
 	
-    protected $fillable = [ 'photo','vosrast','opyt','name','description','user_id','city_id','phone','imya','price','oplata_cposob'];
+    protected $fillable = [ 'photo','vosrast','opyt','name','description','user_id','city_id','spec_id','phone','imya','price','oplata_cposob'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -20,8 +20,9 @@ class Gid extends ModelParent {
 		'Modules\Entity\Model\LibLanguage\LibLanguage',
 		'Modules\Entity\Model\Gid\GidLang', 'gid_id','lang_id');
     }
-	
-		
+    function langs() {
+        return $this->hasMany('Modules\Entity\Model\Gid\GidLang','gid_id','id');
+    }
 	 function relInforms(){
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
     }

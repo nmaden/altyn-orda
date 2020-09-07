@@ -8,7 +8,9 @@ use App\Http\Requests;
 
 use App\Repositories\SlidersRepository;
 use Modules\Entity\Model\Gid\Gid;
-
+use Modules\Entity\Model\LibCity\LibCity;
+use Modules\Entity\Model\Language\Language;
+use Illuminate\Support\Facades\DB;
 use Config;
 
 class GidsController extends SiteController
@@ -35,14 +37,17 @@ class GidsController extends SiteController
 		
         $sliderItems = $this->getSliders();
 		
-        $gid = Gid::filter($request)->latest()->paginate(10);
+        $gid = Gid::filter($request)->with('langs')->latest()->paginate(10);
 
-  
-		
        
+        $cities = LibCity::query()->get();
+        $languages = Language::query()->get();
+		$categories = DB::table('gid_speacialisations')->get();
+        
+        
 		        		
 
-		$home_page = view('orda'.'.gid.gids')->with(['gid'=>$gid,'request'=> $request])->render();
+		$home_page = view('orda'.'.gid.gids')->with(['gid'=>$gid,'languages'=>$languages,'cities'=>$cities,'categories'=>$categories,'request'=> $request])->render();
 		
 		
 		

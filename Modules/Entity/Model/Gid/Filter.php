@@ -25,10 +25,19 @@ class Filter extends ModelFilter {
             });
 
         if ($this->request->has('city_id') && $this->request->city_id)
-            $this->query->whereHas('relUniversity', function($q) use ($request){
-                $q->where('city_id', $request->city_id);
+            $this->query->where('city_id', $request->city_id);
+        
+        if ($this->request->has('category_id') && $this->request->category_id)
+            $this->query->where('spec_id', $request->category_id);
+        
+        if ($this->request->has('lang_id') && $this->request->lang_id)
+            $this->query->whereHas('langs', function($q) use ($request){
+                $q->where('lang_id', $request->lang_id);
+              
             });
-       
+          
+            // $this->query->where('language_id', $request->lang_id);
+
         if ($this->request->has('degree_id') && $this->request->degree_id){
 			//echo $this->request->degree_id;exit();
             $this->query->where('degree_id', $request->degree_id);

@@ -10,7 +10,7 @@ class Language extends ModelParent {
 	
     protected $fillable = [ 'name','edited_user_id'];
     protected $filter_class = Filter::class; 
-    use Presenter,CheckTrans;
+    use CheckTrans;
     
     function relCity(){
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
