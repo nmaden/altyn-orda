@@ -16,7 +16,7 @@ use Cache;
 class ModelParent extends Model {
     use DateHelper, RoleModel, FilterModel, LabelModel, ChangeModel;
     protected $lang = false;
-    use SoftDeletes;
+    //use SoftDeletes;
     protected $dates = ['deleted_at'];
 
     public function __construct(array $attributes = []) {

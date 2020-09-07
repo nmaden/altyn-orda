@@ -40,10 +40,10 @@ public function routes(Request $request){
 	   $php_json = 0;
 	   $count =0;
 	   if(count($routes_f) > 0){
-	   foreach($routes_f as $item){
-		   $arr = $item->coords->toArray();
-	   }
-	   		  	
+	  
+		   $arr = $routes_f[0]->coords->sortBy('undex_coord')->toArray();
+	   
+	   		  dd($arr);
 
 	   	$count = count($arr);
 		   if($count > 0 ){
@@ -182,7 +182,6 @@ public function routes(Request $request){
         //dd($routes_lib);
 		
 		//$home = Home::take(1)->first();
-		
 
 		$city_f = Sights::filter($request)->latest()->paginate();
 	    $city_f= $city_f->toArray()['data'];

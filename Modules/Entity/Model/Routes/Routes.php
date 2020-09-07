@@ -8,7 +8,7 @@ class Routes extends ModelParent {
     protected $table = 'routes';
 	
 	
-    protected $fillable = [ 'photo','name','description','user_id','city_id','props_1','category_id','props_3','price','coord','coord_name','end_point','first_point','end_point','two_point','three_point'];
+    protected $fillable = [ 'photo','name','description','user_id','city_id','props_1','category_id','props_3','price'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

@@ -56,8 +56,7 @@ placeholder="{{$page ? '': 'О маршруте'}} "
 </div>
 <br><br>
 
-<<<<<<< HEAD
-=======
+
 <div>   
 		<label for="title"><b>Выберите категорию</b></label> 
 		 
@@ -78,7 +77,7 @@ placeholder="{{$page ? '': 'О маршруте'}} "
         </select>
 </div>
 
->>>>>>> fe63c657b294ec7ad753e09e6a43d7a83732d1a7
+
 </br></br>
 
 <!--время посещения--->

@@ -30,7 +30,6 @@ trait MainUpdateMethod  {
 
     public function saveUpdate(Request $request, ModelParent $item) {
 		
-		//dd($request->all());
 
     if ($request->lang && $request->lang != 'ru'){
 	
