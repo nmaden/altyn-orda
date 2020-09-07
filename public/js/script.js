@@ -225,6 +225,7 @@ $(document).ready(function() {
         var prefix = '';
     }
     $navSelect.each(function (index) {
+        // .slct
         $('.slct-'+prefix+index).select2({
             "language": {
                 "noResults": function(){
