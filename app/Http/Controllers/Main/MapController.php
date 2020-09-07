@@ -43,7 +43,7 @@ public function routes(Request $request){
 	  
 		   $arr = $routes_f[0]->coords->sortBy('undex_coord')->toArray();
 	   
-	   		  dd($arr);
+	   		
 
 	   	$count = count($arr);
 		   if($count > 0 ){
