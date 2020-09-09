@@ -52,7 +52,7 @@
             <div class="page__description--text">
 				@if(isset($about->description))
                <div class="about__text">
-				<!----{!! $about->description !!}------->
+				{!! $about->description !!}
                 </div>
                 @endif
 				
@@ -132,7 +132,7 @@
                 </div>
                 <div class="about__text">
                     <p>
-                        <strong>Благодарим за подготовку материала доктора PhD, вице-президента АО НЦГНТЭ Сабитова Жакылыка Муратовича  - выделить в конце теста </strong>
+                        <strong>Благодарим за подготовку материала доктора PhD, вице-президента АО НЦГНТЭ Сабитова Жакылыка Муратовича</strong>
                     </p>
                 </div>
                 

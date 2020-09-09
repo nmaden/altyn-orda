@@ -1,5 +1,4 @@
-
-    <div class="route__desc page__description">
+<div class="route__desc page__description">
         <div class="container">
 
             <div class="bread-line">
@@ -134,104 +133,49 @@
           
             <div class="route__line--block">
                 <div class="route__line">
-                   @if(isset($item->coord[0]))
+                   @if(isset($item->coords[0]))
+					@php
+				    $count =-1;
+					$size= count($item->coords);
+				    @endphp
+				    @foreach($item->coords as $v)
+					@php
+				    $count++;
+				    @endphp
                     <div class="route__line--li">
-                        <div class="route__line--item">
+                        <div class="route__line--item 
+						{{($size-1) == $count ? 'route__line--active' : ''}}">
                             <div class="route__item--absol">
+							
                                 <div class="route__item--img">
-                                    <img src="/img/bus-1.svg" alt="">
+								@if(($size-1) == $count)
+								<img src="/img/bus-4.svg" alt="">
+							     @else
+								     <img src="/img/bus-1.svg" alt="">
+							     @endif
+                               
                                 </div>
-                                <div class="route__item--km" id="route0">
+                                <div class="route__item--km" id="route{{$count}}">
                                     0 км
                                 </div>
                             </div>
                             <div class="route__item--btn">
                                 <a>
-                                    @if(isset($item->first_point))
-									{{$item->first_point}}
-								     @else
-									 По следам Золотой Орды
+                                    @if(isset($item->coord_name))
+									{{$v->coord_name}}
+								 
                                      @endif
                                 </a>
                             </div>
                         </div>
                     </div>
-					@endif
-				@if(isset($item->coord[1]))
+					
+					  
 
-                    <div class="route__line--li">
-                        <div class="route__line--item">
-                            <div class="route__item--absol">
-                                <div class="route__item--img">
-                                    <img src="/img/bus-1.svg" alt="">
-                                </div>
-                                <div class="route__item--km"  id="route1">
-                                    0 км
-                                </div>
-                            </div>
-                            <div class="route__item--btn">
-                                <a>
-                                    @if(isset($item->two_point))
-									{{$item->two_point}}
-								     @else
-									 По следам Золотой Орды
-                                     @endif
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-					@endif
-				@if(isset($item->coord[2]))
-
-                    <div class="route__line--li">
-                        <div class="route__line--item">
-                            <div class="route__item--absol">
-                                <div class="route__item--img">
-                                    <img src="/img/bus-1.svg" alt="">
-                                </div>
-                                <div class="route__item--km" id="route2">
-                                    0 км
-                                </div>
-                            </div>
-                            <div class="route__item--btn">
-                                <a>
-                                    @if(isset($item->three_point))
-									{{$item->three_point}}
-								     @else
-									 По следам Золотой Орды
-                                     @endif
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-					@endif
-					@if(isset($item->coord[4]))
-
-                    <div class="route__line--li">
-                        <div class="route__line--item route__line--active">
-                            <div class="route__item--absol">
-                                <div class="route__item--img">
-                                    <img src="/img/bus-4.svg" alt="">
-                                </div>
-                                <div class="route__item--km" id="route3">
-                                    0 км
-                                </div>
-                            </div>
-                            <div class="route__item--btn">
-							@if(isset($item->end_point))
-                                <a>
-								{{$item->end_point}}
-                                </a>
-								@else
-									 <a>
-									Конечная точка
-									 </a>
-								@endif
-                            </div>
-                        </div>
-                    </div>
-           @endif
+					@endforeach
+                    @endif
                 </div>
+				
             </div>
 
 
@@ -243,182 +187,7 @@
     </div>
 
 
+<script>var json = "{{$php_json}}";</script>
 
-	
-<script>
-
- var coord= "{{$item->getCoordsAr()['coord_a']}}";
-   if(coord){
-     var index = coord.indexOf(',');
-	 var coord_a_1 = coord.substr(0,index);
-     var coord_a_2 = coord.substr(index+1);
-	 
-   }
-   
-   var coord= "{{$item->getCoordsAr()['coord_b']}}";
-   if(coord){
-     var index = coord.indexOf(',');
-	 var coord_b_1 = coord.substr(0,index);
-     var coord_b_2 = coord.substr(index+1);
-   }
-   
-   var coord= "{{$item->getCoordsAr()['coord_c']}}";
-   if(coord){
-     var index = coord.indexOf(',');
-	 var coord_c_1 = coord.substr(0,index);
-     var coord_c_2 = coord.substr(index+1);
-   }
-   
-    var coord= "{{$item->getCoordsAr()['coord_d']}}";
-   if(coord){
-     var index = coord.indexOf(',');
-	 var coord_d_1 = coord.substr(0,index);
-     var coord_d_2 = coord.substr(index+1);
-   }
-</script>
-   
-   
-   
-</script>
-    <script>
-        window.onload = function () {
-            setTimeout(function () { getYaMap(); }, 3000);
-        }
-
-        function getYaMap() {
-
-            var multiRoute = new ymaps.multiRouter.MultiRoute({
-                referencePoints: [
-                    [coord_a_1, coord_a_2],
-                    [coord_b_1 , coord_b_2 ],
-                    [coord_c_1 , coord_c_2],
-                    [coord_d_1 , coord_d_2 ]
-                ],
-                params: {
-                    results: 1,
-                    reverseGeocoding: true
-                }
-
-            }, {
-                boundsAutoApply: true,
-
-                wayPointStartIconLayout: "default#image",
-                wayPointStartIconImageHref: "",
-                wayPointIconLayout: "default#image",
-                wayPointIconImageHref: "",
-                wayPointFinishIconLayout: "default#image",
-                wayPointFinishIconImageHref: "",
-
-
-                routeStrokeWidth: 2,
-                routeStrokeColor: "#0A8232",
-                routeActiveStrokeWidth: 6,
-                routeActiveStrokeColor: "#0A8232",
-            });
-
-
-            multiRoute.model.events.add('requestsuccess', function () {
-                var activeRoute = multiRoute.getActiveRoute();
-                var activeRoutePaths = activeRoute.getPaths();
-              
-                var i = 0;
-                var distance = [];
-                var distance2 = [];
-                activeRoutePaths.each(function (path) {
-                    distance[i] = path.properties.get("distance").value/1000;
-                    distance2[i] = 0;
-                    i++;
-                    /*console.log("Distance: " + path.properties.get("distance").text);
-                    console.log("Travel time: " + path.properties.get("duration").text);*/
-                });
-                for(var i = 0; i<distance.length; i++){
-                    for(var j = i; j<distance.length; j++){
-                        distance2[i] += distance[j];
-                    }
-                    distance2[i] = Math.ceil(distance2[i]);
-                    document.getElementById('route'+i).textContent = distance2[i] + ' км';
-                }
-                console.log(distance2);
-            });
-
-            // Создаем карту с добавленными на нее кнопками.
-            var map_m = new ymaps.Map('maps', {
-                center: [coord_a_1 , coord_a_2 ],
-                zoom: 14,
-                controls: [],
-            });
-            // Увеличение, уменьшение масштаба
-            ZoomLayout = ymaps.templateLayoutFactory.createClass('<div class="interactive__map--controller">' +
-                '<a class="interactive__map--plus interactive__map--cont" id="zoom-in"><img src="/img/plus.svg" alt=""></a>' +
-                '<a class="interactive__map--minus interactive__map--cont" id="zoom-out"><img src="/img/minus.svg" alt=""></a>', {
-                build: function () {
-                    ZoomLayout.superclass.build.call(this);
-                    this.zoomInCallback = ymaps.util.bind(this.zoomIn, this);
-                    this.zoomOutCallback = ymaps.util.bind(this.zoomOut, this);
-                    $('#zoom-in').bind('click', this.zoomInCallback);
-                    $('#zoom-out').bind('click', this.zoomOutCallback);
-                },
-                zoomIn: function () {
-                    var map = this.getData().control.getMap();
-                    map.setZoom(map.getZoom() + 1, { checkZoomRange: true });
-                },
-                zoomOut: function () {
-                    var map = this.getData().control.getMap();
-                    map.setZoom(map.getZoom() - 1, { checkZoomRange: true });
-                }
-            }),
-            zoomControl = new ymaps.control.ZoomControl({ options: { layout: ZoomLayout } });
-            map_m.controls.add(zoomControl);
-
-
-            var polygonLayout_m1 = ymaps.templateLayoutFactory.createClass('<div class="route__miker--block"><div class="route__miker--m"></div><div class="route__miker--title">По следам Золотой Орды</div></div>');
-            var polygonPlacemark_m1 = new ymaps.Placemark(
-                [coord_a_1 , coord_a_2],
-                {
-                    hintContent: ''
-                }, {
-                iconLayout: polygonLayout_m1,
-            }
-            );
-            var polygonLayout_m2 = ymaps.templateLayoutFactory.createClass('<div class="route__miker--block"><div class="route__miker--m"></div><div class="route__miker--title">По следам Золотой Орды</div></div>');
-            var polygonPlacemark_m2 = new ymaps.Placemark(
-                [coord_b_1 , coord_b_2 ],
-                {
-                    hintContent: ''
-                }, {
-                iconLayout: polygonLayout_m2,
-            }
-            );
-            var polygonLayout_m3 = ymaps.templateLayoutFactory.createClass('<div class="route__miker--block"><div class="route__miker--m"></div><div class="route__miker--title">По следам Золотой Орды</div></div>');
-            var polygonPlacemark_m3 = new ymaps.Placemark(
-                [coord_c_1, coord_c_2 ],
-                {
-                    hintContent: ''
-                }, {
-                iconLayout: polygonLayout_m3,
-            }
-            );
-            var polygonLayout_m4 = ymaps.templateLayoutFactory.createClass('<div class="route__miker--block route__miker--active"><div class="route__miker--m"><img src="/img/bus-4.svg" alt=""></div><div class="route__miker--title">По следам Золотой Орды</div></div>');
-            var polygonPlacemark_m4 = new ymaps.Placemark(
-                [coord_d_1 , coord_d_2 ],
-                {
-                    hintContent: ''
-                }, {
-                iconLayout: polygonLayout_m4,
-            }
-            );
-
-            map_m.geoObjects.add(polygonPlacemark_m1);
-            map_m.geoObjects.add(polygonPlacemark_m2);
-            map_m.geoObjects.add(polygonPlacemark_m3);
-            map_m.geoObjects.add(polygonPlacemark_m4);
-
-            map_m.behaviors.disable('scrollZoom');
-            // Добавляем мультимаршрут на карту.
-            map_m.geoObjects.add(multiRoute);
-
-        }
-
-    </script>
 
 

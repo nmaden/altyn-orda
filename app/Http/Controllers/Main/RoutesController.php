@@ -29,11 +29,19 @@ class RoutesController extends SiteController
 		$this->template = 'orda' . '.index';
 	}
 
+    
+    
+  
+		
+		
+
+
 
 	public function index(Request $request)
 	{
 
 		$items = Routes::filter($request)->latest()->paginate(10);
+
 
 		$cities = LibCity::query()->get();
 		$categories = DB::table('routes_categories')->get();
@@ -51,19 +59,36 @@ class RoutesController extends SiteController
 		$this->title = '';
 
 		return $this->renderOutput();
-	}
-	public function item(Request $request, Routes $routes)
-	{
 
-		$gids = $this->getTabs();
-		$item_page = view('orda' . '.routes.route-item')->with(['item' => $routes, 'gid' => $gids])->render();
-		$content = $item_page;
-		$this->vars['content'] = $content;
-		$this->keywords = '';
+    }
+	public function item(Request $request,Routes $routes)
+    {
+	  
+	  $gids = $this->getTabs();
+	  $coords = $routes->coords->sortBy('undex_coord')->toArray();
+	  $count = count($coords);
+		   if($count <=0 ){
+			   $php_json = 0;
+		   }else{
+			  $php_json = urlencode(json_encode($coords));
+
+		   }
+		   
+	   $item_page = view('orda'.'.routes.route-item')->with([
+	   'item'=>$routes,
+	   'gid'=>$gids,
+	   'php_json'=>$php_json
+	   ])->render();
+	  
+	    $content=$item_page;
+        $this->vars['content']= $content;
+        $this->keywords = '';
+		
 		$this->meta_desc = '';
 		$this->title = '';
 
 		return $this->renderOutput();
+
 	}
 
 	protected function getTabs()
