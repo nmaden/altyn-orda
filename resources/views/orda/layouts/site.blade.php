@@ -36,7 +36,7 @@ $cssVersion="3.4.8";
     <link rel="stylesheet" href="/css/nouislider.min.css">
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css?v=3.5.0">
+    <link rel="stylesheet" href="/css/style.css?v=3.5.1">
     <link rel="stylesheet" href="/css/media.css">
 	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
