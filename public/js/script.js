@@ -93,6 +93,7 @@ $(".menu__click").click(function(){
     var child = $(this).data('child');
     $(".children__block").removeClass('children__block--active');
     $(".children__block-" + child).addClass('children__block--active');
+    return false;
 });
 
 $(".burger__menu").click(function(){

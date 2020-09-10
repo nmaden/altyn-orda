@@ -24,7 +24,7 @@
                                                 <div class="children__item--title">
                                                     О золотой орде
                                                 </div>
-                                                <a href="/" class="children__item--linck">Подробнее</a>
+                                                <a href="{{ route('about') }}" class="children__item--linck">Подробнее</a>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
