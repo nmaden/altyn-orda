@@ -9,6 +9,11 @@
 				href="{{ route('about') }}">
 				О золотой орде
 			</a>
+			<ul class="clildren-menu">
+				<li><a href="{{ route('about') }}"><img src="/img/childrenmenu-1.png" alt=""> О золотой орде</a></li>
+				<li><a href="{{ route('about') }}"><img src="/img/childrenmenu-1.png" alt=""> Генеалогические дерево</a></li>
+				<li><a href="/about/figures"><img src="/img/childrenmenu-1.png" alt=""> Исторические личности</a></li>
+			</ul>
 		</li>				
 				
         <li>

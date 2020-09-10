@@ -54,6 +54,9 @@
     }
 }
 @media screen and (max-width: 1200px) {
+    .children__block {
+        display: none;
+    }
     header .header__menu {
         /* display: none; */
         position: fixed;
