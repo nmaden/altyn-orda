@@ -38,7 +38,10 @@ Route::get('routes-map',['uses' => 'MapController@routes'])->name('routes-map');
 
 //o-nas
 Route::get('about',['uses' => 'AboutController@index'])->name('about');
-
+//Route::get('about/figures',['uses' => 'AboutController@figures'])->name('about-figures');
+Route::get('about/figures', function() {
+      return view('orda'.'.about-figures');
+});
 
 //достопримечательности
 Route::get('sights',['uses' => 'SightController@index'])->name('sights');
