@@ -167,7 +167,9 @@ a.children__item--linck {
     justify-content: center;
     background-position: center;
 }
-
+ul.clildren-menu {
+    display: none;
+}
 .children__item--title {
     font-weight: bold;
     font-size: 20px;

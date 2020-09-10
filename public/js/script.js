@@ -93,7 +93,7 @@ if(window.innerWidth > 1200){
         e.preventDefault();
         var child = $(this).data('child');
         $(".children__block").removeClass('children__block--active');
-        $(".children__block-" + child).addClass('children__block--active');
+        $(".children__block-" + child).toggleClass('children__block--active');
     });
 }
 
