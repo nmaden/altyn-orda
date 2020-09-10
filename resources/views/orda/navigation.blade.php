@@ -11,45 +11,47 @@
                 <div class="header__right">
                     <div class="header__menu">
                         @include('orda'.'.navigate-item')
-                        <!-- -->
-                        <div class="header__menu--block children__block">
-
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="children__item">
-                                        <div class="children__item--img">
-                                            <img src="/img/childrenmenu1.svg" alt="">
+                       
+                        <div class="children__block children__block-1">
+                            <div class="header__menu--block">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="children__item">
+                                                <div class="children__item--img">
+                                                    <img src="/img/childrenmenu1.svg" alt="">
+                                                </div>
+                                                <div class="children__item--title">
+                                                    О золотой орде
+                                                </div>
+                                                <a href="/" class="children__item--linck">Подробнее</a>
+                                            </div>
                                         </div>
-                                        <div class="children__item--title">
-                                            О золотой орде
+                                        <div class="col-lg-4">
+                                            <div class="children__item">
+                                                <div class="children__item--img">
+                                                    <img src="/img/childrenmenu1.svg" alt="">
+                                                </div>
+                                                <div class="children__item--title">
+                                                    Генеалогические дерево
+                                                </div>
+                                                <a href="/" class="children__item--linck">Подробнее</a>
+                                            </div>
                                         </div>
-                                        <a href="/" class="children__item--linck">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="children__item">
-                                        <div class="children__item--img">
-                                            <img src="/img/childrenmenu1.svg" alt="">
+                                        <div class="col-lg-4">
+                                            <div class="children__item">
+                                                <div class="children__item--img">
+                                                    <img src="/img/childrenmenu1.svg" alt="">
+                                                </div>
+                                                <div class="children__item--title">
+                                                    Исторические личности
+                                                </div>
+                                                <a href="/" class="children__item--linck">Подробнее</a>
+                                            </div>
                                         </div>
-                                        <div class="children__item--title">
-                                            Генеалогические дерево
-                                        </div>
-                                        <a href="/" class="children__item--linck">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="children__item">
-                                        <div class="children__item--img">
-                                            <img src="/img/childrenmenu1.svg" alt="">
-                                        </div>
-                                        <div class="children__item--title">
-                                            Исторические личности
-                                        </div>
-                                        <a href="/" class="children__item--linck">Подробнее</a>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>

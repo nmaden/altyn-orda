@@ -2,7 +2,7 @@
 						
 						
 		<li>
-			<a class="menu__click"
+			<a class="menu__click" data-child="1"
 				style="color:{{
 				Route::currentRouteName() == 'about'
 				? '#B77F04' : ''}}"
