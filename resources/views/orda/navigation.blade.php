@@ -46,7 +46,7 @@
                                                 <div class="children__item--title">
                                                     Исторические личности
                                                 </div>
-                                                <a href="/" class="children__item--linck">Подробнее</a>
+                                                <a href="/about/figures" class="children__item--linck">Подробнее</a>
                                             </div>
                                         </div>
                                     </div>
