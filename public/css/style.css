@@ -111,6 +111,8 @@ header:before {content: "";position: absolute;bottom: 0;width: 100%;left: 0;heig
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    padding: 18px 0;
+    display: block;
 }
 
 

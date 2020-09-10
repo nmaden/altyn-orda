@@ -2,13 +2,13 @@
 						
 						
 		<li>
-	    <a 
-	    style="color:{{
-		Route::currentRouteName() == 'about'
-        ? '#B77F04' : ''}}"
-        href="{{ route('about') }}">
-		О золотой орде
-		</a>
+			<a class="menu__click"
+				style="color:{{
+				Route::currentRouteName() == 'about'
+				? '#B77F04' : ''}}"
+				href="{{ route('about') }}">
+				О золотой орде
+			</a>
 		</li>				
 				
         <li>
