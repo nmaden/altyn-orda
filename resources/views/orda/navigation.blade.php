@@ -19,7 +19,7 @@
                                         <div class="col-lg-4">
                                             <div class="children__item">
                                                 <div class="children__item--img">
-                                                    <img src="/img/childrenmenu1.svg" alt="">
+                                                    <img src="/img/childrenmenu-1.png" alt="">
                                                 </div>
                                                 <div class="children__item--title">
                                                     О золотой орде
@@ -30,7 +30,7 @@
                                         <div class="col-lg-4">
                                             <div class="children__item">
                                                 <div class="children__item--img">
-                                                    <img src="/img/childrenmenu1.svg" alt="">
+                                                    <img src="/img/childrenmenu-1.png" alt="">
                                                 </div>
                                                 <div class="children__item--title">
                                                     Генеалогические дерево
@@ -41,7 +41,7 @@
                                         <div class="col-lg-4">
                                             <div class="children__item">
                                                 <div class="children__item--img">
-                                                    <img src="/img/childrenmenu1.svg" alt="">
+                                                    <img src="/img/childrenmenu-2.png" alt="">
                                                 </div>
                                                 <div class="children__item--title">
                                                     Исторические личности
