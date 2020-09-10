@@ -13,8 +13,8 @@
                         @include('orda'.'.navigate-item')
                        
                         <div class="children__block children__block-1">
-                            <div class="header__menu--block">
-                                <div class="container">
+                            <div class="container">
+                                <div class="header__menu--block">
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="children__item">

@@ -117,8 +117,14 @@ header:before {content: "";position: absolute;bottom: 0;width: 100%;left: 0;heig
     left: 0;
     right: 0;
     top: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
 }
-
+.children__block--active{
+    opacity: 1;
+    visibility:visible;
+}
 .header__menu--block {
     background: #FFFFFF;
     border-radius: 30px;
