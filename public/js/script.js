@@ -97,7 +97,7 @@ if(window.innerWidth > 1200){
             $(".children__block").removeClass('children__block--active'); 
         }else{
             $(".children__block").removeClass('children__block--active');
-            $(".children__block-" + child).addleClass('children__block--active');
+            $(".children__block-" + child).addClass('children__block--active');
         }
         
     });
