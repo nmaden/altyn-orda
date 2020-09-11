@@ -92,8 +92,13 @@ if(window.innerWidth > 1200){
     $(".menu__click").click(function(e){
         e.preventDefault();
         var child = $(this).data('child');
-        $(".children__block").removeClass('children__block--active');
-        $(".children__block-" + child).toggleClass('children__block--active');
+        if($(".children__block-" + child).hasClass('children__block--active')){
+            $(".children__block").removeClass('children__block--active'); 
+        }else{
+            $(".children__block").removeClass('children__block--active');
+            $(".children__block-" + child).addleClass('children__block--active');
+        }
+        
     });
 }
 
