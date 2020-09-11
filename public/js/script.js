@@ -87,6 +87,7 @@ $(document).on( "click", function( e ) {
         $(".section__map--item").removeClass('section__map--active');
     }
 });
+
 */
 if(window.innerWidth > 1200){
     $(".menu__click").click(function(e){
