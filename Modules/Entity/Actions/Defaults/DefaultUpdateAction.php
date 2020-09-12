@@ -39,10 +39,11 @@ class DefaultUpdateAction {
             unset($ar['photo']);
 		}
       
-      
+        $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
+
         //dd($this->model->photo);
-        $this->model->fill($ar);
-        $this->model->save();
+        //$this->model->fill($ar);
+        //$this->model->save();
     }
 
    private function saveApplication(){

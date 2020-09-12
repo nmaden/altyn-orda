@@ -17,7 +17,9 @@ class HomeUpdateAction {
 
     function run(){
         $this->saveMain();
+		if($this->request->sight_id){
 		$this->saveSights();
+	    }
 	
     }
 

@@ -143,15 +143,14 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 			  Route::get('update/{home}', 'HomeController@update')
 			   //->middleware('can:update,gallery')
                ->name('admin_home_update');
-			   
-			   Route::post('update/{home}', 'HomeController@saveUpdate')
+			  Route::post('update/{home}', 'HomeController@saveUpdate')
                ->name('admin_home_update_save');
-			   
-			   Route::get('delete/{home}', 'HomeController@delete')
-               ->name('admin_home_delete');
-			   
-			     Route::get('view/{home}', 'HomeController@show')
+			  Route::get('view/{home}', 'HomeController@show')
                ->name('admin_home_show');
+			   //Route::get('delete/{home}', 'HomeController@delete')
+               //->name('admin_home_delete');
+			   
+			    
        
 	    });
 	  

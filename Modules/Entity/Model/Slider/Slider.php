@@ -23,12 +23,9 @@ class Slider extends ModelParent {
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
     }
 	
-	function relApplication(){
-        return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
-    }
-	
+
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Slider\TransSlider', 'el_id');
     }
 	
 
@@ -39,11 +36,7 @@ class Slider extends ModelParent {
 	  function getElIdAttribute(){
         return $this->id;
     }
-/*
- function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gallery\TransGallery', 'el_id');
-    }
-*/
+
    
 
   

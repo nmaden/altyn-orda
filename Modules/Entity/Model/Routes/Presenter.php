@@ -52,15 +52,18 @@ function getCoordsAr(){
     }
 	
 
-
-	
+  function getNameAttribute($v){
+		return $this->getTransField('name', $v);
+    }
 	
 	function getDescriptionAttribute($v){
-		
 		return $this->getTransField('description', $v);
-	  
-
     }
+	
+	function getSubtitleAttribute($v){
+		return $this->getTransField('subtitle', $v);
+    }
+
 	
 
 }

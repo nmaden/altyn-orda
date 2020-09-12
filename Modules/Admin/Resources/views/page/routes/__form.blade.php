@@ -48,8 +48,8 @@ class="form-control"/>
 <label for="title"><b>Подзаголовок</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" 
-value="{{isset($model->props_1) ? $model->props_1 : ''}}"
-name='props_1' 
+value="{{isset($model->subtitle) ? $model->subtitle : ''}}"
+name='subtitle' 
 class="form-control"
 placeholder="{{$page ? '': 'О маршруте'}} "
 />
@@ -100,8 +100,6 @@ placeholder="{{$page ? '': 'О маршруте'}} "
 
 <div style='padding:10px 5px;'> 
 <label for="text"><b>Текст</b></label> 
-
-
 <textarea 
  {{$page ? 'disabled': ''}}
  value="" 

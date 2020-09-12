@@ -35,14 +35,11 @@ class CalendarUpdateAction {
         else {
             unset($ar['photo']);
 		}
+  
+     
       
-      
-        //dd($this->model->photo);
-        $this->model->fill($ar);
-		if(isset($this->model->category_id)){
-        $this->model->category_id = $this->model->category_id;
-		}
-        $this->model->save();
+        $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
+		
     }
 
  

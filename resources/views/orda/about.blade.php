@@ -12,8 +12,8 @@
                 <div class="about__banner--info">
                     <div class="about__banner--data">
                         
-                      @if(isset($about->start_data))
-				         {{$about->start_data}}
+                      @if(isset($about->date))
+				         {{$about->date}}
 				        @endif
 	            
 						

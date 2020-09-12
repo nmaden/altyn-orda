@@ -8,7 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Traits\MainCrudMethod;
 
 use Modules\Entity\Actions\MainSaveAction as ModelCreateAction;
-use Modules\Entity\Actions\MainSaveAction as ModelUpdateAction;
+use Modules\Entity\Actions\Defaults\DefaultUpdateAction as ModelUpdateAction;
 use Modules\Entity\Actions\MainDeleteAction as ModelDeleteAction;
 
 use Modules\Entity\Model\LibCity\LibCity as Model;

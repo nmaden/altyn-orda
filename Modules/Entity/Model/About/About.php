@@ -6,7 +6,7 @@ use Modules\Entity\Traits\CheckTrans;
 
 class About extends ModelParent {
     protected $table = 'abouts';
-	protected $fillable = [ 'photo','name','description','start_data'];
+	protected $fillable = [ 'photo','name','description','date'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -23,11 +23,11 @@ class About extends ModelParent {
         return $this->id;
     }
  
-/*
+
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\About\TransAbout', 'el_id');
     }
-*/	
+
     
 
 

@@ -4,7 +4,7 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use UxWeb\SweetAlert\ConvertMessagesIntoSweetAlert;
-
+use App\Http\Middleware\SetLocale;
 class Kernel extends HttpKernel
 {
     /**
@@ -38,7 +38,6 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-			\UxWeb\SweetAlert\ConvertMessagesIntoSweetAlert::class,
 
         ],
 
@@ -67,7 +66,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 		'auth.admin' => \App\Http\Middleware\AdminAuth::class,
-        'sweetalert' => \UxWeb\SweetAlert\ConvertMessagesIntoSweetAlert::class,
+         'setLocale' => SetLocale::class
+
 
     ];
 }

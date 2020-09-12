@@ -35,11 +35,15 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
 		  Route::model('calendar', \Modules\Entity\Model\Calendar\Calendar::class);
+		  
 		  Route::model('city', \Modules\Entity\Model\LibCity\LibCity::class);
+		  
 		  Route::model('language', \Modules\Entity\Model\LibLanguage\LibLanguage::class);
 
 		  Route::model('gid', \Modules\Entity\Model\Gid\Gid::class);
+		  
 		  Route::model('routes', \Modules\Entity\Model\Routes\Routes::class);
+		  
 		  Route::model('sights', \Modules\Entity\Model\Sights\Sights::class);
 		  Route::model('home', \Modules\Entity\Model\Home\Home::class);
 		  Route::model('slider', \Modules\Entity\Model\Slider\Slider::class);

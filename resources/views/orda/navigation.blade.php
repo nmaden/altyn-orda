@@ -56,11 +56,14 @@
 
                     </div>
                     <div class="header__lang">
-                        <ul class="lang__menu">
-                            <li><a href="#">ru</a>
+                          <ul class="lang__menu">
+                            <li><a class='current' href="#">
+							{{ $q_lang->get() ? $q_lang->get() : 'ru'}}
+							</a>
                                 <ul class="lang__menu--children">
-                                    <li><a href="#">kz</a></li>
-                                    <li><a href="#">en</a></li>
+                                @foreach ($q_lang->getAr() as $k => $v)
+                                  <li><a id="{{$k}}" href="/{{$k}}/change_lang">{{$v}}</a></li>
+                                @endforeach
                                 </ul>
                             </li>
                         </ul>

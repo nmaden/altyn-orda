@@ -58,12 +58,43 @@ $ar=explode('_',$route);
 	   </span></a>
 	   </li>
 	   
-	    <li  style="background: {{in_array('home',$ar) ? '#ccc' : '' }}">
-	   <a href="{{ route('admin_home') }}">
-	   <i class="icon-city"></i>
-	   <span>Главная страница
-	   </span></a>
-	   </li>
+	   
+	   	                     
+               <li>
+
+                        <a href="#" style="background: {{in_array('home',$ar) ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
+						Главная
+						
+						</span></a>
+						
+                        <ul class="hidden-ul">
+					    <li>
+							
+							<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
+                             <a href="{{ route('admin_home_update',5) }}"><span>
+							 Управление картой
+							 
+							 </span></a>
+							 </li>
+							
+						  
+							
+							<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
+                             <a href="{{ route('admin_home') }}"><span>
+							 О золотой орде
+							 
+							 </span></a>
+							 </li>
+							 
+                        </ul>
+                    </li>
+</li>
+
+	   
+	   
+	   
+	   
+	   
 	   
 	    <li  style="background: {{in_array('slider',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_slider') }}">
@@ -85,7 +116,7 @@ $ar=explode('_',$route);
 						О золотой орде
 						
 						</span></a>
-                        <ul class="hidden-ul" style="display: none;background:rgba(0,0,0,0.04)">
+                        <ul class="hidden-ul">
 					    <li>
 							
 							<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
@@ -101,6 +132,7 @@ $ar=explode('_',$route);
 							 
                         </ul>
                     </li>
+</li>
 
 	   
                   
@@ -109,11 +141,11 @@ $ar=explode('_',$route);
                         <ul class="hidden-ul" style="display: none;">
 					        <li>
 							
-							<li  style="background: {{in_array('city',$ar) ? '#ccc' : '' }}">
-                             <a href="{{ route('admin_lib_city') }}"><span>@lang('sidebar.lib_city')</span></a>
-							 </li>
+						<li>
+                           <a href="{{ route('admin_lib_city') }}"><span>Справочник городов</span></a>
+					   </li>
 							 
-							 <li  style="background: {{in_array('city',$ar) ? '#ccc' : '' }}">
+							<li>
                              <a href="{{ route('admin_lib_language') }}"><span>Языки</span></a>
 							 </li>
 							 

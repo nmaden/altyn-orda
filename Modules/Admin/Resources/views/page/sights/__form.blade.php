@@ -139,8 +139,9 @@ class="form-control"/>
 
 
 <br><br>
-@if($page == false)
 <div>
+@if($page == false)
+
 <label>Адрес для поиска: если объект не определяется, попробуйте вручную вбить координаты </label>
 <input 
 type='hidden' 

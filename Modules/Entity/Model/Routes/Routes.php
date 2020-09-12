@@ -8,7 +8,7 @@ class Routes extends ModelParent {
     protected $table = 'routes';
 	
 	
-    protected $fillable = [ 'photo','name','description','user_id','city_id','props_1','category_id','props_3','price'];
+    protected $fillable = [ 'photo','name','description','user_id','city_id','subtitle','category_id','props_3','price'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -33,7 +33,7 @@ class Routes extends ModelParent {
 
 	
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Routes\TransRoutes', 'el_id');
     }
 	
 

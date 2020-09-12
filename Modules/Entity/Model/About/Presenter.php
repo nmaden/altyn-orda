@@ -22,7 +22,17 @@ trait Presenter {
 	
 	
 
-
+ function getNameAttribute($v){
+		return $this->getTransField('name', $v);
+    }
+	
+	function getDescriptionAttribute($v){
+		return $this->getTransField('description', $v);
+    }
+	
+	function getDateAttribute($v){
+		return $this->getTransField('date', $v);
+    }
 
 	
 

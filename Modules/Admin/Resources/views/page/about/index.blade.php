@@ -52,27 +52,7 @@
 									<button type="button" class="btn  btn-primary btn-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 										<i class="icon-menu7"></i> 
 									</button>
-									<ul class="dropdown-menu dropdown-menu-right">
-										@foreach ($sys_lang->getAr() as $k => $v) 
-										@if($k == 'ru')
-											<li><a href="{{ route($route_path.'_show', $i) }}?lang={{ $k }}">
-										
-										@lang('main.show') "{{ $v }}" </a></li>
-										@endif
-										@endforeach
-										<li class="divider"></li>
-
-										@foreach ($sys_lang->getAr() as $k => $v) 
-										@if($k == 'ru')
-											<li><a href="{{ route($route_path.'_update', $i) }}?lang={{ $k }}">@lang('main.update') "{{ $v }}" </a></li>
-										@endif
-										@endforeach
-										<li class="divider"></li>
-										@if(count($items) <= 0)
-										<li><a href="{{ route($route_path.'_delete', $i) }}">@lang('main.delete')</a></li>
-									@endif
-									</ul>
-									
+									@include('admin::page.components.lang.switch_lang_index')
 								</div>
 								
 							</th>

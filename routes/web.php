@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use LocalizationService;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'Main'], function () {
-
+Route::group(['prefix' => LocalizationService::locale(), 'namespace' => 'Main','middleware' => 'setLocale'], function () {
+	
 Route::resource('/articles','Admin\ArticlesController');
 Route::any('/show',['uses' => 'Admin\ArticlesController@articlesadd'])->name('show');
 
 Route::get('/n',['uses' => 'Admin\ArticlesController@index'])->name('home');
 
+//главная
 Route::get('/',['uses' => 'IndexController@index'])->name('home');
+Route::get('change_lang',['uses' => 'IndexController@changeLang'])->name('change_lang');
 
 //календарь событий
 Route::get('calendar-item/{calendar}',['uses' => 'CalendarsController@item'])->name('calendar-item');

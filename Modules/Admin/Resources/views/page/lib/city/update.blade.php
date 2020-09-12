@@ -47,7 +47,8 @@
             </div>
         </div>
         <div class="col-md-2">  
-            <trans-state-block :model="$model" :syslang="$sys_lang" />
+		@include('admin::left_lang',$sys_lang)
+		
         </div>
     </div>
 @endsection

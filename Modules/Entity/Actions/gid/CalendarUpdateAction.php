@@ -41,9 +41,10 @@ class CalendarUpdateAction {
 		}
       
       
-        //dd($this->model->photo);
-        $this->model->fill($ar);
-        $this->model->save();
+        $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
+
+        //$this->model->fill($ar);
+        //$this->model->save();
     }
  private function saveLang(){
 	

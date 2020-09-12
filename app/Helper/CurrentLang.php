@@ -2,10 +2,27 @@
 namespace App\Helper;
 
 use Illuminate\Support\Facades\Request;
-
+use Session;
 class CurrentLang {
+	static function url(){
+		$url_get = $_SERVER['REQUEST_URI'];
+        $admin = strpos($url_get, "admin");
+		if($admin){
+		 $lang = Request::get('lang');
+		 
+		 if($lang){
+			return $lang;
+		}else{
+			return 'ru';
+		}
+		}
+		return session('current_lang');
+		
+		
+		
+	}
 	
-	
+	/*
 	static function url(){
 		$url_get = $_SERVER['REQUEST_URI'];
         $admin = strpos($url_get, "admin");
@@ -17,21 +34,22 @@ class CurrentLang {
 		
 		
 	}
-	
+	*/
     static function get(){
-	
+
         if (session('current_lang')){
-            \App::setLocale(session('current_lang'));
+            //\App::setLocale(session('current_lang'));
             return session('current_lang');
         }
-        \App::setLocale('en');
+       // \App::setLocale('en');
        
 
-        return 'en';
+        return 'ru';
     }
 
     static function set($lang){
-        if (!in_array($lang, ['ru', 'en']))
+		
+        if (!in_array($lang, array_flip(self::getAr())))
             return 'ru';
 
         \App::setLocale($lang);
@@ -43,7 +61,11 @@ class CurrentLang {
 
     static function getAr(){
         return [
-            'en' => 'English', 'ru' => 'Русский'
+            'en' => 'English', 
+			'ru' => 'Русский',
+			'kz' => 'Казахский', 
+			'fr' => 'Франсузкий',
+			'de' => 'Германский',
         ];
     }
 }

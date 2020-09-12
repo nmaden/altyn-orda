@@ -6,12 +6,12 @@ use Modules\Entity\Traits\CheckTrans;
 
 class TransRoutes extends ModelParent {
     protected $table = 'trans_routes';
-	 protected $table_ru = 'trans';
-    protected $fillable = [ 'el_id', 'lang', 'description','name'];
+	 protected $table_ru = 'routes';
+    protected $fillable = [ 'el_id', 'lang', 'description','name','subtitle'];
     //use CheckTrans;
 
     function getTransTableNameAttribute(){
-        return 'galleries';
+        return 'routes';
     }
 
     function getTransFiledsAttribute(){

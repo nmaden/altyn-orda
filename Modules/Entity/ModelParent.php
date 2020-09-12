@@ -30,28 +30,44 @@ class ModelParent extends Model {
         if (!$locale){
             $this->lang = 'ru';
 		}
-        CurrentLang::set($locale);
+        //CurrentLang::set($locale);
         $this->lang = $locale;
     }
 
     protected function getTransField($field, $v){
-		$this->tab();
+		
+		
 		$lang = CurrentLang::url();
+		$route = Route::currentRouteName();
+		$ar=explode('_',$route);
+        if(in_array('create',$ar)){
+         return $v;
+		}
+		
+		
+		
+		
+		
         if($lang!=false){
-			if($lang == 'ru'){
-				 CurrentLang::set('ru');
-				$this->lang = 'ru';
+			if($lang){
+				$this->lang = $lang;
 			}
 			
 		}
 		
-		 if ($this->lang == 'ru')
+		 if ($this->lang == '' || $this->lang == 'ru'){
             return $v;
+		 }
 		
-		
-        $table_name = $this->getTable();
-        if (strpos($table_name, 'lib_') !== false){
+		 if(!isset($this->id)){
+			 return $v;
+		 }
+			 
+			 
 			
+		$table_name = $this->getTable();
+        if (strpos($table_name, 'lib_') !== false){
+			$this->tab();
             $lang = $this->relTrans()->where(['lang'=>$this->lang])->first();
             if (!$lang){
                 $lang =  $this->relTrans()->updateOrCreate([
@@ -63,14 +79,12 @@ class ModelParent extends Model {
             
         }
         else{
-		$route = Route::currentRouteName();
-        $ar=explode('_',$route);
-        if(in_array('create',$ar)){
-        return true;
-		}
 		
-
+		
+  
           $lang = $this->relTrans()->firstOrCreate(['lang'=>$this->lang]);
+		//$lang = $this->relTrans()->where(['lang'=>$this->lang])->first();
+
 		}
         if (!$lang->{$field}){
             return $v;

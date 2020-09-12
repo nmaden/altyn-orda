@@ -20,9 +20,9 @@ trait ChangeModel {
         });
 
         static::deleted(function ($el) {
-			//$el->relTrans()->delete();
+			$el->relTrans()->delete();
 			return true;
-			//echo 100;exit();
+		
            //ChangeModelService::createDeleteNote($el);
         });
         

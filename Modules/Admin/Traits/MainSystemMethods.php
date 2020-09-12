@@ -7,11 +7,13 @@ use Route;
 trait MainSystemMethods  {
     public function __construct(Request $request) {
 		$model = new $this->def_model();
-		
+		//$this->middleware('auth.admin');
 		$route = Route::currentRouteName();
         $ar= explode('_',$route);
 		$script = false;
 		
+		
+		View::share ('lang', $request->lang);
 	    View::share ('model', new $this->def_model());
 		View::share ('rout', $ar[1]);
 		View::share ('view', $this->view_path);

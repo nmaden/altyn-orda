@@ -41,10 +41,10 @@ $categories = DB::table('categories')->get();
 <div>
  <label for="title"><b>Заголовок</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
-value='{{isset($model->headers_title) ? $model->headers_title : ''}}' name='headers_title' placeholder="заголовок" class="form-control"></input>
-@if ($errors->has('headers_title'))
+value='{{isset($model->name) ? $model->name : ''}}' name='name' placeholder="заголовок" class="form-control"></input>
+@if ($errors->has('name'))
   <span class="help-block">
-     <strong style='color:#a94442'>{{ $errors->first('headers_title') }}</strong>
+     <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>
    </span>
 @endif
 </div>
@@ -79,7 +79,9 @@ value='' name='text'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-de
 			@endif
         </select>
 </div>
+<br><br>
  <div>   
+
     Выберите город
 			<select {{$page ? 'disabled': ''}} name="city_id" id="city_id" class="form-control select2">
 			<option value="">@lang('model.disabled')</option>

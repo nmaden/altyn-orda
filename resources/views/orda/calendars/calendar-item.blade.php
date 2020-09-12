@@ -11,9 +11,9 @@
                         <a href="/">Календарь мероприятий</a>
                     </li>
                     <li>
-					@if(isset($calendar->headers_title))
+					@if(isset($calendar->name))
                         <span>
-						{{$calendar->headers_title}}
+						{{$calendar->name}}
 						</span>
 					@endif
                     </li>
@@ -21,10 +21,10 @@
             </div>
 
             <div class="section__title--desc">
-			@if(isset($calendar->headers_title))
+			@if(isset($calendar->name))
                 <h1 class="section__title">
 				
-				{{$calendar->headers_title}}
+				{{$calendar->name}}
                 </h1>
 				@endif
             </div>

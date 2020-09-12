@@ -1,5 +1,4 @@
-  @php
-
+@php
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
 $page = false;
@@ -24,19 +23,20 @@ if(in_array('show',$ar)){
  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
+</div>
 
+
+
+ @if($lang == 'ru')
 <br><br>
-
- </div>
- <div>  
- 
-<label for="title"><b>Дата</b></label> 
+<div>  
+ <label for="title"><b>Дата</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->date) ? $model->date: ''}}" 
 name='date' placeholder="{{$page ? '': '1269'}} " 
 class="form-control"/>
 </div>
-
+@endif
 
 <div>
 <input  

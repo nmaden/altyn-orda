@@ -51,7 +51,7 @@ class="form-control"/>
 <div>  
 <label for="title"><b>Начало и конец даты</b></label> 
 <input {{$page ? 'disabled': ''}} 
-type="text" value="{{isset($model->start_data) ? $model->start_data: ''}}" 
-name='start_data' placeholder=" 1224 — 1483 " 
+type="text" value="{{isset($model->date) ? $model->date: ''}}" 
+name='date' placeholder=" 1224 — 1483 " 
 class="form-control"/>
 </div>

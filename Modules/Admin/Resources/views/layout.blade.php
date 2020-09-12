@@ -12,6 +12,8 @@
 	<link href="/admin-asset/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="/admin-asset/assets/css/core.css" rel="stylesheet" type="text/css">
 	<link href="/admin-asset/assets/css/components.css" rel="stylesheet" type="text/css">
+	
+	
 	<link href="/admin-asset/assets/css/colors.css" rel="stylesheet" type="text/css">
 	<link href="/vendor/footable.bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="/admin-asset/assets/custom.css" rel="stylesheet" type=
@@ -72,7 +74,11 @@
               @include('admin::__block.page_header')
                 
 				<div class="content">
-
+    @if(session('success2'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
                     @yield('content')
 					
                     @yield('left_lang')

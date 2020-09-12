@@ -5,13 +5,13 @@ use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
 class TransAbout extends ModelParent {
-    protected $table = 'trans_routes';
-	 protected $table_ru = 'trans';
-    protected $fillable = [ 'el_id', 'lang', 'description','name'];
+    protected $table = 'trans_about';
+	 protected $table_ru = 'about';
+    protected $fillable = [ 'el_id', 'lang', 'description','name','date'];
     //use CheckTrans;
 
     function getTransTableNameAttribute(){
-        return 'galleries';
+        return 'about';
     }
 
     function getTransFiledsAttribute(){

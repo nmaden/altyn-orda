@@ -14,6 +14,7 @@
                                 <div class="banner__item--info">
                                     <div class="banner__item--title">
 									{{$slider->name}}
+									
                                     </div>
                                     <div class="banner__item--desc">
                                        {{$slider->description}}
@@ -28,11 +29,13 @@
 @endif
             </div>
             <!-- Add Pagination -->
+			@if(count($sliders->sliders) > 1 )
             <div class="banner__slider--pag">
                 <div class="container">
                     <div class="banner__slider-pagination"></div>
                 </div>
             </div>
+			@endif
 
             <div class="banner__linck--map">
                 <div class="container">

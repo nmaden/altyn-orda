@@ -1,13 +1,13 @@
 <?php
-namespace Modules\Entity\Model\Calendar;
+namespace Modules\Entity\Model\Slider;
 
 use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
-class TransCalendar extends ModelParent {
-    protected $table = 'trans_gallery';
-	 protected $table_ru = 'gallery';
-    protected $fillable = [ 'el_id', 'lang', 'text','title'];
+class TransSlider extends ModelParent {
+    protected $table = 'trans_routes';
+	 protected $table_ru = 'trans';
+    protected $fillable = [ 'el_id', 'lang', 'description','name'];
     //use CheckTrans;
 
     function getTransTableNameAttribute(){

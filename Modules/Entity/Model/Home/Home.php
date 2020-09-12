@@ -6,7 +6,7 @@ use Modules\Entity\Traits\CheckTrans;
 
 class Home extends ModelParent {
     protected $table = 'home';
-	protected $fillable = [ 'name','description','user_id'];
+	protected $fillable = [ 'name','description','user_id','date','color'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -31,7 +31,7 @@ class Home extends ModelParent {
     }
 	
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Home\TransHome', 'el_id');
     }
 	
 

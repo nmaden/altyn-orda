@@ -23,28 +23,21 @@ class Tabs extends ModelParent {
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
     }
 	
-	function relApplication(){
-        return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
-    }
+
 	
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Tabs\TransTabs', 'el_id');
     }
 	
 
-	
-	   function getTransTableNameAttribute(){
+	function getTransTableNameAttribute(){
         return $this->getTable();
     }
+	
 	  function getElIdAttribute(){
         return $this->id;
     }
-/*
- function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gallery\TransGallery', 'el_id');
-    }
-*/
-   
+
 
   
     

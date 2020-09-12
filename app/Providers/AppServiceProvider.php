@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Blade;
 use Modules\Entity\Model\SysLang\SysLang;
 use View;
+use App\Helper\CurrentLang;
 
 
 use Modules\Entity\Model\LibCity\LibCity;
@@ -26,7 +27,13 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
 		        //BladeX::component('__component.*');
+	   View::composer('orda.*', function ($view) {
+            $view->with('q_lang', new CurrentLang());
+        });
+		   View::composer('admin::*', function($view){
+             $view->with('q_lang', new CurrentLang());
 
+        });
 		   View::composer('admin::*', function($view){
             $view->with('sys_lang', new SysLang());
         });

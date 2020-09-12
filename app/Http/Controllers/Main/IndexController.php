@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SiteController;
 use App\Http\Requests;
+use App\Helper\CurrentLang;
 
 use App\Repositories\SlidersRepository;
 use App\Repositories\GidsPepository;
@@ -31,10 +32,17 @@ class IndexController extends SiteController
     
     public function index(Request $request)
     {
-		 #foreignKey: "home_sigts.home_id"
 		
-		$home = Home::take(1)->first();
 		
+		//$home = Home::take(1)->first();
+		$home_all=Home::get();
+		//$arr= $home_all->union([3 => ['c'], 4 => ['b']]);
+		//dd($arr);
+		//slice()
+		
+		
+		$home= $home_all->shift();
+		//dd($home_all);
 		$calenderItems = $this->getCalendar();
         $gid = $this->getTabs();
 		
@@ -42,7 +50,12 @@ class IndexController extends SiteController
 		
 		$this->vars['sliders'] = $sliders;
 		
-		$home_page = view('orda'.'.home')->with(['calendar'=>$calenderItems,'gid'=>$gid,'home'=>$home])->render();
+		$home_page = view('orda'.'.home')->with([
+		'calendar'=>$calenderItems,
+		'gid'=>$gid,
+		'home'=>$home,
+		'home_all'=>$home_all,
+		])->render();
 		
 		
 		
@@ -54,6 +67,43 @@ class IndexController extends SiteController
 		return $this->renderOutput();
 		
     }
+	
+			    	function changeLang(Request $request){
+        $old_lang = '';
+		$strpos = '';
+		$url = url()->previous();
+		$ar = explode('/',$url);
+		
+		if(isset($ar[3])){
+			if(in_array($ar[3],array_flip(CurrentLang::getAr()))){
+			    $old_lang= $ar[3];
+			}
+		}
+		
+		$langPrefix = ltrim($request->route()->getPrefix(),'/');
+		CurrentLang::set($langPrefix);
+		
+		
+	   $url = url()->previous();
+		
+		if($old_lang !=''){
+		
+		$strpos = strpos($url,$old_lang);
+		}
+	
+		if($strpos !=''){
+		
+		$url = str_replace("/".$old_lang, "/".$langPrefix, $url);
+
+		}else{
+		
+		$url = str_replace("/".$_SERVER['HTTP_HOST'], "/".$_SERVER['HTTP_HOST'].'/'.$langPrefix, $url);
+       }
+        
+        return redirect()->to($url);
+    }
+
+
 	protected function getTabs() {
 		$gids= $this->gid_rep->get('*',3);
 		return $gids;
@@ -64,63 +114,9 @@ class IndexController extends SiteController
 		return $calendar;
     	
     }
-	function item(Request $request, calendar $calendar){
-
-        $sliderItems = $this->getSliders();
-	    
-		
-        $sliders = view('orda'.'.slider')->with('sliders',$sliderItems)->render();
-		$this->vars['sliders'] = $sliders;
-		        		
-		$item_page = view('orda'.'.calendar-item')->with('calendar',$calendar)->render();
-		
-		$content=$item_page;
-        $this->vars['content']= $content;
-        $this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
-		return $this->renderOutput();
-		
-	}
-	function items(Request $request, calendar $calendar){
-
-        $sliderItems = $this->getSliders();
-	    $calenderItems = Calendar::filter($request)->latest()->paginate(24);
-        $sliders = view('orda'.'.slider')->with('sliders',$sliderItems)->render();
-		$this->vars['sliders'] = $sliders;
-		        		
-
-		$item_page = view('orda'.'.calendars')->with('calendars',$calenderItems)->render();
-		
-		$content=$item_page;
-        $this->vars['content']= $content;
-        $this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
-		return $this->renderOutput();
-		
-	}
 	
-	public function map()
-    {
-      
-        //$sliderItems = $this->getSliders();
-        
-        //$sliders = view('orda'.'.slider')->with('sliders',$sliderItems)->render();
-		//$this->vars['sliders'] = $sliders;
-		$home = Home::take(1)->first();
+		
 
-		$page_map = view('orda'.'.map')->with(['home'=>$home])->render();
-
-        $content=$page_map;
-        $this->vars['content']= $content;
-        $this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
-		return $this->renderOutput();
-    }
-	
-	
 	
 	
 	

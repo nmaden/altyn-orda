@@ -4,20 +4,22 @@ namespace Modules\Entity\Actions\Home;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
-
+use Storage;
 class HomeSaveAction {
     private $model = false;
     private $request = false;
 
     function __construct(Model $model, Request $request){
+		
         $this->model = $model; 
         $this->request = $request; 
     }
 
     function run(){
         $this->saveMain();
-		$this->saveSight();
-        //$this->saveRequirement();
+		if($this->request->sight_id){
+		$this->saveSights();
+	    }
     }
 
     private function saveMain(){
@@ -25,46 +27,50 @@ class HomeSaveAction {
         $ar = $this->request->all();
 		
         $ar['user_id'] = $this->request->user()->id;
-
-       if ($this->request->has('photo')){
-		   /*
-		   if(!is_dir($dir)) {
-             mkdir($dir, 0777, true);
-             }
-			 */
+    
+	 	if ($this->request->has('photo')){
 			
-            $ar['photo'] = UploadPhoto::upload($this->request->photo);
+			
+		   
+		    if(is_file(public_path($this->model->photo))){
+	          Storage::delete($this->model->photo);
+            }
+            $ar['photo'] = UploadPhoto::upload($this->request->photo,$this->model->photo);
 	   }
-        else 
+        else {
             unset($ar['photo']);
+		}
+      
+      
+        //dd($this->model->photo);
         $this->model->fill($ar);
         $this->model->save();
     }
-  private function saveLang(){
-	  
-	  
-        $this->model->relLang()->delete();
-        if (is_array($this->request->lang_id) && count($this->request->lang_id)){
-            foreach ($this->request->lang_id as $lang_id) {
-                $this->model->relLang()->create(['lang_id' => $lang_id]);
-            }
-        }
-    }
-   private function saveApplication(){
-        if (!method_exists($this->model, 'relApplication'))
-            return true;
-		
-		$this->model->relApplication()->create(['date' => $this->request->date,'description' => $this->request->description]);
-		
-        }
+ private function saveSights(){
+	 
+	   //$this->model->relSights()->delete();
+	   
+	   //$result = array_intersect($this->request->sight_id, $this->model->arsights); 
 
-    private function saveRequirement(){
-        if (!method_exists($this->model, 'relRequirement'))
-            return true;
+        if (is_array($this->request->sight_id) && count($this->request->sight_id)){
+			$this->model->sights()->detach();
+            foreach ($this->request->sight_id as $sight_id) {
+				
+				
+				$this->model->sights()->attach($sight_id);
+				
+				
+				}
+				
+        }else{
+			$this->model->sights()->detach();
+
+		}
 		
-		$this->model->relRequirement()->create(['text' => $this->request->text]);
-        
-      }
+    }
+ 
+
+  
 
  
 

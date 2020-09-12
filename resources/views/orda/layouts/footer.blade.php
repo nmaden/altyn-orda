@@ -62,7 +62,18 @@ var json_model= JSON.parse(decodeURIComponent(json));
 @if($route == 'home' || $route =='sights-map' || $route =='map')
 	@include('orda.map.interactiv.karta2');
 @endif
-
+<script>
+        $( document ).ready(function() {
+            $('.lang__menu .lang__menu--children li a').on('click',function(e){
+				
+				var v = $(this).attr('id');
+				$('.current').text(v);
+				
+                //$(this).parent().parent().submit();
+            });
+        });
+    </script>
+	
 </body>
 
 </html>

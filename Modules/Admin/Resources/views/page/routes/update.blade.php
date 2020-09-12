@@ -12,8 +12,11 @@
                 </div>
                 <div class="panel-body">
                    <form action="{{ route($route_path.'_update_save', $model) }}" method="post" enctype="multipart/form-data" class="need_validate_form " novalidate>
-                        @include('admin::page.routes.__form')
-                 
+				         @if($lang == 'ru')
+                         @include($view.'.__form')
+					     @else
+						 @include($view.'.__form_lang')
+                         @endif
                         </br>
                         <button type="submit" class="btn btn-primary pull-right">@lang('main.button_save')</button>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -5,8 +5,8 @@ use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
 class TransSights extends ModelParent {
-    protected $table = 'trans_gids';
-	 protected $table_ru = 'gids';
+    protected $table = 'trans_sights';
+	 protected $table_ru = 'sights';
     protected $fillable = [ 'el_id', 'lang', 'description','name'];
     //use CheckTrans;
 

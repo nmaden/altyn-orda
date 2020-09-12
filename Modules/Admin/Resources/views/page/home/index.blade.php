@@ -13,10 +13,27 @@
             </div>
 			<table class="table table-togglable">
 				<thead>
+					<tr>
+						<th >{{ $model->getLabel('id') }}</th>
+						<th >{{ $model->getLabel('photo') }}</th>
+						<th >{{ $model->getLabel('name') }}</th>
+							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
+						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
+						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
 					
+						<th>
+							<a href="{{ route($route_path.'_create') }}" class="btn btn-sm  bg-success">@lang('main.add')</a>
+						</th>
+					</tr>
+				
 				</thead>
 					<tbody>
 					@foreach ($items as $i)
+					  @php
+					   if($i->id == 5){
+						   continue;
+					   }
+					  @endphp
 						<tr>
 							<td>{{ $i->id }}</td>
 							<td>
@@ -30,7 +47,7 @@
 							
 							
 							</td>
-							<td>{{ $i->headers_title }}</td>
+							<td>{{ $i->name }}</td>
 							<td>{{ $i->edited_user_name }}</td>
 							
 							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
@@ -40,25 +57,9 @@
 									<button type="button" class="btn  btn-primary btn-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 										<i class="icon-menu7"></i> 
 									</button>
-									<ul class="dropdown-menu dropdown-menu-right">
-										@foreach ($sys_lang->getAr() as $k => $v) 
-										@if($k == 'ru')
-											<li><a href="{{ route($route_path.'_show', $i) }}?lang={{ $k }}">
-										
-										@lang('main.show') "{{ $v }}" </a></li>
-										@endif
-										@endforeach
-										<li class="divider"></li>
-
-										@foreach ($sys_lang->getAr() as $k => $v) 
-										@if($k == 'ru')
-											<li><a href="{{ route($route_path.'_update', $i) }}?lang={{ $k }}">@lang('main.update') "{{ $v }}" </a></li>
-										@endif
-										@endforeach
-										<li class="divider"></li>
 									
-									</ul>
-									
+	                              @include('admin::page.components.lang.switch_lang_index')
+								
 								</div>
 								
 							</th>

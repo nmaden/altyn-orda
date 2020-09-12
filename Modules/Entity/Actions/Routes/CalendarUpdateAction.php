@@ -48,6 +48,9 @@ class CalendarUpdateAction {
     }
 
    function saveCoords(){
+	   if($this->request->lang !='ru'){
+		   return true;
+	   }
 	   if(is_array($this->request->coord)){
 		   //dd($this->request->all());
 

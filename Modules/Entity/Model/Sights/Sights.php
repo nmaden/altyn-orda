@@ -25,7 +25,7 @@ class Sights extends ModelParent {
     }
 	
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Sights\TransSights', 'el_id');
     }
 	
 

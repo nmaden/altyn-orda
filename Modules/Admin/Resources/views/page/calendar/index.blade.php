@@ -16,7 +16,7 @@
 					<tr>
 						<th >{{ $model->getLabel('id') }}</th>
 						<th >{{ $model->getLabel('photo') }}</th>
-						<th >{{ $model->getLabel('headers_title') }}</th>
+						<th >{{ $model->getLabel('name') }}</th>
 							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
@@ -41,7 +41,7 @@
 							
 							
 							</td>
-							<td>{{ $i->headers_title }}</td>
+							<td>{{ $i->name }}</td>
 							<td>{{ $i->edited_user_name }}</td>
 							
 							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
@@ -53,18 +53,18 @@
 									</button>
 									<ul class="dropdown-menu dropdown-menu-right">
 										@foreach ($sys_lang->getAr() as $k => $v) 
-										@if($k == 'ru')
+										
 											<li><a href="{{ route($route_path.'_show', $i) }}?lang={{ $k }}">
 										
 										@lang('main.show') "{{ $v }}" </a></li>
-										@endif
+										
 										@endforeach
 										<li class="divider"></li>
 
 										@foreach ($sys_lang->getAr() as $k => $v) 
-										@if($k == 'ru')
+									
 											<li><a href="{{ route($route_path.'_update', $i) }}?lang={{ $k }}">@lang('main.update') "{{ $v }}" </a></li>
-										@endif
+										
 										@endforeach
 										<li class="divider"></li>
 										<li><a href="{{ route($route_path.'_delete', $i) }}">@lang('main.delete')</a></li>

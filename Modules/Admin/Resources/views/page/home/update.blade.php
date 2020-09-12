@@ -24,9 +24,11 @@
         </div>
 		@endsection
 		@section('left_lang')
+		@if($model->id != 5)
         <div class="col-md-2">  
             @include('admin::left_lang',$sys_lang)
 		</div>
+		@endif
 		@endsection
     </div>
 	

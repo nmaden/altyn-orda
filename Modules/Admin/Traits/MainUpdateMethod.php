@@ -5,15 +5,14 @@ use Illuminate\Http\Request;
 use Modules\Entity\ModelParent;
 use Modules\Admin\Http\Requests\UniverRequest;
 use Illuminate\Support\Facades\Validator;
-use Alert;
+
 trait MainUpdateMethod  {
     public function update(Request $request, ModelParent $item) {
 		
-	if($request->lang != 'ru'){
-	   $item->setLocale($request->lang);
-	}
-	//dd($item->arLangId);
-	  //dd($item->ar_lang_id);
+
+  //dd($item->relTrans());
+
+ 
 	
         $title = trans($this->title_path.'_update');
 		//echo trans($this->title_path.'');exit(); 
@@ -47,8 +46,7 @@ trait MainUpdateMethod  {
 			
             return redirect()->back()->with('error', $e->getMessage());
         }
- Alert::message('Hello Investmentnovel','Message');
-
-        return redirect()->route($this->route_path.'_update', $item)->with('success', trans('main.updated_model'));
+        
+        return redirect()->route($this->route_path.'_update', $item->id.'?lang='.$request->lang)->with('success', trans('main.updated_model'));
     }
 }

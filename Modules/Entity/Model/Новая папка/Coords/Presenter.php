@@ -1,15 +1,35 @@
 <?php 
-namespace Modules\Entity\Model\Calendar;
+namespace Modules\Entity\Model\Coords;
 
 use Modules\Entity\Model\LibCity\LibCity;
-use Modules\Entity\Model\University\University;
+use Modules\Entity\Model\Routes\Routes;
+
 
 //use Modules\Entity\Model\LibRequirement\LibRequirement;
 
 use Cache;
 
 trait Presenter {
+	function getRoutersAr(){
+		return Routes::pluck('name', 'id')->toArray();
+    }
 	
+	
+	
+	function getArSightsAttribute(){
+	   return $this->sights()->pluck('sight_id')->toArray();
+     }
+	 
+	
+	function getAddress2Attribute($v){
+	   
+	     $ar= explode(',',$this->coord);
+		if(count($ar) < 2){
+			$ar[0] = 59.9342802;
+			$ar[1] = 30.335098600000038;
+		}
+		 return $ar;
+		  }
 	function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 
@@ -26,9 +46,7 @@ trait Presenter {
 		}
 		*/
     }
-	 function getSityNattribute(){
-        return ($this->relCity ?  $this->relCity->name : '');
-    }
+	
 
 
 /*
@@ -36,14 +54,10 @@ trait Presenter {
         return LibRequirement::pluck('name', 'id')->toArray();
     }
 */
-	function getSignatureAttribute($v){
-		return $this->getTransField('signature', $v);
-    }
+	
 	
 	function getDescriptionAttribute($v){
-		if($this->lang == 'ru'){
-			 return ($this->relApplication ?  $this->relApplication->description : '');
-		}
+		
 		return $this->getTransField('description', $v);
 	  
 
