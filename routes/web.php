@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use LocalizationService;
+//use LocalizationService;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +12,14 @@ use LocalizationService;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//'prefix' => LocalizationService::locale(),
+//efinder
+Route::get('efinder',['uses' => 'CkeditorController@index'])->name('efinder');
+Route::post('efinder2',['uses' => 'CkeditorController@index2'])->name('efinder2');
+Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
+Route::any('drobsone',['uses' => 'DrobsoneController@index'])->name('drobsone');
+
+
 
 Route::group(['prefix' => LocalizationService::locale(), 'namespace' => 'Main','middleware' => 'setLocale'], function () {
 	
@@ -23,6 +31,8 @@ Route::get('/n',['uses' => 'Admin\ArticlesController@index'])->name('home');
 //главная
 Route::get('/',['uses' => 'IndexController@index'])->name('home');
 Route::get('change_lang',['uses' => 'IndexController@changeLang'])->name('change_lang');
+
+
 
 //календарь событий
 Route::get('calendar-item/{calendar}',['uses' => 'CalendarsController@item'])->name('calendar-item');

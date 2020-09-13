@@ -94,7 +94,7 @@ name='phone' placeholder="Телефон" class="form-control"></input>
 </div>
 
 
-{{--
+
 <div>  
  <label for="title"><b>Тип гида</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
@@ -111,7 +111,6 @@ name='name' placeholder="{{$page ? '': 'Туристический гид'}}" cl
    </span>
 @endif
 </div>
---}}
 
 
 <br><br>
@@ -119,7 +118,7 @@ name='name' placeholder="{{$page ? '': 'Туристический гид'}}" cl
 
 <div>
 <label for="text"><b>День/час </b></label> 
-<select name="oplata_cposob" 
+<select name="oplata" 
 class="form-control"   
  {{$page ? 'disabled': ''}}
 >
@@ -128,12 +127,12 @@ class="form-control"
 </option>
 <option 
 value=2
-{{ in_array($model->oplata_cposob,array(2)) ? 'selected' : '' }}
+{{ in_array($model->oplata,array(2)) ? 'selected' : '' }}
 >день
 </option>
 <option 
 value=1 
-{{ in_array($model->oplata_cposob,array(1)) ? 'selected' : '' }}
+{{ in_array($model->oplata,array(1)) ? 'selected' : '' }}
 >час
 </option>
 
@@ -142,7 +141,7 @@ value=1
 
 <br><br>
 
-{{--
+
 <div>
 <label for="text"><b>Языки: выбрать один или несколько </b></label> 
 <select name="lang_id[]" 
@@ -159,7 +158,7 @@ value="{{ $k }}"
             @endforeach
         </select>
 </div> 
---}}
+
 
 <br><br>
 

@@ -13,8 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
-
+    'default' => env('FILESYSTEM_DRIVER', 'file_server'),
     /*
     |--------------------------------------------------------------------------
     | Default Cloud Filesystem Disk
@@ -37,11 +36,16 @@ return [
     | may even configure multiple disks of the same driver. Defaults have
     | been setup for each driver as an example of the required options.
     |
-    | Supported Drivers: "local", "ftp", "s3", "rackspace"
+    | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace"
     |
     */
 
     'disks' => [
+        'file_server' => [
+            'driver' => 'local',
+            'root' => env('FILE_SERVER_ROOT'),
+            'visibility' => 'public',
+        ],
 
         'local' => [
             'driver' => 'local',
@@ -61,6 +65,7 @@ return [
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
+            'url' => env('AWS_URL'),
         ],
 
     ],

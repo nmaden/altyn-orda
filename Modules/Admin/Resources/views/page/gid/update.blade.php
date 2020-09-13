@@ -12,7 +12,12 @@
                 </div>
                 <div class="panel-body">
                    <form action="{{ route($route_path.'_update_save', $model) }}" method="post" enctype="multipart/form-data" class="need_validate_form " novalidate>
-                        @include('admin::page.gid.__form')
+				   @if($lang != 'ru')
+                        @include('admin::page.gid.__form_lang')
+					@else
+						@include('admin::page.gid.__form')
+
+					@endif
                  
                         </br>
                         <button type="submit" class="btn btn-primary pull-right">@lang('main.button_save')</button>

@@ -17,8 +17,10 @@ class CalendarUpdateAction {
 
     function run(){
         $this->saveMain();
+		if($this->request->lang_id){
+			echo 500;exit();
 		$this->saveLang();
-	
+	   }
     }
 
     private function saveMain(){
@@ -40,7 +42,7 @@ class CalendarUpdateAction {
             unset($ar['photo']);
 		}
       
-      
+        
         $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
 
         //$this->model->fill($ar);
@@ -48,20 +50,7 @@ class CalendarUpdateAction {
     }
  private function saveLang(){
 	
-	    //$this->model->relLang()->delete();
-		/*
-		 if(count($this->model->arLangId) > count($this->request->lang_id)){
-		$array1 = $this->model->arLangId;
-        $array2 = $this->request->lang_id;
-$result = array_diff($array1, $array2);
-$keys = array_keys($result);
-		 		dd($result);exit();
-
-		 		dd($keys);exit();
-
-	 }
-*/	
-        //$this->model->relLang()->delete();
+	    
         if (is_array($this->request->lang_id) && count($this->request->lang_id))
 			{
 			$this->model->langGid()->detach();

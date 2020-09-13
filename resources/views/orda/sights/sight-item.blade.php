@@ -33,13 +33,13 @@
         <div class="about__banner--container">
             <div class="container">
                 <div class="about__banner--info">
-				 @if(isset($item->props_2))
+				 @if(isset($item->date))
                     <div class="about__banner--data">
                         Дата основания
 						
 						<br>
 						
-							  {{$item->props_2}}
+							  {{$item->date}}
 						  
                         
                     </div>
@@ -61,14 +61,14 @@
 							 @endif
                             </div>
                         </div>
-						@if(isset($item->props_1))
+						@if(isset($item->introtext))
                         <div class="sights__list--item">
                             <div class="sights__list--img">
                                 <img src="/img/3d-list-icon.svg" alt="">
                             </div>
                             <div class="sights__list--text">
 							 
-								 {{$item->props_1}}
+								 {{$item->introtext}}
 								 
 							 
                                
@@ -120,8 +120,8 @@
 			@endif
 			
                 <div class="mini__desc">
-				 @if(isset($item->props_4))
-                   		{!! $item->props_4 !!}
+				 @if(isset($item->subtitle))
+                   		{!! $item->subtitle !!}
 				@endif
                 </div>
             </div>

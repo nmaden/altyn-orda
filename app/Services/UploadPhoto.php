@@ -9,7 +9,7 @@ class UploadPhoto {
 		
 
         $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
-        $file_path = $file->storeAs('/store/gallery/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
+        $file_path = $file->storeAs('/store/test/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
         return $file_path;
     }
 }

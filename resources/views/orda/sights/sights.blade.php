@@ -59,15 +59,15 @@
                                             </div>
                                         </div>
                                         <div class="sights__list--item">
-										 @if(isset($item->props_1))
+										 @if(isset($item->introtext))
                                             <div class="sights__list--img">
 										        <a href="{{route('sight-item',$item)}}#d3tours">
                                                     <img src="/img/3d-list-icon.svg" alt="">
 												</a>
                                             </div>
                                             <div class="sights__list--text">
-                                                
-												{{$item->props_1}}
+                                         
+							{!! mb_substr($item->introtext,0,80) !!}
 												
                                             </div>
 											@endif

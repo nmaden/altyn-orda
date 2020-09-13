@@ -68,8 +68,8 @@ class="form-control"/>
 <label for="title"><b>Подзаголовок</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" 
-value="{{isset($model->props_4) ? $model->props_4 : ''}}"
-name='props_4' 
+value="{{isset($model->subtitle) ? $model->subtitle : ''}}"
+name='subtitle' 
 class="form-control"
 placeholder="Это важный исторический памятник Золотой Орды"
 />
@@ -80,10 +80,10 @@ placeholder="Это важный исторический памятник Зо�
 <div> 
 <label for="title"><b>Тур</b></label> 
 <input {{$page ? 'disabled': ''}} 
-type="text" value='{{$model->props_1}}' 
-name='props_1' 
+type="text" value='{{$model->introtext}}' 
+name='introtext' 
 placeholder="3D тур" 
-value="{{isset($model->props_1) ? $model->props_1 : ''}}"
+value="{{isset($model->introtext) ? $model->introtext : ''}}"
 class="form-control"/>
 </div>
 
@@ -95,8 +95,8 @@ class="form-control"/>
 
 <input {{$page ? 'disabled': ''}}
  type="text" 
- value='{{isset($model->props_2) ? $model->props_2 : ''}}' 
- name='props_2' 
+ value='{{isset($model->date) ? $model->date : ''}}' 
+ name='date' 
  placeholder="пример: X—XI вв." 
  class="form-control"/>
 </div>
@@ -159,15 +159,19 @@ type="text"/>
 
  <label>Широта (latitude): </label>
  <input id="latitude" 
- value="{{ isset($model->address2[0]) ? $model->address2[0]: 59.9342802 }}"
+ value="{{ isset($model->address2[0]) ? $model->address2[0]: 59.9342802
+ }}"
+ name="latitude"
  type="text"/>
  
  <label>Длогота (longitude): </label>
  <input id="longitude" 
   value="{{ isset($model->address2[1]) ? $model->address2[1]: 30.335098600000038 }}"
+   name="longitude"
+
 type="text"/>
   @endif
- <div id="map_canvas" style="width:800px; height:600px"></div>
+ <!---<div id="map_canvas" style="width:800px; height:600px"></div>--->
  </div>
  
  <br><br>
@@ -199,13 +203,13 @@ type="text"/>
 
  
 	
- @section('script')
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDql8ox3Z7AQIpoGzNYEztSLaCe_kwVuwE&callback=initMap"
   type="text/javascript"></script>
    <script type="text/javascript" src="/geo/jquery-ui-1.8.1.custom.min.js"></script> 
 
  
  <script type="text/javascript">
+ /*-------
 var geocoder;
 var map;
 var marker;
@@ -301,6 +305,16 @@ $('#latitude').bind('keyup',function(){
 })
 
  }
+ ------------------*/
+ $('#latitude').bind('keyup',function(){
+	var coord = $("#latitude").val() + ',' + $("#longitude").val();
+	$("#coord").val(coord);
+})
+    $('#longitude').bind('keyup',function(){
+	var coord = $("#latitude").val() + ',' + $("#longitude").val();
+	$("#coord").val(coord);
+
+})
 </script> 
-@endsection
+
 	

@@ -3,8 +3,13 @@
     &copy; 2020. <a href="#">Золотая орда
 </div>
 
- 
-  <script src="/picker/moment-with-locales.min.js"></script>
+ <script src="/ckeditor/ckeditor.js" 
+type="text/javascript" charset="utf-8" ></script>
+<script>
+        var editor = CKEDITOR.replace( 'editor1' );
+</script>
+
+  <!---<script src="/picker/moment-with-locales.min.js"></script>--->
   <script src="/picker/bootstrap.min.js"></script>
   <script src="/picker/bootstrap-datetimepicker.min.js"></script>
   <script type="text/javascript">
