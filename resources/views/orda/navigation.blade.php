@@ -33,7 +33,7 @@
                                                     <img src="/img/childrenmenu-1.png" alt="">
                                                 </div>
                                                 <div class="children__item--title">
-                                                    Генеалогические дерево
+                                                    Генеалогические древо
                                                 </div>
                                                 <a href="/" class="children__item--linck">Подробнее</a>
                                             </div>

@@ -246,7 +246,11 @@ $(document).ready(function() {
     
 });
 
-
+$(document).on( "click", function( e ) { 
+    if (!$("header .header__menu").is(e.target) && $("header .header__menu").has(e.target).length === 0) { // Рё РЅРµ РїРѕ РµРіРѕ РґРѕС‡РµСЂРЅРёРј СЌР»РµРјРµРЅС‚Р°Рј
+        $(".children__block").removeClass('children__block--active');
+    }
+});
 
 
 $(document).on('click', "#inter__map .section__map--item", function(){
