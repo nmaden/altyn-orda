@@ -29,6 +29,9 @@ class Filter extends ModelFilter {
                 $q->where('city_id', $request->city_id);
             });
        
+        if ($this->request->has('city_val') && $this->request->city_val)
+                $this->query->where('city_id', $request->city_val);
+
         if ($this->request->has('degree_id') && $this->request->degree_id){
 			//echo $this->request->degree_id;exit();
             $this->query->where('degree_id', $request->degree_id);

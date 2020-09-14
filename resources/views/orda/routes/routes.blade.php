@@ -52,7 +52,7 @@
                     <div class="col-lg-4 col-md-6 col-6">
                         <div class="filter__item">
                             <div class="filter--select">
-                                <select name="city_id" id="city_id" class="slct-1 js--select js--select-1" onchange="send_to_search('city_id')">
+                                <select name="city_val" id="city_val" class="slct-1 js--select js--select-1" onchange="send_to_search('city_val')">
                                   <option selected disabled>По региону</option>
                                   <option  value="all_city">Весь регион</option>
                                   @foreach($cities as $key=>$city)
