@@ -93,8 +93,6 @@
 
                                 this._$element = $('.popover', this.getParentElement());
 
-                                this.applyElementOffset();
-
                                 this._$element.find('.close')
                                     .on('click', $.proxy(this.onCloseClick, this));
                             },
@@ -125,23 +123,10 @@
                                     return;
                                 }
 
-                                this.applyElementOffset();
 
                                 this.events.fire('shapechange');
                             },
 
-                            /**
-                             * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
-                             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
-                             * @function
-                             * @name applyElementOffset
-                             */
-                            applyElementOffset: function () {
-                                this._$element.css({
-                                    left: -(this._$element[0].offsetWidth / 2),
-                                    top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
-                                });
-                            },
 
                             /**
                              * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
@@ -151,7 +136,7 @@
                              */
                             onCloseClick: function (e) {
                                 e.preventDefault();
-
+                                $('.section__map--item').removeClass('section__map--active');
                                 this.events.fire('userclose');
                             },
 

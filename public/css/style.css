@@ -2102,4 +2102,6 @@ div#interactive__map-main.interactive__map-active div#inter__map {
     right: 5px;
     top: 0px;
     z-index: 6;
+    color: #fff;
+    opacity: 1 !important;
 }
