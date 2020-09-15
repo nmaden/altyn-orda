@@ -456,10 +456,11 @@ span.numer__litl {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     position: relative;
     padding: 310px 0;
+    padding-bottom: 350px;
     background-image: url(../img/line__bg.svg);
     background-position: left center;
     background-repeat: repeat-x;
@@ -2042,20 +2043,22 @@ div#interactive__map-main.interactive__map-active div#inter__map {
 
 .section__about {
     position: relative;
-    margin-bottom: -200px;
     z-index: 0;
-    padding-bottom: 200px;
+    padding-bottom: 70px;
     z-index: 1;
 }
 
 .section__about:before {
     content: "";
-    height: 200px;
-    width: 100%;
     position: absolute;
-    background: -webkit-linear-gradient(-90deg,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    right: 0;
     bottom: 0;
-    z-index: 2;
+    width: 100%;
+    left: 0;
+    height: 40px;
+    background: url(../img/footer__bg.svg);
+    background-repeat: repeat-x;
+    /* background-color: #0e4f32; */
 }
 .section__map--home .interactive__map--controller {
     top: 230px;
