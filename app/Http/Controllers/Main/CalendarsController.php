@@ -16,7 +16,7 @@ use Modules\Entity\Model\Categories\Categories;
 use Modules\Entity\Model\LibCity\LibCity;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-
+use Modules\Entity\Model\LibCountry\LibCountry;
 
 class CalendarsController extends SiteController
 {
@@ -44,47 +44,13 @@ class CalendarsController extends SiteController
 		
 		$cities = LibCity::query()->get();
 
+
 		$categories = DB::table('categories')->get();
 
 		$search_cities = [];
 		$search_dates = [];
-		
-		// if($request->city_id) {
-		// 		for ($i=0; $i < sizeof($cities); $i++) { 
-		// 				$obj = (object)array();
-		// 				$obj->name=$cities[$i]->name;
-					
-		// 				if($cities[$i]->id==$request->city_id) {
-		// 					$obj->selected=true;
-		// 				}
-		// 				else {
-		// 					$obj->selected=false;
-		// 				}
-		// 				$obj->id=$cities[$i]->id;
-		// 				array_push($search_cities,$obj);
-		// 		}
-		// }
 
-		// if($request->sort_date) {
-		// 	for ($i=0; $i < sizeof($sort_calendar); $i++) { 
-		// 			$obj = (object)array();
-		// 			$obj->name=$cities[$i];
-				
-		// 			if($request->sort_date==$i) {
-		// 				$obj->selected=true;
-		// 			}
-		// 			else {
-		// 				$obj->selected=false;
-		// 			}
-		// 			$obj->id=$cities[$i]->id;
-		// 			array_push($search_dates,$obj);
-		// 	}
-		// }
-
-
-		// return $search_cities;
 	
-
 		$sights_page = view('orda' . '.calendars.calendars')->with([
 			'protocol' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://",
 			'items' => $items, 'categories'=>$categories,'cities'=>$cities, 'sort_calendars'=>$sort_calendar, 'gid' => $gids, 'request' => $request])->render();

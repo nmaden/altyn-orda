@@ -127,54 +127,9 @@ public function routes(Request $request){
 
 
 
-		public function city(Request $request,$id){
-			
-		   $filter = FilterLib::get();
-		   $city= $filter['city'];
-		   $sights_lib= $filter['sights'];
-
-		   
-		    
-		   if($id == 'all'){
-			   $city_f = Sights::filter($request)->latest()->paginate();
-
-		   }else{
-			  $request->city_id=$id;
-              $city_f = Sights::filter($request)->latest()->paginate();
-
-		   }
-		   $city_f= $city_f->toArray()['data'];
-		   $count = count($city_f);
-		   if($count <=0 ){
-			   $php_json = 0;
-		   }else{
-			  $php_json = urlencode(json_encode($city_f));
-
-		   }
-		   
-		   //dd(count($city_f));
-		   
-		   
-           $page_map = view('orda'.'.map')->with([
-		   'php_json'=>$php_json,
-		   'city'=>$city,
-		   'sights_lib'=>$sights_lib,
-		   'ids'=>$id,
-		   'count_map'=>$count])->render();
-
-           $content=$page_map;
-           $this->vars['content']= $content;
-           $this->keywords = '';
-		   $this->meta_desc = '';
-		   $this->title = '';
-		   return $this->renderOutput();
-		
-		  
-		}
-
 	public function map(Request $request)
     {
-      
+
         $filter = FilterLib::get();
 		$city = $filter['city'];
 	    $sights_lib = $filter['sights'];
@@ -187,7 +142,7 @@ public function routes(Request $request){
 	    $city_f= $city_f->toArray()['data'];
         $php_json = urlencode(json_encode($city_f));
         $ids =0;
-		
+		        
 
 		$page_map = view('orda'.'.map')->with([
 		'php_json'=>$php_json,'city'=>$city,

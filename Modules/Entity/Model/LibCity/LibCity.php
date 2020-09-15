@@ -5,7 +5,7 @@ use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
 class LibCity extends ModelParent {
-    protected $table = 'lib_country';
+    protected $table = 'lib_city';
     protected $fillable = [ 'country_id', 'name', 'edited_user_id'];
     protected $filter_class = Filter::class; 
     use Presenter, CheckTrans;

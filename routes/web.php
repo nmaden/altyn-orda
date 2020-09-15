@@ -21,7 +21,7 @@ Route::any('drobsone',['uses' => 'DrobsoneController@index'])->name('drobsone');
 
 
 //'prefix' => LocalizationService::locale(),
-Route::group(['namespace' => 'Main','middleware' => 'setLocale'], function () {
+Route::group(['prefix' => LocalizationService::locale(),'namespace' => 'Main','middleware' => 'setLocale'], function () {
 	
 Route::resource('/articles','Admin\ArticlesController');
 Route::any('/show',['uses' => 'Admin\ArticlesController@articlesadd'])->name('show');

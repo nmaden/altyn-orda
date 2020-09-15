@@ -30,6 +30,7 @@ return array(
     'App\\Http\\Controllers\\Main\\AboutController' => $baseDir . '/app/Http/Controllers/Main/AboutController.php',
     'App\\Http\\Controllers\\Main\\CalendarsController' => $baseDir . '/app/Http/Controllers/Main/CalendarsController.php',
     'App\\Http\\Controllers\\Main\\Controller' => $baseDir . '/app/Http/Controllers/Main/Controller.php',
+    'App\\Http\\Controllers\\Main\\FiguresController' => $baseDir . '/app/Http/Controllers/Main/FiguresController.php',
     'App\\Http\\Controllers\\Main\\GidsController' => $baseDir . '/app/Http/Controllers/Main/GidsController.php',
     'App\\Http\\Controllers\\Main\\HomeController' => $baseDir . '/app/Http/Controllers/Main/HomeController.php',
     'App\\Http\\Controllers\\Main\\IndexController' => $baseDir . '/app/Http/Controllers/Main/IndexController.php',

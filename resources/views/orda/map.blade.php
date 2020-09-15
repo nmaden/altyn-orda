@@ -29,7 +29,7 @@
 				    @endif
                 </h1>
             </div>
-<!--<input type="hidden" name="_token" value="{{ csrf_token() }}">--->
+            <!--<input type="hidden" name="_token" value="{{ csrf_token() }}">--->
 						
 
             <div class="interactive__map--fulscrin">
@@ -37,205 +37,201 @@
 
                     <div class="interactive__map--absol">
 						<form action="" method='get' style='width:100%'>
+                            <div class="row">
+                            
 
-                        <div class="row">
-                           
-
-                            <div class="col-lg-3 col-md-6 col-6">
-                                <div class="filter__item">
-                                    <div class="filter--select">
-                                        <select name="regions" id="slct-2" class="js--select js--select-d js--select-2 region"
-										onchange="filter('region')"
-										>
-                                            <option selected disabled>Регионы</option>
-                                            <option value="0">Все регионы</option>
-											@if(isset($city[0]))
-											@foreach($city as $k=>$item)
-										
-										    @if(isset($ids->regions))
-                                            <option {{$item->id == $ids->regions ? 'selected' : ''}} value="{{$item->id}}">
-											{{$item->name}}
-											
-											</option>
-											
-											@else
-											<option value="{{$item->id}}">
-											{{$item->name}}
-											
-											</option>
-											
-											@endif
-											
-											@endforeach
-											@endif
-											
-                                            <option value="almaty">Алматы</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-6">
-                                <div class="filter__item">
-                                    <div class="filter--select">
-                                        <select name="sights" id="slct-0" class="js--select js--select-d js--select-0 sights"
-										onchange="filter('sights')"
-
-										>
-                                            <option selected disabled>Объекты</option>
-																															                                                                                 
-
-                                            <option value="0">все объекты
-											
-											</option>
-											
-                                            @if(isset($sights_lib[0]))
-											@foreach($sights_lib as $k=>$item)
-																				                                            @if(isset($ids->sights))
-
-                                            <option {{$item->id == $ids->sights ? 'selected' : ''}} value="{{$item->id}}">
-											<a href="">{{$item->name}}</a>
-											</option>
-											@else
-												
-											<option value="{{$item->id}}">
-											<a href="">{{$item->name}}</a>
-											</option>
-											@endif
-											@endforeach
-											@endif
-											
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-6">
-                                <div class="filter__item">
-                                    <div class="filter--select">
-                                        <select name="routes" id="slct-1" class="js--select js--select-d js--select-1"
-										onchange="filter('routes')"
-                                         >
-                                            <option selected disabled>Маршруты</option>
-                                            <option value="0">Все маршруты</option>
+                                <div class="col-lg-3 col-md-6 col-6">
+                                    <div class="filter__item">
+                                        <div class="filter--select">
+                                            <select name="regions" id="slct-2" class="js--select slct-2 js--select-d js--select-2 region"
+                                            onchange="filter('region')"
+                                            >
+                                                <option selected disabled>Регионы</option>
+                                                <option value="0">Все регионы</option>
+                                                @if(isset($city[0]))
+                                                @foreach($city as $k=>$item)
                                             
-											
-											@if(isset($routes_lib[0]))
-											@foreach($routes_lib as $k=>$item)
-										
-										    @if(isset($ids->routes))
-                                            <option {{$item->id == $ids->routes ? 'selected' : ''}} value="{{$item->id}}">
-											{{$item->name}}
-											
-											</option>
-											
-											@else
-											<option value="{{$item->id}}">
-											{{$item->name}}
-											
-											</option>
-											
-											@endif
-											
-											@endforeach
-											@endif
-											
-											
-											
-                                        </select>
+                                                @if(isset($ids->regions))
+                                                <option {{$item->id == $ids->regions ? 'selected' : ''}} value="{{$item->id}}">
+                                                {{$item->name}}
+                                                
+                                                </option>
+                                                
+                                                @else
+                                                <option value="{{$item->id}}">
+                                                {{$item->name}}
+                                                
+                                                </option>
+                                                
+                                                @endif
+                                                
+                                                @endforeach
+                                                @endif
+                                                
+                                                <option value="almaty">Алматы</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-3 col-md-6 col-6">
+                                    <div class="filter__item">
+                                        <div class="filter--select">
+                                            <select name="sights" id="slct-0" class="js--select slct-0 js--select-d js--select-0 sights"
+                                            onchange="filter('sights')"
+
+                                            >
+                                                <option selected disabled>Объекты</option>
+                                                                                                                                                                                                                
+
+                                                <option value="0">все объекты
+                                                
+                                                </option>
+                                                
+                                                @if(isset($sights_lib[0]))
+                                                @foreach($sights_lib as $k=>$item)
+                                                                                                                                @if(isset($ids->sights))
+
+                                                <option {{$item->id == $ids->sights ? 'selected' : ''}} value="{{$item->id}}">
+                                                <a href="">{{$item->name}}</a>
+                                                </option>
+                                                @else
+                                                    
+                                                <option value="{{$item->id}}">
+                                                <a href="">{{$item->name}}</a>
+                                                </option>
+                                                @endif
+                                                @endforeach
+                                                @endif
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-6">
+                                    <div class="filter__item">
+                                        <div class="filter--select">
+                                            <select name="routes" id="slct-1" class="js--select slct-1 js--select-d js--select-1"
+                                            onchange="filter('routes')"
+                                            >
+                                                <option selected disabled>Маршруты</option>
+                                                <option value="0">Все маршруты</option>
+                                                
+                                                
+                                                @if(isset($routes_lib[0]))
+                                                @foreach($routes_lib as $k=>$item)
+                                            
+                                                @if(isset($ids->routes))
+                                                <option {{$item->id == $ids->routes ? 'selected' : ''}} value="{{$item->id}}">
+                                                {{$item->name}}
+                                                
+                                                </option>
+                                                
+                                                @else
+                                                <option value="{{$item->id}}">
+                                                {{$item->name}}
+                                                
+                                                </option>
+                                                
+                                                @endif
+                                                
+                                                @endforeach
+                                                @endif
+                                                
+                                                
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-
-                        </div>
-						                            </form>
-
+						</form>
                     </div>
 					
-			
+                    @if($route == 'routes-map')
+                        <div class="route__line--block" style='display:none'>
+                            <div class="route__line">
 
-@if($route == 'routes-map')
-            <div class="route__line--block" style='display:none'>
-                <div class="route__line">
+                                <div class="route__line--li">
+                                    <div class="route__line--item">
+                                        <div class="route__item--absol">
+                                            <div class="route__item--img">
+                                                <img src="/img/bus-1.svg" alt="">
+                                            </div>
+                                            <div class="route__item--km" id="route0">
+                                                0 км
+                                            </div>
+                                        </div>
+                                        <div class="route__item--btn">
+                                            <a>
+                                                По следам Золотой Орды
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="route__line--li">
+                                    <div class="route__line--item">
+                                        <div class="route__item--absol">
+                                            <div class="route__item--img">
+                                                <img src="/img/bus-1.svg" alt="">
+                                            </div>
+                                            <div class="route__item--km"  id="route1">
+                                                0 км
+                                            </div>
+                                        </div>
+                                        <div class="route__item--btn">
+                                            <a>
+                                                По следам Золотой Орды
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="route__line--li">
+                                    <div class="route__line--item">
+                                        <div class="route__item--absol">
+                                            <div class="route__item--img">
+                                                <img src="/img/bus-1.svg" alt="">
+                                            </div>
+                                            <div class="route__item--km" id="route2">
+                                                0 км
+                                            </div>
+                                        </div>
+                                        <div class="route__item--btn">
+                                            <a>
+                                                По следам Золотой Орды
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="route__line--li">
+                                    <div class="route__line--item route__line--active">
+                                        <div class="route__item--absol">
+                                            <div class="route__item--img">
+                                                <img src="/img/bus-4.svg" alt="">
+                                            </div>
+                                            <div class="route__item--km" id="route3">
+                                                0 км
+                                            </div>
+                                        </div>
+                                        <div class="route__item--btn">
+                                            <a>
+                                                Мавзолей Алаша хана
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <div class="route__line--li">
-                        <div class="route__line--item">
-                            <div class="route__item--absol">
-                                <div class="route__item--img">
-                                    <img src="/img/bus-1.svg" alt="">
-                                </div>
-                                <div class="route__item--km" id="route0">
-                                    0 км
-                                </div>
-                            </div>
-                            <div class="route__item--btn">
-                                <a>
-                                    По следам Золотой Орды
-                                </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="route__line--li">
-                        <div class="route__line--item">
-                            <div class="route__item--absol">
-                                <div class="route__item--img">
-                                    <img src="/img/bus-1.svg" alt="">
-                                </div>
-                                <div class="route__item--km"  id="route1">
-                                    0 км
-                                </div>
-                            </div>
-                            <div class="route__item--btn">
-                                <a>
-                                    По следам Золотой Орды
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="route__line--li">
-                        <div class="route__line--item">
-                            <div class="route__item--absol">
-                                <div class="route__item--img">
-                                    <img src="/img/bus-1.svg" alt="">
-                                </div>
-                                <div class="route__item--km" id="route2">
-                                    0 км
-                                </div>
-                            </div>
-                            <div class="route__item--btn">
-                                <a>
-                                    По следам Золотой Орды
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="route__line--li">
-                        <div class="route__line--item route__line--active">
-                            <div class="route__item--absol">
-                                <div class="route__item--img">
-                                    <img src="/img/bus-4.svg" alt="">
-                                </div>
-                                <div class="route__item--km" id="route3">
-                                    0 км
-                                </div>
-                            </div>
-                            <div class="route__item--btn">
-                                <a>
-                                    Мавзолей Алаша хана
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
+                        <div class="route__line--maps">
+                            <div id="maps"></div>
+                        </div>
+                    @else
+                        <div id="inter__map"></div>
 
-			
-	<div class="route__line--maps">
-        <div id="maps"></div>
-    </div>
-	@else
-	<div id="inter__map"></div>
+                    @endif	
 
-@endif					
                 </div>
             </div>
 					
@@ -253,7 +249,8 @@ $php_json = $home->getArMapPoint();
 <script>var json = "{{$php_json}}";</script>
 @if($route == 'routes-map')
 <script>
-
+console.log('kaks');
+console.log(json);
     var url = new URL(window.location["href"]);
     var search = url.searchParams;
 	var v = /routes=[\d]+/i;
