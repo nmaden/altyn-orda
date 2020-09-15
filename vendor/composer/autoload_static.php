@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
+class ComposerStaticInit359945c8ed8d1fc1acd4dc539c8549ca
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -34,6 +34,7 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '9f394da3192a168c4633675768d80428' => __DIR__ . '/..' . '/nwidart/laravel-modules/src/helpers.php',
         'a806c12c6e24e7e4e900847766218dba' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/functions.php',
     );
@@ -107,6 +108,7 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
             'Psr\\Http\\Message\\' => 17,
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
+            'Psr\\Cache\\' => 10,
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
@@ -128,8 +130,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'L' => 
         array (
             'League\\MimeTypeDetection\\' => 25,
+            'League\\Flysystem\\Cached\\' => 24,
             'League\\Flysystem\\' => 17,
             'League\\CommonMark\\' => 18,
+            'Laravel\\Ui\\' => 11,
             'Laravel\\Tinker\\' => 15,
         ),
         'J' => 
@@ -139,6 +143,7 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'I' => 
         array (
             'Intervention\\Image\\' => 19,
+            'Illuminate\\Foundation\\Auth\\' => 27,
             'Illuminate\\' => 11,
         ),
         'G' => 
@@ -171,11 +176,14 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'C' => 
         array (
             'Cron\\' => 5,
+            'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
         ),
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Barryvdh\\elFinderFlysystemDriver\\' => 33,
+            'Barryvdh\\Elfinder\\' => 18,
         ),
         'A' => 
         array (
@@ -355,6 +363,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
@@ -391,6 +403,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         array (
             0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
         ),
+        'League\\Flysystem\\Cached\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src',
+        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -398,6 +414,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'League\\CommonMark\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/commonmark/src',
+        ),
+        'Laravel\\Ui\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/ui/src',
         ),
         'Laravel\\Tinker\\' => 
         array (
@@ -410,6 +430,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
+        ),
+        'Illuminate\\Foundation\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/ui/auth-backend',
         ),
         'Illuminate\\' => 
         array (
@@ -479,6 +503,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -486,6 +514,14 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'Barryvdh\\elFinderFlysystemDriver\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/barryvdh/elfinder-flysystem-driver/src',
+        ),
+        'Barryvdh\\Elfinder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/barryvdh/laravel-elfinder/src',
         ),
         'Asm89\\Stack\\' => 
         array (
@@ -503,6 +539,13 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
             'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
+            ),
+        ),
+        'L' => 
+        array (
+            'Lavary\\Menu\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/lavary/laravel-menu/src',
             ),
         ),
         'H' => 
@@ -593,6 +636,16 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'Barryvdh\\Elfinder\\Connector' => __DIR__ . '/..' . '/barryvdh/laravel-elfinder/src/Connector.php',
+        'Barryvdh\\Elfinder\\Console\\PublishCommand' => __DIR__ . '/..' . '/barryvdh/laravel-elfinder/src/Console/PublishCommand.php',
+        'Barryvdh\\Elfinder\\Elfinder' => __DIR__ . '/..' . '/barryvdh/laravel-elfinder/src/Elfinder.php',
+        'Barryvdh\\Elfinder\\ElfinderController' => __DIR__ . '/..' . '/barryvdh/laravel-elfinder/src/ElfinderController.php',
+        'Barryvdh\\Elfinder\\ElfinderServiceProvider' => __DIR__ . '/..' . '/barryvdh/laravel-elfinder/src/ElfinderServiceProvider.php',
+        'Barryvdh\\Elfinder\\Session\\LaravelSession' => __DIR__ . '/..' . '/barryvdh/laravel-elfinder/src/Session/LaravelSession.php',
+        'Barryvdh\\elFinderFlysystemDriver\\Cache\\SessionStore' => __DIR__ . '/..' . '/barryvdh/elfinder-flysystem-driver/src/Cache/SessionStore.php',
+        'Barryvdh\\elFinderFlysystemDriver\\Driver' => __DIR__ . '/..' . '/barryvdh/elfinder-flysystem-driver/src/Driver.php',
+        'Barryvdh\\elFinderFlysystemDriver\\Plugin\\GetUrl' => __DIR__ . '/..' . '/barryvdh/elfinder-flysystem-driver/src/Plugin/GetUrl.php',
+        'Barryvdh\\elFinderFlysystemDriver\\Plugin\\HasDir' => __DIR__ . '/..' . '/barryvdh/elfinder-flysystem-driver/src/Plugin/HasDir.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
@@ -681,6 +734,13 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -1976,7 +2036,15 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Illuminate\\Foundation\\Application' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Application.php',
         'Illuminate\\Foundation\\Auth\\Access\\Authorizable' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Auth/Access/Authorizable.php',
         'Illuminate\\Foundation\\Auth\\Access\\AuthorizesRequests' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php',
+        'Illuminate\\Foundation\\Auth\\AuthenticatesUsers' => __DIR__ . '/..' . '/laravel/ui/auth-backend/AuthenticatesUsers.php',
+        'Illuminate\\Foundation\\Auth\\ConfirmsPasswords' => __DIR__ . '/..' . '/laravel/ui/auth-backend/ConfirmsPasswords.php',
+        'Illuminate\\Foundation\\Auth\\RedirectsUsers' => __DIR__ . '/..' . '/laravel/ui/auth-backend/RedirectsUsers.php',
+        'Illuminate\\Foundation\\Auth\\RegistersUsers' => __DIR__ . '/..' . '/laravel/ui/auth-backend/RegistersUsers.php',
+        'Illuminate\\Foundation\\Auth\\ResetsPasswords' => __DIR__ . '/..' . '/laravel/ui/auth-backend/ResetsPasswords.php',
+        'Illuminate\\Foundation\\Auth\\SendsPasswordResetEmails' => __DIR__ . '/..' . '/laravel/ui/auth-backend/SendsPasswordResetEmails.php',
+        'Illuminate\\Foundation\\Auth\\ThrottlesLogins' => __DIR__ . '/..' . '/laravel/ui/auth-backend/ThrottlesLogins.php',
         'Illuminate\\Foundation\\Auth\\User' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Auth/User.php',
+        'Illuminate\\Foundation\\Auth\\VerifiesEmails' => __DIR__ . '/..' . '/laravel/ui/auth-backend/VerifiesEmails.php',
         'Illuminate\\Foundation\\Bootstrap\\BootProviders' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php',
         'Illuminate\\Foundation\\Bootstrap\\HandleExceptions' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php',
         'Illuminate\\Foundation\\Bootstrap\\LoadConfiguration' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php',
@@ -2596,6 +2664,22 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',
         'Laravel\\Tinker\\TinkerServiceProvider' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerServiceProvider.php',
+        'Laravel\\Ui\\AuthCommand' => __DIR__ . '/..' . '/laravel/ui/src/AuthCommand.php',
+        'Laravel\\Ui\\AuthRouteMethods' => __DIR__ . '/..' . '/laravel/ui/src/AuthRouteMethods.php',
+        'Laravel\\Ui\\ControllersCommand' => __DIR__ . '/..' . '/laravel/ui/src/ControllersCommand.php',
+        'Laravel\\Ui\\Presets\\Bootstrap' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Bootstrap.php',
+        'Laravel\\Ui\\Presets\\Preset' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Preset.php',
+        'Laravel\\Ui\\Presets\\React' => __DIR__ . '/..' . '/laravel/ui/src/Presets/React.php',
+        'Laravel\\Ui\\Presets\\Vue' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Vue.php',
+        'Laravel\\Ui\\UiCommand' => __DIR__ . '/..' . '/laravel/ui/src/UiCommand.php',
+        'Laravel\\Ui\\UiServiceProvider' => __DIR__ . '/..' . '/laravel/ui/src/UiServiceProvider.php',
+        'Lavary\\Menu\\Builder' => __DIR__ . '/..' . '/lavary/laravel-menu/src/Lavary/Menu/Builder.php',
+        'Lavary\\Menu\\Collection' => __DIR__ . '/..' . '/lavary/laravel-menu/src/Lavary/Menu/Collection.php',
+        'Lavary\\Menu\\Facade' => __DIR__ . '/..' . '/lavary/laravel-menu/src/Lavary/Menu/Facade.php',
+        'Lavary\\Menu\\Item' => __DIR__ . '/..' . '/lavary/laravel-menu/src/Lavary/Menu/Item.php',
+        'Lavary\\Menu\\Link' => __DIR__ . '/..' . '/lavary/laravel-menu/src/Lavary/Menu/Link.php',
+        'Lavary\\Menu\\Menu' => __DIR__ . '/..' . '/lavary/laravel-menu/src/Lavary/Menu/Menu.php',
+        'Lavary\\Menu\\ServiceProvider' => __DIR__ . '/..' . '/lavary/laravel-menu/src/Lavary/Menu/ServiceProvider.php',
         'League\\CommonMark\\Block\\Element\\AbstractBlock' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/AbstractBlock.php',
         'League\\CommonMark\\Block\\Element\\AbstractStringContainerBlock' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/AbstractStringContainerBlock.php',
         'League\\CommonMark\\Block\\Element\\BlockQuote' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/BlockQuote.php',
@@ -2819,6 +2903,17 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'League\\Flysystem\\Adapter\\Polyfill\\StreamedTrait' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/Polyfill/StreamedTrait.php',
         'League\\Flysystem\\Adapter\\Polyfill\\StreamedWritingTrait' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/Polyfill/StreamedWritingTrait.php',
         'League\\Flysystem\\Adapter\\SynologyFtp' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/SynologyFtp.php',
+        'League\\Flysystem\\Cached\\CacheInterface' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/CacheInterface.php',
+        'League\\Flysystem\\Cached\\CachedAdapter' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/CachedAdapter.php',
+        'League\\Flysystem\\Cached\\Storage\\AbstractCache' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/AbstractCache.php',
+        'League\\Flysystem\\Cached\\Storage\\Adapter' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/Adapter.php',
+        'League\\Flysystem\\Cached\\Storage\\Memcached' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/Memcached.php',
+        'League\\Flysystem\\Cached\\Storage\\Memory' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/Memory.php',
+        'League\\Flysystem\\Cached\\Storage\\Noop' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/Noop.php',
+        'League\\Flysystem\\Cached\\Storage\\PhpRedis' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/PhpRedis.php',
+        'League\\Flysystem\\Cached\\Storage\\Predis' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/Predis.php',
+        'League\\Flysystem\\Cached\\Storage\\Psr6Cache' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/Psr6Cache.php',
+        'League\\Flysystem\\Cached\\Storage\\Stash' => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src/Storage/Stash.php',
         'League\\Flysystem\\Config' => __DIR__ . '/..' . '/league/flysystem/src/Config.php',
         'League\\Flysystem\\ConfigAwareTrait' => __DIR__ . '/..' . '/league/flysystem/src/ConfigAwareTrait.php',
         'League\\Flysystem\\ConnectionErrorException' => __DIR__ . '/..' . '/league/flysystem/src/ConnectionErrorException.php',
@@ -2951,6 +3046,7 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Mockery\\VerificationExpectation' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationExpectation.php',
         'Modules\\Admin\\Database\\Seeders\\AdminDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Admin/Database/Seeders/AdminDatabaseSeeder.php',
         'Modules\\Admin\\Http\\Controllers\\About\\AboutController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/AboutController.php',
+        'Modules\\Admin\\Http\\Controllers\\About\\Figure\\FigureController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/Figure/FigureController.php',
         'Modules\\Admin\\Http\\Controllers\\About\\Tabs\\TabsController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/Tabs/TabsController.php',
         'Modules\\Admin\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/AdminController.php',
         'Modules\\Admin\\Http\\Controllers\\Calendar\\CalendarController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Calendar/CalendarController.php',
@@ -3023,49 +3119,18 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Modules\\Entity\\Model\\About\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/About/Filter.php',
         'Modules\\Entity\\Model\\About\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/About/Presenter.php',
         'Modules\\Entity\\Model\\About\\TransAbout' => __DIR__ . '/../..' . '/Modules/Entity/Model/About/TransAbout.php',
-        'Modules\\Entity\\Model\\Application\\Application' => __DIR__ . '/../..' . '/Modules/Entity/Model/Application/Application.php',
-        'Modules\\Entity\\Model\\Application\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Application/Filter.php',
-        'Modules\\Entity\\Model\\Application\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Application/Presenter.php',
         'Modules\\Entity\\Model\\Calendar\\Calendar' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Calendar.php',
         'Modules\\Entity\\Model\\Calendar\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Filter.php',
         'Modules\\Entity\\Model\\Calendar\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Presenter.php',
         'Modules\\Entity\\Model\\Calendar\\TransCalendar' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/TransCalendar.php',
         'Modules\\Entity\\Model\\Categories\\Categories' => __DIR__ . '/../..' . '/Modules/Entity/Model/Categories/Categories.php',
-        'Modules\\Entity\\Model\\ComunaMessage\\ComunaMessage' => __DIR__ . '/../..' . '/Modules/Entity/Model/ComunaMessage/ComunaMessage.php',
-        'Modules\\Entity\\Model\\ComunaMessage\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ComunaMessage/Filter.php',
-        'Modules\\Entity\\Model\\ComunaMessage\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ComunaMessage/Presenter.php',
-        'Modules\\Entity\\Model\\Comuna\\Comuna' => __DIR__ . '/../..' . '/Modules/Entity/Model/Comuna/Comuna.php',
-        'Modules\\Entity\\Model\\Comuna\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Comuna/Filter.php',
-        'Modules\\Entity\\Model\\Comuna\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Comuna/Presenter.php',
-        'Modules\\Entity\\Model\\ContentBlog\\ContentBlog' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentBlog/ContentBlog.php',
-        'Modules\\Entity\\Model\\ContentBlog\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentBlog/Filter.php',
-        'Modules\\Entity\\Model\\ContentBlog\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentBlog/Presenter.php',
-        'Modules\\Entity\\Model\\ContentBlog\\TransBlog' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentBlog/TransBlog.php',
-        'Modules\\Entity\\Model\\ContentContact\\ContentContact' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentContact/ContentContact.php',
-        'Modules\\Entity\\Model\\ContentFaq\\ContentFaq' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentFaq/ContentFaq.php',
-        'Modules\\Entity\\Model\\ContentFaq\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentFaq/Filter.php',
-        'Modules\\Entity\\Model\\ContentFaq\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentFaq/Presenter.php',
-        'Modules\\Entity\\Model\\ContentFaq\\TransFaq' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentFaq/TransFaq.php',
-        'Modules\\Entity\\Model\\ContentManager\\ContentManager' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentManager/ContentManager.php',
-        'Modules\\Entity\\Model\\ContentManager\\ContentManagerScope' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentManager/ContentManagerScope.php',
-        'Modules\\Entity\\Model\\ContentManager\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentManager/Filter.php',
-        'Modules\\Entity\\Model\\ContentManager\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentManager/Presenter.php',
-        'Modules\\Entity\\Model\\ContentMessage\\ContentMessage' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentMessage/ContentMessage.php',
-        'Modules\\Entity\\Model\\ContentPage\\ContentPage' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentPage/ContentPage.php',
-        'Modules\\Entity\\Model\\ContentPage\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentPage/Filter.php',
-        'Modules\\Entity\\Model\\ContentPage\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentPage/Presenter.php',
-        'Modules\\Entity\\Model\\ContentPage\\TransPage' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentPage/TransPage.php',
-        'Modules\\Entity\\Model\\ContentQuestion\\ContentQuestion' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentQuestion/ContentQuestion.php',
-        'Modules\\Entity\\Model\\ContentReview\\ContentReview' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentReview/ContentReview.php',
-        'Modules\\Entity\\Model\\ContentReview\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentReview/Filter.php',
-        'Modules\\Entity\\Model\\ContentReview\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentReview/Presenter.php',
-        'Modules\\Entity\\Model\\ContentTextBlock\\ContentTextBlock' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentTextBlock/ContentTextBlock.php',
-        'Modules\\Entity\\Model\\ContentTextBlock\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentTextBlock/Filter.php',
-        'Modules\\Entity\\Model\\ContentTextBlock\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentTextBlock/Presenter.php',
-        'Modules\\Entity\\Model\\ContentTextBlock\\TransTextBlock' => __DIR__ . '/../..' . '/Modules/Entity/Model/ContentTextBlock/TransTextBlock.php',
         'Modules\\Entity\\Model\\Coords\\Coords' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/Coords.php',
         'Modules\\Entity\\Model\\Coords\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/Filter.php',
         'Modules\\Entity\\Model\\Coords\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/Presenter.php',
+        'Modules\\Entity\\Model\\Figure\\Figure' => __DIR__ . '/../..' . '/Modules/Entity/Model/Figure/Figure.php',
+        'Modules\\Entity\\Model\\Figure\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Figure/Filter.php',
+        'Modules\\Entity\\Model\\Figure\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Figure/Presenter.php',
+        'Modules\\Entity\\Model\\Figure\\TransFigure' => __DIR__ . '/../..' . '/Modules/Entity/Model/Figure/TransFigure.php',
         'Modules\\Entity\\Model\\Gallery\\Application\\Application' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Application/Application.php',
         'Modules\\Entity\\Model\\Gallery\\Application\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Application/Presenter.php',
         'Modules\\Entity\\Model\\Gallery\\Requirement' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Requirement.php',
@@ -3083,7 +3148,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Modules\\Entity\\Model\\Informs\\Informs' => __DIR__ . '/../..' . '/Modules/Entity/Model/Informs/Informs.php',
         'Modules\\Entity\\Model\\Informs\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Informs/Presenter.php',
         'Modules\\Entity\\Model\\Informs\\TransCalendar' => __DIR__ . '/../..' . '/Modules/Entity/Model/Informs/TransCalendar.php',
+        'Modules\\Entity\\Model\\Language\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/Filter.php',
         'Modules\\Entity\\Model\\Language\\Language' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/Language.php',
+        'Modules\\Entity\\Model\\Language\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/Presenter.php',
+        'Modules\\Entity\\Model\\Language\\TransRoutes' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/TransLanguages.php',
         'Modules\\Entity\\Model\\LibCity\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibCity/Filter.php',
         'Modules\\Entity\\Model\\LibCity\\LibCity' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibCity/LibCity.php',
         'Modules\\Entity\\Model\\LibCity\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibCity/Presenter.php',
@@ -3111,20 +3179,11 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Modules\\Entity\\Model\\LibUniverCat\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibUniverCat/Filter.php',
         'Modules\\Entity\\Model\\LibUniverCat\\LibUniverCat' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibUniverCat/LibUniverCat.php',
         'Modules\\Entity\\Model\\LibUniverCat\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibUniverCat/Presenter.php',
-        'Modules\\Entity\\Model\\Manager\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Manager/Filter.php',
-        'Modules\\Entity\\Model\\Manager\\Manager' => __DIR__ . '/../..' . '/Modules/Entity/Model/Manager/Manager.php',
-        'Modules\\Entity\\Model\\Manager\\ManagerScope' => __DIR__ . '/../..' . '/Modules/Entity/Model/Manager/ManagerScope.php',
-        'Modules\\Entity\\Model\\Manager\\ManagerUniver' => __DIR__ . '/../..' . '/Modules/Entity/Model/Manager/ManagerUniver.php',
-        'Modules\\Entity\\Model\\Manager\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Manager/Presenter.php',
-        'Modules\\Entity\\Model\\Program\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Program/Filter.php',
-        'Modules\\Entity\\Model\\Program\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Program/Presenter.php',
-        'Modules\\Entity\\Model\\Program\\Program' => __DIR__ . '/../..' . '/Modules/Entity/Model/Program/Program.php',
         'Modules\\Entity\\Model\\Program\\ProgramDiscipline' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/ProgramDiscipline.php',
-        'Modules\\Entity\\Model\\Program\\TransProgram' => __DIR__ . '/../..' . '/Modules/Entity/Model/Program/TransProgram.php',
-        'Modules\\Entity\\Model\\Routes\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/Filter.php',
-        'Modules\\Entity\\Model\\Routes\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/Presenter.php',
+        'Modules\\Entity\\Model\\Routes\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Routes/Filter.php',
+        'Modules\\Entity\\Model\\Routes\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Routes/Presenter.php',
         'Modules\\Entity\\Model\\Routes\\Routes' => __DIR__ . '/../..' . '/Modules/Entity/Model/Routes/Routes.php',
-        'Modules\\Entity\\Model\\Routes\\TransRoutes' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/TransLanguages.php',
+        'Modules\\Entity\\Model\\Routes\\TransRoutes' => __DIR__ . '/../..' . '/Modules/Entity/Model/Routes/TransRoutes.php',
         'Modules\\Entity\\Model\\Sights\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Sights/Filter.php',
         'Modules\\Entity\\Model\\Sights\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Sights/Presenter.php',
         'Modules\\Entity\\Model\\Sights\\Sights' => __DIR__ . '/../..' . '/Modules/Entity/Model/Sights/Sights.php',
@@ -3147,17 +3206,6 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Modules\\Entity\\Model\\Tabs\\Tabs' => __DIR__ . '/../..' . '/Modules/Entity/Model/Tabs/Tabs.php',
         'Modules\\Entity\\Model\\Tabs\\TransTabs' => __DIR__ . '/../..' . '/Modules/Entity/Model/Tabs/TransTabs.php',
         'Modules\\Entity\\Model\\TransLib\\TransLib' => __DIR__ . '/../..' . '/Modules/Entity/Model/TransLib/TransLib.php',
-        'Modules\\Entity\\Model\\University\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/Filter.php',
-        'Modules\\Entity\\Model\\University\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/Presenter.php',
-        'Modules\\Entity\\Model\\University\\TransUniversity' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/TransUniversity.php',
-        'Modules\\Entity\\Model\\University\\University' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/University.php',
-        'Modules\\Entity\\Model\\University\\UniversityCat' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/UniversityCat.php',
-        'Modules\\Entity\\Model\\University\\UniversityData' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/UniversityData.php',
-        'Modules\\Entity\\Model\\University\\UniversityDiscipline' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/UniversityDiscipline.php',
-        'Modules\\Entity\\Model\\University\\UniversityDormitory' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/UniversityDormitory.php',
-        'Modules\\Entity\\Model\\University\\UniversityFees' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/UniversityFees.php',
-        'Modules\\Entity\\Model\\University\\UniversityLang' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/UniversityLang.php',
-        'Modules\\Entity\\Model\\University\\UniversityStat' => __DIR__ . '/../..' . '/Modules/Entity/Model/University/UniversityStat.php',
         'Modules\\Entity\\Providers\\EntityServiceProvider' => __DIR__ . '/../..' . '/Modules/Entity/Providers/EntityServiceProvider.php',
         'Modules\\Entity\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Entity/Providers/RouteServiceProvider.php',
         'Modules\\Entity\\Services\\ChangeModelService' => __DIR__ . '/../..' . '/Modules/Entity/Services/ChangeModelService.php',
@@ -4193,6 +4241,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Prophecy\\Prophet' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Prophet.php',
         'Prophecy\\Util\\ExportUtil' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Util/ExportUtil.php',
         'Prophecy\\Util\\StringUtil' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Util/StringUtil.php',
+        'Psr\\Cache\\CacheException' => __DIR__ . '/..' . '/psr/cache/src/CacheException.php',
+        'Psr\\Cache\\CacheItemInterface' => __DIR__ . '/..' . '/psr/cache/src/CacheItemInterface.php',
+        'Psr\\Cache\\CacheItemPoolInterface' => __DIR__ . '/..' . '/psr/cache/src/CacheItemPoolInterface.php',
+        'Psr\\Cache\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/cache/src/InvalidArgumentException.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
@@ -4493,6 +4545,7 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'RecursiveCallbackFilterIterator' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeLocalFileSystem.class.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
@@ -5366,6 +5419,38 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'elFinder' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinder.class.php',
+        'elFinderAbortException' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinder.class.php',
+        'elFinderConnector' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderConnector.class.php',
+        'elFinderEditor' => __DIR__ . '/..' . '/studio-42/elfinder/php/editors/editor.php',
+        'elFinderEditorOnlineConvert' => __DIR__ . '/..' . '/studio-42/elfinder/php/editors/OnlineConvert/editor.php',
+        'elFinderEditorZipArchive' => __DIR__ . '/..' . '/studio-42/elfinder/php/editors/ZipArchive/editor.php',
+        'elFinderEditorZohoOffice' => __DIR__ . '/..' . '/studio-42/elfinder/php/editors/ZohoOffice/editor.php',
+        'elFinderLibGdBmp' => __DIR__ . '/..' . '/studio-42/elfinder/php/libs/GdBmp.php',
+        'elFinderPlugin' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderPlugin.php',
+        'elFinderPluginAutoResize' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/AutoResize/plugin.php',
+        'elFinderPluginAutoRotate' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/AutoRotate/plugin.php',
+        'elFinderPluginNormalizer' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/Normalizer/plugin.php',
+        'elFinderPluginSanitizer' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/Sanitizer/plugin.php',
+        'elFinderPluginWatermark' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/Watermark/plugin.php',
+        'elFinderSession' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderSession.php',
+        'elFinderSessionInterface' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderSessionInterface.php',
+        'elFinderTriggerException' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinder.class.php',
+        'elFinderVolumeBox' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeBox.class.php',
+        'elFinderVolumeDriver' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeDriver.class.php',
+        'elFinderVolumeDropbox' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeDropbox.class.php',
+        'elFinderVolumeDropbox2' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeDropbox2.class.php',
+        'elFinderVolumeFTP' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeFTP.class.php',
+        'elFinderVolumeFlysystem' => __DIR__ . '/..' . '/barryvdh/elfinder-flysystem-driver/elFinderVolumeFlysystem.php',
+        'elFinderVolumeFlysystemGoogleDriveCache' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderFlysystemGoogleDriveNetmount.php',
+        'elFinderVolumeFlysystemGoogleDriveNetmount' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderFlysystemGoogleDriveNetmount.php',
+        'elFinderVolumeGoogleDrive' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeGoogleDrive.class.php',
+        'elFinderVolumeGroup' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeGroup.class.php',
+        'elFinderVolumeLocalFileSystem' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeLocalFileSystem.class.php',
+        'elFinderVolumeMySQL' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeMySQL.class.php',
+        'elFinderVolumeOneDrive' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeOneDrive.class.php',
+        'elFinderVolumeTrash' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeTrash.class.php',
+        'elFinderVolumeTrashMySQL' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeTrashMySQL.class.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
@@ -5449,10 +5534,10 @@ class ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitd9b23430e3d5aaa04c95cc30aff85578::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit359945c8ed8d1fc1acd4dc539c8549ca::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit359945c8ed8d1fc1acd4dc539c8549ca::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit359945c8ed8d1fc1acd4dc539c8549ca::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit359945c8ed8d1fc1acd4dc539c8549ca::$classMap;
 
         }, null, ClassLoader::class);
     }

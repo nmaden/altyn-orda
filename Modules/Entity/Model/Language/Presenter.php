@@ -1,5 +1,5 @@
 <?php 
-namespace Modules\Entity\Model\Routes;
+namespace Modules\Entity\Model\Language;
 
 use Modules\Entity\Model\LibCity\LibCity;
 

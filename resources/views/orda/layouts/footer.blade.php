@@ -45,6 +45,8 @@
 	</script>
 <script>	
 var json_model= JSON.parse(decodeURIComponent(json));
+    var keys = Object.keys(json_model);
+
 </script>
 
 @endif

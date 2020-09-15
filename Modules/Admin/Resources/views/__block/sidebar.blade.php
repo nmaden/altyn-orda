@@ -112,17 +112,18 @@ $ar=explode('_',$route);
 	   
 	                     
                     <li class="">
-                        <a href="#" class="has-ul"><i class="icon-database-menu"></i><span>
+                       <a href="#" style="background: {{in_array('about',$ar) || 
+					   in_array('tabs',$ar) || 
+					   in_array('figure',$ar)
+					   ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
 						О золотой орде
-						
 						</span></a>
-                        <ul class="hidden-ul">
+						<ul class="hidden-ul">
 					    <li>
 							
 							<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
                              <a href="{{ route('admin_about') }}"><span>
 							 Общие элементы страницы
-							 
 							 </span></a>
 							 </li>
 							
@@ -130,9 +131,14 @@ $ar=explode('_',$route);
                              <a href="{{ route('admin_tabs') }}"><span>табы</span></a>
 							 </li>
 							 
+							 <li  style="border: {{in_array('figure',$ar) ? ' 1px solid #ccc' : '' }}">
+                             <a href="{{ route('admin_figure') }}"><span>Исторические личности</span></a>
+							 </li>
+							 
+							 
                         </ul>
                     </li>
-</li>
+               </li>
 
 	   
                   

@@ -8,7 +8,7 @@ class Gid extends ModelParent {
     protected $table = 'gids';
 	
 	
-    protected $fillable = [ 'photo','vosrast','opyt','name','description','user_id','city_id','spec_id','phone','imya','price','oplata'];
+    protected $fillable = [ 'photo','vosrast','opyt','name','description','user_id','city_id','spec_id','phone','imya','price','oplata_cposob'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

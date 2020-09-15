@@ -7,7 +7,7 @@ use Modules\Entity\Traits\CheckTrans;
 class TransGid extends ModelParent {
     protected $table = 'trans_gids';
 	 protected $table_ru = 'gids';
-    protected $fillable = [ 'el_id', 'lang', 'description','name','imya','oplata'];
+    protected $fillable = [ 'el_id', 'lang', 'description','name'];
     //use CheckTrans;
 
     function getTransTableNameAttribute(){

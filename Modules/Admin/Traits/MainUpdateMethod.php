@@ -10,7 +10,6 @@ trait MainUpdateMethod  {
     public function update(Request $request, ModelParent $item) {
 		
 
-  //dd($item->relTrans());
 
  
 	

@@ -2,9 +2,9 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'login', 'email', 'password','type_id'
+        'email', 'password', 'type_id', 'name', 'photo',
     ];
 
     /**
@@ -36,96 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-	
-	
-	
-	
-	
-	
 
-	
-	//  'string'  array('View_Admin','ADD_ARTICLES')
-	//
-	public function canDo($permission, $require = FALSE) {
-		if(is_array($permission)) {
-			foreach($permission as $permName) {
-				
-				$permName = $this->canDo($permName);
-				if($permName && !$require) {
-					return TRUE;
-				}
-				else if(!$permName  && $require) {
-					return FALSE;
-				}				
-			}
-			
-			return  $require;
-		}
-		else {
-			foreach($this->roles as $role) {
-				foreach($role->perms as $perm) {
-					//foo*    foobar
-					if(str_is($permission,$perm->name)) {
-						return TRUE;
-					}
-				}
-			}
-		}
-	}
-	
-	// string  ['role1', 'role2']
-	public function hasRole($name, $require = false)
-    {
-        if (is_array($name)) {
-            foreach ($name as $roleName) {
-                $hasRole = $this->hasRole($roleName);
-
-                if ($hasRole && !$require) {
-                    return true;
-                } elseif (!$hasRole && $require) {
-                    return false;
-                }
-            }
-            return $require;
-        } else {
-            foreach ($this->roles as $role) {
-                if ($role->name == $name) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+    function getTypeNameAttribute(){
+        if ($this->type_id == 1)
+            return 'Администратор';
     }
-	
-	
-	
-	
-	
-	
-	
-	/*связи*/	
-	
-	public function articles() {
-		return $this->hasMany('App\Article','user_id');
-	}
-	
-	
-	public function roles() {
-		return $this->belongsToMany('App\Role','role_user','user_id','role_id');
-	}
-	public function rooms(){
-		return $this->belongsToMany('App\Room','room_user','user_id','rom_id'); 
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+    function relStudentData(){
+        return $this->hasOne('Modules\Entity\Model\StudentData\StudentData', 'user_id');
+    }
+
+    
+ 
 }

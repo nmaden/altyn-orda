@@ -50,6 +50,7 @@ class RouteServiceProvider extends ServiceProvider
 		  Route::model('about', \Modules\Entity\Model\About\About::class);
 		  Route::model('tabs', \Modules\Entity\Model\Tabs\Tabs::class);
 		  Route::model('coords', \Modules\Entity\Model\Coords\Coords::class);
+		  Route::model('figure', \Modules\Entity\Model\Figure\Figure::class);
 
 
     }

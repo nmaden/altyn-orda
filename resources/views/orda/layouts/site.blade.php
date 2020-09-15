@@ -8,6 +8,8 @@ $cssVersion="3.5.0";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="yandex-verification" content="8ab38dcdf1f460b8" />
+	<meta name="google-site-verification" content="XOJCIgW2Eb8cs58_E8VPLdS1fWWDVHvdTq2Yusuab5A" />
 	
     <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">

@@ -44,11 +44,7 @@ class ModelParent extends Model {
          return $v;
 		}
 		
-		
-		
-		
-		
-        if($lang!=false){
+		if($lang!=false){
 			if($lang){
 				$this->lang = $lang;
 			}
@@ -63,11 +59,11 @@ class ModelParent extends Model {
 			 return $v;
 		 }
 			 
-			 
+		
 			
 		$table_name = $this->getTable();
         if (strpos($table_name, 'lib_') !== false){
-			$this->tab();
+			
             $lang = $this->relTrans()->where(['lang'=>$this->lang])->first();
             if (!$lang){
                 $lang =  $this->relTrans()->updateOrCreate([
@@ -79,11 +75,11 @@ class ModelParent extends Model {
             
         }
         else{
-		
+		$this->tab();
 		
   
           $lang = $this->relTrans()->firstOrCreate(['lang'=>$this->lang]);
-		//$lang = $this->relTrans()->where(['lang'=>$this->lang])->first();
+		
 
 		}
         if (!$lang->{$field}){

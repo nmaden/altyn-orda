@@ -45,7 +45,7 @@ function getCoordsAr(){
 }		
 
 
-	function getCityAr(){
+function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 
 		

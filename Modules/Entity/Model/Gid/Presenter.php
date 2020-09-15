@@ -34,16 +34,7 @@ trait Presenter {
 		
 		return $this->getTransField('name', $v);
     }
-      function getImyaAttribute($v){
-		
-		return $this->getTransField('imya', $v);
-    }
-	
-	  function getOplataAttribute($v){
-		
-		return $this->getTransField('oplata', $v);
-    }
-	
+    
 
 }
 

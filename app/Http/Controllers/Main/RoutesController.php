@@ -66,6 +66,7 @@ class RoutesController extends SiteController
 	  
 	  $gids = $this->getTabs();
 	  $coords = $routes->coords->sortBy('undex_coord')->toArray();
+	 
 	  $count = count($coords);
 		   if($count <=0 ){
 			   $php_json = 0;

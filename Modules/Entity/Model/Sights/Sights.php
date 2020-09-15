@@ -8,7 +8,7 @@ class Sights extends ModelParent {
     protected $table = 'sights';
 	
 	
-    protected $fillable = [ 'photo','coord','name','description','user_id','city_id','introtext','date','props_3','subtitle','props_5','price','video','coord_name','longitude','latitude'];
+    protected $fillable = [ 'photo','coord','name','description','user_id','city_id','props_1','props_2','props_3','props_4','props_5','price','video','coord_name'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

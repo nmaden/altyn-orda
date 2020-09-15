@@ -229,12 +229,39 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 			   
 			     Route::get('view/{tabs}', 'TabsController@show')
                ->name('admin_tabs_show');
+			   });
+	
+	
+	
+	Route::group(['prefix' => 'figure', 'namespace' => 'Figure'], function () {
+          Route::get('/', 'FigureController@index')
+             ->name('admin_figure');
+
+	       Route::get('create', 'FigureController@create')
+                ->name('admin_figure_create');
+				
+			  Route::post('create', 'FigureController@saveCreate')
+               ->name('admin_figure_create_save');
 			   
+			  Route::get('update/{figure}', 'FigureController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_figure_update');
 			   
+			   Route::post('update/{figure}', 'FigureController@saveUpdate')
+               ->name('admin_figure_update_save');
 			   
+			   Route::get('delete/{figure}', 'FigureController@delete')
+               ->name('admin_figure_delete');
 			   
-       
-	    });
+			     Route::get('view/{figure}', 'FigureController@show')
+               ->name('admin_figure_show');
+			   });
+	
+	
+	
+	
+	
+	
 	
 	
 	  });

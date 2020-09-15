@@ -7,6 +7,11 @@ return [
 	'gallery_show'=>'Просмотр',
 	'gallery_create'=>'Создание',
 	
+	'figure_update'=>'Обновление',
+	'figure'=>'Исторические личности',
+	'about_show'=>'Просмотр',
+	'about_create'=>'Создание',
+	
 	'about_update'=>'Обновление',
 	'about'=>'О золотой орде',
 	'about_show'=>'Просмотр',

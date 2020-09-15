@@ -27,10 +27,7 @@ class Routes extends ModelParent {
     }
 	
 
-	function relApplication(){
-        return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
-    }
-
+	
 	
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\Routes\TransRoutes', 'el_id');

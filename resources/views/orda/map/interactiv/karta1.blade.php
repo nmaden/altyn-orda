@@ -1,7 +1,7 @@
 <script>
 
 
-	var keys = Object.keys(json_model);
+	
      var ar =[];
         keys.forEach(key=>{
 			
@@ -109,7 +109,7 @@ var size = keys.length;
         var coord_a_1 = coord.substr(0,index);
         var coord_a_2 = coord.substr(index+1);
 		var coord_name = json_model[key].coord_name;
-		
+		coord_name = coord_name.replace(/\+/g, ' ');
 			if((size-1) == key){
 				
 				var t='<div class="route__miker--block route__miker--active"><div class="route__miker--m"><img src="/img/bus-4.svg" alt=""></div><div class="route__miker--title">'+coord_name+'</div></div>'

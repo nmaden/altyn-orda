@@ -20,8 +20,8 @@ Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2'
 Route::any('drobsone',['uses' => 'DrobsoneController@index'])->name('drobsone');
 
 
-
-Route::group(['prefix' => LocalizationService::locale(), 'namespace' => 'Main','middleware' => 'setLocale'], function () {
+//'prefix' => LocalizationService::locale(),
+Route::group(['namespace' => 'Main','middleware' => 'setLocale'], function () {
 	
 Route::resource('/articles','Admin\ArticlesController');
 Route::any('/show',['uses' => 'Admin\ArticlesController@articlesadd'])->name('show');
@@ -49,11 +49,13 @@ Route::get('sights-map',['uses' => 'MapController@sights'])->name('sights-map');
 Route::get('routes-map',['uses' => 'MapController@routes'])->name('routes-map');
 
 //o-nas
+ Route::group(['prefix' => 'gid', 'namespace' => 'Gid'], function () {
+	 
+ });
 Route::get('about',['uses' => 'AboutController@index'])->name('about');
-//Route::get('about/figures',['uses' => 'AboutController@figures'])->name('about-figures');
-Route::get('about/figures', function() {
-      return view('orda'.'.about-figures');
-});
+Route::get('about/figures',['uses' => 'FiguresController@index'])->name('about/figures');
+
+
 
 //достопримечательности
 Route::get('sights',['uses' => 'SightController@index'])->name('sights');

@@ -38,7 +38,9 @@ class DefaultUpdateAction {
         else {
             unset($ar['photo']);
 		}
-      
+          $ar['edited_user_id'] = $this->request->user()->id;
+
+	     //dd($this->request->all());
         $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
 
         //dd($this->model->photo);

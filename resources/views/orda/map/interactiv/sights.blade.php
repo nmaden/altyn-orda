@@ -1,7 +1,6 @@
   <script>
  
 	
-    var keys = Object.keys(json_model);
 	var sights =[];
 	var routes =[];
         function Ad(id,coordinates,title,photo,linck){
