@@ -16,6 +16,9 @@
 	
 	<link href="/admin-asset/assets/css/colors.css" rel="stylesheet" type="text/css">
 	<link href="/vendor/footable.bootstrap.min.css" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/admin-asset/drobsone/css/dropzone.css">
+
 	<!-----
 	<link href="/admin-asset/assets/custom.css" rel="stylesheet" type=
 	"text/css">
@@ -33,6 +36,7 @@
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/loaders/pace.min.js"></script>
 	------>
 	
+
 	
 	<script type="text/javascript" src="/admin-asset/assets/js/core/libraries/jquery.min.js"></script>
 	
@@ -67,9 +71,9 @@
 	
 
 
-    <!-------
+   
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/forms/styling/uniform.min.js"></script>
-	---------->
+	
 	
     <!------
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
@@ -99,9 +103,10 @@
 	<script type="text/javascript" src="/vendor/footable.min.js"></script>
 	<!---<script type="text/javascript" src="/admin-asset/custom/js/main.js"></script>---->
 	
+	<script type="text/javascript" src="/admin-asset/drobsone/js/main.js"></script>
 
 
-
+  <script type="text/javascript" src="/admin-asset/drobsone/js/main.js"></script>
 
 @yield('script')
 
