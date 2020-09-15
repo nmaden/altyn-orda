@@ -16,26 +16,47 @@
 	
 	<link href="/admin-asset/assets/css/colors.css" rel="stylesheet" type="text/css">
 	<link href="/vendor/footable.bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!-----
 	<link href="/admin-asset/assets/custom.css" rel="stylesheet" type=
 	"text/css">
+	------>
+	<!----
 	<link href="/admin-asset/js/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css">
+	----->
+	<!----
     <link href="/admin-asset/js/syntaxhighlighter/styles/shthemeemacs.css" rel="stylesheet" type="text/css">
+	----->
     @section('css_block')
     @show
     
+	<!-----
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/loaders/pace.min.js"></script>
+	------>
+	
+	
 	<script type="text/javascript" src="/admin-asset/assets/js/core/libraries/jquery.min.js"></script>
+	
+	
 	<script type="text/javascript" src="/admin-asset/assets/js/core/libraries/bootstrap.min.js"></script>
 	
+    <!--------работа выпод меню------->
+	<script type="text/javascript" src="/admin-asset/assets/tokenfield.min.js"></script>
 	
-		<script type="text/javascript" src="/admin-asset/assets/tokenfield.min.js"></script>
-		<script type="text/javascript" src="/admin-asset/assets/form_tags_input.js"></script>
-
+	
+	<script type="text/javascript" src="/admin-asset/assets/form_tags_input.js"></script>
+	
+   <!---------------
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/loaders/blockui.min.js"></script>
-	<script type="text/javascript" src="/admin-asset/assets/js/plugins/forms/selects/select2.min.js"></script>
+	--------------->
 	
+	<!----мультиселект---->
+	<script type="text/javascript" src="/admin-asset/assets/js/plugins/forms/selects/select2.min.js"></script>
 
+
+    <!----- текстовый редактор wysihtml5
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/editors/wysihtml5/wysihtml5.min.js"></script>
+	
+	
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/editors/wysihtml5/toolbar.js"></script>
 	
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/editors/wysihtml5/parsers.js"></script>
@@ -43,7 +64,7 @@
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/editors/wysihtml5/locales/bootstrap-wysihtml5.ua-UA.js"></script>
 	
 	<script type="text/javascript" src="/admin-asset/assets/js/pages/editor_wysihtml5.js"></script>
-	
+	------->
 
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/forms/styling/uniform.min.js"></script>
 	

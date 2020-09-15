@@ -30,8 +30,11 @@
   latest release (https://github.com/enyo/dropzone/releases/latest), and
   host them yourself!
 -->
-<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
-<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+<script type="text/javascript" src="/admin-asset/drobsone/js/dropzone.js"></script>
+	
+<link rel="stylesheet" href="/admin-asset/drobsone/css/style.css">
+
+<link rel="stylesheet" href="/admin-asset/drobsone/css/dropzone.css">
 
 
 <p>
@@ -39,14 +42,29 @@
   doesn't work, because there is no actual server to handle the file upload.
 </p>
 
-<!-- Change /upload-target to your upload address -->
-<form action="/upload-target" class="dropzone"></form>
+<!-- Change /upload-target to your upload address 
+<form action="/file-upload" class="dropzone" id="my-amesome-dropzone"></form>
+    </div>
+
+-->
+	<form action="{{route('drobsone-send')}}" method='post' enctype="multipart/form-data"> 
+                    <div class="col-md-12">
+					  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="file" name="upload"/>
+                           <textarea name="editor1" id="editor1">
+                           </textarea>
+						   <div id="file" name='file' class="upload"></div>
+                   </div>
+				   
+				   <input type='submit' value='отправить'/>
+				   </form>
+<!---<form action="/upload-target" class="dropzone"></form>--->
     </div>
 	
-<script>
 
-</script>
 
 
 </body>
+	<script type="text/javascript" src="/admin-asset/drobsone/js/main.js"></script>
+
 </html>

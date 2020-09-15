@@ -18,6 +18,7 @@ Route::get('efinder',['uses' => 'CkeditorController@index'])->name('efinder');
 Route::post('efinder2',['uses' => 'CkeditorController@index2'])->name('efinder2');
 Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
 Route::any('drobsone',['uses' => 'DrobsoneController@index'])->name('drobsone');
+Route::any('drobsone-send',['uses' => 'DrobsoneController@send'])->name('drobsone-send');
 
 
 //'prefix' => LocalizationService::locale(),

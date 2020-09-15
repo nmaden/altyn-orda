@@ -18,7 +18,7 @@ class CalendarUpdateAction {
     function run(){
         $this->saveMain();
 		if($this->request->lang_id){
-			echo 500;exit();
+			
 		$this->saveLang();
 	   }
     }
