@@ -474,6 +474,11 @@
         height: 100px;
         opacity: 1;
     }
+
+    .figures__page--img {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
