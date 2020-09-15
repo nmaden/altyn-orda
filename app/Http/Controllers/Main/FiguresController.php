@@ -39,27 +39,15 @@ class FiguresController extends SiteController
 		return $this->renderOutput();
 
     }
-	public function item(Request $request,Routes $routes)
+	public function item(Request $request)
     {
 	  
-	  $gids = $this->getTabs();
-	  $coords = $routes->coords->sortBy('undex_coord')->toArray();
 	 
-	  $count = count($coords);
-		   if($count <=0 ){
-			   $php_json = 0;
-		   }else{
-			  $php_json = urlencode(json_encode($coords));
+	 
+	   $figures_item = view('orda' . '.figures.figures-item')->render();
 
-		   }
-		   
-	   $item_page = view('orda'.'.routes.route-item')->with([
-	   'item'=>$routes,
-	   'gid'=>$gids,
-	   'php_json'=>$php_json
-	   ])->render();
 	  
-	    $content=$item_page;
+	    $content= $figures_item;
         $this->vars['content']= $content;
         $this->keywords = '';
 		
