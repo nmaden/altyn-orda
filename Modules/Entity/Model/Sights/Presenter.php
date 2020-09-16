@@ -45,13 +45,25 @@ trait Presenter {
     }
 */
 	
+	function getNameAttribute($v){
+		return $this->getTransField('name', $v);
+	  }
 	
 	function getDescriptionAttribute($v){
-		
 		return $this->getTransField('description', $v);
+	  }
 	  
-
-    }
+	function getSubtitleAttribute($v){
+		return $this->getTransField('subtitle', $v);
+	  }
+	  
+	function getIntrotextAttribute($v){
+		return $this->getTransField('introtext', $v);
+	  }
+	  
+	function getDateAttribute($v){
+		return $this->getTransField('date', $v);
+	  }
 	/*
 	  function getDegreeAr(){
         return LibDegree::pluck('name', 'id')->toArray();

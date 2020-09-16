@@ -12,6 +12,11 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'uploads2','drobsone-send'
+        'uploads2',
+		'drobsone-send',
+		'drobsone-send2',
+		'drobsone-remove',
+		'slider-remove',
+		
     ];
 }

@@ -29,7 +29,7 @@ $categories = DB::table('gid_speacialisations')->get();
 @else
 value='{{$model->imya ? $model->imya : ''}}' 
 @endif
-name='imya' placeholder="Имя" class="form-control"></input>
+name='imya' placeholder="Имя(текс)" class="form-control"></input>
 @if ($errors->has('imya'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('imya') }}</strong>
@@ -54,7 +54,7 @@ name='imya' placeholder="Имя" class="form-control"></input>
 @else
 value='{{isset($model->name) ? $model->name : ''}}' 
 @endif
-name='name' placeholder="{{$page ? '': 'Туристический гид'}}" class="form-control"></input>
+name='name' placeholder="{{$page ? '': 'Туристический гид(текст)'}}" class="form-control"></input>
 @if ($errors->has('name'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>

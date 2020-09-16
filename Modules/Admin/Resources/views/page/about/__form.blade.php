@@ -26,8 +26,6 @@ class="form-control"/>
 <br><br>
 <div style='padding:10px 5px;'> 
 <label for="text"><b>Текст</b></label> 
-
-
 <textarea 
  {{$page ? 'disabled': ''}}
  value="" 

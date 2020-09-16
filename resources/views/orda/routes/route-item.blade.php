@@ -29,18 +29,20 @@
 
                 <div class="page__gallery--slider">
                     <div class="swiper-wrapper">
-
-                                   <div class="swiper-slide">
+	 @if($item->imgphoto !='')
+     @foreach($item->img_photo as $v)
+                  <div class="swiper-slide">
                             <div class="page__gallery--item">
                                 <div class="page__gallery--img">
-                                   @if(isset($item->photo))
+                                   @if(isset($v))
 		
-            <img src="{{URL::asset($item->photo)}}" alt="">
+            <img src="{{URL::asset($v)}}" alt="">
 		@endif
                                 </div>
                             </div>
                         </div>
-                     
+           @endforeach
+		   @endif
                      
                      
 

@@ -41,7 +41,7 @@ $categories = DB::table('categories')->get();
 <div>
  <label for="title"><b>Заголовок</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
-value='{{isset($model->name) ? $model->name : ''}}' name='name' placeholder="заголовок" class="form-control"></input>
+value='{{isset($model->name) ? $model->name : ''}}' name='name' placeholder="заголовок(текст)" class="form-control"></input>
 @if ($errors->has('name'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>

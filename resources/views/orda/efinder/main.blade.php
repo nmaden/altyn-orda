@@ -32,7 +32,7 @@
            </div>
     </div>
 	
-	 <script src="/ckeditor/ckeditor.js" 
+<script src="/ckeditor/ckeditor.js" 
 type="text/javascript" charset="utf-8" ></script>
 <script>
 	

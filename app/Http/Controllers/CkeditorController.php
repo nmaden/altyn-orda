@@ -45,13 +45,19 @@ $array1[1]=	'<img alt="" src="/store/test/2020/09/13/16000189409.jpg" style="hei
 	
 	
 public function uploads(Request $request){
-	
+//$request->session()->forget('editor');
+//$request->session()->save();
+ //$request->session()->push('editor.'.$request->session()->getId(),55);
+
+//Cache::put('menu2',$arr);	
+	//dd($request->session()->get('editor'));
+	//echo $request->session()->getId();exit();
 $file = $request->file('upload');
 $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
-
-$url = '/store/test/'.date('Y').'/'.date('m').'/'.date('d').'/'.$file_name;
-
-$file_path = $file->storeAs('/store/test/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
+$papka_save = 'editor';
+$url = '/store/'.$papka_save.'/'.date('Y').'/'.date('m').'/'.date('d').'/'.$file_name;
+$request->session()->put('editor');
+$file_path = $file->storeAs('/store/'.$papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
 
 
 echo json_encode(array('uploaded'=>1,

@@ -1,6 +1,5 @@
 <?php
 use Illuminate\Support\Str;
- $domen = trim($_SERVER['HTTP_HOST']);
 
 return [
 
@@ -151,7 +150,7 @@ return [
     | available to in your application. A sensible default has been set.
     |
     */
-    'domain' => $domen,
+    'domain' =>  env('SESSION_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,7 +163,8 @@ return [
     |
     */
 
-    'secure' => false,
+    'secure' => env('SESSION_SECURE_COOKIE'),
+
 
     /*
     |--------------------------------------------------------------------------

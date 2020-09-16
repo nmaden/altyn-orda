@@ -3,6 +3,7 @@
 /public/storage
 /config/session.php
 /storage/*.key
+/storage/framework/sessions/*
 /vendor
 .env
 .phpunit.result.cache

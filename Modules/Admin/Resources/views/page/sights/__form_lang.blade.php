@@ -12,7 +12,7 @@ if(in_array('show',$ar)){
 <label for="title"><b>Название</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
-name='name' placeholder="заголовок" 
+name='name' placeholder="заголовок(текст)" 
 class="form-control"/>
 </div>
 
@@ -25,7 +25,7 @@ type="text"
 value="{{isset($model->subtitle) ? $model->subtitle: ''}}"
 name='subtitle' 
 class="form-control"
-placeholder="Это важный исторический памятник Золотой Орды"
+placeholder="Это важный исторический памятник Золотой Орды(текст)"
 />
 </div>
 
@@ -36,7 +36,7 @@ placeholder="Это важный исторический памятник Зо�
 <input {{$page ? 'disabled': ''}} 
 type="text" value='{{$model->introtext}}' 
 name='introtext' 
-placeholder="3D тур" 
+placeholder="3D тур(текст)" 
 value="{{isset($model->introtext) ? $model->introtext : ''}}"
 class="form-control"/>
 </div>
@@ -51,7 +51,7 @@ class="form-control"/>
  type="text" 
  value='{{isset($model->date) ? $model->date : ''}}' 
  name='date' 
- placeholder="пример: X—XI вв." 
+ placeholder="пример: X—XI вв.(текст)" 
  class="form-control"/>
 </div>
 

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 trait MainUpdateMethod  {
     public function update(Request $request, ModelParent $item) {
 		
+		if($request->session()->has('img')){
+			$request->session()->forget('img');
+			$request->session()->save();
+		}
 
 
  
@@ -27,7 +31,11 @@ trait MainUpdateMethod  {
     }
 
     public function saveUpdate(Request $request, ModelParent $item) {
-		
+
+
+
+
+
 
     if ($request->lang && $request->lang != 'ru'){
 	
@@ -45,7 +53,10 @@ trait MainUpdateMethod  {
 			
             return redirect()->back()->with('error', $e->getMessage());
         }
-        
+        if($request->lang){
         return redirect()->route($this->route_path.'_update', $item->id.'?lang='.$request->lang)->with('success', trans('main.updated_model'));
+		}else{
+		  return redirect()->route($this->route_path.'_update', $item)->with('success', trans('main.updated_model'));
+		}
     }
 }

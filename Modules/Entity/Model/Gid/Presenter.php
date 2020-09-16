@@ -26,12 +26,16 @@ trait Presenter {
     }
 	
 
+
+    function getImyaAttribute($v){
+		return $this->getTransField('imya', $v);
+	  }
+	  
     function getDescriptionAttribute($v){
 		return $this->getTransField('description', $v);
 	  }
 	  
       function getNameAttribute($v){
-		
 		return $this->getTransField('name', $v);
     }
     

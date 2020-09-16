@@ -29,7 +29,7 @@ class="form-control"/>
 <label for="title"><b>Большой заголовок</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
-name='name' placeholder="заголовок" 
+name='name' placeholder="заголовок(текст)" 
 class="form-control"/>
 </div>
 <div>  
@@ -37,6 +37,6 @@ class="form-control"/>
 <label for="title"><b>Второй заголовок</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->description) ? $model->description: ''}}" 
-name='description' placeholder="заголовок" 
+name='description' placeholder="заголовок(текст)" 
 class="form-control"/>
 </div>

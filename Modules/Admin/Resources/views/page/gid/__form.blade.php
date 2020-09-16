@@ -38,7 +38,7 @@ $categories = DB::table('gid_speacialisations')->get();
 @else
 value='{{$model->imya ? $model->imya : ''}}' 
 @endif
-name='imya' placeholder="Имя" class="form-control"></input>
+name='imya' placeholder="Имя(текст)" class="form-control"></input>
 @if ($errors->has('imya'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('imya') }}</strong>
@@ -53,7 +53,7 @@ name='imya' placeholder="Имя" class="form-control"></input>
 <label for="title"><b>Возраст</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->vosrast) ? $model->vosrast : ''}}'
  name='vosrast' 
- placeholder="Возраст" class="form-control"></input>
+ placeholder="Возраст(цифра)" class="form-control"></input>
  @if ($errors->has('vosrast'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('vosrast') }}</strong>
@@ -72,7 +72,7 @@ value="{{isset(Session::get('old')['opyt']) ? Session::get('old')['opyt'] : ''}}
 	value="{{isset($model->opyt) ? $model->opyt : ''}}"
 @endif
 
- name='opyt' placeholder="Опыт работы" class="form-control"></input>
+ name='opyt' placeholder="Опыт работы(текст)" class="form-control"></input>
 @if ($errors->has('opyt'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
@@ -90,10 +90,10 @@ value="{{isset(Session::get('old')['opyt']) ? Session::get('old')['opyt'] : ''}}
 @else
 	value="{{isset($model->phone) ? $model->phone : ''}}" 
 @endif
-name='phone' placeholder="Телефон" class="form-control"></input>
+name='phone' placeholder="Телефон(текст)" class="form-control"></input>
 </div>
 
-
+<br><br>
 
 <div>  
  <label for="title"><b>Тип гида</b></label> 
@@ -104,7 +104,7 @@ name='phone' placeholder="Телефон" class="form-control"></input>
 @else
 value='{{isset($model->name) ? $model->name : ''}}' 
 @endif
-name='name' placeholder="{{$page ? '': 'Туристический гид'}}" class="form-control"></input>
+name='name' placeholder="{{$page ? '': 'Туристический гид(текст)'}}" class="form-control"></input>
 @if ($errors->has('name'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>
@@ -139,37 +139,8 @@ value=1
 </select>
 </div> 
 
-<br><br>
-
-
-<div>
-<label for="text"><b>Языки: выбрать один или несколько </b></label> 
-<select name="lang_id[]" 
- id="{{ isset($id) ? $id : '' }}" 
- class="form-control select2"   
- {{$page ? 'disabled': ''}}
- multiple
-     >
-@foreach ($model->getLangAr() as $k => $v)
-<option 
-value="{{ $k }}" 
-{{ is_array($model->sights) && in_array($k, $model->ar_lang_id) ? 'selected' : '' }}
->{{ $v }}</option>
-            @endforeach
-        </select>
-</div> 
-
 
 <br><br>
-
-
-
-
-
-
-
-
-
 
 <div>  
 <label for="text"><b>Текст</b></label> 

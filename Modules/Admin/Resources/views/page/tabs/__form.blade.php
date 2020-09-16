@@ -20,7 +20,8 @@ if(in_array('show',$ar)){
  name='description' 
   rows="16" 
  cols="4" 
- class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+ id="editor1"
+ class="form-control {{$page ? '' : ''}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
 </div>

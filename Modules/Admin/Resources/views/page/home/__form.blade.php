@@ -52,7 +52,7 @@ value="{{ $k }}"
  <label for="title"><b>Дата</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->date) ? $model->date: ''}}" 
-name='date' placeholder="{{$page ? '': '1269'}} " 
+name='date' placeholder="{{$page ? '': '1269(текст)'}} " 
 class="form-control"/>
 </div>
 @endif
@@ -70,7 +70,7 @@ class="form-control"/>
 <label for="title"><b>Заголовок</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
-name='name' placeholder="заголовок" 
+name='name' placeholder="заголовок(текст)" 
 class="form-control"/>
 </div>
 

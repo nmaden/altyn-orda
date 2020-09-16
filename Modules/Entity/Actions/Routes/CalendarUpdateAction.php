@@ -26,8 +26,8 @@ class CalendarUpdateAction {
 	
         $ar = $this->request->all();
 		$ar['user_id'] = $this->request->user()->id;
-    
-	 	if ($this->request->has('photo')){
+  
+	 	if ($this->request->has('photo') && is_array(!$this->request->photo)){
 			
 			if(is_file(public_path($this->model->photo))){
 	          Storage::delete($this->model->photo);
@@ -38,13 +38,19 @@ class CalendarUpdateAction {
             unset($ar['photo']);
 		}
       
-      
-        //dd($this->model->photo);
-        $this->model->fill($ar);
-		if(isset($this->request->category_id)){
-        $this->model->category_id = $this->request->category_id;
-		}
-        $this->model->save();
+
+
+  
+if($this->request->session()->has('img')) {
+    $photo1 = $this->request->session()->get('img');
+    $photo = array_diff($photo1,array(''));
+    $ar['photo'] = serialize($photo);
+	
+    $this->request->session()->forget('img');
+    $this->request->session()->save();
+}
+$this->model->fill($ar);
+$this->model->save();
     }
 
    function saveCoords(){

@@ -41,7 +41,7 @@ class="form-control"/>
 <label for="title"><b>Название</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
-name='name' placeholder="{{$page ? '': 'Заголовок(текст)'}} " 
+name='name' placeholder="{{$page ? '': 'Заголовок'}} " 
 class="form-control"/>
 </div>
 
@@ -54,7 +54,7 @@ type="text"
 value="{{isset($model->subtitle) ? $model->subtitle : ''}}"
 name='subtitle' 
 class="form-control"
-placeholder="{{$page ? '': 'О маршруте(текст)'}} "
+placeholder="{{$page ? '': 'О маршруте'}} "
 />
 </div>
 <br><br>
@@ -86,15 +86,38 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 <!--время посещения--->
 <div> 
 <label for="title"><b>Время посещения</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->props_3) ? $model->props_3 : ''}}' name='props_3' placeholder="{{$page ? '': 'Например 2(текст)'}} " class="form-control"/>
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->props_3) ? $model->props_3 : ''}}' name='props_3' placeholder="{{$page ? '': 'Например 2'}} " class="form-control"/>
 </div>
+<br><br>
 
+
+
+@if($model->photo !='')
+	@php
+
+$photo = unserialize($model->photo);
+@endphp
+@foreach($photo as $item)
+<div class='rm'>
+<input type="hidden" name="photo[]" value="{{$item}}"/>
+
+ уже загружено <a href="{{URL::asset($item)}}" target="_blank">
+просмотреть</a>&nbsp&nbsp
+<a href="{{$item}}" id="{{$model->id}}" target="_blank" class='slider_remove'>
+удалить</a>
+ </br>
+ </div>
+@endforeach
+@endif
+
+ <div id="file" name='file' class="upload"></div>
+ <div class='preview'></div>
 <br><br>
 
 
 <div> 
 <label for="title"><b>Стоимость</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->price) ? $model->price : ''}}' name='price' placeholder="цифра" class="form-control"/>
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->price) ? $model->price : ''}}' name='price' placeholder="Стоимость" class="form-control"/>
 </div>
 
 

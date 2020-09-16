@@ -50,7 +50,9 @@ function getCityAr(){
 
 		
     }
-	
+	function getImgPhotoAttribute($v){
+		return unserialize($this->photo);
+    }
 
   function getNameAttribute($v){
 		return $this->getTransField('name', $v);

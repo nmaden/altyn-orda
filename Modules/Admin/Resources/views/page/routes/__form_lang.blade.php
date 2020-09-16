@@ -23,7 +23,7 @@ $categories = DB::table('routes_categories')->get();
 <label for="title"><b>Название</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
-name='name' placeholder="{{$page ? '': 'Заголовок'}} " 
+name='name' placeholder="{{$page ? '': 'Заголовок(текст)'}} " 
 class="form-control"/>
 </div>
 
@@ -36,7 +36,7 @@ type="text"
 value="{{isset($model->subtitle ) ? $model->subtitle  : ''}}"
 name='subtitle' 
 class="form-control"
-placeholder="{{$page ? '': 'О маршруте'}} "
+placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 />
 </div>
 <br><br>
