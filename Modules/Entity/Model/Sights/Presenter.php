@@ -2,7 +2,7 @@
 namespace Modules\Entity\Model\Sights;
 
 use Modules\Entity\Model\LibCity\LibCity;
-
+use Illuminate\Http\Request;
 //use Modules\Entity\Model\LibRequirement\LibRequirement;
 
 use Cache;

@@ -8,7 +8,12 @@ class Filter extends ModelFilter {
 		
 		$request  = $this->request;
 		 
-      		 		// dd($request->all());
+      		 	//dd($request->all());
+	
+		if ($this->request->routes && $this->request->routes !='0'){			
+            $this->query->where('id', $request->routes);
+		}
+	
 /*
 		if ($this->request->regions && $this->request->regions !='0'){			
             $this->query->where('city_id', $request->regions);

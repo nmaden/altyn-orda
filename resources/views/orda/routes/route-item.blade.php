@@ -29,7 +29,7 @@
 
                 <div class="page__gallery--slider">
                     <div class="swiper-wrapper">
-	 @if($item->imgphoto !='')
+	 @if(isset($item->imgphoto) && is_array($item->imgphoto))
      @foreach($item->img_photo as $v)
                   <div class="swiper-slide">
                             <div class="page__gallery--item">

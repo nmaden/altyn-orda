@@ -32,20 +32,18 @@ public function routes(Request $request){
 	   $sights_lib= $filter['sights'];
 	   $routes_lib = $filter['routes'];
 	
-	   //dd($request->all());
-	   $routes_f = Routes::filter($request)->latest()->paginate();
+       $routes_f = Routes::filter($request)->latest()->paginate();
+	   
+
        $request->sights=false;
 	   $request->regions=false;
 
 	   $php_json = 0;
 	   $count =0;
+	   //dd($routes_f[0]->coords);
 	   if(count($routes_f) > 0){
-	  
-		   $arr = $routes_f[0]->coords->sortBy('undex_coord')->toArray();
-	   
-	   		
-
-	   	$count = count($arr);
+	      $arr = $routes_f[0]->coords->sortBy('undex_coord')->toArray();
+	   $count = count($arr);
 		   if($count > 0 ){
 			   $php_json = urlencode(json_encode($arr));
 
@@ -82,21 +80,12 @@ public function routes(Request $request){
 	   $sights_lib= $filter['sights'];
 	   $routes_lib = $filter['routes'];
 	   
-	  $request->routes=false;
+	    $request->routes=false;
 
 
 	   $city_f = Sights::filter($request)->latest()->paginate();
-
-
-
-     
-	   //dd($city_f);
-	   	//dd($request->all());
-	   	//dd($city_f->toArray()['data']);
-
-      
-       $city_f= $city_f->toArray()['data'];
-	   $count = count($city_f);
+		$city_f = $city_f->where('coord', '!=', '');
+		$count = count($city_f);
 		   if($count <=0 ){
 			   $php_json = 0;
 		   }else{
@@ -134,12 +123,10 @@ public function routes(Request $request){
 		$city = $filter['city'];
 	    $sights_lib = $filter['sights'];
 	    $routes_lib = $filter['routes'];
-        //dd($routes_lib);
-		
-		//$home = Home::take(1)->first();
-
-		$city_f = Sights::filter($request)->latest()->paginate();
-	    $city_f= $city_f->toArray()['data'];
+        $city_f = Sights::filter($request)->latest()->paginate();
+		$city_f = $city_f->where('coord', '!=', '');
+		//dd($city_f);
+	    //$city_f= $city_f->toArray()['data'];
         $php_json = urlencode(json_encode($city_f));
         $ids =0;
 		        

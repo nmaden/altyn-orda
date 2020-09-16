@@ -33,16 +33,21 @@ class IndexController extends SiteController
     public function index(Request $request)
     {
 		
-		
-		//$home = Home::take(1)->first();
 		$home_all=Home::get();
-		//$arr= $home_all->union([3 => ['c'], 4 => ['b']]);
-		//dd($arr);
-		//slice()
+		
+		$home = $home_all->shift();
+		
+		$city_f = $home->sights->where('coord', '!=', '');
+		//dd($city_f);
+		$count = count($city_f);
+		 if($count <=0 ){
+			   $php_json = 0;
+		   }else{
+			  $php_json = urlencode(json_encode($city_f));
+
+		   }
 		
 		
-		$home= $home_all->shift();
-		//dd($home_all);
 		$calenderItems = $this->getCalendar();
         $gid = $this->getTabs();
 		
@@ -55,6 +60,7 @@ class IndexController extends SiteController
 		'gid'=>$gid,
 		'home'=>$home,
 		'home_all'=>$home_all,
+		'php_json'=>$php_json
 		])->render();
 		
 		

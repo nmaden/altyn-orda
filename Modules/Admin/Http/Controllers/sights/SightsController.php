@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Traits\MainCrudMethod;
 
-use Modules\Entity\Actions\Calendar\CalendarSaveAction as ModelCreateAction;
-use Modules\Entity\Actions\Calendar\CalendarUpdateAction as ModelUpdateAction;
+use Modules\Entity\Actions\Sights\CalendarSaveAction as ModelCreateAction;
+use Modules\Entity\Actions\Sights\CalendarUpdateAction as ModelUpdateAction;
 use Modules\Entity\Actions\MainSaveAction as ModelSaveLangAction;
-use Modules\Entity\Actions\Calendar\CalendarDeleteAction as ModelDeleteAction;
+use Modules\Entity\Actions\Sights\CalendarDeleteAction as ModelDeleteAction;
 
 use Modules\Entity\Model\Sights\Sights as Model;
 

@@ -80,6 +80,7 @@
 
                 <div class="sights__block">
                     <div class="row">
+				
                   @foreach($items as $item)
                         <div class="col-lg-4 col-md-6">
                             <div class="sights__item">

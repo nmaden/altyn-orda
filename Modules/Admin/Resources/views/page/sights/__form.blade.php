@@ -159,14 +159,14 @@ type="text"/>
 
  <label>Широта (latitude): </label>
  <input id="latitude" 
- value="{{ isset($model->address2[0]) ? $model->address2[0]: 59.9342802
+ value="{{ isset($model->latitude) ? $model->latitude: ''
  }}"
  name="latitude"
  type="text"/>
  
  <label>Длогота (longitude): </label>
  <input id="longitude" 
-  value="{{ isset($model->address2[1]) ? $model->address2[1]: 30.335098600000038 }}"
+  value="{{ isset($model->longitude) ? $model->longitude: '' }}"
    name="longitude"
 
 type="text"/>
@@ -305,7 +305,7 @@ $('#latitude').bind('keyup',function(){
 })
 
  }
- ------------------*/
+
  $('#latitude').bind('keyup',function(){
 	var coord = $("#latitude").val() + ',' + $("#longitude").val();
 	$("#coord").val(coord);
@@ -313,7 +313,7 @@ $('#latitude').bind('keyup',function(){
     $('#longitude').bind('keyup',function(){
 	var coord = $("#latitude").val() + ',' + $("#longitude").val();
 	$("#coord").val(coord);
-
+ ------------------*/
 })
 </script> 
 

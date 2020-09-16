@@ -51,7 +51,12 @@ function getCityAr(){
 		
     }
 	function getImgPhotoAttribute($v){
+		
+		if(@unserialize($this->photo)){
 		return unserialize($this->photo);
+		}else{
+			return $this->photo;
+		}
     }
 
   function getNameAttribute($v){

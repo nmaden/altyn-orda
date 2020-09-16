@@ -104,8 +104,6 @@
 
   
     
-@php
-$php_json = $home->getArMapPoint();
-@endphp
+
 <script>var json = "{{$php_json}}";</script>
 

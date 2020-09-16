@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitbb82537209bf485b371a24c537609a35
+class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -3053,6 +3053,7 @@ class ComposerStaticInitbb82537209bf485b371a24c537609a35
         'Modules\\Admin\\Http\\Controllers\\Calendar\\CalendarController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Calendar/CalendarController.php',
         'Modules\\Admin\\Http\\Controllers\\Comuna\\ComunaController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Comuna/ComunaController.php',
         'Modules\\Admin\\Http\\Controllers\\Comuna\\ComunaMessageController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Comuna/ComunaMessageController.php',
+        'Modules\\Admin\\Http\\Controllers\\Drobsone2Controller' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Drobsone2Controller.php',
         'Modules\\Admin\\Http\\Controllers\\Gid\\GidController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Gid/GidController.php',
         'Modules\\Admin\\Http\\Controllers\\Home\\HomeController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Home/HomeController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\CityController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/CityController.php',
@@ -3112,6 +3113,9 @@ class ComposerStaticInitbb82537209bf485b371a24c537609a35
         'Modules\\Entity\\Actions\\ReviewSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/ReviewSaveAction.php',
         'Modules\\Entity\\Actions\\Routes\\CalendarSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Routes/CalendarSaveAction.php',
         'Modules\\Entity\\Actions\\Routes\\CalendarUpdateAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Routes/CalendarUpdateAction.php',
+        'Modules\\Entity\\Actions\\Sights\\CalendarDeleteAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarDeleteAction.php',
+        'Modules\\Entity\\Actions\\Sights\\CalendarSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarSaveAction.php',
+        'Modules\\Entity\\Actions\\Sights\\CalendarUpdateAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarUpdateAction.php',
         'Modules\\Entity\\Actions\\UniverSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/UniverSaveAction.php',
         'Modules\\Entity\\Database\\Seeders\\EntityDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Entity/Database/Seeders/EntityDatabaseSeeder.php',
         'Modules\\Entity\\Http\\Controllers\\EntityController' => __DIR__ . '/../..' . '/Modules/Entity/Http/Controllers/EntityController.php',
@@ -5535,10 +5539,10 @@ class ComposerStaticInitbb82537209bf485b371a24c537609a35
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitbb82537209bf485b371a24c537609a35::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitbb82537209bf485b371a24c537609a35::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitbb82537209bf485b371a24c537609a35::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitbb82537209bf485b371a24c537609a35::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit27b19f3a74ecade46163c8289c71ef71::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit27b19f3a74ecade46163c8289c71ef71::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit27b19f3a74ecade46163c8289c71ef71::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit27b19f3a74ecade46163c8289c71ef71::$classMap;
 
         }, null, ClassLoader::class);
     }
