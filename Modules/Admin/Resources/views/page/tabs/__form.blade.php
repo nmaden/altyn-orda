@@ -2,6 +2,7 @@
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
 $page = false;
+
 if(in_array('show',$ar)){
 	$page = true;
 }
@@ -20,7 +21,7 @@ if(in_array('show',$ar)){
  name='description' 
   rows="16" 
  cols="4" 
- id="editor1"
+ id="{{in_array('create',$ar) ? '' : 'editor1'}}"
  class="form-control {{$page ? '' : ''}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>

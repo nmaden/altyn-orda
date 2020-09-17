@@ -34,6 +34,32 @@ class="form-control"/>
 </div>
 ---------------------->
 
+<div>
+<div id="drobzone-photo">
+@if(is_array($model->photo_unserialize))
+	@php
+
+
+@endphp
+@foreach($model->photo_unserialize as $k=>$item)
+<div class='rm'>
+<input type="hidden" name="photo[]" value="{{$item}}"/>
+
+ уже загружено <a href="{{URL::asset($item)}}" target="_blank">
+просмотреть</a>&nbsp&nbsp
+<a href="{{$item}}" id="{{$model->id}}" target="_blank" class='slider_remove'>
+удалить</a>
+ </br>
+ </div>
+@endforeach
+@endif
+</div>
+@if(in_array('update',$ar))
+<div id="file" name='file' class="upload"></div>
+ <div class='preview'></div>
+</div>
+@endif
+<br><br>
 
 
 

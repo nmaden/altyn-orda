@@ -15,6 +15,10 @@
 	<link href="/admin-asset/assets/css/colors.css" rel="stylesheet" type="text/css">
 	<link href="/vendor/footable.bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="/admin-asset/assets/custom.css" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/admin-asset/drobsone/css/style.css">
+    <link rel="stylesheet" href="/admin-asset/drobsone/css/dropzone.css">
+
     @section('css_block')
     @show
     
@@ -42,11 +46,18 @@
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/ui/ripple.min.js"></script>
 	<script type="text/javascript" src="/vendor/sweetalert.min.js"></script>
 	<script type="text/javascript" src="/vendor/footable.min.js"></script>
-	<script type="text/javascript" src="/admin-asset/custom/js/main.js"></script>
-
 	
+	<!------
+	<script type="text/javascript" src="/admin-asset/custom/js/main.js"></script>
+	------->
+
+
+
     @section('js_block')
     @show
+		<script type="text/javascript" src="/admin-asset/drobsone/js/dropzone.js"></script>
+		
+		
 </head>
 <body>
 
@@ -63,9 +74,9 @@
 
                     @yield('content')
 					@yield('left_lang')
-                    @php
+                    
                     @include('admin::__block.footer')
-					@endphp
+				
 				</div>
 			</div>
 		</div>

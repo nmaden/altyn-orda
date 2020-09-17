@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image as ImageInt;
 use App\Services\UploadPhoto;
 use Storage;
+use Modules\Entity\Model\Tabs\Tabs;
 class CkeditorController extends Controller
 {
     /**
@@ -45,69 +46,41 @@ $array1[1]=	'<img alt="" src="/store/test/2020/09/13/16000189409.jpg" style="hei
 	
 	
 public function uploads(Request $request){
-//$request->session()->forget('editor');
-//$request->session()->save();
- //$request->session()->push('editor.'.$request->session()->getId(),55);
-
-//Cache::put('menu2',$arr);	
-	//dd($request->session()->get('editor'));
-	//echo $request->session()->getId();exit();
 $file = $request->file('upload');
 $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
 $papka_save = 'editor';
 $url = '/store/'.$papka_save.'/'.date('Y').'/'.date('m').'/'.date('d').'/'.$file_name;
-$request->session()->put('editor');
-$file_path = $file->storeAs('/store/'.$papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
 
-
-echo json_encode(array('uploaded'=>1,
+	$uri = url()->previous();
+	$find = strpos($uri,'update');
+	if(isset($find)){
+		
+		preg_match('/update\/[\d]+/i',$uri,$arr);
+		if(isset($arr[0])){
+			$explod= explode('/',$arr[0]);
+			if(isset($explod[1])){
+				if(is_numeric($explod[1])){
+					$id = $explod[1];
+					$tabs = Tabs::where('id',$id)->first();
+					if(isset($tabs->photo) && $tabs->photo !=''){
+						if(@unserialize($tabs->photo)){
+						$photo = unserialize($tabs->photo);
+						}
+					}else{$photo = [];}
+					 array_push($photo,$url);
+					 $tabs->photo = serialize($photo);
+		             $tabs->save();
+					 $file_path = $file->storeAs('/store/'.$papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
+				}
+		       }
+	          }
+	         }
+	    echo json_encode(array('uploaded'=>1,
 	   'fileName'=>$file_name ,"url" => $url));
         
- 
- 
- 
- 
-
-/*
-$file = $request->file('upload');
-$extension = $request->file('upload')->getClientOriginalExtension();
-		$mime = $request->file('upload')->getMimeType();
-		$name =  $this->getFileName() . ".".$extension;
-		$url='/uploads/'.$name;
-		$path = public_path().'/uploads/'.$name;
-		   $destinationPath = $path;
-        $img = ImageInt::make($file->getRealPath());
-		 $img->resize(500, 500, function ($constraint) {
-        $constraint->aspectRatio();})->save($destinationPath);
-		$name_img = $name;
-		//dd($name);
-       echo json_encode(array('uploaded'=>1,
-	   'fileName'=>$name,"url" => $url));
-	*/
-	
-	
-	
 }
 
-	//функция создания уникального название для картинки
-	function getFileName(){
-     $char = ['a','A','b','B','c','C','d','D','e','E','f','F','g','G','h','H','i','I','j','J','k','K',
-                   'l','L','m','M','n','N','o','O','p','P','q','Q','r','R','s','S','t','T','u','U','v','V',
-                   'w','W','x','X','y','Y','z','Z'];
-     $rename = array_rand($char, 7);
-	 $str = "";
-	 foreach($rename as $k => $v){
-	 	$str .= $k . "" . $v;
-	 }
-	 $hash = hash("sha256", $str);
-	 $hash = substr($hash, 5,10);
-	 $uniq = md5(uniqid(rand(),1));
-	 $uniq = substr($uniq, 0,4);
-	 $newname = $hash  . $uniq;
-
-     return $newname;
-  }
-  
+	
     /**
      * Show the form for creating a new resource.
      *

@@ -15,7 +15,14 @@ trait Presenter {
     }
 	
 	
-	
+	function getPhotoUnserializeAttribute(){
+		if(@unserialize($this->photo)){
+			return unserialize($this->photo);
+		}else{
+			return $this->photo;
+		}
+	 
+	}
 	function getArSightsAttribute(){
 	   return $this->sights()->pluck('sight_id')->toArray();
      }

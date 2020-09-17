@@ -8,6 +8,19 @@ use Modules\Entity\Model\LibCity\LibCity;
 use Cache;
 
 trait Presenter {
+	
+	function getPhotoUnserializeAttribute(){
+		if(@unserialize($this->photo)){
+			return unserialize($this->photo);
+		}else{
+			return $this->photo;
+		}
+	 
+	}
+	
+	
+	
+	
 	   function getAddress2Attribute($v){
 	   
 	     $ar= explode(',',$this->coord);

@@ -74,7 +74,7 @@ class IndexController extends SiteController
 		
     }
 	
-			    	function changeLang(Request $request){
+	   function changeLang(Request $request){
         $old_lang = '';
 		$strpos = '';
 		$url = url()->previous();
@@ -90,7 +90,6 @@ class IndexController extends SiteController
 		CurrentLang::set($langPrefix);
 		
 		
-	   $url = url()->previous();
 		
 		if($old_lang !=''){
 		

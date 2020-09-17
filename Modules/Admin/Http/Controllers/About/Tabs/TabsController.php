@@ -9,9 +9,9 @@ use Modules\Admin\Traits\MainCrudMethod;
 
 use Modules\Entity\Actions\Defaults\DefaultSaveAction as ModelCreateAction;
 
-use Modules\Entity\Actions\Defaults\DefaultUpdateAction as ModelUpdateAction;
+use Modules\Entity\Actions\Tabs\DefaultUpdateAction as ModelUpdateAction;
 
-use Modules\Entity\Actions\Defaults\DefaultDeleteAction as ModelDeleteAction;
+use Modules\Entity\Actions\Tabs\DefaultDeleteAction as ModelDeleteAction;
 
 use Modules\Entity\Model\Tabs\Tabs as Model;
 

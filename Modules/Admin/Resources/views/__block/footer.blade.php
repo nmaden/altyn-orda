@@ -1,7 +1,4 @@
-<!-- Footer -->
-<div class="footer text-muted">
-    
-</div>
+
 
 <script type="text/javascript" src="/admin-asset/drobsone/js/main.js"></script>
 		
@@ -13,6 +10,7 @@ type="text/javascript" charset="utf-8" >
 	
       CKEDITOR.replace('editor1', {
   filebrowserUploadUrl: "{{route('uploads2')}}",
+  dom:4,
   //filebrowserUrl: "{{asset('/uploads')}}",
   //filebrowserUrl: "{{asset('uploads')}}",
   disallowedContent: 'a[href]',
@@ -30,18 +28,6 @@ type="text/javascript" charset="utf-8" >
 </script>
 
 	
-<!-----
- <script src="/ckeditor/ckeditor.js" 
-type="text/javascript" charset="utf-8" ></script>
-<script>
-        var editor = CKEDITOR.replace( 'editor1' );
-</script>
------------>
-
-  <!---<script src="/picker/moment-with-locales.min.js"></script>--->
-  
-  <!---<script src="/picker/bootstrap.min.js"></script>----->
-  <!---<script src="/picker/bootstrap-datetimepicker.min.js"></script>-->
 
 
 

@@ -1,5 +1,5 @@
 $(function(){
-$('.slider_remove').on('click',function(e){
+$('body').on('click','.slider_remove',function(e){
 	var path = $(this).attr('href');
 	var id = $(this).attr('id');
 	
@@ -29,29 +29,7 @@ $('.slider_remove').on('click',function(e){
         url: "/drobsone-send",
         maxFiles: 10,
         //maxFilesize: 2,
-		  addRemoveLinks: true,
-removedfile: function(file) {
-	var name = file.name; 
-		$.ajax({
-		  url:'/drobsone-remove',
-		  data:{name:name},
-		  type:'POST',
-		  datatype:'JSON',
-		  success: function(html) {
-			  console.log(html);
-		  },
-		});
-	/*
-	 $.ajax({
-        type: 'POST',
-        url: 'drobsone-remove',
-        data: "id="+name,
-        dataType: 'html'
-    });
-	*/
-    var _ref;
-    return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
-  },
+	
         dictFileTooBig: "Максимальный размер файла - 1 Мб",
         dictMaxFilesExceeded: "Достигнут лимит загрузки файлов, разрешено {{maxFiles}}",
         init: function(){
@@ -61,23 +39,10 @@ removedfile: function(file) {
         acceptedFiles: '.jpg, .jpeg, .png, .gif',
         dictInvalidFileType: 'Разрешены к загрузке файлы: .jpg, .jpeg, .png, .gif',
         success: function(file, responce){
-			console.log(responce);
-            var url = file.dataURL,
-                res = responce;
-				 if(res.answer == 'error2'){
-				//console.log('error');
-                this.removeFile(file);
-				 }
-            if(res.answer == 'error'){
-				//console.log('error');
-                this.removeFile(file);
-                $('.preview').html(`<div class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    ${res.error}
-                </div>`);
-            }else{
-                this.defaultOptions.success(file);
-            }
+		
+	    $('#drobzone-photo').html(responce); 
+        this.removeFile(file);		
+        //console.log(responce);
         }
     });
 

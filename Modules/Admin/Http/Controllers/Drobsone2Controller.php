@@ -26,69 +26,85 @@ class Drobsone2Controller extends Controller
     }
 	public function slider(Request $request){
 		
-		$routes = Routes::where('id',$request->id)->first();
-		$photo = unserialize($routes->photo);
-		if(isset($request->path)){
-		 $key = array_search($request->path,$photo);
-		 unlink($request->path);
-		 unset($photo[$key]);
-		  $aerialize= serialize($photo);
-		 $routes->photo = $aerialize;
-		$routes->save();
-	     }else{
-			 $routes->photo = '';
-		     $routes->save();
-		 
-		
-        return $photo;
-	}
+		$path = substr($request->path,1);
+		//удаление из базы
+			$routes = Routes::where('id',$request->id)->first();
+			if(@unserialize($routes->photo)){
+				
+				//store/drobzone/2020/09/16/16002971759.jpg
+				$photo = unserialize($routes->photo);
+				
+				$key = array_search($request->path,$photo);
+				unset($photo[$key]);
+				$routes->photo = serialize($photo);
+		        $routes->save();
+			}
+			
+			
+			
+			//удаление из хранилища
+			Storage::delete($path);
+			return 'ok';
+			return $photo;
 	}
 	
-	public function remove(Request $request){
-		
-		if($request->session()->has('img')) {
-			$arr = explode('.',$request->name);
-			$name = $arr[0].$arr[1];
-			unlink($request->session()->get('img.'.$name));
-			$request->session()->forget('img.'.$name);
-			$request->session()->save();
-			//unlink($request->session()->get('img.'.$name));
-			//return $request->session()->get('img');
-			//return $request->session()->get('img.'.$name);
-		}
-	}
 	
 	 public function send(Request $request)
     {
-		  //$res = array("answer" => "error", "error" => "Достигнут лимит загрузки файлов");
-		  //return $res;
-		  
-		$file = $request->file('file');
-		
-		$name_original= pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-		$name_original2 = $name_original.$file->getClientOriginalExtension();
+       //$res = array("answer" => "error", "error" => "Достигнут лимит загрузки файлов");
+	   //return $res;
+	   //$res = array("answer" => "error2");
+	   //return $res;
+     $file = $request->file('file');
+     $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
+     $papka_save = 'drobzone';
+     $url = '/store/'.$papka_save.'/'.date('Y').'/'.date('m').'/'.date('d').'/'.$file_name;
 
-		$file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
-		$url = '/store/test/'.date('Y').'/'.date('m').'/'.date('d').'/'.$file_name;
-		session();
-		
-        $file_path = $file->storeAs('/store/test/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
-		
-		
-		
-		if($request->session()->has('img')) {
-        $ar= $request->session()->get('img');
-		if(isset($ar[$name_original2])){
-			unlink($file_path);
-			$res = array("answer" => "error2");
-		    return $res;
-		}
-		}
-		$request->session()->put('img.'.$name_original2, $file_path);
+	 $uri = url()->previous();
+	 
+	 $find = strpos($uri,'update');
+	
+	 if(isset($find)){
+		 preg_match('/update\/[\d]+/i',$uri,$arr);
+		 if(!empty($arr)){
+			
+		   $explod= explode('/',$arr[0]);
+		   if(isset($explod[1])){
+			 if(is_numeric($explod[1])){
+				$id = $explod[1];
+				$photo = [];
+				$routes = Routes::where('id',$id)->first();
+				 if(isset($routes->photo) && $routes->photo !=''){
+					  
+						if(@unserialize($routes->photo)){
+							
+						 $photo = unserialize($routes->photo);
+						}
+					}
+						
+				     array_push($photo,$url);
+					
+					 $routes->photo = serialize($photo);
+		             $routes->save();
+					 
+					 $file_path = $file->storeAs('/store/'.$papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
+					 
+					 
+		$routes_res = Routes::where('id',$id)->first();
+		$photo_res = unserialize($routes_res->photo);
+		$view = view('orda.response.drobzone')->with(['photo'=>$photo_res,'id'=>$id])->render();
+		return response($view)->header('Content-type','text/html');
 
-		
-		return $request->session()->get('img');
 
+	//session
+			 
+				}
+		       }
+		      }
+	         }
+
+			
+			
     }
 	
 	
