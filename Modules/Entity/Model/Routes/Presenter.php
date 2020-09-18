@@ -17,10 +17,17 @@ trait Presenter {
 		}
 	 
 	}
+	function getGroupUnserializeAttribute(){
+		if(@unserialize($this->groups)){
+			return unserialize($this->groups);
+		}else{
+			return $this->groups;
+		}
+	 
+	}
 	
 	
-	
-	
+	/*
 	   function getAddress2Attribute($v){
 	   
 	     $ar= explode(',',$this->coord);
@@ -30,7 +37,8 @@ trait Presenter {
 		}
 		 return $ar;
 		  }
-
+		  */
+/*
 function getCoordsAr(){
 	
 	if(isset($this->coords[0]) && isset($this->coords[0]->coord_a))
@@ -56,15 +64,12 @@ function getCoordsAr(){
 		
 
 }		
-
+*/
 
 function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
-
-		
-    }
+}
 	function getImgPhotoAttribute($v){
-		
 		if(@unserialize($this->photo)){
 		return unserialize($this->photo);
 		}else{

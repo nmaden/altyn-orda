@@ -21,7 +21,7 @@ if(in_array('show',$ar)){
  name='description' 
   rows="16" 
  cols="4" 
- id="{{in_array('create',$ar) ? '' : 'editor1'}}"
+ id="{{in_array('create',$ar) ? '' : 'editor'}}"
  class="form-control {{$page ? '' : ''}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>

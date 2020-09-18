@@ -37,20 +37,14 @@ class CalendarUpdateAction {
         else {
             unset($ar['photo']);
 		}
-      
-
-
-  
-if($this->request->session()->has('img')) {
-    $photo1 = $this->request->session()->get('img');
-    $photo = array_diff($photo1,array(''));
-    $ar['photo'] = serialize($photo);
-	
-    $this->request->session()->forget('img');
-    $this->request->session()->save();
-}
-$this->model->fill($ar);
-$this->model->save();
+        
+        if(is_array($this->request->groups) && !empty($this->request->groups)){
+			
+			$ar['groups'] = serialize($this->request->groups);
+			
+		}
+        $this->model->fill($ar);
+        $this->model->save();
     }
 
    function saveCoords(){

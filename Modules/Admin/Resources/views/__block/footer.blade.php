@@ -8,9 +8,9 @@ type="text/javascript" charset="utf-8" >
 
 <script>
 	
-      CKEDITOR.replace('editor1', {
+      CKEDITOR.replace('editor', {
   filebrowserUploadUrl: "{{route('uploads2')}}",
-  dom:4,
+ 
   //filebrowserUrl: "{{asset('/uploads')}}",
   //filebrowserUrl: "{{asset('uploads')}}",
   disallowedContent: 'a[href]',

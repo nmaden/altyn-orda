@@ -12,9 +12,7 @@ trait Presenter {
 
 	 function getLangAr(){
 		return LibLanguage::pluck('name', 'id')->toArray();
-		
-		
-    }
+	}
 	
 	 function getArLangIdAttribute(){
 		//dd($this->langGid);

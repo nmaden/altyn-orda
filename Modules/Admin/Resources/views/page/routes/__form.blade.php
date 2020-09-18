@@ -1,6 +1,7 @@
 <style>
 #divs,#divs2{
 	margin-bottom:10px;
+	margin-top:10px;
 }
 </style>
 
@@ -142,8 +143,12 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 
 
 <br><br>
+&nbsp&nbsp
+<button class="add_field_button btn btn-success
+">Добавить координату</button>
+<div class='clearfix'></div>
+<div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
 
-<div style='border:1px solid #ccc;padding:20px 10px;'>
 @if(count($model->coords) > 0)
 @foreach($model->coords as $k=>$coord)
 <div> 
@@ -153,18 +158,15 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 @endforeach
 @endif
 
-<div class="input_fields_wrap">
-    <button class="add_field_button btn btn-success
-">Добавить координату</button>
-<br>
-</div>
+<div class="input_fields_wrap"></div>
 
 </div>
 
-<br><br>
 
 
-<div style='border:1px solid #ccc;padding:20px 10px;'>
+
+<div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
+
 @if(count($model->coords) > 0)
 @foreach($model->coords as $k=>$coord)
 <div> 
@@ -179,11 +181,12 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 </div>
 </div>
 
+<div class='clearfix'></div>
 <br><br>
 
 
 <div>   
-    Выберите город
+    <label><b>Выберите город</b></label>
 			<select {{$page ? 'disabled': ''}} name="city_id" id="city_id" class="form-control select2">
 			<option value="">@lang('model.disabled')</option>
 				
@@ -197,7 +200,41 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
         </select>
 		</div>
 
-  
+<br><br>
+@php
+//dd($model->group_unserialize);
+@endphp
+<div>
+<label for="text"><b>Группа, индивидуально </b></label> 
+<select name="groups[]" 
+class="form-control select2"   
+ {{$page ? 'disabled': ''}}
+ multiple
+>
+<option 
+value="1" 
+{{ is_array($model->group_unserialize) && in_array(1,$model->group_unserialize) ? 'selected' : '' }}
+>
+группа
+</option>
+
+<option 
+value="2" 
+{{ is_array($model->group_unserialize)  && in_array(2,$model->group_unserialize) ? 'selected' : '' }}
+>
+индивидуально
+</option>
+           
+</select>
+</div> 
+
+
+<script>
+$('.select2').select2({
+    minimumResultsForSearch: Infinity,
+    width: '100%'
+})
+</script>
 
 <script>	
    $(document).ready(function() {

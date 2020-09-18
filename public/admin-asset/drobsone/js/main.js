@@ -27,7 +27,7 @@ $('body').on('click','.slider_remove',function(e){
 
     var myDropzone = new Dropzone("div#file", {
         url: "/drobsone-send",
-        maxFiles: 10,
+        maxFiles: 1,
         //maxFilesize: 2,
 	
         dictFileTooBig: "Максимальный размер файла - 1 Мб",
@@ -35,7 +35,7 @@ $('body').on('click','.slider_remove',function(e){
         init: function(){
             $(this.element).html(this.options.dictDefaultMessage);
         },
-        dictDefaultMessage: '<div class="dz-message">Нажмите здесь или перетащите сюда файлы для загрузки</div>',
+        dictDefaultMessage: '<div class="dz-message">Нажмите здесь или перетащите сюда файлы для загрузки (Слайдер в карточке маршрута)</div>',
         acceptedFiles: '.jpg, .jpeg, .png, .gif',
         dictInvalidFileType: 'Разрешены к загрузке файлы: .jpg, .jpeg, .png, .gif',
         success: function(file, responce){
