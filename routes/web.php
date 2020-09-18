@@ -50,7 +50,7 @@ Route::get('sights-map',['uses' => 'MapController@sights'])->name('sights-map');
 Route::get('routes-map',['uses' => 'MapController@routes'])->name('routes-map');
 
 //o-nas
-Route::get('figures-item',['uses' => 'FiguresController@item'])->name('figures-item');
+Route::get('/about/figures-item',['uses' => 'FiguresController@item'])->name('figures-item');
 Route::get('about',['uses' => 'AboutController@index'])->name('about');
 Route::get('about/figures',['uses' => 'FiguresController@index'])->name('about/figures');
 
