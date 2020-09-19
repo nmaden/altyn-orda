@@ -10,9 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-  Route::any('drobsone-send',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send');
-  Route::any('drobsone-remove',['uses' => 'Drobsone2Controller@remove'])->name('drobsone-remove');
-  Route::any('slider-remove',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove');
   
 Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin_index');
@@ -376,4 +373,9 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 Route::group(['namespace' => 'Edit'], function () {
 Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
 Route::any('figures',['uses' => 'CkeditorController@figures'])->name('figures');
+
+Route::any('drobsone-send',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send');
+  Route::any('drobsone-remove',['uses' => 'Drobsone2Controller@remove'])->name('drobsone-remove');
+  Route::any('slider-remove',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove');
+  
 });

@@ -15,7 +15,7 @@
                     <li>
                         <span>
 						@if(isset($item->namefigure))
-							
+						{{$item->namefigure}}
 						@endif
 						</span>
                     </li>

@@ -15,7 +15,8 @@
                     <li>
                         <span>
 						<?php if(isset($item->namefigure)): ?>
-							
+						<?php echo e($item->namefigure); ?>
+
 						<?php endif; ?>
 						</span>
                     </li>
