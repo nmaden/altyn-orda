@@ -22,7 +22,7 @@ if(in_array('show',$ar)){
 </textarea>
 </div>
 ----------------------------------->
-@if($lang == 'ru' || $lang != 'ru')
+@if($lang == 'ru' || $lang === '')
 
 <div>
 <label for="photo"><b>Фото</b></label>
@@ -43,7 +43,7 @@ class="form-control"/>
 @if($lang == 'ru' || $lang != 'ru')
 <br><br>
 <div>  
- <label for="title"><b>Годы жизни</b></label> 
+ <label for="title"><b>Годы жизни(текст)</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->birth) ? $model->birth: ''}}" 
 name='birth' placeholder="{{$page ? '': '1182-1225 '}} " 
@@ -56,7 +56,7 @@ class="form-control"/>
 <br><br>
 
 <div>  
-<label for="title"><b>Имя</b></label> 
+<label for="title"><b>Имя(текст)</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->namefigure ) ? $model->namefigure : ''}}" 
 name='namefigure' placeholder="Менгу-Тимур " 
@@ -65,11 +65,55 @@ class="form-control"/>
 
 <br><br>
 <div>  
- <label for="title"><b>Ранг</b></label> 
+ <label for="title"><b>Ранг(текстовое поле)</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->status) ? $model->status: ''}}" 
 name='status' placeholder="{{$page ? '': 'Хан'}} " 
 class="form-control"/>
 </div>
 
+<br><br>
 
+<div style='padding:10px 5px;'> 
+<label for="text"><b>Текст</b></label> 
+<textarea 
+ {{$page ? 'disabled': ''}}
+ value="" 
+ name='descriptionfigure' 
+  rows="16" 
+ cols="4" 
+ id="editor"
+ class="form-control {{$page ? '' : ''}}">
+ {{isset($model->descriptionfigure) ? $model->descriptionfigure : ''}}
+</textarea>
+ </div>
+ 
+<br><br>
+
+<div>  
+ <label for="title"><b>текстовое поле</b></label> 
+<input {{$page ? 'disabled': ''}} 
+
+type="text" value="{{isset($model->introtext) ? $model->introtext: ''}}" 
+name='introtext' placeholder="{{$page ? '': 'Место погребения гора Улытау, Казахстан'}} " 
+class="form-control"/>
+</div>
+
+<br><br>
+
+<div>  
+ <label for="title"><b>подзаголовок(текст)</b></label> 
+<input {{$page ? 'disabled': ''}} 
+
+type="text" value="{{isset($model->subtitle ) ? $model->subtitle : ''}}" 
+name='subtitle' placeholder="{{$page ? '': 'Правитель Улуса Джучи'}} " 
+class="form-control"/>
+</div>
+<script>
+	
+  CKEDITOR.replace('editor', {
+  filebrowserUploadUrl: "{{route('figures')}}",
+  disallowedContent: 'a[href]',
+  height: 300, });
+	
+</script>

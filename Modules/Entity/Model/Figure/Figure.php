@@ -7,7 +7,8 @@ use Modules\Entity\Traits\CheckTrans;
 class Figure extends ModelParent {
     protected $table = 'figures';
 	protected $fillable = [ 'namefigure',
-	'descriptionfigure','photo','birth','status','edited_user_id'];
+	'descriptionfigure','photo','birth',
+	'status','edited_user_id','introtext','subtitle','editor'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

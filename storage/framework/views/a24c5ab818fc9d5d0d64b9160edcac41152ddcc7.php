@@ -84,5 +84,12 @@ class="form-control"/>
 		</div>
 
 
-
+<script>
+	
+  CKEDITOR.replace('editor', {
+  filebrowserUploadUrl: "<?php echo e(route('uploads2')); ?>",
+  disallowedContent: 'a[href]',
+  height: 300, });
+	
+</script>
 <?php /**PATH /home/vagrant/code/orda/Modules/Admin/Resources/views/page/tabs/__form.blade.php ENDPATH**/ ?>

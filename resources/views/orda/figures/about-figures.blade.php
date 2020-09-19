@@ -31,7 +31,7 @@
                             <div class="sights__item">
                                 <div class="sights__item--img">
 								@if(isset($item->photo))
-                                    <a href="#">
+                                    <a href="{{route('figures-item',$item)}}">
                                         <img src="{{URL::asset($item->photo)}}" alt="">
 									</a>
 									@endif

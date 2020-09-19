@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 //efinder
 Route::get('efinder',['uses' => 'CkeditorController@index'])->name('efinder');
 Route::post('efinder2',['uses' => 'CkeditorController@index2'])->name('efinder2');
-Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
 Route::any('drobsone',['uses' => 'DrobsoneController@index'])->name('drobsone');
 //Route::any('drobsone-send2',['uses' => 'DrobsoneController@send'])->name('drobsone-send2');
 
@@ -50,7 +49,7 @@ Route::get('sights-map',['uses' => 'MapController@sights'])->name('sights-map');
 Route::get('routes-map',['uses' => 'MapController@routes'])->name('routes-map');
 
 //o-nas
-Route::get('/about/figures-item',['uses' => 'FiguresController@item'])->name('figures-item');
+Route::get('/about/figures-item/{figure}',['uses' => 'FiguresController@item'])->name('figures-item');
 Route::get('about',['uses' => 'AboutController@index'])->name('about');
 Route::get('about/figures',['uses' => 'FiguresController@index'])->name('about/figures');
 

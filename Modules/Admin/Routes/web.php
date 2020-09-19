@@ -373,3 +373,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	  
 	  
 });
+Route::group(['namespace' => 'Edit'], function () {
+Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
+Route::any('figures',['uses' => 'CkeditorController@figures'])->name('figures');
+});

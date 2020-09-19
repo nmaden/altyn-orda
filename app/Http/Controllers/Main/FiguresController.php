@@ -39,12 +39,12 @@ class FiguresController extends SiteController
 		return $this->renderOutput();
 
     }
-	public function item(Request $request)
+	public function item(Request $request,Figure $figure)
     {
-	  
-	 
-	 
-	   $figures_item = view('orda' . '.figures.figures-item')->render();
+	
+	 $figures_item = view('orda' . '.figures.figures-item')->with([
+	 'item'=>$figure,
+	 ])->render();
 
 	  
 	    $content= $figures_item;

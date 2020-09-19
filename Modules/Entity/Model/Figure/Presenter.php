@@ -19,7 +19,11 @@ trait Presenter {
 	function getStatusAttribute($v){
 		return $this->getTransField('status', $v);
     }
-	
-
+	function getSubtitleAttribute($v){
+		return $this->getTransField('subtitle', $v);
+    }
+    function getIntrotextAttribute($v){
+		return $this->getTransField('introtext', $v);
+    }
 }
 

@@ -51,7 +51,9 @@
 	<script type="text/javascript" src="/admin-asset/custom/js/main.js"></script>
 	------->
 
-
+<script src="/ckeditor/ckeditor.js" 
+type="text/javascript" charset="utf-8" >
+</script>
 
     <?php $__env->startSection('js_block'); ?>
     <?php echo $__env->yieldSection(); ?>

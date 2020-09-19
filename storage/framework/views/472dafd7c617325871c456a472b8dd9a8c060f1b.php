@@ -31,7 +31,7 @@
                             <div class="sights__item">
                                 <div class="sights__item--img">
 								<?php if(isset($item->photo)): ?>
-                                    <a href="#">
+                                    <a href="<?php echo e(route('figures-item',$item)); ?>">
                                         <img src="<?php echo e(URL::asset($item->photo)); ?>" alt="">
 									</a>
 									<?php endif; ?>
