@@ -1,59 +1,20 @@
-    <ul class="menu">
-						
-						
-		<li>
-			<a class="menu__click" data-child="1"
-				style="color:<?php echo e(Route::currentRouteName() == 'about'
-				? '#B77F04' : ''); ?>"
-				href="<?php echo e(route('about')); ?>">
-				О золотой орде
-			</a>
-			<ul class="clildren-menu">
-				<li><a href="<?php echo e(route('about')); ?>"><img src="/img/childrenmenu-1.png" alt=""> О золотой орде</a></li>
-				<li><a href="<?php echo e(route('about')); ?>"><img src="/img/childrenmenu-1.png" alt=""> Генеалогические дерево</a></li>
-				<li><a href="/about/figures"><img src="/img/childrenmenu-1.png" alt=""> Исторические личности</a></li>
-			</ul>
-		</li>				
-				
-        <li>
-	    <a 
-	    style="color:<?php echo e(Route::currentRouteName() == 'sights' ||
-            Route::currentRouteName() == 'sight-item'
-			? '#B77F04' : ''); ?>"
-        href="<?php echo e(route('sights')); ?>">
-		Достопримечательности
-		</a>
-		</li>
+<?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <!--Добавляем класс active для активного пункта меню-->
+    <li <?php echo e((URL::current() == $item->url()) ? "class=active" : ''); ?>>
+        <!-- метод url() получает ссылку на пункт меню (указана вторым параметром
+        при создании объекта LavMenu)-->
+        <a href="<?php echo e($item->url()); ?>"><?php echo e($item->title); ?></a>
+        <!--Формируем дочерние пункты меню
+        метод haschildren() проверяет наличие дочерних пунктов меню-->
+        <?php if($item->hasChildren()): ?>
+            <ul class="sub-menu">
+                <!--метод children() возвращает дочерние пункты меню для текущего пункта-->
+                <?php echo $__env->make(env('THEME').'.customMenuItems', ['items'=>$item->children()], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            </ul>
+        <?php endif; ?>
+    </li>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-        <li>
-	    <a 
-	    style="color:<?php echo e(Route::currentRouteName() == 'calendars' ||
-            Route::currentRouteName() == 'calendar-item'
-			? '#B77F04' : ''); ?>"
-        href="<?php echo e(route('calendars')); ?>">
-		Календарь мероприятий
-		</a>
-		</li>
-		
-		
-		 <li>
-	    <a 
-	    style="color:<?php echo e(Route::currentRouteName() == 'routes' ||
-            Route::currentRouteName() == 'route-item'
-			? '#B77F04' : ''); ?>"
-        href="<?php echo e(route('routes')); ?>">
-		   Маршруты
-		</a>
-		</li>
-		
-		<li>
-	    <a 
-	    style="color:<?php echo e(Route::currentRouteName() == 'gids' ||
-            Route::currentRouteName() == 'gid-item'
-			? '#B77F04' : ''); ?>"
-        href="<?php echo e(route('gids')); ?>">
-		Гиды и туроператоры
-		</a>
-		</li>
-	</ul>
-						<?php /**PATH /home/vagrant/code/orda/resources/views/orda/navigate-item.blade.php ENDPATH**/ ?>
+
+
+<?php /**PATH /home/vagrant/code/orda/resources/views/orda/navigate-item.blade.php ENDPATH**/ ?>

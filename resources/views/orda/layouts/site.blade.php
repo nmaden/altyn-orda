@@ -74,6 +74,9 @@ $cssVersion="3.5.0";
     @yield('slider')
  
     @yield('content')
+	
+	    @yield('footer')
 
-    @yield('footer')
+
+   
 

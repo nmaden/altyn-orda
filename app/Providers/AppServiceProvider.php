@@ -15,21 +15,56 @@ use Modules\Entity\Model\LibCountry\LibCountry;
 use Modules\Entity\Model\LibLangStudy\LibLangStudy;
 use Modules\Entity\Model\LibContinent\LibContinent;
 use Cache;
-
-
+use DB;
+use Route;
+use Menu;
 class AppServiceProvider extends ServiceProvider
 {
+	public $menus;
     /**
      * Register any application services.
      *
      * @return void
      */
+	 
+	 	public function getmenu($menu){
+    
+        // Route::getRoutes()
+			$mBuilder = Menu::make('menu', function($m) use ($menu) {
+			
+			foreach($menu as $item) {
+				
+				if($item->parent == 0) {
+					$m->add($item->title,$item->path)->id($item->id);
+				}
+				else {
+					if($m->find($item->parent)) {
+						$m->find($item->parent)->add($item->title,$item->path)->id($item->id);
+					}
+				}
+			}
+			
+		});
+		return $mBuilder ;
+	}
+		
+		
     public function register()
     {
-		        //BladeX::component('__component.*');
+          $nav = DB::select("SELECT * FROM `menus`");
+	      $menu= $this->getmenu($nav);
+		  $this->menus=$menu;
+
+View::composer('orda.*', function ($view) {
+            $view->with('menu',$this->menus);
+        });
+		
+		
+				
 	   View::composer('orda.*', function ($view) {
             $view->with('q_lang', new CurrentLang());
         });
+		
 		   View::composer('admin::*', function($view){
              $view->with('q_lang', new CurrentLang());
 

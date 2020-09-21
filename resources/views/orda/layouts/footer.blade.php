@@ -10,7 +10,6 @@
                 </div>
                 <div class="header__right">
                     <div class="header__menu">
-                       @include('orda'.'.navigate-item')
                     </div>
                 </div>
 
@@ -39,7 +38,7 @@
 //dd($route);
 @endphp
 
-@if($route == 'home' || $route == 'route-item' || $route == 'map' || $route =='filter-map' || $route == 'sights-map' || $route === 'routes-map')
+@if($route == 'home' || $route == 'routes-item' || $route == 'map' || $route =='filter-map' || $route == 'sights-map' || $route === 'routes-map')
 	 <script src="https://api-maps.yandex.ru/2.1/?apikey=e65e00dd-dbe3-4020-a0f5-272019ac69a9&lang=ru_RU"
         type="text/javascript">
 	</script>
@@ -51,7 +50,7 @@ var json_model= JSON.parse(decodeURIComponent(json));
 
 @endif
 <!------интерактивная 1 routes------>
-@if($route === 'routes-map' || $route === 'route-item')
+@if($route === 'routes-map' || $route === 'routes-item')
 	  @include('orda.map.interactiv.karta1');
   @endif
 

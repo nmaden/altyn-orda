@@ -74,7 +74,10 @@ $cssVersion="3.5.0";
     <?php echo $__env->yieldContent('slider'); ?>
  
     <?php echo $__env->yieldContent('content'); ?>
+	
+	    <?php echo $__env->yieldContent('footer'); ?>
 
-    <?php echo $__env->yieldContent('footer'); ?>
+
+   
 
 <?php /**PATH /home/vagrant/code/orda/resources/views/orda/layouts/site.blade.php ENDPATH**/ ?>

@@ -10,7 +10,8 @@
                 </div>
                 <div class="header__right">
                     <div class="header__menu">
-                        @include('orda'.'.navigate-item')
+                @include('orda'.'.navigatitem',['items'=>$menu->roots()])
+
                        
                         <div class="children__block children__block-1">
                             <div class="container">

@@ -34,6 +34,8 @@ class CalendarsController extends SiteController
 
 	public function index(Request $request)
 	{
+		//Carbon::createFromDate(2013, 12, 25);
+		
 		$items = Calendar::filter($request)->latest()->paginate(9);
 
 		//dd($items);

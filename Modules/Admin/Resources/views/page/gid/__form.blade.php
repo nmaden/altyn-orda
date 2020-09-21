@@ -33,10 +33,10 @@ $categories = DB::table('gid_speacialisations')->get();
  
 <label for="title"><b>Имя</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
-@if(isset(Session::get('old')['imya']))
-	value="{{Session::get('old')['imya']}}" 
+ @if(old('imya'))
+  value="{{old('imya')}}"
 @else
-value='{{$model->imya ? $model->imya : ''}}' 
+value="{{$model->imya ? $model->imya : old('imya')}}"
 @endif
 name='imya' placeholder="Имя(текст)" class="form-control"></input>
 @if ($errors->has('imya'))
@@ -51,7 +51,14 @@ name='imya' placeholder="Имя(текст)" class="form-control"></input>
 
 <div>  
 <label for="title"><b>Возраст</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->vosrast) ? $model->vosrast : ''}}'
+<input {{$page ? 'disabled': ''}} type="text" 
+ @if(old('vosrast'))
+	 value="{{old('vosrast')}}"
+
+ @else
+	value='{{isset($model->vosrast) ? $model->vosrast : ''}}'
+
+ @endif
  name='vosrast' 
  placeholder="Возраст(цифра)" class="form-control"></input>
  @if ($errors->has('vosrast'))
@@ -66,8 +73,8 @@ name='imya' placeholder="Имя(текст)" class="form-control"></input>
 <div>  
 <label for="opyt"><b>Опыт работы</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
-@if(isset(Session::get('old')['opyt']))
-value="{{isset(Session::get('old')['opyt']) ? Session::get('old')['opyt'] : ''}}"
+@if(old('opyt'))
+value="{{old('opyt')}}"
 @else
 	value="{{isset($model->opyt) ? $model->opyt : ''}}"
 @endif
@@ -78,6 +85,7 @@ value="{{isset(Session::get('old')['opyt']) ? Session::get('old')['opyt'] : ''}}
      <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
    </span>
 @endif
+
 </div>
 
 <br><br>
@@ -85,12 +93,18 @@ value="{{isset(Session::get('old')['opyt']) ? Session::get('old')['opyt'] : ''}}
 <div>  
 <label for="title"><b>Телефон</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
-@if(isset(Session::get('old')['phone']))
-	value="{{Session::get('old')['phone']}}" 
+@if(old('phone'))
+	value="{{old('phone')}}" 
 @else
 	value="{{isset($model->phone) ? $model->phone : ''}}" 
 @endif
 name='phone' placeholder="Телефон(текст)" class="form-control"></input>
+@if ($errors->has('opyt'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
+   </span>
+@endif
+
 </div>
 
 <br><br>

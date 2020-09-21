@@ -13,7 +13,7 @@
 						    <?php endif; ?>
                             </div>
                             <div class="calendar__item--img">
-                                <a href="<?php echo e(route('calendar-item',$item)); ?>">
+                                <a href="<?php echo e(route('calendars-item',$item)); ?>">
 								<?php if(isset($item->photo)): ?>
                                     <img src="<?php echo e(URL::asset($item->photo)); ?>" alt="">
 								<?php endif; ?>

@@ -12,7 +12,7 @@
 						    @endif
                             </div>
                             <div class="calendar__item--img">
-                                <a href="{{route('calendar-item',$item)}}">
+                                <a href="{{route('calendars-item',$item)}}">
 								@if(isset($item->photo))
                                     <img src="{{URL::asset($item->photo)}}" alt="">
 								@endif

@@ -6,7 +6,7 @@
                             <div class="gid__item--top">
 
                                 <div class="gid__item--img">
-                                    <a href="<?php echo e(route('gid-item',$item)); ?>">
+                                    <a href="<?php echo e(route('gids-item',$item)); ?>">
                                        <?php if(isset($item->photo)): ?>
                                     <img src="<?php echo e(URL::asset($item->photo)); ?>" alt="">
 								<?php endif; ?>
@@ -20,7 +20,7 @@
 								    <?php endif; ?>
                                     </div>
                                     <div class="gid__item--title">
-                                        <a href="<?php echo e(route('gid-item',$item)); ?>">
+                                        <a href="<?php echo e(route('gids-item',$item)); ?>">
                                             <?php if(isset($item->imya)): ?>
 									<?php echo e($item->imya); ?>
 

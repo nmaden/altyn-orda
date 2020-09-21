@@ -28,11 +28,11 @@ class GidController extends Controller {
 	
    protected function validator(array $data)
     {
-		
+		//nullable
         return \Validator::make($data, [
 		 'name' => 'sometimes|required|string',
          'vosrast' => 'sometimes|nullable|numeric',
-	     'opyt' => 'sometimes|nullable|numeric',
+	     'opyt' => 'sometimes|numeric',
 	     'imya' => 'sometimes|string',
 	     'price' => 'sometimes|nullable|numeric',
         ]);

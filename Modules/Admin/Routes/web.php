@@ -181,6 +181,31 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
        
 	    });
 	  
+	    Route::group(['prefix' => 'menu', 'namespace' => 'Menu'], function () {
+          Route::get('/', 'MenuController@index')
+             ->name('admin_menu');
+
+	       Route::get('create', 'MenuController@create')
+                ->name('admin_menu_create');
+				
+			  Route::post('create', 'MenuController@saveCreate')
+               ->name('admin_menu_create_save');
+			   
+			  Route::get('update/{menu}', 'MenuController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_menu_update');
+			   
+			   Route::post('update/{menu}', 'MenuController@saveUpdate')
+               ->name('admin_menu_update_save');
+			   
+			   Route::get('delete/{menu}', 'MenuController@delete')
+               ->name('admin_menu_delete');
+			   
+			     Route::get('view/{menu}', 'MenuController@show')
+               ->name('admin_menu_show');
+       
+	    });
+	  
 		
 	    Route::group(['prefix' => 'about', 'namespace' => 'About'], function () {
           Route::get('/', 'AboutController@index')
@@ -371,11 +396,13 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	  
 });
 Route::group(['namespace' => 'Edit'], function () {
+//routes
 Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
+//figures
 Route::any('figures',['uses' => 'CkeditorController@figures'])->name('figures');
 
+//routes download and remove
 Route::any('drobsone-send',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send');
-  Route::any('drobsone-remove',['uses' => 'Drobsone2Controller@remove'])->name('drobsone-remove');
-  Route::any('slider-remove',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove');
+Route::any('slider-remove',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove');
   
 });

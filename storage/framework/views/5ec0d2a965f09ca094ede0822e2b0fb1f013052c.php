@@ -122,7 +122,7 @@
                                 </div>
                                 <div class="calendar__item--img">
 								<?php if(isset($item->photo)): ?>
-                                   <a href="<?php echo e(route('calendar-item',$item)); ?>">
+                                   <a href="<?php echo e(route('calendars-item',$item)); ?>">
                                         <img src="<?php echo e(URL::asset($item->photo)); ?>" alt="">
                                     </a>
 									<?php endif; ?>
@@ -137,7 +137,7 @@
                                     </div>
 									<?php if(isset($item->headers_title)): ?>
                                     <div class="calendar__item--title">
-                                        <a href="<?php echo e(route('calendar-item',$item)); ?>">
+                                        <a href="<?php echo e(route('calendars-item',$item)); ?>">
 									
 						<?php echo mb_substr($item->headers_title,0,65); ?>
 

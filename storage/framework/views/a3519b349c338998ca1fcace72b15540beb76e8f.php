@@ -10,7 +10,7 @@
                 </div>
                 <div class="header__right">
                     <div class="header__menu">
-                       <?php echo $__env->make('orda'.'.navigate-item', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                       
                     </div>
                 </div>
 

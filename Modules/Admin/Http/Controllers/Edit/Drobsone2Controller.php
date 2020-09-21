@@ -8,6 +8,8 @@ use Illuminate\Routing\Controller;
 use App\Services\UploadPhoto;
 use Storage;
 use Modules\Entity\Model\Routes\Routes;
+use Modules\Entity\Model\Tabs\Tabs;
+use Modules\Entity\Model\Figure\Figure;
 
 class Drobsone2Controller extends Controller
 {
@@ -33,35 +35,22 @@ public $table_switch;
 	   //return $res;
 	 
 	 
-    public function index(Request $request)
-    {
-		//$request->session()->forget('img');
-		//dd(session('img'));
-        return view('orda.efinder.drobsone.index');
-    }
-	public function slider(Request $request){
+  
+	function help_remove($path){
+		$path1 = substr($path,1);
 		
-		$path = substr($request->path,1);
-		//удаление из базы
-			$routes = Routes::where('id',$request->id)->first();
-			if(@unserialize($routes->photo)){
-				
-				//store/drobzone/2020/09/16/16002971759.jpg
-				$photo = unserialize($routes->photo);
-				
-				$key = array_search($request->path,$photo);
-				unset($photo[$key]);
-				$routes->photo = serialize($photo);
-		        $routes->save();
+			//удаление из базы
+			if(@unserialize($this->table->{$this->photo})){
+				$img = unserialize($this->table->{$this->photo});
+				$key = array_search($path,$img);
+				unset($img[$key]);
+				$this->table->{$this->photo} = serialize($img);
+		        $this->table->save();
 			}
-			
-			
-			
 			//удаление из хранилища
 			Storage::delete($path);
 			return 'ok';
-			return $photo;
-	}
+			}
 	
 	function func(){
     $this->file_name = time().rand(0,9).'.'.$this->files->getClientOriginalExtension();
@@ -130,6 +119,7 @@ public $table_switch;
 	  $this->befo_save();
  }
  
+ //routes
 	 public function send(Request $request)
     {
 	 $this->files = $request->file('file');
@@ -142,6 +132,17 @@ public $table_switch;
   	 return $this->respons();
     }
 	
+	//удаление
+	public function slider(Request $request){
+		$this->table_switch ='routes';
+		$this->action = 'update';
+	    $this->str = 'routes';
+		$this->photo = 'photo';
+		
+		$this->page();
+		$this->table();
+		$this->help_remove($request->path);
+	}
 	
 	
 }

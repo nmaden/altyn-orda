@@ -31,7 +31,7 @@
                                 <div class="sights__item--img">
                                     
 							<?php if(isset($item->photo)): ?>
-								<a href="<?php echo e(route('sight-item',$item)); ?>">
+								<a href="<?php echo e(route('sights-item',$item)); ?>">
                                     <img src="<?php echo e(URL::asset($item->photo)); ?>" alt="">
 									</a>
 								<?php endif; ?>
@@ -41,7 +41,7 @@
                                 <div class="sights__item--info">
                                     <div class="sights__item--title">
 									<?php if(isset($item->name)): ?>
-                                        <a href="<?php echo e(route('sight-item',$item)); ?>">
+                                        <a href="<?php echo e(route('sights-item',$item)); ?>">
 										<?php echo e($item->name); ?>
 
                                         </a>
@@ -63,7 +63,7 @@
                                         <div class="sights__list--item">
 										 <?php if(isset($item->introtext)): ?>
                                             <div class="sights__list--img">
-										        <a href="<?php echo e(route('sight-item',$item)); ?>#d3tours">
+										        <a href="<?php echo e(route('sights-item',$item)); ?>#d3tours">
                                                     <img src="/img/3d-list-icon.svg" alt="">
 												</a>
                                             </div>

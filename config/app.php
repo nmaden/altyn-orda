@@ -183,6 +183,7 @@ return [
 		\App\Services\Localization\LocalizationServiceProvider::class,
         //Barryvdh\Elfinder\ElfinderServiceProvider::class
 		 Intervention\Image\ImageServiceProvider::class,
+	    Lavary\Menu\ServiceProvider::class,
 
     ],
 
@@ -236,7 +237,7 @@ return [
 		'Module' => Nwidart\Modules\Facades\Module::class,
         'Date' => Jenssegers\Date\Date::class,
 		'LocalizationService' => \App\Services\Localization\LocalizationService::class,
-
+	    'Menu'=> Lavary\Menu\Facade::class,
     ],
 
 ];

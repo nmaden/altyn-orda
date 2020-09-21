@@ -11,7 +11,9 @@ use App\Repositories\SlidersRepository;
 use App\Repositories\GidsPepository;
 use App\Repositories\CalendarPepository;
 use Config;
-
+use Menu;
+//use App\Menu;
+use DB;
 use Modules\Entity\Model\Home\Home;
 
 class IndexController extends SiteController
@@ -19,8 +21,7 @@ class IndexController extends SiteController
     
     public function __construct(SlidersRepository $s_rep,GidsPepository $gids_rep, CalendarPepository $cld_rep) {
 
-
-		
+      
 		$this->s_rep = $s_rep;
 		$this->gid_rep = $gids_rep;
 		$this->calenar_rep = $cld_rep; 
@@ -29,7 +30,8 @@ class IndexController extends SiteController
 
 	}
     
-    
+
+		
     public function index(Request $request)
     {
 		
@@ -38,6 +40,7 @@ class IndexController extends SiteController
 		$home = $home_all->shift();
 		
 		$city_f = $home->sights->where('coord', '!=', '');
+		
 		//dd($city_f);
 		$count = count($city_f);
 		 if($count <=0 ){
@@ -54,9 +57,16 @@ class IndexController extends SiteController
         $sliders = view('orda'.'.slider')->with('sliders',$home)->render();
 		
 		$this->vars['sliders'] = $sliders;
-		
+		  
+		  
+		  
+		  
+		  //$nav = view('orda'.'.navigation')->with(['menu'=>$menu,'a'=>33])->render();
+		  //$this->vars['navigation'] = $nav;
+		  
 		$home_page = view('orda'.'.home')->with([
 		'calendar'=>$calenderItems,
+		
 		'gid'=>$gid,
 		'home'=>$home,
 		'home_all'=>$home_all,

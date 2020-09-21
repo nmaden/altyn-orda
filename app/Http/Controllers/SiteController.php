@@ -47,8 +47,8 @@ class SiteController extends Controller
 		$this->vars['meta_desc'] = $this->meta_desc;
 		$this->vars['title']=$this->title;
 		
-		$footer = view('orda'.'.footer')->render();
-		$this->vars['footer']=$footer;
+		//$footer = view('orda'.'.footer')->render();
+		//$this->vars['footer']=$footer;
         return view($this->template)->with($this->vars);
 	}
 	

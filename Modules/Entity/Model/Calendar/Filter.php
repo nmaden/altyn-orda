@@ -14,31 +14,14 @@ class Filter extends ModelFilter {
         if ($this->request->has('name') && $this->request->name) 
             $this->query->where('name', 'like', '%'.$this->request->name.'%');
 
-        if ($this->request->has('country_id') && $this->request->country_id)
-            $this->query->whereHas('relUniversity', function($q) use ($request){
-                $q->where('country_id', $request->country_id);
-            });
-
-        if ($this->request->has('univer_id') && $this->request->univer_id)
-            $this->query->whereHas('relUniversity', function($q) use ($request){
-                $q->where('univer_id', $request->univer_id);
-            });
-
-        // if ($this->request->has('city_id') && $this->request->city_id)
-        //     $this->query->whereHas('relUniversity', function($q) use ($request){
-        //         $q->where('city_id', $request->city_id);
-        //     });
-       
-        if ($this->request->has('degree_id') && $this->request->degree_id){
-			//echo $this->request->degree_id;exit();
-            $this->query->where('degree_id', $request->degree_id);
-        }
+  
         if ($this->request->has('sort_date') && $this->request->sort_date)
             if ($this->request->sort_date==0)
                 $this->query;
             if ($this->request->sort_date==1)
               
                 $this->query->where('date', '>=',Carbon::now())->where('date', '<=',Carbon::now()->addWeek(1));
+				
             if ($this->request->sort_date==2)  
                 $this->query->where('date', '>=',Carbon::now())->where('date', '<=',Carbon::now()->addMonth(1));
             if ($this->request->sort_date==3)
@@ -52,35 +35,12 @@ class Filter extends ModelFilter {
         
 		
 
-			if ($this->request->has('discipline_id') && is_array($this->request->discipline_id) && $this->request->discipline_id !='all'){
-				 $this->query->whereHas('relDiscipline', function($q) use ($request){
-                $q->whereIn('discipline_id', $request->discipline_id);
-            });
-				
-			
-			}
+		
 					
 			
-        if ($this->request->has('discpline_id') && is_array($this->request->discpline_id))
-            $this->query->whereHas('relDiscipline', function($q) use ($request){
-                $q->whereIn('discipline_id', $request->discpline_id);
-            });
+       
 
-        if ($this->request->has('cost') && is_array($this->request->cost))
-            $this->query->where(function($q) use ($request){
-                foreach ($request->cost as $k => $cost){
-                    $ar_cost = explode("-", $cost);
-                    if ($ar_cost[0] == 0 || $ar_cost[0] == '0')
-                        $q->where('price_for_inter', '<=', $ar_cost[1]);
-                    else if (!isset($ar_cost[1]))
-                        $q->orWhere('price_for_inter', '>=', $ar_cost[0]);
-                    else 
-                        $q->orWhere(function($b) use ($ar_cost){
-                            $b->where('price_for_inter', '>=',  $ar_cost[0])->where('price_for_inter', '<=', $ar_cost[1]);
-                        });
-                }
 
-            });
 
         if ($this->request->has('duration') && is_array($this->request->duration))
             $this->query->where(function($q) use ($request){

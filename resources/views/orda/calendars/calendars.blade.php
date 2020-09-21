@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="calendar__item--img">
 								@if(isset($item->photo))
-                                   <a href="{{route('calendar-item',$item)}}">
+                                   <a href="{{route('calendars-item',$item)}}">
                                         <img src="{{URL::asset($item->photo)}}" alt="">
                                     </a>
 									@endif
@@ -135,7 +135,7 @@
                                     </div>
 									@if(isset($item->headers_title))
                                     <div class="calendar__item--title">
-                                        <a href="{{route('calendar-item',$item)}}">
+                                        <a href="{{route('calendars-item',$item)}}">
 									
 						{!! mb_substr($item->headers_title,0,65) !!}
 										

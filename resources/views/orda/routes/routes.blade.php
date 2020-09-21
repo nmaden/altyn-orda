@@ -86,7 +86,7 @@
                             <div class="sights__item">
                                 <div class="sights__item--img">
 								@if(isset($item->photo))
-                                    <a href="{{route('route-item',$item)}}">
+                                    <a href="{{route('routes-item',$item)}}">
                                         <img src="{{URL::asset($item->photo)}}" alt="">
                                     </a>
 									@endif
@@ -94,7 +94,7 @@
                                 <div class="sights__item--info">
 								@if(isset($item->name))
                                     <div class="sights__item--title">
-                                        <a href="{{route('route-item',$item)}}">
+                                        <a href="{{route('routes-item',$item)}}">
 
 										{{$item->name}}
                                         </a>

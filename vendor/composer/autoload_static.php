@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
+class ComposerStaticInit25d0a7d3e42dc45fd9c96ebf450f752b
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -603,6 +603,7 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
+        'App\\Http\\Middleware\\GenerateMenus' => __DIR__ . '/../..' . '/app/Http/Middleware/GenerateMenus.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\SetLocale' => __DIR__ . '/../..' . '/app/Http/Middleware/SetLocale.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
@@ -3048,12 +3049,13 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'Modules\\Admin\\Database\\Seeders\\AdminDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Admin/Database/Seeders/AdminDatabaseSeeder.php',
         'Modules\\Admin\\Http\\Controllers\\About\\AboutController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/AboutController.php',
         'Modules\\Admin\\Http\\Controllers\\About\\Figure\\FigureController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/Figure/FigureController.php',
+        'Modules\\Admin\\Http\\Controllers\\About\\Figure\\MenuController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/menu/MenuController.php',
         'Modules\\Admin\\Http\\Controllers\\About\\Tabs\\TabsController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/Tabs/TabsController.php',
         'Modules\\Admin\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/AdminController.php',
         'Modules\\Admin\\Http\\Controllers\\Calendar\\CalendarController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Calendar/CalendarController.php',
-        'Modules\\Admin\\Http\\Controllers\\Comuna\\ComunaController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Comuna/ComunaController.php',
-        'Modules\\Admin\\Http\\Controllers\\Comuna\\ComunaMessageController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Comuna/ComunaMessageController.php',
         'Modules\\Admin\\Http\\Controllers\\Drobsone2Controller' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Drobsone2Controller.php',
+        'Modules\\Admin\\Http\\Controllers\\Edit\\CkeditorController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Edit/CkeditorController.php',
+        'Modules\\Admin\\Http\\Controllers\\Edit\\Drobsone2Controller' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Edit/Drobsone2Controller.php',
         'Modules\\Admin\\Http\\Controllers\\Gid\\GidController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Gid/GidController.php',
         'Modules\\Admin\\Http\\Controllers\\Home\\HomeController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Home/HomeController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\CityController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/CityController.php',
@@ -3116,6 +3118,8 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'Modules\\Entity\\Actions\\Sights\\CalendarDeleteAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarDeleteAction.php',
         'Modules\\Entity\\Actions\\Sights\\CalendarSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarSaveAction.php',
         'Modules\\Entity\\Actions\\Sights\\CalendarUpdateAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarUpdateAction.php',
+        'Modules\\Entity\\Actions\\Tabs\\DefaultDeleteAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Tabs/DefaultDeleteAction.php',
+        'Modules\\Entity\\Actions\\Tabs\\DefaultUpdateAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Tabs/DefaultUpdateAction.php',
         'Modules\\Entity\\Actions\\UniverSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/UniverSaveAction.php',
         'Modules\\Entity\\Database\\Seeders\\EntityDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Entity/Database/Seeders/EntityDatabaseSeeder.php',
         'Modules\\Entity\\Http\\Controllers\\EntityController' => __DIR__ . '/../..' . '/Modules/Entity/Http/Controllers/EntityController.php',
@@ -3184,6 +3188,10 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'Modules\\Entity\\Model\\LibUniverCat\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibUniverCat/Filter.php',
         'Modules\\Entity\\Model\\LibUniverCat\\LibUniverCat' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibUniverCat/LibUniverCat.php',
         'Modules\\Entity\\Model\\LibUniverCat\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibUniverCat/Presenter.php',
+        'Modules\\Entity\\Model\\Menu\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Menu/Filter.php',
+        'Modules\\Entity\\Model\\Menu\\Menu' => __DIR__ . '/../..' . '/Modules/Entity/Model/Menu/Menu.php',
+        'Modules\\Entity\\Model\\Menu\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Menu/Presenter.php',
+        'Modules\\Entity\\Model\\Menu\\TransMenu' => __DIR__ . '/../..' . '/Modules/Entity/Model/Menu/TransMenu.php',
         'Modules\\Entity\\Model\\Program\\ProgramDiscipline' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/ProgramDiscipline.php',
         'Modules\\Entity\\Model\\Routes\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Routes/Filter.php',
         'Modules\\Entity\\Model\\Routes\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Routes/Presenter.php',
@@ -3956,13 +3964,16 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'PhpParser\\JsonDecoder' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/JsonDecoder.php',
         'PhpParser\\Lexer' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer.php',
         'PhpParser\\Lexer\\Emulative' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/Emulative.php',
+        'PhpParser\\Lexer\\TokenEmulator\\AttributeEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/AttributeEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\CoaleseEqualTokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/CoaleseEqualTokenEmulator.php',
+        'PhpParser\\Lexer\\TokenEmulator\\FlexibleDocStringEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/FlexibleDocStringEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\FnTokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/FnTokenEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\KeywordEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\MatchTokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/MatchTokenEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\NullsafeTokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/NullsafeTokenEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\NumericLiteralSeparatorEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/NumericLiteralSeparatorEmulator.php',
-        'PhpParser\\Lexer\\TokenEmulator\\TokenEmulatorInterface' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/TokenEmulatorInterface.php',
+        'PhpParser\\Lexer\\TokenEmulator\\ReverseEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/ReverseEmulator.php',
+        'PhpParser\\Lexer\\TokenEmulator\\TokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/TokenEmulator.php',
         'PhpParser\\NameContext' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/NameContext.php',
         'PhpParser\\Node' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node.php',
         'PhpParser\\NodeAbstract' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/NodeAbstract.php',
@@ -3979,6 +3990,8 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'PhpParser\\NodeVisitor\\NodeConnectingVisitor' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/NodeVisitor/NodeConnectingVisitor.php',
         'PhpParser\\NodeVisitor\\ParentConnectingVisitor' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/NodeVisitor/ParentConnectingVisitor.php',
         'PhpParser\\Node\\Arg' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Arg.php',
+        'PhpParser\\Node\\Attribute' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Attribute.php',
+        'PhpParser\\Node\\AttributeGroup' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/AttributeGroup.php',
         'PhpParser\\Node\\Const_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Const_.php',
         'PhpParser\\Node\\Expr' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr.php',
         'PhpParser\\Node\\Expr\\ArrayDimFetch' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/ArrayDimFetch.php',
@@ -5496,12 +5509,16 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Var_' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Var_.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Version' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Version.php',
         'phpDocumentor\\Reflection\\Element' => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src/Element.php',
+        'phpDocumentor\\Reflection\\Exception\\PcreException' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/Exception/PcreException.php',
         'phpDocumentor\\Reflection\\File' => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src/File.php',
         'phpDocumentor\\Reflection\\Fqsen' => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src/Fqsen.php',
         'phpDocumentor\\Reflection\\FqsenResolver' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/FqsenResolver.php',
         'phpDocumentor\\Reflection\\Location' => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src/Location.php',
         'phpDocumentor\\Reflection\\Project' => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src/Project.php',
         'phpDocumentor\\Reflection\\ProjectFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src/ProjectFactory.php',
+        'phpDocumentor\\Reflection\\PseudoType' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoType.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\False_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/False_.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\True_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/True_.php',
         'phpDocumentor\\Reflection\\Type' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Type.php',
         'phpDocumentor\\Reflection\\TypeResolver' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/TypeResolver.php',
         'phpDocumentor\\Reflection\\Types\\AbstractList' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/AbstractList.php',
@@ -5515,7 +5532,6 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'phpDocumentor\\Reflection\\Types\\Context' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Context.php',
         'phpDocumentor\\Reflection\\Types\\ContextFactory' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/ContextFactory.php',
         'phpDocumentor\\Reflection\\Types\\Expression' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Expression.php',
-        'phpDocumentor\\Reflection\\Types\\False_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/False_.php',
         'phpDocumentor\\Reflection\\Types\\Float_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Float_.php',
         'phpDocumentor\\Reflection\\Types\\Integer' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Integer.php',
         'phpDocumentor\\Reflection\\Types\\Intersection' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Intersection.php',
@@ -5531,18 +5547,18 @@ class ComposerStaticInit27b19f3a74ecade46163c8289c71ef71
         'phpDocumentor\\Reflection\\Types\\Static_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Static_.php',
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
-        'phpDocumentor\\Reflection\\Types\\True_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/True_.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'phpDocumentor\\Reflection\\Utils' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/Utils.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit27b19f3a74ecade46163c8289c71ef71::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit27b19f3a74ecade46163c8289c71ef71::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit27b19f3a74ecade46163c8289c71ef71::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit27b19f3a74ecade46163c8289c71ef71::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit25d0a7d3e42dc45fd9c96ebf450f752b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit25d0a7d3e42dc45fd9c96ebf450f752b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit25d0a7d3e42dc45fd9c96ebf450f752b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit25d0a7d3e42dc45fd9c96ebf450f752b::$classMap;
 
         }, null, ClassLoader::class);
     }

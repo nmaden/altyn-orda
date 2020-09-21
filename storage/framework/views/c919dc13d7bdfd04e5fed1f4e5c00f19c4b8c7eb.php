@@ -86,7 +86,7 @@
                             <div class="sights__item">
                                 <div class="sights__item--img">
 								<?php if(isset($item->photo)): ?>
-                                    <a href="<?php echo e(route('route-item',$item)); ?>">
+                                    <a href="<?php echo e(route('routes-item',$item)); ?>">
                                         <img src="<?php echo e(URL::asset($item->photo)); ?>" alt="">
                                     </a>
 									<?php endif; ?>
@@ -94,7 +94,7 @@
                                 <div class="sights__item--info">
 								<?php if(isset($item->name)): ?>
                                     <div class="sights__item--title">
-                                        <a href="<?php echo e(route('route-item',$item)); ?>">
+                                        <a href="<?php echo e(route('routes-item',$item)); ?>">
 
 										<?php echo e($item->name); ?>
 

@@ -10,7 +10,7 @@
                 </div>
                 <div class="header__right">
                     <div class="header__menu">
-                       @include('orda'.'.navigate-item')
+                       
                     </div>
                 </div>
 

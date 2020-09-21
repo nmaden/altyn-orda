@@ -130,7 +130,7 @@
                             <div class="gid__item--top">
 
                                 <div class="gid__item--img">
-                                   <a href="{{route('gid-item',$item)}}">
+                                   <a href="{{route('gids-item',$item)}}">
                                @if(isset($item->photo))
                                     <img src="{{URL::asset($item->photo)}}" alt="">
 								@endif
@@ -143,7 +143,7 @@
 								    @endif
                                     </div>
                                     <div class="gid__item--title">
-                                        <a href="{{route('gid-item',$item)}}">
+                                        <a href="{{route('gids-item',$item)}}">
                                             @if(isset($item->imya))
 									{{$item->imya}}
 								    @endif

@@ -31,7 +31,7 @@
                                 <div class="sights__item--img">
                                     
 							@if(isset($item->photo))
-								<a href="{{route('sight-item',$item)}}">
+								<a href="{{route('sights-item',$item)}}">
                                     <img src="{{URL::asset($item->photo)}}" alt="">
 									</a>
 								@endif
@@ -41,7 +41,7 @@
                                 <div class="sights__item--info">
                                     <div class="sights__item--title">
 									@if(isset($item->name))
-                                        <a href="{{route('sight-item',$item)}}">
+                                        <a href="{{route('sights-item',$item)}}">
 										{{$item->name}}
                                         </a>
 										@endif
@@ -61,7 +61,7 @@
                                         <div class="sights__list--item">
 										 @if(isset($item->introtext))
                                             <div class="sights__list--img">
-										        <a href="{{route('sight-item',$item)}}#d3tours">
+										        <a href="{{route('sights-item',$item)}}#d3tours">
                                                     <img src="/img/3d-list-icon.svg" alt="">
 												</a>
                                             </div>

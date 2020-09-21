@@ -2,7 +2,6 @@
 
 @section('navigation')
 	@include('orda'.'.navigation')
-
 @endsection
 
 @section('slider')

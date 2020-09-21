@@ -2,7 +2,6 @@
 
 <?php $__env->startSection('navigation'); ?>
 	<?php echo $__env->make('orda'.'.navigation', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('slider'); ?>

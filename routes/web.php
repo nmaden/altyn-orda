@@ -35,12 +35,12 @@ Route::get('change_lang',['uses' => 'IndexController@changeLang'])->name('change
 
 
 //календарь событий
-Route::get('calendar-item/{calendar}',['uses' => 'CalendarsController@item'])->name('calendar-item');
+Route::get('calendars-item/{calendar}',['uses' => 'CalendarsController@item'])->name('calendars-item');
 Route::get('calendars',['uses' => 'CalendarsController@index'])->name('calendars');
 
 //гиды и туроператоры
 Route::get('gids',['uses' => 'GidsController@index'])->name('gids');
-Route::get('gid-item/{gid}',['uses' => 'GidsController@item'])->name('gid-item');
+Route::get('gids-item/{gid}',['uses' => 'GidsController@item'])->name('gids-item');
 
 //map
 Route::get('page-map',['uses' => 'MapController@map'])->name('map');
@@ -57,12 +57,12 @@ Route::get('about/figures',['uses' => 'FiguresController@index'])->name('about/f
 
 //достопримечательности
 Route::get('sights',['uses' => 'SightController@index'])->name('sights');
-Route::get('sight-item/{sight}',['uses' => 'SightController@item'])->name('sight-item');
+Route::get('sights-item/{sight}',['uses' => 'SightController@item'])->name('sights-item');
 
 
 //маршруты
 Route::get('routes',['uses' => 'RoutesController@index'])->name('routes');
-Route::get('route-item/{routes}',['uses' => 'RoutesController@item'])->name('route-item');
+Route::get('routes-item/{routes}',['uses' => 'RoutesController@item'])->name('routes-item');
 
 
 
