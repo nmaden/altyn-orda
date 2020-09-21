@@ -6,7 +6,7 @@ use View;
 use Route;
 trait MainSystemMethods  {
     public function __construct(Request $request) {
-		$model = new $this->def_model();
+		
 		//$this->middleware('auth.admin');
 		$route = Route::currentRouteName();
         $ar= explode('_',$route);

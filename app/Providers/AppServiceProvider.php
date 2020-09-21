@@ -18,6 +18,8 @@ use Cache;
 use DB;
 use Route;
 use Menu;
+use Modules\Entity\Model\Menu\Menu as Menus;
+
 class AppServiceProvider extends ServiceProvider
 {
 	public $menus;
@@ -35,7 +37,8 @@ class AppServiceProvider extends ServiceProvider
 			foreach($menu as $item) {
 				
 				if($item->parent == 0) {
-					$m->add($item->title,$item->path)->id($item->id);
+                   //dd($item->name);
+					$m->add($item->name,$item->path)->id($item->id);
 				}
 				else {
 					if($m->find($item->parent)) {
@@ -51,15 +54,7 @@ class AppServiceProvider extends ServiceProvider
 		
     public function register()
     {
-          $nav = DB::select("SELECT * FROM `menus`");
-	      $menu= $this->getmenu($nav);
-		  $this->menus=$menu;
 
-View::composer('orda.*', function ($view) {
-            $view->with('menu',$this->menus);
-        });
-		
-		
 				
 	   View::composer('orda.*', function ($view) {
             $view->with('q_lang', new CurrentLang());
@@ -82,7 +77,20 @@ View::composer('orda.*', function ($view) {
      */
     public function boot()
     {
-		
+		//\App::setLocale($lang);
+    $locale = request()->segment(1, '');
+	$reverse = array_flip(CurrentLang::getAr());
+      if($locale && in_array($locale, $reverse)) {
+        \App::setLocale($locale);
+     }
+
+
+     $nav= Menus::get('*');
+       $menu= $this->getmenu($nav);
+        $this->menus = $menu;
+        View::composer('orda.*', function ($view) {
+         $view->with('menu',$this->menus);
+        });
 		/*
    LibCity::creating(function (LibCity $city) {
 	   

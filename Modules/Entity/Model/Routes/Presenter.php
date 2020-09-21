@@ -78,6 +78,7 @@ function getCityAr(){
     }
 
   function getNameAttribute($v){
+   //dd($this);
 		return $this->getTransField('name', $v);
     }
 	

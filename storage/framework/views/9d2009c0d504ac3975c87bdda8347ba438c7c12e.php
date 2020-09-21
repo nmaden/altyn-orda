@@ -92,7 +92,12 @@ $ar=explode('_',$route);
 
 	   
 	   
-	   
+	    <li  style="background: <?php echo e(in_array('menu',$ar) ? '#ccc' : ''); ?>">
+	   <a href="<?php echo e(route('admin_menu')); ?>">
+	   <i class="icon-city"></i>
+	   <span>Меню
+	   </span></a>
+	   </li>
 	   
 	   
 	   

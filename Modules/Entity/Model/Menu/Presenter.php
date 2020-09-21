@@ -4,26 +4,19 @@ use Cache;
 
 trait Presenter {
 	
-	function getNamefigureAttribute($v){
-		return $this->getTransField('namefigure', $v);
+
+	function getNameAttribute($v){
+   
+      return $this->getTransField('name', $v);
     }
 	
-	function getDescriptionfigureAttribute($v){
-		return $this->getTransField('descriptionfigure', $v);
-    }
+ function getAr(){
+		return $this::where('parent','=',0)->pluck('name','id')->toArray();
+	}
+
+
 	
-	function getBirthAttribute($v){
-		return $this->getTransField('birth', $v);
-    }
 	
-	function getStatusAttribute($v){
-		return $this->getTransField('status', $v);
-    }
-	function getSubtitleAttribute($v){
-		return $this->getTransField('subtitle', $v);
-    }
-    function getIntrotextAttribute($v){
-		return $this->getTransField('introtext', $v);
-    }
+
 }
 

@@ -9,11 +9,10 @@ use Illuminate\Support\Facades\Validator;
 trait MainUpdateMethod  {
     public function update(Request $request, ModelParent $item) {
 		
-		if($request->session()->has('img')){
-			$request->session()->forget('img');
-			$request->session()->save();
-		}
-
+		
+	if($request->lang == 'ru' || !isset($request->lang)){
+            \App::setLocale('ru');
+          }
 
  
 	
@@ -31,6 +30,7 @@ trait MainUpdateMethod  {
     }
 
     public function saveUpdate(Request $request, ModelParent $item) {
+
 
    
      if ($request->lang && $request->lang != 'ru'){

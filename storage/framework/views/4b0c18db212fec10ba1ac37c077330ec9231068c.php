@@ -4,7 +4,7 @@
             <div class="header__row">
 
                 <div class="header__logo">
-                    <a href="/">
+                    <a href="/<?php echo e(app()->getLocale()); ?>">
                         <img src="/img/logo.svg" alt="">
                     </a>
                 </div>

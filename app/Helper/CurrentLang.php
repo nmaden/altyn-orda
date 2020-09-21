@@ -38,13 +38,13 @@ class CurrentLang {
     static function get(){
 
         if (session('current_lang')){
-            //\App::setLocale(session('current_lang'));
-            return session('current_lang');
+          return session('current_lang');
         }
-       // \App::setLocale('en');
+      if(!empty(app()->getLocale())){
+         return app()->getLocale();
+      }
        
-
-        return 'ru';
+      return 'ru';
     }
 
     static function set($lang){
