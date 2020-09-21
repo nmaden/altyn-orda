@@ -45,9 +45,33 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	
 	
 	  
-	    Route::group(['prefix' => 'gid', 'namespace' => 'Gid'], function () {
+	    Route::group(['prefix' => 'social', 'namespace' => 'Social'], function () {
       
-			
+				
+            Route::get('/', 'SocialController@index')
+             ->name('admin_social');
+
+	       Route::get('create', 'SocialController@create')
+                ->name('admin_social_create');
+				
+			  Route::post('create', 'SocialController@saveCreate')
+               ->name('admin_social_create_save');
+			   
+			  Route::get('update/{social}', 'SocialController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_social_update');
+			   
+			   Route::post('update/{social}', 'SocialController@saveUpdate')
+               ->name('admin_social_update_save');
+			   
+			   Route::get('delete/{social}', 'SocialController@delete')
+               ->name('admin_social_delete');
+			   
+			     Route::get('view/{social}', 'SocialController@show')
+               ->name('admin_social_show');
+       
+	    });
+	  
             Route::get('/', 'GidController@index')
              ->name('admin_gid');
 
