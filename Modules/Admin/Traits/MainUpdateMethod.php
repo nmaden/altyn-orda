@@ -32,13 +32,7 @@ trait MainUpdateMethod  {
 
     public function saveUpdate(Request $request, ModelParent $item) {
 
-    $validator = $this->validator($request->all());
-    if($validator->fails()) {
-		
-	return redirect()->route($this->route_path.'_update', $item->id.'?lang='.$request->lang)->withErrors($validator)->withInput();
-
-
-    };
+   
      if ($request->lang && $request->lang != 'ru'){
 	
             $model = $item->relTrans()->firstOrCreate(['lang'=>$request->lang]);
