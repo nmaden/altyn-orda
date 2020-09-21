@@ -45,33 +45,9 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	
 	
 	  
-	    Route::group(['prefix' => 'social', 'namespace' => 'Social'], function () {
+	    Route::group(['prefix' => 'gid', 'namespace' => 'Gid'], function () {
       
-				
-            Route::get('/', 'SocialController@index')
-             ->name('admin_social');
-
-	       Route::get('create', 'SocialController@create')
-                ->name('admin_social_create');
-				
-			  Route::post('create', 'SocialController@saveCreate')
-               ->name('admin_social_create_save');
-			   
-			  Route::get('update/{social}', 'SocialController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_social_update');
-			   
-			   Route::post('update/{social}', 'SocialController@saveUpdate')
-               ->name('admin_social_update_save');
-			   
-			   Route::get('delete/{social}', 'SocialController@delete')
-               ->name('admin_social_delete');
-			   
-			     Route::get('view/{social}', 'SocialController@show')
-               ->name('admin_social_show');
-       
-	    });
-	  
+			
             Route::get('/', 'GidController@index')
              ->name('admin_gid');
 
@@ -205,31 +181,6 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
        
 	    });
 	  
-	    Route::group(['prefix' => 'menu', 'namespace' => 'Menu'], function () {
-          Route::get('/', 'MenuController@index')
-             ->name('admin_menu');
-
-	       Route::get('create', 'MenuController@create')
-                ->name('admin_menu_create');
-				
-			  Route::post('create', 'MenuController@saveCreate')
-               ->name('admin_menu_create_save');
-			   
-			  Route::get('update/{menu}', 'MenuController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_menu_update');
-			   
-			   Route::post('update/{menu}', 'MenuController@saveUpdate')
-               ->name('admin_menu_update_save');
-			   
-			   Route::get('delete/{menu}', 'MenuController@delete')
-               ->name('admin_menu_delete');
-			   
-			     Route::get('view/{menu}', 'MenuController@show')
-               ->name('admin_menu_show');
-       
-	    });
-	  
 		
 	    Route::group(['prefix' => 'about', 'namespace' => 'About'], function () {
           Route::get('/', 'AboutController@index')
@@ -340,7 +291,57 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 			     Route::get('view/{coords}', 'CoordController@show')
                ->name('admin_coords_show');
 		});
-			 
+			   Route::group(['prefix' => 'social', 'namespace' => 'Social'], function () {
+      
+				
+            Route::get('/', 'SocialController@index')
+             ->name('admin_social');
+
+	       Route::get('create', 'SocialController@create')
+                ->name('admin_social_create');
+				
+			  Route::post('create', 'SocialController@saveCreate')
+               ->name('admin_social_create_save');
+			   
+			  Route::get('update/{social}', 'SocialController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_social_update');
+			   
+			   Route::post('update/{social}', 'SocialController@saveUpdate')
+               ->name('admin_social_update_save');
+			   
+			   Route::get('delete/{social}', 'SocialController@delete')
+               ->name('admin_social_delete');
+			   
+			     Route::get('view/{social}', 'SocialController@show')
+               ->name('admin_social_show');
+       
+	    });
+	    Route::group(['prefix' => 'menu', 'namespace' => 'Menu'], function () {
+          Route::get('/', 'MenuController@index')
+             ->name('admin_menu');
+
+	       Route::get('create', 'MenuController@create')
+                ->name('admin_menu_create');
+				
+			  Route::post('create', 'MenuController@saveCreate')
+               ->name('admin_menu_create_save');
+			   
+			  Route::get('update/{menu}', 'MenuController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_menu_update');
+			   
+			   Route::post('update/{menu}', 'MenuController@saveUpdate')
+               ->name('admin_menu_update_save');
+			   
+			   Route::get('delete/{menu}', 'MenuController@delete')
+               ->name('admin_menu_delete');
+			   
+			     Route::get('view/{menu}', 'MenuController@show')
+               ->name('admin_menu_show');
+       
+	    });
+	  
     Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
 
 	Route::group(['prefix' => 'city'], function () {
@@ -420,13 +421,11 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	  
 });
 Route::group(['namespace' => 'Edit'], function () {
-//routes
 Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
-//figures
 Route::any('figures',['uses' => 'CkeditorController@figures'])->name('figures');
 
-//routes download and remove
 Route::any('drobsone-send',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send');
-Route::any('slider-remove',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove');
+  Route::any('drobsone-remove',['uses' => 'Drobsone2Controller@remove'])->name('drobsone-remove');
+  Route::any('slider-remove',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove');
   
 });
