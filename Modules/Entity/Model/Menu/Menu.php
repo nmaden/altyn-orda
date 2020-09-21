@@ -26,7 +26,7 @@ class Menu extends ModelParent {
  
 
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Menu\transMenu', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Menu\TransMenu', 'el_id');
     }
 
     
