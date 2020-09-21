@@ -8,7 +8,7 @@ class Menu extends Model
 {
     //
      protected $fillable = [
-        'title', 'path','parent'
+        'name', 'path','parent'
     ];
     
     

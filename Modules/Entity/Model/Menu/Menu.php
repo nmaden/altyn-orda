@@ -5,10 +5,9 @@ use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
 class Menu extends ModelParent {
-    protected $table = 'figures';
-	protected $fillable = [ 'namefigure',
-	'descriptionfigure','photo','birth',
-	'status','edited_user_id','introtext','subtitle','editor'];
+    protected $table = 'menus';
+  
+	protected $fillable = [ 'title','name','path','parent'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -27,7 +26,7 @@ class Menu extends ModelParent {
  
 
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Figure\TransFigure', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Menu\transMenu', 'el_id');
     }
 
     
