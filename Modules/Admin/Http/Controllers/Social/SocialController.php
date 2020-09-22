@@ -1,5 +1,5 @@
 <?php
-namespace Modules\Admin\Http\Controllers\About\Social;
+namespace Modules\Admin\Http\Controllers\Social;
 
 use Illuminate\Http\Request;
 
@@ -18,9 +18,9 @@ use Modules\Entity\Model\Social\Social as Model;
 class SocialController extends Controller {
     use MainCrudMethod;
 	protected $informers = true;
-    protected $view_path = 'admin::page.manu';
-    protected $route_path = 'admin_menu';
-    protected $title_path = 'title.menu';
+    protected $view_path = 'admin::page.social';
+    protected $route_path = 'admin_social';
+    protected $title_path = 'title.social';
     protected $def_model = Model::class;
     protected $action_create = ModelCreateAction::class;
     protected $action_update = ModelUpdateAction::class;

@@ -5,10 +5,8 @@ use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
 class Social extends ModelParent {
-    protected $table = 'figures';
-	protected $fillable = [ 'namefigure',
-	'descriptionfigure','photo','birth',
-	'status','edited_user_id','introtext','subtitle','editor'];
+    protected $table = 'social';
+	protected $fillable = ['namesocial','edited_user_id','path'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -25,10 +23,11 @@ class Social extends ModelParent {
         return $this->id;
     }
  
-
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Figure\TransFigure', 'el_id');
+        return false;
     }
+
+  
 
     
 

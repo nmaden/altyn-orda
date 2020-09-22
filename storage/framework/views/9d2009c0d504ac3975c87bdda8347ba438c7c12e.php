@@ -98,7 +98,12 @@ $ar=explode('_',$route);
 	   <span>Меню
 	   </span></a>
 	   </li>
-	   
+	    <li  style="background: <?php echo e(in_array('social',$ar) ? '#ccc' : ''); ?>">
+	   <a href="<?php echo e(route('admin_social')); ?>">
+	   <i class="icon-city"></i>
+	   <span>социальные кнопки
+	   </span></a>
+	   </li>
 	   
 	   
 	    <li  style="background: <?php echo e(in_array('slider',$ar) ? '#ccc' : ''); ?>">
@@ -127,7 +132,7 @@ $ar=explode('_',$route);
 					    <li>
 							
 							<li  style="border: <?php echo e(in_array('about',$ar) ? ' 1px solid #ccc' : ''); ?>">
-                             <a href="<?php echo e(route('admin_about')); ?>"><span>
+                             <a href="<?php echo e(route('admin_about_update',2)); ?>"><span>
 							 Общие элементы страницы
 							 </span></a>
 							 </li>

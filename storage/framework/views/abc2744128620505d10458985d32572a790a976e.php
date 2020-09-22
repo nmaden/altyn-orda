@@ -7,7 +7,7 @@
                     <div class="banner__item">
 
                         <div class="banner__item--img">
-                            <img src="/img/slider__bg.jpg" alt="">
+                            <img src="/img/slider__bg2.jpg" alt="">
                         </div>
                         <div class="banner__item--container">
                             <div class="container">

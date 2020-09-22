@@ -1,5 +1,6 @@
 <ul class="menu">
 <?php
+dd(UrlReplace::get('http://orda.log/calendars'));
 $recurs=0;
 //dd($items[0]->link->path['url']);
 ?>
@@ -18,7 +19,7 @@ $url = str_replace("/".$_SERVER['HTTP_HOST'], "/".$_SERVER['HTTP_HOST'].'/'.app(
         href="<?php echo e($url); ?>">
 			<?php echo e($item->title); ?> 
 		<?php if($recurs == 1): ?>
-		<img src="/img/childrenmenu-1.png" alt=""> О золотой орде</a>
+		<img src="/img/childrenmenu-1.png" alt=""> <?php echo e($item->title); ?></a>
         <?php endif; ?>
 		</a>
 			<?php if($item->hasChildren()): ?>
