@@ -4,9 +4,9 @@ namespace Modules\Entity\Model\Social;
 use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
-class Social extends ModelParent {
-    protected $table = 'social';
-	protected $fillable = ['namesocial','edited_user_id','path'];
+class Socialitem extends ModelParent {
+    protected $table = 'socialitem';
+	protected $fillable = ['calendar_id','edited_user_id','social_id'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

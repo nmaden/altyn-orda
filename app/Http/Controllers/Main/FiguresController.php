@@ -26,7 +26,7 @@ class FiguresController extends SiteController
     
     public function index(Request $request)
 	{
-
+        
 		$items = Figure::filter($request)->latest()->paginate(10);
 		
         $figures_page = view('orda' . '.figures.about-figures')->with(['items' => $items,'request' => $request])->render();

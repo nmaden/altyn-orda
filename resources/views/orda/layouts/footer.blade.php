@@ -10,6 +10,8 @@
                 </div>
                 <div class="header__right">
                     <div class="header__menu">
+                @include('orda'.'.navigatitem2',['items'=>$menu->roots()])
+
                     </div>
                 </div>
 
@@ -51,18 +53,18 @@ var json_model= JSON.parse(decodeURIComponent(json));
 @endif
 <!------интерактивная 1 routes------>
 @if($route === 'routes-map' || $route === 'routes-item')
-	  @include('orda.map.interactiv.karta1');
+	  @include('orda.map.interactiv.karta1')
   @endif
 
-<!------конвертация json php------>
-@if($route == 'home' || $route == 'map' || $route =='sights-map')
-	@include('orda.map.interactiv.sights');
-@endif
 
 <!------интерактивная 2 sights------>
 @if($route == 'home' || $route =='sights-map' || $route =='map')
-	@include('orda.map.interactiv.karta2');
+	@include('orda.map.interactiv.karta2')
+	@include('orda.map.interactiv.sights')
+
 @endif
+
+
 <script>
         $( document ).ready(function() {
             $('.lang__menu .lang__menu--children li a').on('click',function(e){

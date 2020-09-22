@@ -8,7 +8,11 @@
                     <div class="banner__item">
 
                         <div class="banner__item--img">
+<<<<<<< HEAD
                             <img src="<?php echo e(URL::asset($slider->photo)); ?>" alt="">
+=======
+                            <img src="/img/slider__bg2.jpg" alt="">
+>>>>>>> cokial
                         </div>
                         <div class="banner__item--container">
                             <div class="container">

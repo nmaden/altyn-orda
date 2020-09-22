@@ -180,6 +180,9 @@ return [
         //Barryvdh\Elfinder\ElfinderServiceProvider::class
 		// Intervention\Image\ImageServiceProvider::class,
 	    Lavary\Menu\ServiceProvider::class,
+        App\Providers\TranslitServiceProvider::class,
+        App\Providers\UrlZamenaServiceProvider::class
+
     ],
 
     /*
@@ -235,6 +238,9 @@ return [
         'Date' => Jenssegers\Date\Date::class,
 		'LocalizationService' => \App\Services\Localization\LocalizationService::class,
 	    'Menu'=> Lavary\Menu\Facade::class,
+        'Translit'=> App\Helper\Facades\Translit::class,
+        'UrlReplace'=> App\Helper\Facades\UrlZamena::class,
+
     ],
 
 ];

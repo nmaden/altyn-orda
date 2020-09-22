@@ -26,7 +26,6 @@ class CkeditorController extends Controller
   
  
   function func($file){
-	 
   $this->file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
   $this->url = '/store/'.$this->papka_save.'/'.date('Y').'/'.date('m').'/'.date('d').'/'.$this->file_name;
   

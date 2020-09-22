@@ -52,7 +52,12 @@
 									<button type="button" class="btn  btn-primary btn-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 										<i class="icon-menu7"></i> 
 									</button>
-									<?php echo $__env->make('admin::page.components.lang.switch_lang_index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+									<ul class="dropdown-menu dropdown-menu-right">
+<?php echo $__env->make('admin::page.components.lang.switch_lang_index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                   <li class="divider"></li>
+										<li><a href="<?php echo e(route($route_path.'_delete', $i)); ?>"><?php echo app('translator')->get('main.delete'); ?></a></li>
+									</ul>
+									
 								</div>
 								
 							</th>

@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
 				}
 				else {
 					if($m->find($item->parent)) {
-						$m->find($item->parent)->add($item->title,$item->path)->id($item->id);
+						$m->find($item->parent)->add($item->name,$item->path)->id($item->id);
 					}
 				}
 			}
@@ -77,6 +77,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+//echo app()->getLocale();exit();
 		//\App::setLocale($lang);
     $locale = request()->segment(1, '');
 	$reverse = array_flip(CurrentLang::getAr());

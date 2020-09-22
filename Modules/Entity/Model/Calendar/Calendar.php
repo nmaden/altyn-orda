@@ -8,7 +8,7 @@ class Calendar extends ModelParent {
     protected $table = 'galleries';
 	
 	
-    protected $fillable = [ 'photo','name','text','user_id','city_id','category_id','date'];
+    protected $fillable = [ 'photo','name','text','user_id','city_id','category_id','date','social'];
 	
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
@@ -17,7 +17,12 @@ class Calendar extends ModelParent {
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
 	
-	
+	function Social(){
+        return $this->belongsToMany(
+		'Modules\Entity\Model\Social\Social',
+		'Modules\Entity\Model\Social\Socialitem', 'calendar_id','social_id');
+    }
+
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\Calendar\TransCalendar', 'el_id');
     }

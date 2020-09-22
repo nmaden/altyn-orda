@@ -57,9 +57,12 @@
 									<button type="button" class="btn  btn-primary btn-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 										<i class="icon-menu7"></i> 
 									</button>
-									
-	                              @include('admin::page.components.lang.switch_lang_index')
-								
+								<ul class="dropdown-menu dropdown-menu-right">
+	                    @include('admin::page.components.lang.switch_lang_index')
+                                   <li class="divider"></li>
+										<li><a href="{{ route($route_path.'_delete', $i) }}">@lang('main.delete')</a></li>
+                                 </ul>
+							
 								</div>
 								
 							</th>

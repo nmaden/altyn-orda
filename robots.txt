@@ -1,0 +1,22 @@
+
+User-Agent: *
+Disallow: /vendor
+Disallow: /uploads
+
+Disallow: /store
+
+Disallow: /picker
+
+Disallow: /js
+
+Disallow: /css
+
+Disallow: /geo
+
+Disallow: /fonts
+
+Disallow: /ckeditor
+
+Disallow: /admin-asse
+Host: https://altynorda.kazakhstan.travel
+Sitemap: https://altynorda.kazakhstan.travel/sitemap.xml

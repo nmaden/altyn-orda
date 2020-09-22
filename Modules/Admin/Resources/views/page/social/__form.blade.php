@@ -6,6 +6,18 @@ if(in_array('show',$ar)){
 	$page = true;
 }
 @endphp
+
+<div style="font-size: 12px; color: gray;"><img style="animation: rotate 4s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;" src="https://vippromokod.ru/wa-data/public/site/img/gift-for-repost.png"> Поделитесь и получите подарок:</div>
+<div class="ya-share2 btn_vippromokod" data-services="vkontakte,facebook,odnoklassniki,twitter,viber,whatsapp,skype,telegram" data-limit="3"></div>
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+<script src="https://yastatic.net/share2/share.js"></script>
+<script>
+    $(function () {
+      $('.btn_vippromokod').click(function(){
+        $(".block_with_text_vippromokod").fadeToggle(100);
+      });
+    });
+</script>
 <!--------------------------------------
 <div style='padding:10px 5px;'> 
 <label for="text"><b>Текст</b></label> 
@@ -22,98 +34,32 @@ if(in_array('show',$ar)){
 </textarea>
 </div>
 ----------------------------------->
-@if($lang == 'ru' || $lang === '')
 
-<div>
-<label for="photo"><b>Фото</b></label>
- <input {{$page ? 'disabled': ''}} 
-type="file" 
-value="{{$model->photo}}" 
-name='photo' 
-placeholder="Фото" 
-class="form-control"/>
-@if (isset($model->photo)) 
- уже загружено <a href="{{URL::asset($model->photo)}}" target="_blank">просмотреть</a>
-@else
-Фото не загружено
-@endif
-</div>
-@endif
+ <div>   
 
-@if($lang == 'ru' || $lang != 'ru')
-<br><br>
-<div>  
- <label for="title"><b>Годы жизни(текст)</b></label> 
-<input {{$page ? 'disabled': ''}} 
-type="text" value="{{isset($model->birth) ? $model->birth: ''}}" 
-name='birth' placeholder="{{$page ? '': '1182-1225 '}} " 
-class="form-control"/>
-</div>
-@endif
+    <label for="title"><b>название</b></label> 
+			<select {{$page ? 'disabled': ''}} name="name"  class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+			<option></option>
+          
+        </select>
+		</div>
 
-
-
-<br><br>
 
 <div>  
-<label for="title"><b>Имя(текст)</b></label> 
+ <label for="title"><b>название</b></label> 
 <input {{$page ? 'disabled': ''}} 
-type="text" value="{{isset($model->namefigure ) ? $model->namefigure : ''}}" 
-name='namefigure' placeholder="Менгу-Тимур " 
+type="text" value="{{isset($model->name) ? $model->name: ''}}" 
+name='name' placeholder="{{$page ? '': 'http://www.w3.org/2000/svg'}} " 
 class="form-control"/>
 </div>
 
 <br><br>
 <div>  
- <label for="title"><b>Ранг(текстовое поле)</b></label> 
+ <label for="title"><b>URL(текст)</b></label> 
 <input {{$page ? 'disabled': ''}} 
-type="text" value="{{isset($model->status) ? $model->status: ''}}" 
-name='status' placeholder="{{$page ? '': 'Хан'}} " 
+type="text" value="{{isset($model->path) ? $model->path: ''}}" 
+name='path' placeholder="{{$page ? '': 'https://vk.com/name'}} " 
 class="form-control"/>
 </div>
 
-<br><br>
-
-<div style='padding:10px 5px;'> 
-<label for="text"><b>Текст</b></label> 
-<textarea 
- {{$page ? 'disabled': ''}}
- value="" 
- name='descriptionfigure' 
-  rows="16" 
- cols="4" 
- id="editor"
- class="form-control {{$page ? '' : ''}}">
- {{isset($model->descriptionfigure) ? $model->descriptionfigure : ''}}
-</textarea>
- </div>
- 
-<br><br>
-
-<div>  
- <label for="title"><b>текстовое поле</b></label> 
-<input {{$page ? 'disabled': ''}} 
-
-type="text" value="{{isset($model->introtext) ? $model->introtext: ''}}" 
-name='introtext' placeholder="{{$page ? '': 'Место погребения гора Улытау, Казахстан'}} " 
-class="form-control"/>
-</div>
-
-<br><br>
-
-<div>  
- <label for="title"><b>подзаголовок(текст)</b></label> 
-<input {{$page ? 'disabled': ''}} 
-
-type="text" value="{{isset($model->subtitle ) ? $model->subtitle : ''}}" 
-name='subtitle' placeholder="{{$page ? '': 'Правитель Улуса Джучи'}} " 
-class="form-control"/>
-</div>
-<script>
-	
-  CKEDITOR.replace('editor', {
-  filebrowserUploadUrl: "{{route('figures')}}",
-  disallowedContent: 'a[href]',
-  height: 300, });
-	
-</script>

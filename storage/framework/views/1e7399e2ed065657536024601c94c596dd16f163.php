@@ -52,21 +52,8 @@
 										<i class="icon-menu7"></i> 
 									</button>
 									<ul class="dropdown-menu dropdown-menu-right">
-										<?php $__currentLoopData = $sys_lang->getAr(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
-								
-											<li><a href="<?php echo e(route($route_path.'_show', $i)); ?>?lang=<?php echo e($k); ?>">
-										
-										<?php echo app('translator')->get('main.show'); ?> "<?php echo e($v); ?>" </a></li>
-										
-										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-										<li class="divider"></li>
-
-										<?php $__currentLoopData = $sys_lang->getAr(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
-										
-											<li><a href="<?php echo e(route($route_path.'_update', $i)); ?>?lang=<?php echo e($k); ?>"><?php echo app('translator')->get('main.update'); ?> "<?php echo e($v); ?>" </a></li>
-										
-										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-										<li class="divider"></li>
+<?php echo $__env->make('admin::page.components.lang.switch_lang_index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                   <li class="divider"></li>
 										<li><a href="<?php echo e(route($route_path.'_delete', $i)); ?>"><?php echo app('translator')->get('main.delete'); ?></a></li>
 									</ul>
 									

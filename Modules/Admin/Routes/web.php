@@ -148,8 +148,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
                ->name('admin_home_update_save');
 			  Route::get('view/{home}', 'HomeController@show')
                ->name('admin_home_show');
-			   //Route::get('delete/{home}', 'HomeController@delete')
-               //->name('admin_home_delete');
+			   Route::get('delete/{home}', 'HomeController@delete')
+               ->name('admin_home_delete');
 			   
 			    
        
@@ -291,7 +291,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 			     Route::get('view/{coords}', 'CoordController@show')
                ->name('admin_coords_show');
 		});
-			   Route::group(['prefix' => 'social', 'namespace' => 'Social'], function () {
+
+		Route::group(['prefix' => 'social', 'namespace' => 'Social'], function () {
       
 				
             Route::get('/', 'SocialController@index')
