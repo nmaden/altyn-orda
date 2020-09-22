@@ -3,11 +3,12 @@
             <div class="swiper-wrapper">
 		<?php if(isset($sliders)): ?>
          <?php $__currentLoopData = $sliders->sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
                 <div class="swiper-slide">
                     <div class="banner__item">
 
                         <div class="banner__item--img">
-                            <img src="/img/slider__bg.jpg" alt="">
+                            <img src="<?php echo e(URL::asset($slider->photo)); ?>" alt="">
                         </div>
                         <div class="banner__item--container">
                             <div class="container">
@@ -27,6 +28,7 @@
 
                     </div>
                 </div>
+
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
             </div>

@@ -3,11 +3,12 @@
             <div class="swiper-wrapper">
 		@if(isset($sliders))
          @foreach($sliders->sliders as $slider)
+
                 <div class="swiper-slide">
                     <div class="banner__item">
 
                         <div class="banner__item--img">
-                            <img src="/img/slider__bg2.jpg" alt="">
+                            <img src="{{URL::asset($slider->photo)}}" alt="">
                         </div>
                         <div class="banner__item--container">
                             <div class="container">
@@ -25,6 +26,7 @@
 
                     </div>
                 </div>
+
 @endforeach
 @endif
             </div>

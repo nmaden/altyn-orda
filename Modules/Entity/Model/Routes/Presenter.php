@@ -10,10 +10,10 @@ use Cache;
 trait Presenter {
 	
 	function getPhotoUnserializeAttribute(){
-		if(@unserialize($this->photo)){
-			return unserialize($this->photo);
+		if(@unserialize($this->gallery)){
+			return unserialize($this->gallery);
 		}else{
-			return $this->photo;
+			return $this->gallery;
 		}
 	 
 	}
@@ -70,10 +70,10 @@ function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 }
 	function getImgPhotoAttribute($v){
-		if(@unserialize($this->photo)){
-		return unserialize($this->photo);
+		if(@unserialize($this->gallery)){
+		return unserialize($this->gallery);
 		}else{
-			return $this->photo;
+			return $this->gallery;
 		}
     }
 

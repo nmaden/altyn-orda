@@ -18,9 +18,9 @@ if(in_array('show',$ar)){
 
 $categories = DB::table('routes_categories')->get();
 @endphp
-<!------------
+
 <div>
-<label for="photo"><b>Фото</b></label>
+<label for="photo"><b>Фото в списке маршрутов</b></label>
  <input {{$page ? 'disabled': ''}} 
 type="file" 
 value="{{$model->photo}}" 
@@ -33,9 +33,9 @@ class="form-control"/>
 Фото не загружено
 @endif
 </div>
----------------------->
 
 <div>
+<br><br>
 <div id="drobzone-photo">
 @if(is_array($model->photo_unserialize))
 	@php
@@ -44,7 +44,7 @@ class="form-control"/>
 @endphp
 @foreach($model->photo_unserialize as $k=>$item)
 <div class='rm'>
-<input type="hidden" name="photo[]" value="{{$item}}"/>
+<input type="hidden" name="gallery[]" value="{{$item}}"/>
 
  уже загружено <a href="{{URL::asset($item)}}" target="_blank">
 просмотреть</a>&nbsp&nbsp

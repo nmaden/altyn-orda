@@ -86,7 +86,7 @@ public $table_switch;
 	 }}}
  public function save_baze(){
 	$img = [];
-	if(@unserialize($this->table->photo)){
+	if(@unserialize($this->table->{$this->photo})){
 		$img = unserialize($this->table->{$this->photo});
 	}
 	array_push($img,$this->url);
@@ -108,7 +108,7 @@ public $table_switch;
 }
    public function respons(){
 	   $photo_res = unserialize($this->table->{$this->photo});
-		$view = view('orda.response.drobzone')->with(['photo'=>$photo_res,'id'=>$this->id])->render();
+		$view = view('orda.response.drobzone')->with(['photo'=>$photo_res,'id'=>$this->id,'foto'=>$this->photo])->render();
 		return response($view)->header('Content-type','text/html');
    }
    public function collector(){
@@ -124,7 +124,7 @@ public $table_switch;
     {
 	 $this->files = $request->file('file');
      $this->papka_save = 'drobzone';
-	 $this->photo='photo';
+	 $this->photo='gallery';
 	 $this->action = 'update';
 	 $this->str = 'routes';
 	 $this->table_switch = 'routes';
@@ -137,7 +137,7 @@ public $table_switch;
 		$this->table_switch ='routes';
 		$this->action = 'update';
 	    $this->str = 'routes';
-		$this->photo = 'photo';
+		$this->photo = 'gallery';
 		
 		$this->page();
 		$this->table();

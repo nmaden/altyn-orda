@@ -27,16 +27,18 @@ class CalendarUpdateAction {
         $ar = $this->request->all();
 		$ar['user_id'] = $this->request->user()->id;
   
-	 	if ($this->request->has('photo') && is_array(!$this->request->photo)){
+	 	if ($this->request->has('photo')){
 			
 			if(is_file(public_path($this->model->photo))){
 	          Storage::delete($this->model->photo);
             }
             $ar['photo'] = UploadPhoto::upload($this->request->photo,$this->model->photo);
 	   }
+
         else {
             unset($ar['photo']);
 		}
+
         
         if(is_array($this->request->groups) && !empty($this->request->groups)){
 			
