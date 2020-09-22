@@ -95,4 +95,29 @@ value='' name='text'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-de
 			@endif
         </select>
 		</div>
-		
+
+<br><br>
+<div>
+<label for="text"><b>социальные кнопки:  поделиться</b></label>
+ @php
+//dd($model->ar_social_un);
+@endphp
+ <select name="social[]" 
+ id="{{ isset($id) ? $id : '' }}" 
+ class="form-control select2"   
+ {{$page ? 'disabled': ''}}
+ multiple
+   <option value="0">@lang('model.disabled')</option>
+   @foreach($model->getSocialAr() as $k=>$item)
+   <option {{in_array($k,$model->ar_social_un) ? 'selected' : ''}} value="{{$k}}"  >{{$item}}</option>
+
+  @endforeach
+</select>
+
+</div> 
+<script>
+$('.select2').select2({
+    minimumResultsForSearch: Infinity,
+    width: '100%'
+})
+		</script>

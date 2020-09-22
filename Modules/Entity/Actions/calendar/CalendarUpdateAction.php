@@ -36,6 +36,9 @@ class CalendarUpdateAction {
             unset($ar['photo']);
 		}
   
+       if($this->request->social && is_array($this->request->social)){
+         $ar['social'] = serialize($this->request->social);
+       }
      
       
         $this->model->updateOrCreate(['id'=>$this->model->id],$ar);

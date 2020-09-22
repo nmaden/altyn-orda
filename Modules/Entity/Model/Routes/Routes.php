@@ -15,6 +15,7 @@ class Routes extends ModelParent {
     function relCity(){
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
+
 	
 
 	 function coords(){

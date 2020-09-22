@@ -18,12 +18,15 @@ class SetLocale
     {
 
         $langPrefix = ltrim($request->route()->getPrefix(),'/');
+
         if($langPrefix) {
+
             App::setLocale($langPrefix);
 			CurrentLang::set($langPrefix);
 
         }else{
-			CurrentLang::set('ru');
+          \App::setLocale('ru');
+            CurrentLang::set('ru');
 		}
 		
         return $next($request);

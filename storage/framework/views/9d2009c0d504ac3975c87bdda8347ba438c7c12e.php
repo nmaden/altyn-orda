@@ -98,12 +98,14 @@ $ar=explode('_',$route);
 	   <span>Меню
 	   </span></a>
 	   </li>
+<!--------------
 	    <li  style="background: <?php echo e(in_array('social',$ar) ? '#ccc' : ''); ?>">
 	   <a href="<?php echo e(route('admin_social')); ?>">
 	   <i class="icon-city"></i>
 	   <span>социальные кнопки
 	   </span></a>
 	   </li>
+------------------->
 	   
 	   
 	    <li  style="background: <?php echo e(in_array('slider',$ar) ? '#ccc' : ''); ?>">

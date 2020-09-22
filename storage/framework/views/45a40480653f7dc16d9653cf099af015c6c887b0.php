@@ -10,6 +10,8 @@
                 </div>
                 <div class="header__right">
                     <div class="header__menu">
+                <?php echo $__env->make('orda'.'.navigatitem2',['items'=>$menu->roots()], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
                     </div>
                 </div>
 
@@ -51,18 +53,18 @@ var json_model= JSON.parse(decodeURIComponent(json));
 <?php endif; ?>
 <!------интерактивная 1 routes------>
 <?php if($route === 'routes-map' || $route === 'routes-item'): ?>
-	  <?php echo $__env->make('orda.map.interactiv.karta1', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+	  <?php echo $__env->make('orda.map.interactiv.karta1', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   <?php endif; ?>
 
-<!------конвертация json php------>
-<?php if($route == 'home' || $route == 'map' || $route =='sights-map'): ?>
-	<?php echo $__env->make('orda.map.interactiv.sights', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
-<?php endif; ?>
 
 <!------интерактивная 2 sights------>
 <?php if($route == 'home' || $route =='sights-map' || $route =='map'): ?>
-	<?php echo $__env->make('orda.map.interactiv.karta2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+	<?php echo $__env->make('orda.map.interactiv.karta2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+	<?php echo $__env->make('orda.map.interactiv.sights', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <?php endif; ?>
+
+
 <script>
         $( document ).ready(function() {
             $('.lang__menu .lang__menu--children li a').on('click',function(e){

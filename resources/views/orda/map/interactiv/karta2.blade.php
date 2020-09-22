@@ -1,6 +1,6 @@
 <script>
     /*-*/
-    var json_model= JSON.parse(decodeURIComponent(json));
+   
     window.onload = function () {
         setTimeout(function () {
 
