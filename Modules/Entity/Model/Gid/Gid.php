@@ -20,6 +20,14 @@ class Gid extends ModelParent {
 		'Modules\Entity\Model\LibLanguage\LibLanguage',
 		'Modules\Entity\Model\Gid\GidLang', 'gid_id','lang_id');
     }
+   function checkUpdateBelongMany($request,$o,$name){
+   $model_sights= $this->{$o}->pluck('id')->toArray();
+   $request_sights= $request->{$name};
+   $request_diff= array_keys(array_diff($request_sights,$model_sights));
+   $model_diff=  array_keys(array_diff($model_sights,$request_sights));
+   if(isset($model_diff[0]) || isset($request_diff[0])){return true;}
+ }
+
  function sights(){
         return $this->belongsToMany('Modules\Entity\Model\Sights\Sights','Modules\Entity\Model\Gid\SightsLib','gid_id','sight_id');
     }

@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
+use Route;
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -17,8 +18,8 @@ class CalendarUpdateAction {
 
     function run(){
         $this->saveMain();
-		if($this->request->lang_id){$this->saveLang();}
-        if($this->request->sight_id){$this->saveSights();}
+		$this->saveLang();
+        $this->saveSights();
     }
 
     private function saveMain(){
@@ -48,29 +49,29 @@ class CalendarUpdateAction {
     }
 
 private function saveSights(){
-  if (is_array($this->request->sight_id) && count($this->request->sight_id) > 0){
-	$this->model->sights()->detach();
+if($this->request->lang != 'ru' && strpos(Route::currentRouteName(),'update')){return false;}
+if(empty($this->request->sight_id)){$this->model->sights()->detach();return false;}
+$check= $this->model->checkUpdateBelongMany($this->request,'sights','sight_id');
+if($check){
+$this->model->sights()->detach();
     foreach ($this->request->sight_id as $sight_id) {
 	  $this->model->sights()->attach($sight_id);
 	}
-	}else{$this->model->sights()->detach();}
+  }
 }
- 
-
-
  private function saveLang(){
-	
-	    
-        if (is_array($this->request->lang_id) && count($this->request->lang_id))
-			{
-			$this->model->langGid()->detach();
-			//dd($this->request->lang_id);
-            foreach ($this->request->lang_id as $lang_id) {
-				$this->model->langGid()->attach($lang_id);
-				}
-			}else{
-			$this->model->langGid()->detach();}
- }
+  if($this->request->lang != 'ru' && strpos(Route::currentRouteName(),'update')){return false;}
+   if(empty($this->request->lang_id)){$this->model->langGid()->detach();return false;}
+   $check= $this->model->checkUpdateBelongMany($this->request,'langGid','lang_id');
+   if($check){
+     $this->model->langGid()->detach();
+      foreach ($this->request->lang_id as $lang_id) {
+	  $this->model->langGid()->attach($lang_id);
+	}
+  }
+}
+     
+ 
 
   
 }
