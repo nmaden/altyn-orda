@@ -252,7 +252,7 @@ value="{{ $k }}"
 		</div>
 <br><br>
 <div>
-<label for="text"><b>Достопримечательности на карте</b></label> 
+<label for="text"><b>Галерея фото</b></label> 
 <select name="sight_id[]" 
  class="form-control select2"   
  {{$page ? 'disabled': ''}}
