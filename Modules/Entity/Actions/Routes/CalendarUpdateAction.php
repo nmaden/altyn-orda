@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
+use Route;
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -50,43 +51,22 @@ class CalendarUpdateAction {
     }
 
    function saveCoords(){
-	 
-	   if($this->request->lang !='ru' && !empty($this->request->lang)){
-		 
-		   return true;
-	   }
-	  
-	   if(is_array($this->request->coord)){
-		   //dd($this->request->all());
-
-		   $key =0;
-		   $this->model->coords()->delete();
-		  
-		  foreach($this->request->coord as $k=>$item){
+	 if($this->request->lang != 'ru' && strpos(Route::currentRouteName(),'update')){return false;}
+	  if(is_array($this->request->coord)){
+		$key =0;
+		$this->model->coords()->delete();
+		foreach($this->request->coord as $k=>$item){
 		   $coord_name = 'по стопам золотой орды';
-
-	   if($item){
+        if($item){
 		   $key++;
-	   /*--
-	   $this->model->coords()->updateOrCreate(
-	   ['routes_id' => $this->model->id,'coord'=>$item,''],
-	   ['coord'=>$item,'undex_coord'=>$key]);
-	   ----*/
 	   if(isset($this->request->coord_name[$k])){
-		   
 		   $coord_name = $this->request->coord_name[$k];
 	   }
 	   $this->model->coords()->create(['coord'=>$item,'undex_coord'=>$key,'coord_name'=>$coord_name]);
-
-	   
-	   
-	   
-	   }
-	   
-		   }
-	   }
-	   
-   }
+       }
+	  }
+	 }
+	}
 
 
 

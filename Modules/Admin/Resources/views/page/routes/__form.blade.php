@@ -182,9 +182,9 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 <br><br>
 
 
-<div>   
+<div style='margin:0px 5px;'>   
     <label><b>Выберите город</b></label>
-			<select {{$page ? 'disabled': ''}} name="city_id" id="city_id" class="form-control select2">
+			<select {{$page ? 'disabled': ''}} name="city_id" id="city_id" class="form-control">
 			<option value="">@lang('model.disabled')</option>
 				
 			@if(count($model->getCityAr()) > 0)
@@ -198,10 +198,8 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 		</div>
 
 <br><br>
-@php
-//dd($model->group_unserialize);
-@endphp
-<div>
+
+<div style='margin:0px 5px;'>
 <label for="text"><b>Группа, индивидуально </b></label> 
 <select name="groups[]" 
 class="form-control select2"   
