@@ -22,29 +22,17 @@ class CurrentLang {
 		
 	}
 	
-	/*
-	static function url(){
-		$url_get = $_SERVER['REQUEST_URI'];
-        $admin = strpos($url_get, "admin");
-		if($admin){
-			$lang = Request::get('lang');
-			return $lang;
-		}
-		return false;
-		
-		
-	}
-	*/
+	
     static function get(){
-
+      $lang = 'ru';
         if (session('current_lang')){
-          return session('current_lang');
+          $lang = session('current_lang');
         }
       if(!empty(app()->getLocale())){
-         return app()->getLocale();
+         $lang = app()->getLocale();
       }
        
-      return 'ru';
+      return $lang;
     }
 
     static function set($lang){

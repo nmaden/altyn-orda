@@ -144,46 +144,18 @@
                 </div>
             </div>
 
-            <div class="tabs__item--slider">
-
-                <div class="swiper-wrapper">
-
+@if(count($item->sights) > 0)
+     <div class="tabs__item--slider">
+       <div class="swiper-wrapper">
+@foreach($item->sights as $gallery)
                     <div class="swiper-slide">
                         <div class="gallery__slider">
-                            <a href="/img/about-1.jpg" data-fancybox="gallery">
-                                <img src="/img/about-1.jpg" alt="">
+                            <a href="{{route('sights-item',$gallery)}}" data-fancybox="gallery">
+                                <img src="{{URL::asset($gallery->photo)}}" alt="">
                             </a>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="gallery__slider">
-                            <a href="/img/about-1.jpg" data-fancybox="gallery">
-                                <img src="/img/about-1.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery__slider">
-                            <a href="/img/about-1.jpg" data-fancybox="gallery">
-                                <img src="/img/about-1.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery__slider">
-                            <a href="/img/about-1.jpg" data-fancybox="gallery">
-                                <img src="/img/about-1.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery__slider">
-                            <a href="/img/about-1.jpg" data-fancybox="gallery">
-                                <img src="/img/about-1.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-
+@endforeach
                 </div>
 
                 <div class="calendar__arrow--block">
@@ -199,7 +171,7 @@
                     </div>
                 </div>
             </div>
-
+@endif
 
         </div>
         

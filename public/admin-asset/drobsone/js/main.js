@@ -1,4 +1,6 @@
 $(function(){
+var page = $('#file').attr('data-path');
+
 $('body').on('click','.slider_remove',function(e){
 	var path = $(this).attr('href');
 	var id = $(this).attr('id');
@@ -6,7 +8,7 @@ $('body').on('click','.slider_remove',function(e){
 	e.preventDefault();
 	 var ctx = $(this);
 		$.ajax({
-		  url:'/slider-remove',
+		  url:'/slider-remove'+'-'+page,
 		  data:{path:path,id:id },
 		  type:'POST',
 		  datatype:'JSON',
@@ -26,7 +28,7 @@ $('body').on('click','.slider_remove',function(e){
 
 
     var myDropzone = new Dropzone("div#file", {
-        url: "/drobsone-send",
+        url: "/drobsone-send"+"-"+page,
         maxFiles: 1,
         //maxFilesize: 2,
 	
@@ -35,7 +37,7 @@ $('body').on('click','.slider_remove',function(e){
         init: function(){
             $(this.element).html(this.options.dictDefaultMessage);
         },
-        dictDefaultMessage: '<div class="dz-message">Нажмите здесь или перетащите сюда файлы для загрузки (Слайдер в карточке маршрута)</div>',
+        dictDefaultMessage: '<div class="dz-message">Нажмите здесь или перетащите сюда файлы для загрузки (Слайдер в карточке)</div>',
         acceptedFiles: '.jpg, .jpeg, .png, .gif',
         dictInvalidFileType: 'Разрешены к загрузке файлы: .jpg, .jpeg, .png, .gif',
         success: function(file, responce){

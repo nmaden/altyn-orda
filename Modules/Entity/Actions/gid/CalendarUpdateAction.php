@@ -17,10 +17,8 @@ class CalendarUpdateAction {
 
     function run(){
         $this->saveMain();
-		if($this->request->lang_id){
-			
-		$this->saveLang();
-	   }
+		if($this->request->lang_id){$this->saveLang();}
+        if($this->request->sight_id){$this->saveSights();}
     }
 
     private function saveMain(){
@@ -43,11 +41,23 @@ class CalendarUpdateAction {
 		}
       
         
-        $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
+        //$this->model->updateOrCreate(['id'=>$this->model->id],$ar);
 
-        //$this->model->fill($ar);
-        //$this->model->save();
+        $this->model->fill($ar);
+        $this->model->save();
     }
+
+private function saveSights(){
+  if (is_array($this->request->sight_id) && count($this->request->sight_id) > 0){
+	$this->model->sights()->detach();
+    foreach ($this->request->sight_id as $sight_id) {
+	  $this->model->sights()->attach($sight_id);
+	}
+	}else{$this->model->sights()->detach();}
+}
+ 
+
+
  private function saveLang(){
 	
 	    

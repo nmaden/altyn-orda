@@ -34,14 +34,12 @@ class="form-control"/>
 @endif
 </div>
 
-<div>
 <br><br>
+
+<div>
 <div id="drobzone-photo">
 @if(is_array($model->photo_unserialize))
-	@php
 
-
-@endphp
 @foreach($model->photo_unserialize as $k=>$item)
 <div class='rm'>
 <input type="hidden" name="gallery[]" value="{{$item}}"/>
@@ -56,15 +54,14 @@ class="form-control"/>
 @endif
 </div>
 @if(in_array('update',$ar))
-<div id="file" name='file' class="upload"></div>
+<div id="file" data-path = "routes"  name='file' class="upload"></div>
  <div class='preview'></div>
 </div>
 @endif
-<br><br>
+<div> 
 
 
-
-<div>  
+<br><br> 
 <label for="title"><b>Название</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 

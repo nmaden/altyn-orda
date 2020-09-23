@@ -42,7 +42,7 @@
             <div class="banner__linck--map">
                 <div class="container">
                     <div class="modal__map">
-                        <a href="{{route('map')}}" class="modal__map--item">
+                        <a href="/page-map" class="modal__map--item">
                             Интерактивная карта
                         </a>
                     </div>

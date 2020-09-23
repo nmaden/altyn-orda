@@ -20,6 +20,9 @@ class Gid extends ModelParent {
 		'Modules\Entity\Model\LibLanguage\LibLanguage',
 		'Modules\Entity\Model\Gid\GidLang', 'gid_id','lang_id');
     }
+ function sights(){
+        return $this->belongsToMany('Modules\Entity\Model\Sights\Sights','Modules\Entity\Model\Gid\SightsLib','gid_id','sight_id');
+    }
     function langs() {
         return $this->hasMany('Modules\Entity\Model\Gid\GidLang','gid_id','id');
     }

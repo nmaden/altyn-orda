@@ -23,11 +23,34 @@ $categories = DB::table('gid_speacialisations')->get();
  @endif
 </div>
 
-
-
-
 <br><br>
 
+
+<!-------------------------------
+<div>
+<div id="drobzone-photo">
+@if(is_array($model->photo_unserialize))
+
+@foreach($model->photo_unserialize as $k=>$item)
+<div class='rm'>
+<input type="hidden" name="gallery[]" value="{{$item}}"/>
+
+ уже загружено <a href="{{URL::asset($item)}}" target="_blank">
+просмотреть</a>&nbsp&nbsp
+<a href="{{$item}}" id="{{$model->id}}" target="_blank" class='slider_remove'>
+удалить</a>
+ </br>
+ </div>
+@endforeach
+@endif
+</div>
+@if(in_array('update',$ar))
+<div id="file" data-path = "gid" name='file' class="upload"></div>
+ <div class='preview'></div>
+
+@endif
+</div> 
+-------------------->
 
 <div>  
  
@@ -227,6 +250,29 @@ value="{{ $k }}"
 			@endif
         </select>
 		</div>
+<br><br>
+<div>
+<label for="text"><b>Достопримечательности на карте</b></label> 
+<select name="sight_id[]" 
+ class="form-control select2"   
+ {{$page ? 'disabled': ''}}
+ multiple>
+
+@foreach ($model->getSightsAr() as $k => $v)
+<option 
+value="{{ $k }}" 
+
+{{ is_array($model->arsights) && in_array($k, $model->arsights) ? 'selected' : '' }}
+>{{ $v }}</option>
+</option>
+@endforeach
+</select>
+</div> 
+
+
+
+
+
 		<script>
 $('.select2').select2({
     minimumResultsForSearch: Infinity,

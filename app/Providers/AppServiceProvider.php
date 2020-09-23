@@ -77,13 +77,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//echo app()->getLocale();exit();
-		//\App::setLocale($lang);
+
     $locale = request()->segment(1, '');
+
 	$reverse = array_flip(CurrentLang::getAr());
       if($locale && in_array($locale, $reverse)) {
         \App::setLocale($locale);
-     }
+     }else{
+       \App::setLocale('ru');
+      }
 
 
      $nav= Menus::get('*');

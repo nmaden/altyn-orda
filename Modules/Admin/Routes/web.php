@@ -425,8 +425,10 @@ Route::group(['namespace' => 'Edit'], function () {
 Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
 Route::any('figures',['uses' => 'CkeditorController@figures'])->name('figures');
 
-Route::any('drobsone-send',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send');
-  Route::any('drobsone-remove',['uses' => 'Drobsone2Controller@remove'])->name('drobsone-remove');
-  Route::any('slider-remove',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove');
+Route::any('drobsone-send-routes',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send-routes');
+Route::any('slider-remove-routes',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove-routes');
+//gid
+Route::any('drobsone-send-gid',['uses' => 'Drobsone2Controller@sendgids'])->name('drobsone-send-gid');
+Route::any('slider-remove-gid',['uses' => 'Drobsone2Controller@slidergids'])->name('slider-remove-gid');
   
 });

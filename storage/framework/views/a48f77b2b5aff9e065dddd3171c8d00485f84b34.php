@@ -31,7 +31,7 @@
 		[coord_a_1,coord_a_2],
 		json_model[key].name,
 		photo,
-		'/sight-item/'+json_model[key].id
+		'/sights-item/'+json_model[key].id
 		
 		));
 

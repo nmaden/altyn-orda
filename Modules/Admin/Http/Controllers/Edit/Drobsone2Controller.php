@@ -10,6 +10,7 @@ use Storage;
 use Modules\Entity\Model\Routes\Routes;
 use Modules\Entity\Model\Tabs\Tabs;
 use Modules\Entity\Model\Figure\Figure;
+use Modules\Entity\Model\Gid\Gid;
 
 class Drobsone2Controller extends Controller
 {
@@ -83,6 +84,9 @@ public $table_switch;
 		case 'routes':{
 			$this->table = Routes::where('id',$this->id)->first();
 			break;}
+        case 'gid':{
+			$this->table = Gid::where('id',$this->id)->first();
+			break;}
 	 }}}
  public function save_baze(){
 	$img = [];
@@ -137,6 +141,32 @@ public $table_switch;
 		$this->table_switch ='routes';
 		$this->action = 'update';
 	    $this->str = 'routes';
+		$this->photo = 'gallery';
+		
+		$this->page();
+		$this->table();
+		$this->help_remove($request->path);
+	}
+/*--------------------gid-------------------------------*/
+
+ 
+	 public function sendgids(Request $request)
+    {
+	 $this->files = $request->file('file');
+     $this->papka_save = 'drobzone';
+	 $this->photo='gallery';
+	 $this->action = 'update';
+	 $this->str = 'gid';
+	 $this->table_switch = 'gid';
+	 $this->collector();
+  	 return $this->respons();
+    }
+	
+	//удаление
+	public function slidergids(Request $request){
+		$this->table_switch ='gid';
+		$this->action = 'update';
+	    $this->str = 'gid';
 		$this->photo = 'gallery';
 		
 		$this->page();

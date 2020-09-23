@@ -70,6 +70,7 @@ var json_model= JSON.parse(decodeURIComponent(json));
             $('.lang__menu .lang__menu--children li a').on('click',function(e){
 				
 				var v = $(this).attr('id');
+
 				$('.current').text(v);
 				
                 //$(this).parent().parent().submit();

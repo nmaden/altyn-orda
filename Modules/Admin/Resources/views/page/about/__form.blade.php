@@ -1,12 +1,10 @@
-  @php
-
+@php
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
 $page = false;
 if(in_array('show',$ar)){
 	$page = true;
 }
-
 @endphp
 <div>
 <label for="photo"><b>Фото</b></label>
