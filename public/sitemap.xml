@@ -1825,3 +1825,6 @@
 
 
 </urlset>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ https://altynorda.kazakhstan.travel/$1 [L,R=301]

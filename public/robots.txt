@@ -1,2 +1,25 @@
-User-agent: *
-Disallow:
+
+User-Agent: *
+Disallow: /vendor
+Disallow: /uploads
+
+Disallow: /store
+
+Disallow: /picker
+
+Disallow: /js
+
+Disallow: /css
+
+Disallow: /geo
+
+Disallow: /fonts
+
+Disallow: /ckeditor
+
+Disallow: /admin-asse
+Host: https://altynorda.kazakhstan.travel
+Sitemap: https://altynorda.kazakhstan.travel/sitemap.xml
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ https://altynorda.kazakhstan.travel/$1 [L,R=301]

@@ -8,7 +8,7 @@
                     <div class="banner__item">
 
                         <div class="banner__item--img">
-                            <img src="{{URL::asset($slider->photo)}}" alt="">
+                 <img src="{{URL::asset($slider->photo)}}" alt="">
                         </div>
                         <div class="banner__item--container">
                             <div class="container">
