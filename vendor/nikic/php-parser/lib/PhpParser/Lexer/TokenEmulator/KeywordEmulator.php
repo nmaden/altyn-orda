@@ -2,7 +2,7 @@
 
 namespace PhpParser\Lexer\TokenEmulator;
 
-abstract class KeywordEmulator extends TokenEmulator
+abstract class KeywordEmulator implements TokenEmulatorInterface
 {
     abstract function getKeywordString(): string;
     abstract function getKeywordToken(): int;

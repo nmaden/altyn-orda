@@ -5,12 +5,29 @@
 @section('content')
 <div class="row">
  
-	</form>
+	@php
+	//dd($model->title);
+	@endphp
 	<div class="col-md-12">
+	<form id='form'>
+	<input type="text" 
+	 name='search' 
+	 data-model = "{{$model->title}}" 
+	 data-path="{{$route_path}}" 
+	 value="" id="autosearch" 
+	 class="form-control"
+	 placeholder="БЫСТРЫЙ ПОИСК ПО НАЗВАНИЮ";
+	 >
+     </form>
+	 	 <a href="{{route($route_path)}}"><button>Сбросить фильтр</button></a>
+<div class='clearfix'></div>
+	 <br>
 		<div class="panel panel-flat">
             <div class="panel-heading">
                 <h6 class="panel-title">{{ $title }}</h6>
             </div>
+						<div class='wrapper-ajax'>
+
 			<table class="table table-togglable">
 				<thead>
 					<tr>
@@ -68,6 +85,7 @@
 			<div class="panel-footer text-right">
 								{!! $items->appends($request->all())->links() !!}
 
+			</div>
 			</div>
 		</div>
 	</div>

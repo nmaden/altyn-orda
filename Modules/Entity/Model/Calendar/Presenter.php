@@ -34,7 +34,8 @@ trait Presenter {
 		if(@unserialize($this->social)){
            return unserialize($this->social);
          }else{
-           return false;
+			
+           return [1,2];
           }
      }
 	 function getSityNattribute(){

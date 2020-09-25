@@ -13,7 +13,7 @@
   
 Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin_index');
-	
+	Route::post('admin_filter', 'AdminController@filter')->name('admin_filter');
 	  Route::group(['prefix' => 'calendar-action', 'namespace' => 'Calendar'], function () {
         Route::group(['prefix' => 'calendar'], function () {
 			

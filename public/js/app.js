@@ -1899,10 +1899,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FilterComponent.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FilterComponent.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminfilterComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdminfilterComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1916,408 +1916,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      selectedCity: 'Регионы',
-      map_m: '',
-      sights: [{
-        id: 0,
-        coordinates: [43.21032757450292, 76.8788819999999],
-        title: "Мавзолей Алаша-хана1",
-        img: "/img/sights__item1.jpg",
-        linck: "/sight-item.html"
-      }, {
-        id: 1,
-        coordinates: [44.21032757450292, 77.8788819999999],
-        title: "Мавзолей Алаша-хана2",
-        img: "/img/sights__item1.jpg",
-        linck: "/sight-item.html"
-      }, {
-        id: 5,
-        coordinates: [45.21032757450292, 78.8788819999999],
-        title: "Мавзолей Алаша-хана5",
-        img: "/img/sights__item1.jpg",
-        linck: "/sight-item.html"
-      }, {
-        id: 4,
-        coordinates: [46.21032757450292, 78.8788819999999],
-        title: "Мавзолей Алаша-хана5",
-        img: "/img/sights__item1.jpg",
-        linck: "/sight-item.html"
-      }],
-      routes: [{
-        id: 12,
-        object: [{
-          id: 0,
-          coordinates: [43.21032757450292, 76.8788819999999],
-          title: "Мавзолей Алаша-хана1",
-          img: "/img/sights__item1.jpg",
-          linck: "/sight-item.html"
-        }, {
-          id: 1,
-          coordinates: [44.21032757450292, 77.8788819999999],
-          title: "Мавзолей Алаша-хана2",
-          img: "/img/sights__item1.jpg",
-          linck: "/sight-item.html"
-        }, {
-          id: 5,
-          coordinates: [45.21032757450292, 78.8788819999999],
-          title: "Мавзолей Алаша-хана5",
-          img: "/img/sights__item1.jpg",
-          linck: "/sight-item.html"
-        }, {
-          id: 4,
-          coordinates: [46.21032757450292, 78.8788819999999],
-          title: "Мавзолей Алаша-хана5",
-          img: "/img/sights__item1.jpg",
-          linck: "/sight-item.html"
-        }]
-      }, {
-        id: 12,
-        object: [{
-          id: 0,
-          coordinates: [43.21032757450292, 76.8788819999999],
-          title: "Мавзолей Алаша-хана1",
-          img: "/img/sights__item1.jpg",
-          linck: "/sight-item.html"
-        }, {
-          id: 1,
-          coordinates: [44.21032757450292, 77.8788819999999],
-          title: "Мавзолей Алаша-хана2",
-          img: "/img/sights__item1.jpg",
-          linck: "/sight-item.html"
-        }, {
-          id: 5,
-          coordinates: [45.21032757450292, 78.8788819999999],
-          title: "Мавзолей Алаша-хана5",
-          img: "/img/sights__item1.jpg",
-          linck: "/sight-item.html"
-        }, {
-          id: 4,
-          coordinates: [46.21032757450292, 78.8788819999999],
-          title: "Мавзолей Алаша-хана5",
-          img: "/img/sights__item1.jpg",
-          linck: "/sight-item.html"
-        }]
-      }]
+      inputValue: '',
+      datacity: [],
+      country: []
     };
   },
-  props: ['city'],
-  computed: {
-    city_func: function city_func() {
-      var _this = this;
-
-      axios({
-        method: 'get',
-        //you can set what request you want to be
-        url: '/map-city',
-        params: {
-          city_id: this.selectedCity
-        },
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      }).then(function (response) {
-        var json_model = response.data.data; //var json_model= JSON.parse(decodeURIComponent(json));
-
-        var keys = Object.keys(json_model);
-        var sights = [];
-        var routes = [];
-
-        function Ad(id, coordinates, title, photo, linck) {
-          this.id = id;
-          this.coordinates = coordinates;
-          this.title = title;
-          this.img = photo;
-          this.linck = linck;
-        }
-
-        ;
-
-        function Ad2(id, object) {
-          this.id = id;
-          this.object = object;
-        }
-
-        ;
-        keys.forEach(function (key) {
-          var name = json_model[key].name;
-          var coord = json_model[key].coord;
-          var index = coord.indexOf(',');
-          var coord_a_1 = coord.substr(0, index);
-          var coord_a_2 = coord.substr(index + 1); //alert(json_model[key].photo);
-
-          var photo = json_model[key].photo;
-          sights.push(new Ad(key, [coord_a_1, coord_a_2], json_model[key].name, photo, '/sight-item/' + json_model[key].id));
-          var cat = [];
-          cat.push({
-            id: key,
-            coordinates: [coord_a_1, coord_a_2],
-            title: json_model[key].name,
-            photo: photo,
-            linck: '/sight-item.html'
-          });
-          routes.push(new Ad2(12, cat));
-        });
-        _this.routes = routes;
-        _this.sights = sights;
-
-        _this.map_m.container.fitToViewport(); //myMap1.container.fitToViewport();
-        //this.start();
-        //console.log(this.routes);
-
-      });
-    }
-  },
+  props: [//'city','ids'
+  ],
   mounted: function mounted() {
-    this.start();
+    /*
+    this.datacity = this.city;
+    this.changeName();
+     $('body').on('click','.select2-selection',function(e){
+    $('.select2-search__field').replaceWith('<input id="dunam" type"text" style="display:block;margin:0 auto;margin-bottom:5px;border:1px solid #ccc;border-radius:20px;height:35px;padding:0 5px;">');
+    $("body").on('keyup','#dunam',function(event){
+    this.inputValue= event.target.value;
+      const filter = this.datacity.filter((v)=>{
+          return v.name.toLowerCase().indexOf( this.inputValue.toLowerCase()) >= 0;
+    	  })
+    	 this.city = filter;
+     })})
+    */
   },
-  methods: {
-    start: function start() {
-      $(".interactive__map--plus").click(function () {
-        zoomIn();
-      });
-      var object = {
-        sights: this.sights,
-        routes: this.routes
-      };
-
-      window.onload = function () {
-        setTimeout(function () {
-          this.map_m = new ymaps.Map('inter__map', {
-            center: [48.21007904239703, 59.48365294121707],
-            zoom: 4,
-            controls: []
-          });
-          this.map_m.behaviors.disable('scrollZoom');
-          var balloonLayout = ymaps.templateLayoutFactory.createClass("<div>", {
-            build: function build() {
-              this.constructor.superclass.build.call(this);
-            }
-          });
-          var objectManager = new ymaps.ObjectManager({
-            clusterize: false
-          });
-          var objectManager2 = new ymaps.ObjectManager({
-            clusterize: false
-          });
-          var multiRoute = new ymaps.multiRouter.MultiRoute({
-            referencePoints: []
-          }, {
-            boundsAutoApply: true,
-            viaPointDraggable: true,
-            balloonLayout: balloonLayout,
-            balloonPanelMaxMapArea: 0,
-            wayPointStartIconLayout: balloonLayout,
-            wayPointStartIconImageHref: "",
-            wayPointIconLayout: balloonLayout,
-            wayPointIconImageHref: "",
-            wayPointFinishIconLayout: balloonLayout,
-            wayPointFinishIconImageHref: "",
-            routeStrokeWidth: 2,
-            routeStrokeColor: "#0A8232",
-            routeActiveStrokeWidth: 6,
-            routeActiveStrokeColor: "#0A8232"
-          }); //ymaps.ready(mapinterInit(object, map_m, objectManager));
-
-          ymaps.ready(mapinterSights(object['sights'], map_m, objectManager)); // Увеличение, уменьшение масштаба
-
-          var ZoomLayout = ymaps.templateLayoutFactory.createClass('<div class="interactive__map--controller">' + '<a class="interactive__map--plus interactive__map--cont" id="zoom-in"><img src="/img/plus.svg" alt=""></a>' + '<a class="interactive__map--minus interactive__map--cont" id="zoom-out"><img src="/img/minus.svg" alt=""></a>' + '<a class="interactive__map--enlarge interactive__map--cont" id="zoom-enlarge"><img src="/img/maximize.svg" alt=""> </a></div>', {
-            build: function build() {
-              ZoomLayout.superclass.build.call(this);
-              this.zoomInCallback = ymaps.util.bind(this.zoomIn, this);
-              this.zoomOutCallback = ymaps.util.bind(this.zoomOut, this);
-              $('#zoom-in').bind('click', this.zoomInCallback);
-              $('#zoom-out').bind('click', this.zoomOutCallback);
-            },
-            zoomIn: function zoomIn() {
-              var map = this.getData().control.getMap();
-              map.setZoom(map.getZoom() + 1, {
-                checkZoomRange: true
-              });
-            },
-            zoomOut: function zoomOut() {
-              var map = this.getData().control.getMap();
-              map.setZoom(map.getZoom() - 1, {
-                checkZoomRange: true
-              });
-            }
-          }),
-              zoomControl = new ymaps.control.ZoomControl({
-            options: {
-              layout: ZoomLayout
-            }
-          });
-          map_m.controls.add(zoomControl); // Фон карты
-
-          var myRectangle = new ymaps.Rectangle([[33.93833575587559, 29.952402941217045], [62.931169581282674, 84.23774690361466]], {}, {
-            fillImageHref: '/img/map__bg2.svg',
-            strokeOpacity: 0,
-            strokeWidth: 0,
-            borderRadius: 0
-          });
-          map_m.geoObjects.add(myRectangle);
-          $('.interactive__map--absol select.js--select').on('change', function () {
-            if ($(this).attr('name') == 'object') {
-              objectManager.removeAll();
-              objectManager2.removeAll();
-              multiRoute.model.setReferencePoints([]);
-
-              if ($(this).val() == 'sights') {
-                mapinterSights(object['sights'], map_m, objectManager);
-              } else if ($(this).val() == 'routes') {
-                mapinterRoutes(object['routes'], map_m, objectManager2, multiRoute, ymaps);
-              }
-            }
-          });
-          $(document).on('click', "#zoom-enlarge", function () {
-            /* -------------- Тут планируеться ajax -------------- */
-            if ($(this).hasClass('zoom-active')) {
-              $(this).removeClass("zoom-active");
-              $('#interactive__map-main').removeClass("interactive__map-active");
-              $('body').removeClass("bodymap-active"); //exitFullscreen('interactive__map-main');
-
-              $(this).html('<img src="/img/maximize.svg">');
-            } else {
-              $(this).addClass("zoom-active");
-              $('#interactive__map-main').addClass("interactive__map-active");
-              $('body').addClass("bodymap-active"); //enterFullscreen('interactive__map-main');
-
-              $(this).html('<img src="/img/minimize.svg">');
-            }
-
-            setTimeout(function () {
-              map_m.container.fitToViewport();
-            }, 600);
-          });
-
-          function mapinterSights(mas_object, map_m, objectManager) {
-            var i = 0;
-            mas_object.forEach(function (element) {
-              var polygonLayout_m = ymaps.templateLayoutFactory.createClass('<div class="section__map--item" id="section__map--item-' + element['id'] + '">' + '<div class="section__map--mark"></div>' + '</div>');
-              var MyBalloonLayout = ymaps.templateLayoutFactory.createClass('$[[options.contentLayout]]', {
-                onCloseClick: function onCloseClick(e) {
-                  e.preventDefault();
-                  this.events.fire('userclose');
-                }
-              });
-              var MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass('<div class="section__map--info section__map--baloon">' + '<div class="section__map--img">' + '<img src="' + element['img'] + '" alt="">' + '</div>' + '<div class="section__map--title">' + element['title'] + '</div>' + '<a href="' + element['linck'] + '" class="section__map--linck">Подробнее</a>' + '</div>'); // Добавим единичный объект.
-
-              objectManager.add({
-                type: 'Feature',
-                id: element['id'],
-                geometry: {
-                  type: 'Point',
-                  coordinates: element['coordinates']
-                },
-                properties: {//hintContent: '',
-                },
-                options: {
-                  balloonShadow: true,
-                  balloonLayout: MyBalloonLayout,
-                  balloonContentLayout: MyBalloonContentLayout,
-                  balloonPanelMaxMapArea: 1,
-                  iconLayout: 'default#imageWithContent',
-                  iconImageHref: ' ',
-                  iconImageSize: [26, 26],
-                  iconImageOffset: [-13, -13],
-                  iconContentLayout: polygonLayout_m,
-                  hideIconOnBalloonOpen: false
-                }
-              });
-              map_m.geoObjects.add(objectManager);
-              i++;
-            });
-            objectManager.objects.events.add(['click'], onObjectEvent);
-          }
-
-          function mapinterRoutes(mas_object, map_m, objectManager, multiRoute, ymaps) {
-            var i = 0;
-            var coordinates1 = new Array();
-            var objectManager2 = new ymaps.ObjectManager({
-              clusterize: false
-            });
-            mas_object.forEach(function (element1) {
-              var j = 0;
-              element1['object'].forEach(function (el_object) {
-                coordinates1[j] = el_object['coordinates'];
-                j++;
-              });
-              multiRoute.model.setReferencePoints(coordinates1);
-              map_m.geoObjects.add(multiRoute);
-              mapinterSights(element1['object'], map_m, objectManager);
-              i++;
-            });
-          }
-
-          function onObjectEvent(e) {
-            var objectId = e.get('objectId');
-            $(".section__map--item").removeClass('section__map--active');
-            $("#section__map--item-" + objectId).addClass('section__map--active');
-          }
-        }, 3000);
-      };
+  watch: {},
+  computed: {
+    changeName: function changeName() {//return this.city;
     }
-  }
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -37889,10 +37518,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FilterComponent.vue?vue&type=template&id=1c992a4a&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FilterComponent.vue?vue&type=template&id=1c992a4a& ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminfilterComponent.vue?vue&type=template&id=56fdd321&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdminfilterComponent.vue?vue&type=template&id=56fdd321& ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37904,125 +37533,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _vm._v("\n\t" + _vm._s(_vm.routes) + "\n      "),
-    _c("div", { staticClass: "col-lg-3 col-md-6 col-6" }, [
-      _c("div", { staticClass: "filter__item" }, [
-        _c("div", { staticClass: "filter--select" }, [
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.selectedCity,
-                  expression: "selectedCity"
-                }
-              ],
-              staticClass: "js--select js--select-d js--select-2",
-              attrs: { name: "regions", id: "slct-2" },
-              on: {
-                change: [
-                  function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.selectedCity = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  },
-                  function($event) {
-                    return _vm.city_func()
-                  }
-                ]
-              }
-            },
-            [
-              _c("option", { attrs: { selected: "", disabled: "" } }, [
-                _vm._v("Регионы")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "all" } }, [
-                _vm._v("Все регионы")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.city, function(item, key) {
-                return _c(
-                  "option",
-                  { key: key, domProps: { value: item.id } },
-                  [_vm._v("\n\t\t\t\t " + _vm._s(item.name) + "\n\t\t\t\t ")]
-                )
-              })
-            ],
-            2
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1)
-  ])
+  return _c("div")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3 col-md-6 col-6" }, [
-      _c("div", { staticClass: "filter__item" }, [
-        _c("div", { staticClass: "filter--select" }, [
-          _c(
-            "select",
-            {
-              staticClass: "js--select js--select-d js--select-0",
-              attrs: { name: "object", id: "slct-0" }
-            },
-            [
-              _c("option", { attrs: { selected: "", disabled: "" } }, [
-                _vm._v("Объекты")
-              ])
-            ]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3 col-md-6 col-6" }, [
-      _c("div", { staticClass: "filter__item" }, [
-        _c("div", { staticClass: "filter--select" }, [
-          _c(
-            "select",
-            {
-              staticClass: "js--select js--select-d js--select-1",
-              attrs: { name: "category", id: "slct-1" }
-            },
-            [
-              _c("option", { attrs: { selected: "", disabled: "" } }, [
-                _vm._v("Маршруты")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "all" } }, [
-                _vm._v("Все маршруты")
-              ])
-            ]
-          )
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38150,8 +37663,8 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.11
- * (c) 2014-2019 Evan You
+ * Vue.js v2.6.12
+ * (c) 2014-2020 Evan You
  * Released under the MIT License.
  */
 
@@ -43590,7 +43103,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.11';
+Vue.version = '2.6.12';
 
 /*  */
 
@@ -45796,7 +45309,7 @@ function updateDOMProps (oldVnode, vnode) {
       // skip the update if old and new VDOM state is the same.
       // `value` is handled separately because the DOM value may be temporarily
       // out of sync with VDOM state due to focus, composition and modifiers.
-      // This  #4521 by skipping the unnecesarry `checked` update.
+      // This  #4521 by skipping the unnecessary `checked` update.
       cur !== oldProps[key]
     ) {
       // some property updates can throw
@@ -48041,7 +47554,7 @@ function parse (
       }
     },
     comment: function comment (text, start, end) {
-      // adding anyting as a sibling to the root node is forbidden
+      // adding anything as a sibling to the root node is forbidden
       // comments should still be allowed, but ignored
       if (currentParent) {
         var child = {
@@ -50216,8 +49729,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 //Vue.component('videokurses', require('./components/VideokursesComponent.vue'));
+//Vue.component('map-filter', require('./components/FilterComponent.vue').default);
 
-Vue.component('map-filter', __webpack_require__(/*! ./components/FilterComponent.vue */ "./resources/js/components/FilterComponent.vue")["default"]);
+Vue.component('admin', __webpack_require__(/*! ./components/AdminfilterComponent.vue */ "./resources/js/components/AdminfilterComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50275,17 +49789,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/FilterComponent.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/FilterComponent.vue ***!
-  \*****************************************************/
+/***/ "./resources/js/components/AdminfilterComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/AdminfilterComponent.vue ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _FilterComponent_vue_vue_type_template_id_1c992a4a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilterComponent.vue?vue&type=template&id=1c992a4a& */ "./resources/js/components/FilterComponent.vue?vue&type=template&id=1c992a4a&");
-/* harmony import */ var _FilterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilterComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/FilterComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _AdminfilterComponent_vue_vue_type_template_id_56fdd321___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminfilterComponent.vue?vue&type=template&id=56fdd321& */ "./resources/js/components/AdminfilterComponent.vue?vue&type=template&id=56fdd321&");
+/* harmony import */ var _AdminfilterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminfilterComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AdminfilterComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -50295,9 +49809,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _FilterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _FilterComponent_vue_vue_type_template_id_1c992a4a___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _FilterComponent_vue_vue_type_template_id_1c992a4a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _AdminfilterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminfilterComponent_vue_vue_type_template_id_56fdd321___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminfilterComponent_vue_vue_type_template_id_56fdd321___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -50307,38 +49821,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/FilterComponent.vue"
+component.options.__file = "resources/js/components/AdminfilterComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/FilterComponent.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/FilterComponent.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
+/***/ "./resources/js/components/AdminfilterComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/AdminfilterComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FilterComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FilterComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminfilterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AdminfilterComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminfilterComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminfilterComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/FilterComponent.vue?vue&type=template&id=1c992a4a&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/FilterComponent.vue?vue&type=template&id=1c992a4a& ***!
-  \************************************************************************************/
+/***/ "./resources/js/components/AdminfilterComponent.vue?vue&type=template&id=56fdd321&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/AdminfilterComponent.vue?vue&type=template&id=56fdd321& ***!
+  \*****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterComponent_vue_vue_type_template_id_1c992a4a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FilterComponent.vue?vue&type=template&id=1c992a4a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FilterComponent.vue?vue&type=template&id=1c992a4a&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterComponent_vue_vue_type_template_id_1c992a4a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminfilterComponent_vue_vue_type_template_id_56fdd321___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AdminfilterComponent.vue?vue&type=template&id=56fdd321& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminfilterComponent.vue?vue&type=template&id=56fdd321&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminfilterComponent_vue_vue_type_template_id_56fdd321___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterComponent_vue_vue_type_template_id_1c992a4a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminfilterComponent_vue_vue_type_template_id_56fdd321___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

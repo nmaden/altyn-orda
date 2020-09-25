@@ -14,7 +14,11 @@ class Filter extends ModelFilter {
         if ($this->request->has('name') && $this->request->name) 
             $this->query->where('name', 'like', '%'.$this->request->name.'%');
 
-  
+        if($this->request->q){
+           $this->query->where('name', 'like', '%'.$this->request->q.'%');
+		}
+	   
+	   
         if ($this->request->has('sort_date') && $this->request->sort_date)
             if ($this->request->sort_date==0)
                 $this->query;
