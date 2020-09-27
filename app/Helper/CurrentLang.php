@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Request;
 use Session;
 class CurrentLang {
 	static function url(){
-		$url_get = $_SERVER['REQUEST_URI'];
+		$url_get = Request::url();
         $admin = strpos($url_get, "admin");
 		if($admin){
 		 $lang = Request::get('lang');
