@@ -163,7 +163,7 @@
                             </div>
                             <div class="route__item--btn">
                                 <a>
-                                    @if(isset($item->coord_name))
+                                    @if(isset($v->coord_name))
 									{{$v->coord_name}}
 								 
                                      @endif

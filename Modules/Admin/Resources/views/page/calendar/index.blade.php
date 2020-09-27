@@ -16,7 +16,7 @@
 	 data-path="{{$route_path}}" 
 	 value="" id="autosearch" 
 	 class="form-control"
-	 placeholder="БЫСТРЫЙ ПОИСК ПО НАЗВАНИЮ";
+	 placeholder="БЫСТРЫЙ ПОИСК ПО НАЗВАНИЮ (русский язык)";
 	 >
      </form>
 	 <a href="{{route($route_path)}}"><button>Сбросить фильтр</button></a>
