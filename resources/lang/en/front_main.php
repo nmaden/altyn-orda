@@ -9,8 +9,8 @@ return [
    ],
     'button_view'=>'See all',
 	'price'=>'The cost of',
-	'oplata_2'=>'день',
-	'oplata_1'=>'час',
+	'oplata_2'=>'/ day',
+	'oplata_1'=>'/ hour',
 
     'welcome_title' => 'SMART STUDY',
     'welcome_text' => 'Discover over 18,400 higher education institutions in 196 countries',
