@@ -15,10 +15,58 @@ trait Presenter {
     }
 	
 	
-function getCoordNameAttribute($v){
 	
-		return $this->getTransField('coord_name', $v);
+	function getArSightsAttribute(){
+	   return $this->sights()->pluck('sight_id')->toArray();
+     }
+	 
+	
+	function getAddress2Attribute($v){
+	   
+	     $ar= explode(',',$this->coord);
+		if(count($ar) < 2){
+			$ar[0] = 59.9342802;
+			$ar[1] = 30.335098600000038;
+		}
+		 return $ar;
+		  }
+	function getCityAr(){
+		return LibCity::pluck('name', 'id')->toArray();
+
+		/*
+		if(Cache::has('city')){
+			
+		$cache = Cache::get('city');
+		
+        return $cache;
+		}else{
+			
+		Cache::forever('city',LibCity::pluck('name', 'id')->toArray());
+		return LibCity::pluck('name', 'id')->toArray();
+		}
+		*/
     }
 	
+
+
+/*
+	 function getRequirementAr(){
+        return LibRequirement::pluck('name', 'id')->toArray();
+    }
+*/
+	
+	
+	function getDescriptionAttribute($v){
+		
+		return $this->getTransField('description', $v);
+	  
+
+    }
+	/*
+	  function getDegreeAr(){
+        return LibDegree::pluck('name', 'id')->toArray();
+    }
+	*/
+
 }
 

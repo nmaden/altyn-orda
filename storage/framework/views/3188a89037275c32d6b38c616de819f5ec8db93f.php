@@ -65,7 +65,8 @@
                     <div class="col-lg-4">
                         <div class="calendar__all">
 						<a href="<?php echo e(route('calendars')); ?>" class="calendar__all--linck">
-                           Смотреть все</a>
+                           	<?php echo app('translator')->get('front_main.button_view'); ?>
+                        </a>
                         </div>
                     </div>
                 </div>

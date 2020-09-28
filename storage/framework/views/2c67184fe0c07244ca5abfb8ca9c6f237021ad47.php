@@ -77,7 +77,8 @@
 
             <div class="section__title--block">
                 <div class="section__title">
-                    Календарь мероприятий
+                    <?php echo app('translator')->get('front_main.title.Calendar_events'); ?>
+
                 </div>
             </div>
 					<?php echo $__env->make('orda.components.calendar-slider',$gid, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -92,12 +93,15 @@
 
             <div class="section__title--block">
                 <div class="section__title">
-                    Гиды и туроператоры
+                   <?php echo app('translator')->get('front_main.title.gid'); ?>
+
                 </div>
             </div>
 			<?php echo $__env->make('orda.components.slider-gid',$gid, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
            <div class="calendar__all">
-                <a href="<?php echo e(route('gids')); ?>" class="calendar__all--linck">Смотреть все</a>
+                <a href="<?php echo e(route('gids')); ?>" class="calendar__all--linck">
+				<?php echo app('translator')->get('front_main.button_view'); ?>
+                </a>
             </div>
 
         </div>

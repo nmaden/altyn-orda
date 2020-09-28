@@ -43,7 +43,9 @@
                 <div class="container">
                     <div class="modal__map">
                         <a href="/page-map" class="modal__map--item">
-                            Интерактивная карта
+							@lang('front_main.title.map')
+
+                            
                         </a>
                     </div>
                 </div>

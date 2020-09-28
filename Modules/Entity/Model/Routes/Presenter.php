@@ -26,26 +26,45 @@ trait Presenter {
 	 
 	}
 	
-
-  function getRelDataObj(){
-        if (!$this->coords){
-			dd(16);
-			 //$this->rel_data_obj = new UniversityData();
+	
+	/*
+	   function getAddress2Attribute($v){
+	   
+	     $ar= explode(',',$this->coord);
+		if(count($ar) < 2){
+			$ar[0] = 59.9342802;
+			$ar[1] = 30.335098600000038;
 		}
-           
-        else if (!$this->rel_data_obj){
-			//$this->rel_data_obj = $this->relData;
-		}
-           
-        //dd($this->coords[0]->setLocale($this->lang));
-    
-        return $this->rel_data_obj;
-    }
-  
+		 return $ar;
+		  }
+		  */
+/*
+function getCoordsAr(){
+	
+	if(isset($this->coords[0]) && isset($this->coords[0]->coord_a))
+	{
+		
+		return $this->coords[0];
+		
+	}else{
+		
+		
+		$ar = [
+		'coord_a'=>'43.21032757450292, 76.8788819999999',
+		'coord_b'=>'44.21032757450292, 77.8788819999999',
+		'coord_c'=>'45.21032757450292, 78.8788819999999',
+		'coord_d'=>'46.21032757450292, 78.8788819999999'
+		];
+		return $ar;
+		
+		
+		
+		
+	}
+		
 
-
-
-
+}		
+*/
 
 function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();

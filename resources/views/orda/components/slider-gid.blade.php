@@ -36,12 +36,15 @@
                             </div>
                             <div class="gid__item--body">
                                 <div class="gid__item--price">
-                                    Стоимость: от          @if(isset($item->price))
-									{{$item->price}}
-								     тг / 
-																@include('orda.components.sposob-oplaty
-					',$item)
-@endif
+            @if(isset($item->price))
+			@lang('front_main.price') {{$item->price}}
+				@if($item->currency)
+					{{$item->currency}}
+				@else
+					тг		 
+				@endif
+			@include('orda.components.sposob-oplaty',$item)
+             @endif
 									
                                 </div>
                             </div>

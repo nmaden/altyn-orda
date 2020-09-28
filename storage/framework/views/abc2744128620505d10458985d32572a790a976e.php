@@ -45,7 +45,9 @@
                 <div class="container">
                     <div class="modal__map">
                         <a href="/page-map" class="modal__map--item">
-                            Интерактивная карта
+							<?php echo app('translator')->get('front_main.title.map'); ?>
+
+                            
                         </a>
                     </div>
                 </div>

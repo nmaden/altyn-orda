@@ -1,13 +1,13 @@
 <?php
-namespace Modules\Entity\Model\Gid;
+namespace Modules\Entity\Model\Slider;
 
 use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
-class TransGid extends ModelParent {
-    protected $table = 'trans_gids';
-	 protected $table_ru = 'gids';
-    protected $fillable = [ 'el_id', 'lang', 'description','name','imya','currency'];
+class TransSlider extends ModelParent {
+    protected $table = 'trans_routes';
+	 protected $table_ru = 'trans';
+    protected $fillable = [ 'el_id', 'lang', 'description','name'];
     //use CheckTrans;
 
     function getTransTableNameAttribute(){

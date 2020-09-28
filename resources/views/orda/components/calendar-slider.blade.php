@@ -62,7 +62,8 @@
                     <div class="col-lg-4">
                         <div class="calendar__all">
 						<a href="{{route('calendars')}}" class="calendar__all--linck">
-                           Смотреть все</a>
+                           	@lang('front_main.button_view')
+                        </a>
                         </div>
                     </div>
                 </div>

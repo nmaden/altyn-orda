@@ -38,13 +38,17 @@
                             </div>
                             <div class="gid__item--body">
                                 <div class="gid__item--price">
-                                    Стоимость: от          <?php if(isset($item->price)): ?>
-									<?php echo e($item->price); ?>
+            <?php if(isset($item->price)): ?>
+			<?php echo app('translator')->get('front_main.price'); ?> <?php echo e($item->price); ?>
 
-								     тг / 
-																<?php echo $__env->make('orda.components.sposob-oplaty
-					',$item, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php endif; ?>
+				<?php if($item->currency): ?>
+					<?php echo e($item->currency); ?>
+
+				<?php else: ?>
+					'тг'				 
+				<?php endif; ?>
+			<?php echo $__env->make('orda.components.sposob-oplaty',$item, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+             <?php endif; ?>
 									
                                 </div>
                             </div>

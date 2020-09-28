@@ -9,6 +9,8 @@ use Modules\Entity\Model\Sights\Sights;
 
 use Cache;
 
+use Lang;
+
 trait Presenter {
 
 	function getSightsAr(){
@@ -27,6 +29,7 @@ trait Presenter {
 	 
 	}
 
+		
 	 function getLangAr(){
 		return LibLanguage::pluck('name', 'id')->toArray();
 	}
@@ -40,8 +43,6 @@ trait Presenter {
 		return LibCity::pluck('name', 'id')->toArray();
     }
 	
-
-
     function getImyaAttribute($v){
 		return $this->getTransField('imya', $v);
 	  }
@@ -51,9 +52,14 @@ trait Presenter {
 	  }
 	  
       function getNameAttribute($v){
-		return $this->getTransField('name', $v);
+		  return $this->getTransField('name', $v);
     }
+	
+      function getOplataAttribute($v){
+		  return Lang::get('front_main.oplata_'.$v);
+		  
+		}
+		
     
-
 }
 

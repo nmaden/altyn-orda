@@ -37,6 +37,22 @@ name='imya' placeholder="Имя(текс)" class="form-control"></input>
 @endif
 </div>
 
+<br><br>
+<div>  
+<label for="title"><b>Денежная еденица</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+@if(old('phone'))
+	value="{{old('currency')}}" 
+@else
+	value="{{isset($model->currency) ? $model->currency : ''}}" 
+@endif
+name='currency' placeholder="тг" class="form-control"></input>
+@if ($errors->has('opyt'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
+   </span>
+@endif
+</div>
 
 <br><br>
 

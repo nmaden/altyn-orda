@@ -74,7 +74,8 @@
 
             <div class="section__title--block">
                 <div class="section__title">
-                    Календарь мероприятий
+                    @lang('front_main.title.Calendar_events')
+
                 </div>
             </div>
 					@include('orda.components.calendar-slider',$gid)
@@ -89,12 +90,15 @@
 
             <div class="section__title--block">
                 <div class="section__title">
-                    Гиды и туроператоры
+                   @lang('front_main.title.gid')
+
                 </div>
             </div>
 			@include('orda.components.slider-gid',$gid)
            <div class="calendar__all">
-                <a href="{{route('gids')}}" class="calendar__all--linck">Смотреть все</a>
+                <a href="{{route('gids')}}" class="calendar__all--linck">
+				@lang('front_main.button_view')
+                </a>
             </div>
 
         </div>
