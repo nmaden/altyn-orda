@@ -150,7 +150,8 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 @foreach($model->coords as $k=>$coord)
 <div> 
 <label for="title"><b>координата {{$k+1}} (<span style='font-size:11px;color:#ccc'>для удаления сделайте поле пустым</span>)</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($coord->coord) ? $coord->coord : ''}}' name='coord[]' placeholder="координаты" class="form-control"/>
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($coord->coord) ? $coord->coord : ''}}' 
+name='coord[]' placeholder="координаты" class="form-control"/>
 </div>
 @endforeach
 @endif

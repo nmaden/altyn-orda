@@ -7,17 +7,22 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                      <a href="/">						
+						@lang('front_main.bread.home')
+                      </a>
                     </li>
                     <li>
-                        <span>Исторические личности</span>
+                        <span>
+						@lang('front_main.figures.title')
+                       </span>
                     </li>
                 </ul>
             </div>
 
             <div class="section__title--block">
                 <h1 class="section__title">
-                    Исторические личности
+                    @lang('front_main.figures.title')
+
                 </h1>
             </div>
 

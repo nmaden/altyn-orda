@@ -132,7 +132,11 @@
                 </div>
                 <div class="about__text">
                     <p>
-                        <strong>Благодарим за подготовку материала доктора PhD, вице-президента АО НЦГНТЭ Сабитова Жакылыка Муратовича</strong>
+                        <strong>
+						  @lang('front_main.avtor')
+
+						
+						</strong>
                     </p>
                 </div>
                 
