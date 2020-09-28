@@ -75,7 +75,7 @@ $cssVersion="3.5.0";
  
     @yield('content')
 	
-	    @yield('footer')
+	@yield('footer')
 
 
    

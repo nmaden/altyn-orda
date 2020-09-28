@@ -5,7 +5,8 @@
 
                 <a href="/about.html" class="section__title--block">
                     <div class="section__title">
-                        О золотой орде
+					    <?php echo app('translator')->get('front_main.title.about'); ?>
+
                     </div>
                     <div class="section__title--arrow">
                         <img src="/img/chevron-right.svg" alt="">

@@ -2,7 +2,7 @@
 
 return [
     'title' => [
-        'about' => 'О Золотой орде',
+        'about' => 'kazak order',
      ],
     'copyright' => '© QLT.KZ, 2019',
     'welcome_title' => 'SMART STUDY',

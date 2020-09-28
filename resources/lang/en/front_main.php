@@ -10,7 +10,7 @@ return [
         'term' => 'Terms of use',
         'help' => 'Site support',
         'faq' => 'Frequently asked questions',
-        'about' => 'Mission and goals',
+        'about' => 'zoloto',
         'contact' => 'Contacts',
         'blog' => 'Recent news, stories and articles',
         'univer_view' => 'University website',

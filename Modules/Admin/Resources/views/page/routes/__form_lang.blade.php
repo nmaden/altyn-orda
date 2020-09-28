@@ -55,12 +55,30 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 </textarea>
  </div>
 
+<!-----------------------------------------------------------------------------
+<br><br>
+<div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
+@if(count($model->coords) > 0)
+@foreach($model->coords as $k=>$coord)
+<div> 
+<label for="title"><b>название координаты {{$k+1}}</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" 
+value='{{$model->getRelDataObj()}}'
+name='coord_name[{{$coord->id}}]' 
+placeholder="координаты" 
+class="form-control"/>
+</div>
+@endforeach
+@endif
 
+<div class="input_fields_wrap2">
+ </div>
+</div>
 
+<div class='clearfix'></div>
 
-
-
-
+------------------------------------------------------------->
 
 
 

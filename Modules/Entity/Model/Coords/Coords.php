@@ -27,7 +27,7 @@ class Coords extends ModelParent {
     }
 	
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Coords\TransCoords', 'el_id');
     }
 	
 

@@ -75,7 +75,7 @@ $cssVersion="3.5.0";
  
     <?php echo $__env->yieldContent('content'); ?>
 	
-	    <?php echo $__env->yieldContent('footer'); ?>
+	<?php echo $__env->yieldContent('footer'); ?>
 
 
    
