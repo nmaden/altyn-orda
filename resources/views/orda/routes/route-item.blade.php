@@ -4,10 +4,14 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                        <a href="/">						
+						@lang('front_main.bread.home')
+                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/">Маршруты</a>
+                        <a href="/">						
+						@lang('front_main.routes.title')
+                       </a>
                     </li>
                     <li>
 					@if(isset($item->relCity->name))
@@ -82,7 +86,9 @@
                 <div class="route__page--list">
                     <div class="sights__list--item">
                         <div class="sights__list--text">
-						    Выставка
+						  @lang('front_main.routes.exhibition')
+
+						    
                         </div>
                     </div>  
            @if(isset($item->relCity->name))
@@ -117,9 +123,10 @@
 
 <br>
                 <div class="route__page--price">
-                    Стоимость маршрута: <strong>				@if(isset($item->price))
+                    @lang('front_main.routes.price'): <strong>				
+					@if(isset($item->price))
 					{{$item->price}} тнг.
-@endif
+                    @endif
 </strong>
                 </div>
             </div>
@@ -128,7 +135,8 @@
 
             <div class="way__block">
                 <a href="#routemap" class="way__linck">
-                    Отправиться в путь <img src="/img/chevron-right-white.svg" alt="">
+				@lang('front_main.routes.path')
+                     <img src="/img/chevron-right-white.svg" alt="">
                 </a>
             </div>
 

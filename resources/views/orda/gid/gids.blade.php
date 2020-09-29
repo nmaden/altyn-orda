@@ -6,10 +6,14 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                        <a href="/">				
+						@lang('front_main.bread.home')
+                        </a>
                     </li>
                     <li>
-                        <span>Гиды и туроператоры</span>
+                        <span>						
+						@lang('front_main.gid.title')
+                       </span>
                     </li>
                 </ul>
             </div>
@@ -17,7 +21,8 @@
 
             <div class="section__title--block">
                 <h1 class="section__title">
-                    Гиды и туроператоры
+                    @lang('front_main.gid.title')
+
                 </h1>
             </div>
 
@@ -28,9 +33,16 @@
                         <div class="filter__item">
                             <div class="filter--select">
                                 <select name="city_id" id="city_id" class="slct-0 js--select js--select-0" onchange="send_to_search('city_id')">
-                                  <option selected disabled>Регионы</option>
+                                  <option selected disabled>
+								  	@lang('front_main.filter.regions')
+
+								  </option>
                                 
-                                  <option  value="all_city">Весь регион</option>
+                                  <option  value="all_city">
+								  		@lang('front_main.filter.all_region')
+
+
+								  </option>
                                   @foreach($cities as $key=>$city)
                                   
                                   @if(isset($_GET['city_id']))
@@ -54,9 +66,14 @@
                             <div class="filter--select">
                                 <select name="lang_id" id="lang_id" class="slct-1 js--select js--select-1" onchange="send_to_search('lang_id')">
                                 
-                                  <option selected disabled>Языки</option>
+                                  <option selected disabled>
+								  		@lang('front_main.filter.lang')
+
+								  </option>
                                  
-                                    <option  value="all_lang">Весь язык</option>
+                                    <option  value="all_lang">								  		
+									@lang('front_main.filter.all_lang')
+                                   </option>
                                   
 
                                     
@@ -82,8 +99,13 @@
                             <div class="filter--select">
                                 <select name="category_id" id="category_id"  class="slct-2 js--select js--select-2" onchange="send_to_search('category_id')">
                                
-                                  <option selected disabled>Специализация</option>
-                                  <option value="all_category">Все специализации</option>
+                                  <option selected disabled>								  		
+								  @lang('front_main.filter.prof')
+                                  </option>
+                                  <option value="all_category">
+								  @lang('front_main.filter.prof_all')
+
+								  </option>
                                   @foreach($categories as $key=>$category)
                                   
                                     @if(isset($_GET['category_id']))

@@ -5,10 +5,14 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                        <a href="/">								  
+						@lang('front_main.bread.home')
+                       </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/">Гиды и туроператоры</a>
+                        <a href="/">								  
+						@lang('front_main.gid.title')
+                        </a>
                     </li>
                     <li>
                         <span>
@@ -75,13 +79,16 @@
                         <div class="col-lg-9">
                             
                             <div class="gid__about--title">
-                                О гиде
+                                	@lang('front_main.gid.about')
+
                             </div>
 
                             <div class="gid__about--list">
 
                                 <div class="gid__about--item ">
-                                    <strong>Возраст гида:</strong> 
+                                    <strong>								  
+									@lang('front_main.gid.vosrast')
+                                   :</strong> 
 									 @if(isset($item->vosrast))
 						{{$item->vosrast}}
 					@else 
@@ -89,7 +96,9 @@
 					     @endif
                                 </div>
                                 <div class="gid__about--item">
-                                    <strong>Опыт работы (годы):</strong> 
+                                    <strong>
+									@lang('front_main.gid.opyt')
+									:</strong> 
 									 @if(isset($item->opyt))
 						{{$item->opyt}}
 					@else не указано
@@ -109,7 +118,9 @@
 
                             <div class="gid__about-lang--block">
                                 <div class="gid__aboutlang--title">
-                                    Языки:
+									@lang('front_main.filter.lang') :
+
+                                    
                                 </div>
                                 <div class="gid__aboutlang--desc">
 				
@@ -122,14 +133,15 @@
 
                             <div class="gid__about-price--block">
                                 <div class="gid__aboutprice--title">
-                                    Стоимость:
+                                    @lang('front_main.sights.price')
+:
                                 </div>
                                 <div class="gid__aboutprice--desc">
                                      
 						@if(isset($item->price))
 						от 
 						{{$item->price}}
-						тг / 
+						тг 
 					@include('orda.components.sposob-oplaty
 					',$item)
 

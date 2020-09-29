@@ -14,7 +14,18 @@ return [
 	'avtor'=>'Thank you for the preparation of material PhD, Vice-President of JSC NCSSTE Zhaksylyk Sabitov of Muratovic.',
      'search_map'=>'How to get',
     'year'=>'Year',
-
+		'gid'=>[
+	  'title'=>'Guides and tour operators',
+	   'about'=>'About the guide',
+	  'vosrast'=>"Guide's age",
+	  'opyt'=>'Work experience (years)'
+	 ],
+'routes'=>[
+     'title'=>'Routes',
+	  'exhibition'=>'Exhibition',
+	 'price'=>'The cost of the route',
+	 'path'=>'Hit the road'
+   ],
    'bread'=>[
     'home'=>'Main',
    ],
@@ -46,6 +57,10 @@ return [
 	'date'=>'By uploading date',
 	'all_category'=>'All categories',
 	'category'=>'In category',
+	 'lang'=>'Languages',
+	  'all_lang'=>'All language',
+	  'prof'=>'Specialization',
+	  'prof_all'=>'All specializations',
 	]
 		
 ];

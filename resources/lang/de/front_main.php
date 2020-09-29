@@ -14,7 +14,18 @@ return [
     'avtor'=>'Vielen Dank für die Vorbereitung des Materials von Dr. PhD, Vizepräsident der AG NZGNTE Sabitov jacylyk Muratovich',
         'search_map'=>"Wie kommt man",
     'year'=>'Jahr',
-
+		'gid'=>[
+	  'title'=>'Reiseleiter und Reiseveranstalter',
+	     'about'=>'Über den Führer',
+	  'vosrast'=>'Alter Führer',
+	  'opyt'=>'Berufserfahrung (Jahre)'
+	 ],
+'routes'=>[
+     'title'=>'Routen',
+	  'exhibition'=>'Die Ausstellung',
+	 'price'=>'Kosten der Route',
+	 'path'=>'Auf die Reise gehen'
+   ],
 	 'bread'=>[
     'home'=>'Hauptsaechliche',
    ],
@@ -47,6 +58,10 @@ return [
 	'regions'=>'Nach Region',
 	'all_category'=>'Alle Kategorien',
 	'category'=>'Nach Kategorie',
+	 'lang'=>'Sprachen',
+	  'all_lang'=>'Alle Sprachen',
+	  'prof'=>'Spezialisierung',
+	  'prof_all'=>'Alle Spezialisierungen',
 	]
 		
 		

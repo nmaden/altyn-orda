@@ -14,7 +14,18 @@ return [
     'avtor'=>'感谢您的材料博士，JSC NCSSTE Zhaksylyk Sabitov穆拉托维奇副总裁的准备',
         'search_map'=>"如何获得",
     'year'=>'年',
-
+		'gid'=>[
+	  'title'=>'导游和旅游经营者',
+	     'about'=>'关于指南',
+	  'vosrast'=>'指南的年龄',
+	  'opyt'=>'工作经验（年)'
+	 ],
+'routes'=>[
+     'title'=>'路线',
+	  'exhibition'=>'展览',
+	 'price'=>'路线的成本',
+	 'path'=>'上路吧'
+   ],
 	 'bread'=>[
     'home'=>'主',
    ],
@@ -49,6 +60,10 @@ return [
 	'regions'=>'关于该地区',
 	'all_category'=>'所有类别',
 	'category'=>'在类别',
+	 'lang'=>'语文',
+	  'all_lang'=>'所有语言',
+	  'prof'=>'专业化',
+	  'prof_all'=>'所有专业',
 	]
 		
 	

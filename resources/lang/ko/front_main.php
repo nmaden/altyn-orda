@@ -14,10 +14,25 @@ return [
     'avtor'=>'Muratovic 의 JSC NCSSTE Zhaksylyk Sabitov 부회장,재료 박사 학위 준비에 감사드립니다',
         'search_map'=>"얻는 방법",
     'year'=>'년',
-
+		'gid'=>[
+	  'title'=>'Гиды и туроператоры',
+	     'about'=>'가이드에 대해',
+	  'vosrast'=>'가이드 나이',
+	  'opyt'=>'일 경험(년)'
+	 ],
+'routes'=>[
+     'title'=>'노선',
+	  'exhibition'=>'전시회',
+	 'price'=>'경로 비용',
+	 'path'=>'길을 히트'
+   ],
 	 'bread'=>[
     'home'=>'메인',
    ],
+   'routes'=>[
+   
+   ],
+   
 	'figures' => [
         'title' => '역사적인 숫자',
         
@@ -48,7 +63,11 @@ return [
 	'regions'=>'이 지역',
 	'all_category'=>'모든 카테고리',
 	'category'=>'카테고리 단위',
+	'lang'=>'언어',
+	  'all_lang'=>'모든 언어',
+	  'prof'=>'전문화',
+	  'prof_all'=>'모든 전문화',
 	]
-		
+	
 		
 ];
