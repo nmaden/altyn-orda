@@ -6,6 +6,8 @@ return [
         'Calendar_events' => 'Calendrier des événements',
 		'gid' => 'Guides et voyagistes',
 		'map' => 'Carte interactive',
+		'result'=>'Introuvable'
+
    ],
     'button_view'=>'Regarder tout',
 	'price'=>"Coût de",
@@ -31,6 +33,8 @@ return [
    ],
 	'figures' => [
         'title' => 'Personnalités historiques',
+		'derevo' => 'Arbre généalogique',
+
         
       ],
 	'sights' => [
@@ -63,6 +67,9 @@ return [
 	  'all_lang'=>'Toutes les langues',
 	  'prof'=>'Spécialisation',
 	  'prof_all'=>'Toutes les spécialisations',
+	     'object'=>'Objets',
+	'all_object'=>'Tous les objets',
+    'all_routes'=>'Tous Les Itinéraires'
 	]
 		
 	

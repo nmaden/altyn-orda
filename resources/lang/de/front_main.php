@@ -6,6 +6,8 @@ return [
         'Calendar_events' => 'Veranstaltungskalender',
 		'gid' => 'Reiseleiter und Reiseveranstalter',
 		'map' => 'Interaktive Karte',
+		'result'=>'Nicht gefunden'
+
    ],
     'button_view'=>'Sehen Sie alles',
 	'price'=>'Preis',
@@ -31,6 +33,8 @@ return [
    ],
 	'figures' => [
         'title' => 'Historische Persönlichkeiten',
+		'derevo' => 'Stammbaum',
+
         
       ],
 	'sights' => [
@@ -62,6 +66,9 @@ return [
 	  'all_lang'=>'Alle Sprachen',
 	  'prof'=>'Spezialisierung',
 	  'prof_all'=>'Alle Spezialisierungen',
+	     'object'=>'Objekte',
+	'all_object'=>'Alle Objekte',
+    'all_routes'=>'Alle Routen'
 	]
 		
 		

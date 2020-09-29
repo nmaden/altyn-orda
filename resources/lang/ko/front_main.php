@@ -6,6 +6,8 @@ return [
         'Calendar_events' => '이벤트 캘린더',
 		'gid' => '가이드 및 투어 운영자',
 		'map' => '대화형 맵',
+		'result'=>'찾을 수 없음'
+
    ],
     'button_view'=>'모두 보기',
 	'price'=>"의 비용",
@@ -29,12 +31,11 @@ return [
 	 'bread'=>[
     'home'=>'메인',
    ],
-   'routes'=>[
-   
-   ],
    
 	'figures' => [
         'title' => '역사적인 숫자',
+		'derevo' => '패밀리 트리',
+
         
       ],
 	 'sights' => [
@@ -67,6 +68,9 @@ return [
 	  'all_lang'=>'모든 언어',
 	  'prof'=>'전문화',
 	  'prof_all'=>'모든 전문화',
+	     'object'=>'객체',
+	'all_object'=>'전체 개체',
+    'all_routes'=>'모든 경로'
 	]
 	
 		

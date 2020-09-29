@@ -7,10 +7,14 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                        <a href="/">
+						@lang('front_main.bread.home')
+                        </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/">Генеалогические дерево</a>
+                        <a href="/">						
+						@lang('front_main.figures.derevo')
+                        </a>
                     </li>
                     <li>
                         <span>

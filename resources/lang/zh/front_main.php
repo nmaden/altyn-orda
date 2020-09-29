@@ -6,6 +6,8 @@ return [
         'Calendar_events' => '活动日历',
 		'gid' => '导游和旅游经营者',
 		'map' => '互动地图',
+		'result'=>'未找到'
+
    ],
     'button_view'=>'查看全部',
 	'price'=>"成本",
@@ -31,6 +33,8 @@ return [
    ],
 	'figures' => [
         'title' => '历史图',
+		'derevo' => '家谱',
+
         
       ],
 	 'sights' => [
@@ -64,6 +68,9 @@ return [
 	  'all_lang'=>'所有语言',
 	  'prof'=>'专业化',
 	  'prof_all'=>'所有专业',
+	     'object'=>'对象',
+	'all_object'=>'整个对象',
+    'all_routes'=>'所有路线'
 	]
 		
 	

@@ -8,10 +8,10 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                        <a href="/">@lang('front_main.bread.home')</a>
                     </li>
                     <li>
-                        <span>Интерактивная карта</span>
+                        <span>@lang('front_main.title.map')</span>
                     </li>
                 </ul>
             </div>
@@ -20,7 +20,11 @@
             <div class="section__title--block">
                 <h1 class="section__title">
 					<br>
-					{{$php_json === 0 ? 'Результатов нет' : '           Интерактивная карта'}} 
+					@if($php_json === 0)
+						@lang('front_main.title.result') 
+					@else
+						@lang('front_main.title.map')
+					@endif
 					
 					<br>
 					
@@ -46,8 +50,12 @@
                                             <select name="regions" id="slct-2" class="js--select slct-2 js--select-d js--select-2 region"
                                             onchange="filter('region')"
                                             >
-                                                <option selected disabled>Регионы</option>
-                                                <option value="0">Все регионы</option>
+                                                <option selected disabled>
+												  @lang('front_main.filter.regions')
+                                                </option>
+                                                <option value="0">
+												  @lang('front_main.filter.all_region')
+                                                </option>
                                                 @if(isset($city[0]))
                                                 @foreach($city as $k=>$item)
                                             
@@ -68,7 +76,7 @@
                                                 @endforeach
                                                 @endif
                                                 
-                                                <option value="almaty">Алматы</option>
+                                               
                                             </select>
                                         </div>
                                     </div>
@@ -80,12 +88,14 @@
                                             onchange="filter('sights')"
 
                                             >
-                                                <option selected disabled>Объекты</option>
+                                                <option selected disabled>
+												  @lang('front_main.filter.object')
+                                                </option>
                                                                                                                                                                                                                 
 
-                                                <option value="0">все объекты
-                                                
-                                                </option>
+                                                <option value="0">
+												 @lang('front_main.filter.all_object')
+                                                 </option>
                                                 
                                                 @if(isset($sights_lib[0]))
                                                 @foreach($sights_lib as $k=>$item)
@@ -113,8 +123,14 @@
                                             <select name="routes" id="slct-1" class="js--select slct-1 js--select-d js--select-1"
                                             onchange="filter('routes')"
                                             >
-                                                <option selected disabled>Маршруты</option>
-                                                <option value="0">Все маршруты</option>
+                                                <option selected disabled>
+												 @lang('front_main.routes.title')
+
+												</option>
+                                                <option value="0">
+													@lang('front_main.filter.all_routes')
+
+												</option>
                                                 
                                                 
                                                 @if(isset($routes_lib[0]))

@@ -6,6 +6,8 @@ return [
         'Calendar_events' => 'Calendar of events',
 		'gid' => 'Guides and tour operators',
 		'map' => 'Interactive map',
+		'result'=>'Not found'
+
    ],
     'button_view'=>'See all',
 	'price'=>'The cost of',
@@ -30,7 +32,10 @@ return [
     'home'=>'Main',
    ],
 	'figures' => [
-        'title' => 'Historical figure'],
+        'title' => 'Historical figure',
+		'derevo' => 'Family tree',
+
+		],
 	'sights' => [
         'title' => 'Attractions',
 		'date' => 'Date of foundation',
@@ -61,6 +66,10 @@ return [
 	  'all_lang'=>'All language',
 	  'prof'=>'Specialization',
 	  'prof_all'=>'All specializations',
+	  'object'=>'Objects',
+	'all_object'=>'All objects',
+    'all_routes'=>'All routes'
+	
 	]
 		
 ];
