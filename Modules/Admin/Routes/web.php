@@ -417,6 +417,39 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
       });
 	  
 	  
+    Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
+
+	Route::group(['prefix' => 'cat'], function () {
+            Route::get('/', 'CategoryController@index')
+                //->middleware('can:list,Modules\Entity\Model\LibCity\LibCity')
+                ->name('admin_lib_cat');
+
+            Route::get('create', 'CategoryController@create')
+                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->name('admin_lib_cat_create');
+
+            Route::post('create', 'CategoryController@saveCreate')
+                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->name('admin_lib_cat_create_save');
+
+            Route::get('update/{cat}', 'CategoryController@update')
+                //->middleware('can:update,city')
+                ->name('admin_lib_cat_update');
+
+            Route::post('update/{cat}', 'CategoryController@saveUpdate')
+                //->middleware('can:update,city')
+                ->name('admin_lib_cat_update_save');
+
+            Route::get('delete/{cat}', 'CategoryController@delete')
+                //->middleware('can:delete,city')
+                ->name('admin_lib_cat_delete');
+
+            Route::get('view/{cat}', 'CategoryController@show')
+                //->middleware('can:view,city')
+                ->name('admin_lib_cat_show');
+        });
+      });
+	  
 	  
 	  
 	  

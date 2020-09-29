@@ -167,6 +167,10 @@ $ar=explode('_',$route);
                              <a href="<?php echo e(route('admin_lib_language')); ?>"><span>Языки</span></a>
 							 </li>
 							 
+							 <li>
+                             <a href="<?php echo e(route('admin_lib_cat')); ?>"><span>Категории</span></a>
+							 </li>
+							 
                         </ul>
                     </li>
 
