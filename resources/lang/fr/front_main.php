@@ -43,7 +43,11 @@ return [
 	 'week'=>'Le prochain la semaine',
 	 'month'=>'Mois suivant',
 	'year'=>"L'année prochaine",
-	'date'=>'Par date'
+	'date'=>'Par date',
+	'all_region'=>'Toutes les régions',
+	'regions'=>'Par région',
+	'all_category'=>'Toutes les Catégories',
+	'category'=>'Par catégorie',
 	]
 		
 	

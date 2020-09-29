@@ -43,7 +43,11 @@ return [
 	 'week'=>'다음 주',
 	 'month'=>'다음 달',
 	'year'=>'내년에',
-	'date'=>'날짜 업로드'
+	'date'=>'날짜 업로드',
+	'all_region'=>'모든 지역',
+	'regions'=>'이 지역',
+	'all_category'=>'모든 카테고리',
+	'category'=>'카테고리 단위',
 	]
 		
 		

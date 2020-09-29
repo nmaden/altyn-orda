@@ -42,7 +42,11 @@ return [
 	 'week'=>'Nächste Woche',
 	 'month'=>'Nächster Monat',
 	'year'=>'Nächstes Jahr',
-	'date'=>'Nach Datum'
+	'date'=>'Nach Datum',
+	'all_region'=>'Alle Regionen',
+	'regions'=>'Nach Region',
+	'all_category'=>'Alle Kategorien',
+	'category'=>'Nach Kategorie',
 	]
 		
 		

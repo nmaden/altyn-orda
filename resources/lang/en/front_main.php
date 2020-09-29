@@ -38,10 +38,14 @@ return [
         ],
 	'filter'=>[
 	'all_calendar'=>'All activity',
-	 'week'=>'Next week',
+	'all_region'=>'All region',
+	'regions'=>'On the region',/*по региону*/
+    'week'=>'Next week',
 	 'month'=>'Next month',
 	'year'=>'Next year',
-	'date'=>'By uploading date'
+	'date'=>'By uploading date',
+	'all_category'=>'All categories',
+	'category'=>'In category',
 	]
 		
 ];

@@ -44,7 +44,11 @@ return [
 	 'week'=>'下周',
 	 'month'=>'下个月',
 	'year'=>'明年',
-	'date'=>'通过上传日期'
+	'date'=>'通过上传日期',
+	'all_region'=>'所有地区',
+	'regions'=>'关于该地区',
+	'all_category'=>'所有类别',
+	'category'=>'在类别',
 	]
 		
 	
