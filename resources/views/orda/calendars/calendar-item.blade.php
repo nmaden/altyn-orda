@@ -5,10 +5,14 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                       <a href="/">
+						@lang('front_main.bread.home')
+                        </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/">Календарь мероприятий</a>
+                        <a href="/">
+						@lang('front_main.calendar.title')
+                        </a>
                     </li>
                     <li>
 					@if(isset($calendar->name))
@@ -32,11 +36,13 @@
             <div class="calendar__list--list">
 
                 <div class="calendar__list--item">
-                    <strong>Ярмарка</strong> 
+                    <strong>						
+					@lang('front_main.calendar.fair')
+                   </strong> 
                 </div>
 
                 <div class="calendar__list--item">
-                    <strong>Дата проведения:</strong> 
+                    <strong>@lang('front_main.calendar.date'):</strong> 
 					@if(isset($calendar->date))
 					{{$calendar->date}}
 				    @endif
@@ -44,14 +50,14 @@
 				@if(isset($calendar->relCity->name))
 
                 <div class="calendar__list--item">
-                    <strong>Город:</strong> 
+                    <strong>@lang('front_main.calendar.city'):</strong> 
 					
 					{{$calendar->relCity->name}}
                 </div>
 				@endif
                
                 <div class="calendar__list--item">
-                    <strong>Поделиться:</strong>
+                    <strong>@lang('front_main.calendar.sokial'):</strong>
                       <div class="ya-share2" data-services="{{$calendar->social_share}}" data-limit="3"></div>
                 </div>
              
@@ -92,7 +98,8 @@
 
                 <div class="section__title--block">
                     <div class="section__title">
-                        Близкие мероприятия
+					@lang('front_main.calendar.sights')
+                        
                     </div>
                 </div>
 

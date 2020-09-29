@@ -13,6 +13,7 @@ return [
 	'oplata_1'=>'/ 小时',
     'avtor'=>'感谢您的材料博士，JSC NCSSTE Zhaksylyk Sabitov穆拉托维奇副总裁的准备',
         'search_map'=>"如何获得",
+    'year'=>'年',
 
 	 'bread'=>[
     'home'=>'主',
@@ -23,13 +24,28 @@ return [
       ],
 	 'sights' => [
         'title' => '渡假村',
+		 'date' => '成立日期',
+		'time'=>  '参观时间',
+         'price'=>'成本'
         ],
 		
 	'calendar' => [
-        'date' => '成立日期',
-		'time'=>  '参观时间',
-         'price'=>'成本'
-        ],		
+	    'title'=>'活动日历',
+		'fair'=>'公平',
+		'date'=>'活动日期',
+		'sokial'=>'分享',
+		'city'=>'城市',
+		'sights'=>'活动结束'
+
+       
+        ],
+	'filter'=>[
+	'all_calendar'=>'所有活动',
+	 'week'=>'下周',
+	 'month'=>'下个月',
+	'year'=>'明年',
+	'date'=>'通过上传日期'
+	]
 		
 	
 ];

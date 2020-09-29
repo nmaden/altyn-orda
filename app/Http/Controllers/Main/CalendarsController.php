@@ -17,7 +17,7 @@ use Modules\Entity\Model\LibCity\LibCity;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Modules\Entity\Model\LibCountry\LibCountry;
-
+use Lang;
 class CalendarsController extends SiteController
 {
 
@@ -40,7 +40,12 @@ class CalendarsController extends SiteController
 
 		//dd($items);
 
-		$sort_calendar = ["Все мероприятия",'Следующая неделя','Следующий месяц','Следующий год'];
+		$sort_calendar = [
+		Lang::get('front_main.filter.all_calendar'),
+        Lang::get('front_main.filter.week'),
+        Lang::get('front_main.filter.month'),
+        Lang::get('front_main.filter.year'),
+       ];
 		$gids = $this->getTabs();
 		
 		

@@ -39,7 +39,7 @@
                 <div class="about__banner--info">
 				 @if(isset($item->date))
                     <div class="about__banner--data">
-                  @lang('front_main.calendar.date')
+                  @lang('front_main.sights.date')
 
 						
 						<br>
@@ -86,7 +86,7 @@
 					@if(isset($item->time))
                         <div class="banner__infoprice--item">
                             <div class="banner__infoprice--top">
-							@lang('front_main.calendar.time')
+							@lang('front_main.sights.time')
 
                             </div>
                             <div class="banner__infoprice--center">
@@ -98,7 +98,7 @@
 						@if(isset($item->price))
                         <div class="banner__infoprice--item">
                             <div class="banner__infoprice--top">
-                                @lang('front_main.calendar.price')
+                                @lang('front_main.sights.price')
 
                             </div>
                             <div class="banner__infoprice--center">

@@ -31,7 +31,8 @@
 								<?php endif; ?>
                                     </span>
                                     <span class="numer__litl">
-                                        год
+                                        <?php echo app('translator')->get('front_main.year'); ?>
+
                                     </span>
                                 </div>
                                 <div class="about__line--info">

@@ -5,10 +5,14 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                        <a href="/">            
+						@lang('front_main.bread.home')
+                         </a>
                     </li>
                     <li>
-                        <span>Календарь мероприятий</span>
+                        <span>                                
+						@lang('front_main.calendar.title')
+                       </span>
                     </li>
                 </ul>
             </div>
@@ -16,7 +20,8 @@
 
             <div class="section__title--block">
                 <h1 class="section__title">
-                    Календарь мероприятий
+                    	@lang('front_main.calendar.title')
+
                 </h1>
             </div>
 
@@ -26,7 +31,9 @@
                         <div class="filter__item">
                             <div class="filter--select">
                                 <select name="date" id="sort_date" class="slct-0 js--select js--select-0" onchange="send_to_search('sort_date')">
-                                  <option selected disabled>По дате</option>
+                                  <option selected disabled>                    	
+								  @lang('front_main.filter.date')
+                                  </option>
                                   @foreach($sort_calendars as $key=>$sort_calendar)
                                         @if(isset($_GET['sort_date'])) 
                                             @if($_GET['sort_date']==$key and $key==0)
