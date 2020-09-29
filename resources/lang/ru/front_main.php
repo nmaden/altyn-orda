@@ -12,31 +12,23 @@ return [
 	'oplata_2'=>'/ день',
 	'oplata_1'=>'/ час',
 	'avtor'=>'Благодарим за подготовку материала доктора PhD, вице-президента АО НЦГНТЭ Сабитова Жакылыка Муратовича',
+    'search_map'=>'Как добраться',
 
        'bread'=>[
     'home'=>'Главная'
    ],
 	'figures' => [
         'title' => 'Исторические личности',
-        'clear' => 'Reset',
-        'search_by_name' => 'Search by name',
-        'coutry' => ' Country and city',
-        'degree' => 'Program degree',
-        'discplines' => 'Disciplines',
-        'cost' => 'Cost',
-        'duration' => 'Duration',
-        'additional' => 'Additional',
-        'is_campus' => 'campus availability',
-        'is_med_insurance' => 'Medical insurance',
-        'is_library' => 'Library',
-        'is_inter_programm' => 'International programs',
-        'is_career' => 'Employment center',
-        'is_clubs' => 'Student clubs',
-        'submit' => 'Apply',
-        'years' => 'Year',
-        'cost_year' => 'Year',
-        'year' => "Year",
-        'more' => 'More'
-      ],
+        ],
+	'sights' => [
+        'title' => 'Достопримечательности',
+        ],
+	'calendar' => [
+        'date' => 'Дата основания',
+		'time'=>  'Время на посещение',
+         'price'=>'Стоимость'
+        ],
+		
+		
 	
 ];

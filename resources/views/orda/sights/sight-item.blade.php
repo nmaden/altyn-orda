@@ -13,10 +13,14 @@
                 <div class="bread-line">
                     <ul class="bread-crambs">
                         <li class="breadcrumb-item">
-                            <a href="/">Главная</a>
+                            <a href="/">				
+							@lang('front_main.bread.home')
+                           </a>
                         </li>
                         <li>
-                            <span>Достопримечательности</span>
+                            <span>				
+							@lang('front_main.sights.title')
+                           </span>
                         </li>
 						&nbsp&nbsp&nbsp&nbsp
 						@if(isset($item->name))
@@ -35,7 +39,8 @@
                 <div class="about__banner--info">
 				 @if(isset($item->date))
                     <div class="about__banner--data">
-                        Дата основания
+                  @lang('front_main.calendar.date')
+
 						
 						<br>
 						
@@ -78,13 +83,14 @@
                     </div>
 
                     <div class="banner__infoprice">
-					@if(isset($item->props_3))
+					@if(isset($item->time))
                         <div class="banner__infoprice--item">
                             <div class="banner__infoprice--top">
-                                Время на посещение
+							@lang('front_main.calendar.time')
+
                             </div>
                             <div class="banner__infoprice--center">
-							{{$item->props_3}} часа
+							{{$item->time}} 
                             </div>
                         </div>
 						@endif
@@ -92,7 +98,8 @@
 						@if(isset($item->price))
                         <div class="banner__infoprice--item">
                             <div class="banner__infoprice--top">
-                                Стоимость
+                                @lang('front_main.calendar.price')
+
                             </div>
                             <div class="banner__infoprice--center">
 							{{$item->price}} тнг.
@@ -158,33 +165,23 @@
         </div>
     </div>
 <br><br><br>
+<!---------------------гиды и туроператоры------------------------->
+
+@if(isset($gid))
     <div class="section__gid">
         <div class="container">
-
-            <div class="section__title--block">
-                <div class="section__title">
-                    Гиды и туроператоры
-                </div>
-            </div>
-
-           
-					@include('orda.components.slider-gid',$gid)
-
-          
-
-            <div class="calendar__all">
-                <a href="{{route('gids')}}" class="calendar__all--linck">Смотреть все</a>
-            </div>
-
-        </div>
+           @include('orda.components.slider-gid',$gid)
+     </div>
     </div>
+@endif
 
 
     <div class="section__page__map">
         <div class="container">
             <div class="section__title--block">
                 <div class="section__title">
-                    Как добраться
+					@lang('front_main.search_map')
+
                 </div>
             </div>
         </div>

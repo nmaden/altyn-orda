@@ -107,7 +107,8 @@ class="form-control"/>
 <!--время посещения--->
 <div> 
 <label for="title"><b>Время посещения</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->props_3) ? $model->props_3 : ''}}' name='props_3' placeholder="Время посещения(текст)" class="form-control"/>
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->time) ? $model->time : ''}}' 
+name='time' placeholder="Время посещения(текст)" class="form-control"/>
 </div>
 
 

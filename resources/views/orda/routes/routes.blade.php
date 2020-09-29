@@ -135,24 +135,14 @@
     </div>
 
 
+<!---------------------гиды и туроператоры------------------------->
+@if(isset($gid))
     <div class="section__gid">
         <div class="container">
-
-            <div class="section__title--block">
-                <div class="section__title">
-                    Гиды и туроператоры
-                </div>
-            </div>
-			
-			@include('orda.components.slider-gid',$gid)
-
-
-            <div class="calendar__all">
-                <a href="{{route('gids')}}" class="calendar__all--linck">Смотреть все</a>
-            </div>
-
-        </div>
+           @include('orda.components.slider-gid',$gid)
+     </div>
     </div>
+@endif
 
 
     <script>

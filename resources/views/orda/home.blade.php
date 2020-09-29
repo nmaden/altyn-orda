@@ -58,6 +58,7 @@
 
 	
 
+	<!----------------календарь мероприятий-------------------------->
 
 	@if(isset($home->sights))
       <div id="inter__map" class="section__map--home">
@@ -83,27 +84,13 @@
 		
         
     </div>
+	<!----------------гиды и тупоператоры-------------------------->
 @if(isset($gid))
-
     <div class="section__gid">
         <div class="container">
-
-            <div class="section__title--block">
-                <div class="section__title">
-                   @lang('front_main.title.gid')
-
-                </div>
-            </div>
-			@include('orda.components.slider-gid',$gid)
-           <div class="calendar__all">
-                <a href="{{route('gids')}}" class="calendar__all--linck">
-				@lang('front_main.button_view')
-                </a>
-            </div>
-
-        </div>
+           @include('orda.components.slider-gid',$gid)
+     </div>
     </div>
-	
 @endif
 
 

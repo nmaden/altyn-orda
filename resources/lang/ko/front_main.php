@@ -12,31 +12,24 @@ return [
 	'oplata_2'=>'/ 일',
 	'oplata_1'=>'/ 시간',
     'avtor'=>'Muratovic 의 JSC NCSSTE Zhaksylyk Sabitov 부회장,재료 박사 학위 준비에 감사드립니다',
+        'search_map'=>"얻는 방법",
 
 	 'bread'=>[
     'home'=>'메인',
    ],
 	'figures' => [
         'title' => '역사적인 숫자',
-        'clear' => 'Reset',
-        'search_by_name' => 'Search by name',
-        'coutry' => ' Country and city',
-        'degree' => 'Program degree',
-        'discplines' => 'Disciplines',
-        'cost' => 'Cost',
-        'duration' => 'Duration',
-        'additional' => 'Additional',
-        'is_campus' => 'campus availability',
-        'is_med_insurance' => 'Medical insurance',
-        'is_library' => 'Library',
-        'is_inter_programm' => 'International programs',
-        'is_career' => 'Employment center',
-        'is_clubs' => 'Student clubs',
-        'submit' => 'Apply',
-        'years' => 'Year',
-        'cost_year' => 'Year',
-        'year' => "Year",
-        'more' => 'More'
+        
       ],
-	
+	 'sights' => [
+        'title' => '관광 명소',
+        ],
+	'calendar' => [
+        'date' => '기초 날짜',
+		'time'=>  '방문 시간',
+         'price'=>'비용'
+        ],	
+		
+		
+		
 ];

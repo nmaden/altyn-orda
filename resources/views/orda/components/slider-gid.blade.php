@@ -1,4 +1,13 @@
-          <div class="gid__slider">
+          <div class="section__title--block">
+                <div class="section__title">
+                   @lang('front_main.title.gid')
+
+                </div>
+            </div>
+			
+		  
+		  
+		  <div class="gid__slider">
                 <div class="row swiper-wrapper">
               @foreach($gid as $item)
                     <div class="col-lg-4 swiper-slide">
@@ -41,10 +50,12 @@
 				@if($item->currency)
 					{{$item->currency}}
 				@else
-					тг		 
+					тнг		 
 				@endif
+				
 			@include('orda.components.sposob-oplaty',$item)
              @endif
+			 
 									
                                 </div>
                             </div>
@@ -84,3 +95,9 @@
 
                 </div>
             </div>
+			   <div class="calendar__all">
+                <a href="{{route('gids')}}" class="calendar__all--linck">
+				@lang('front_main.button_view')
+                </a>
+            </div>
+

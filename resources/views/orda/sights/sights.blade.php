@@ -5,10 +5,14 @@
             <div class="bread-line">
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
-                        <a href="/">Главная</a>
+                        <a href="/">						
+						@lang('front_main.bread.home')
+                        </a>
                     </li>
                     <li>
-                        <span>Достопримечательности</span>
+                        <span>
+						@lang('front_main.sights.title')
+                      </span>
                     </li>
                 </ul>
             </div>
@@ -16,7 +20,8 @@
 
             <div class="section__title--block">
                 <h1 class="section__title">
-                    Достопримечательности
+					@lang('front_main.sights.title')
+
                 </h1>
             </div>
 
@@ -91,24 +96,12 @@
         </div>
     </div>
 
-
+<!---------------------гиды и туроператоры------------------------->
+@if(isset($gid))
     <div class="section__gid">
         <div class="container">
-
-            <div class="section__title--block">
-                <div class="section__title">
-                    Гиды и туроператоры
-                </div>
-            </div>
-
-			@include('orda.components.slider-gid',$gid)
-
-
-
-            <div class="calendar__all">
-                <a href="{{route('gids')}}" class="calendar__all--linck">Смотреть все</a>
-            </div>
-
-        </div>
+           @include('orda.components.slider-gid',$gid)
+     </div>
     </div>
+@endif
 

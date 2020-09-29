@@ -12,30 +12,23 @@ return [
 	'oplata_2'=>'/ күні',
 	'oplata_1'=>'/ сағат',
      'avtor'=>'Материалды дайындағаны үшін PhD докторы, "ҰМҒТСО" АҚ вице-президенті Сабитов Жақсылық Мұратұлы алғысымызды білдіреміз',
+        'search_map'=>'Қалай жетуге болады',
+
+   
    'bread'=>[
     'home'=>'Басты'
    ],
 'figures' => [
         'title' => 'Тарихи тұлғалар',
-        'clear' => 'Reset',
-        'search_by_name' => 'Search by name',
-        'coutry' => ' Country and city',
-        'degree' => 'Program degree',
-        'discplines' => 'Disciplines',
-        'cost' => 'Cost',
-        'duration' => 'Duration',
-        'additional' => 'Additional',
-        'is_campus' => 'campus availability',
-        'is_med_insurance' => 'Medical insurance',
-        'is_library' => 'Library',
-        'is_inter_programm' => 'International programs',
-        'is_career' => 'Employment center',
-        'is_clubs' => 'Student clubs',
-        'submit' => 'Apply',
-        'years' => 'Year',
-        'cost_year' => 'Year',
-        'year' => "Year",
-        'more' => 'More'
+        
       ],
+'sights' => [
+        'title' => 'Көрнекті орындар',
+        ],
+'calendar' => [
+        'date' => 'Құрылған күні',
+		'time'=>  'Уақыт бару',
+         'price'=>'бағасы'
+        ],
 	
 ];

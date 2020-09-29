@@ -61,6 +61,7 @@
 
 	
 
+	<!----------------календарь мероприятий-------------------------->
 
 	<?php if(isset($home->sights)): ?>
       <div id="inter__map" class="section__map--home">
@@ -86,27 +87,13 @@
 		
         
     </div>
+	<!----------------гиды и тупоператоры-------------------------->
 <?php if(isset($gid)): ?>
-
     <div class="section__gid">
         <div class="container">
-
-            <div class="section__title--block">
-                <div class="section__title">
-                   <?php echo app('translator')->get('front_main.title.gid'); ?>
-
-                </div>
-            </div>
-			<?php echo $__env->make('orda.components.slider-gid',$gid, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-           <div class="calendar__all">
-                <a href="<?php echo e(route('gids')); ?>" class="calendar__all--linck">
-				<?php echo app('translator')->get('front_main.button_view'); ?>
-                </a>
-            </div>
-
-        </div>
+           <?php echo $__env->make('orda.components.slider-gid',$gid, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+     </div>
     </div>
-	
 <?php endif; ?>
 
 

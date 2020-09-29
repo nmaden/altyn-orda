@@ -1,4 +1,13 @@
-          <div class="gid__slider">
+          <div class="section__title--block">
+                <div class="section__title">
+                   <?php echo app('translator')->get('front_main.title.gid'); ?>
+
+                </div>
+            </div>
+			
+		  
+		  
+		  <div class="gid__slider">
                 <div class="row swiper-wrapper">
               <?php $__currentLoopData = $gid; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-lg-4 swiper-slide">
@@ -45,10 +54,12 @@
 					<?php echo e($item->currency); ?>
 
 				<?php else: ?>
-					тг		 
+					тнг		 
 				<?php endif; ?>
+				
 			<?php echo $__env->make('orda.components.sposob-oplaty',$item, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
              <?php endif; ?>
+			 
 									
                                 </div>
                             </div>
@@ -90,4 +101,10 @@
 
                 </div>
             </div>
+			   <div class="calendar__all">
+                <a href="<?php echo e(route('gids')); ?>" class="calendar__all--linck">
+				<?php echo app('translator')->get('front_main.button_view'); ?>
+                </a>
+            </div>
+
 <?php /**PATH /home/vagrant/code/orda/resources/views/orda/components/slider-gid.blade.php ENDPATH**/ ?>
