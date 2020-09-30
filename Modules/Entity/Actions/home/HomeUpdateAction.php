@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
+use Route;
 class HomeUpdateAction {
     private $model = false;
     private $request = false;
@@ -17,9 +18,8 @@ class HomeUpdateAction {
 
     function run(){
         $this->saveMain();
-		if($this->request->sight_id){
 		$this->saveSights();
-	    }
+	    $this->saveCalendars();
 	
     }
 
@@ -47,28 +47,56 @@ class HomeUpdateAction {
         $this->model->fill($ar);
         $this->model->save();
     }
+	
+	
+	
+	private function saveCalendars(){
+	  if($this->request->lang != 'ru' && strpos(Route::currentRouteName(),'create')){return false;}
+	  if(empty($this->request->calendar_id)){
+		 if(isset($this->model->calendars[0])){
+
+		foreach ($this->model->calendars as $sight_id) {
+						$this->model->calendars()->detach($sight_id);
+		 }}return false;
+		}
+
+   $check= $this->model->checkUpdateBelongMany($this->request,'calendars','calendar_id');
+   if($check){
+	   foreach ($this->request->calendar_id as $sight_id) {
+		   $arr[]= $sight_id;
+        }
+		  $this->model->calendars()->sync($this->request->calendar_id);
+
+  }
+ }
+ 
+	
+	
  private function saveSights(){
 	 
-	   //$this->model->relSights()->delete();
-	   
-	   //$result = array_intersect($this->request->sight_id, $this->model->arsights); 
+	 if($this->request->lang != 'ru' && strpos(Route::currentRouteName(),'create')){return false;}
+	
+    if(empty($this->request->sight_id)){
+	   if(isset($this->model->sights[0])){
+		    foreach ($this->model->sights as $sight_id) {
+						$this->model->sights()->detach($sight_id);}
+	   }
+             return false;
+	}
 
-        if (is_array($this->request->sight_id) && count($this->request->sight_id)){
-			$this->model->sights()->detach();
-            foreach ($this->request->sight_id as $sight_id) {
-				
-				
-				$this->model->sights()->attach($sight_id);
-				
-				
-				}
-				
-        }else{
-			$this->model->sights()->detach();
-
-		}
+   $check= $this->model->checkUpdateBelongMany($this->request,'sights','sight_id');
+   if($check){
+	  
+    foreach ($this->request->sight_id as $sight_id) {
 		
-    }
+		     $this->model->sights()->detach($sight_id);
+		   $arr[]= $sight_id;
+
+	}
+		  $this->model->sights()->sync($this->request->sight_id);
+
+  }
+ }
  
 
   

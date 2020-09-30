@@ -27,6 +27,30 @@ value="{{ $k }}"
 @endforeach
 </select>
 </div> 
+
+
+@php
+//dd($model->getCalendarsAr());
+@endphp
+<br><br><br>
+<div>
+<label for="text"><b>Выбор мероприятий</b></label> 
+<select name="calendar_id[]" 
+ class="form-control select2"   
+ {{$page ? 'disabled': ''}}
+ multiple
+     >
+@foreach ($model->getCalendarsAr() as $k => $v)
+<option 
+value="{{ $k }}" 
+
+{{ is_array($model->arcalendars) && in_array($k, $model->arcalendars) ? 'selected' : '' }}
+>{{ $v }}</option>
+</option>
+@endforeach
+</select>
+</div> 
+
 @else
 	
 

@@ -35,12 +35,12 @@ class IndexController extends SiteController
     public function index(Request $request)
     {
 		
-		$home_all=Home::get();
-		
+		$home_all=Home::with(['sights','calendars'])->get();
 		$home = $home_all->shift();
-		
+
 		$city_f = $home->sights->where('coord', '!=', '');
-		
+
+
 		//dd($city_f);
 		$count = count($city_f);
 		 if($count <=0 ){

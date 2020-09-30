@@ -3,7 +3,7 @@ namespace Modules\Entity\Model\Home;
 
 use Modules\Entity\Model\LibCity\LibCity;
 use Modules\Entity\Model\Sights\Sights;
-
+use Modules\Entity\Model\Calendar\Calendar;
 
 //use Modules\Entity\Model\LibRequirement\LibRequirement;
 
@@ -14,7 +14,12 @@ trait Presenter {
 		return Sights::pluck('name', 'id')->toArray();
     }
 	
-	
+		function getCalendarsAr(){
+		return Calendar::pluck('name', 'id')->toArray();
+    }
+	function getArCalendarsAttribute(){
+	   return $this->calendars()->pluck('calendar_id')->toArray();
+     }
 	
 	function getArSightsAttribute(){
 	   return $this->sights()->pluck('sight_id')->toArray();
@@ -22,6 +27,7 @@ trait Presenter {
 	 function getArSlidersAttribute(){
 	   //return $this->relSliders()->pluck('sight_id')->toArray();
      }
+	 /*
 		function getArMapPoint(){
 			if(isset($this->sights[0]->coord)){
             $php_json = urlencode(json_encode($this->sights));
@@ -36,7 +42,9 @@ trait Presenter {
 
 		}
 		  }
+		  */
 
+/*
 	function getAddress2Attribute($v){
 	   
 	     $ar= explode(',',$this->coord);
@@ -46,6 +54,7 @@ trait Presenter {
 		}
 		 return $ar;
 		  }
+		  */
 	function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 

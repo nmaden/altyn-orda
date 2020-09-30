@@ -72,7 +72,7 @@ $ar=explode('_',$route);
 							
 							<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
                              <a href="{{ route('admin_home_update',5) }}"><span>
-							 Управление картой
+							 Фильты на главной
 							 
 							 </span></a>
 							 </li>

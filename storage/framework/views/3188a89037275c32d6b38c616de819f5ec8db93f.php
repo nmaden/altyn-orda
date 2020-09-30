@@ -1,9 +1,11 @@
-
+<?php
+//dd($home->calendars);
+?>
             <div class="calendar__slider">
 
                 <div class="swiper-wrapper">
-				<?php if(isset($calendar)): ?>
-                  <?php $__currentLoopData = $calendar; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+				<?php if(isset($home->calendars[0])): ?>
+                  <?php $__currentLoopData = $home->calendars; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="swiper-slide">
                         <div class="calendar__item">
                             <div class="calendar__item--cat">

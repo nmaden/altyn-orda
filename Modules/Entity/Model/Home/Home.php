@@ -18,17 +18,14 @@ class Home extends ModelParent {
         return $this->belongsToMany('Modules\Entity\Model\Sights\Sights','Modules\Entity\Model\Home\SightsLib','home_id','sight_id');
     }
 	
+	 function calendars(){
+        return $this->belongsToMany('Modules\Entity\Model\Calendar\Calendar','Modules\Entity\Model\Home\SightsLib','home_id','calendar_id');
+    }
+	
 	 function sliders(){
         return $this->hasMany('Modules\Entity\Model\Slider\Slider', 'page_id');
     }
 	
-	 function relInforms(){
-        return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
-    }
-	
-	function relApplication(){
-        return $this->hasOne('Modules\Entity\Model\Calendar\Application\Application', 'gallery_id','id');
-    }
 	
   function relTrans(){
         return $this->hasOne('Modules\Entity\Model\Home\TransHome', 'el_id');
@@ -42,12 +39,16 @@ class Home extends ModelParent {
 	  function getElIdAttribute(){
         return $this->id;
     }
-/*
- function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gallery\TransGallery', 'el_id');
-    }
-*/
-   
+
+
+   function checkUpdateBelongMany($request,$o,$name){
+   $model_sights= $this->{$o}->pluck('id')->toArray();
+   $request_sights= $request->{$name};
+   $request_diff= array_keys(array_diff($request_sights,$model_sights));
+   $model_diff=  array_keys(array_diff($model_sights,$request_sights));
+   if(isset($model_diff[0]) || isset($request_diff[0])){return true;}
+ }
+
 
   
     

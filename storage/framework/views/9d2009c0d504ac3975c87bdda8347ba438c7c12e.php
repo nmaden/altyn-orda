@@ -72,7 +72,7 @@ $ar=explode('_',$route);
 							
 							<li  style="border: <?php echo e(in_array('about',$ar) ? ' 1px solid #ccc' : ''); ?>">
                              <a href="<?php echo e(route('admin_home_update',5)); ?>"><span>
-							 Управление картой
+							 Фильты на главной
 							 
 							 </span></a>
 							 </li>

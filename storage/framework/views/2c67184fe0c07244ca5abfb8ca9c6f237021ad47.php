@@ -62,28 +62,24 @@
 
 	
 
-	<!----------------календарь мероприятий-------------------------->
+	<!----------------карта-------------------------->
 
 	<?php if(isset($home->sights)): ?>
       <div id="inter__map" class="section__map--home">
-  
-  </div>
-    <?php endif; ?>
-
     </div>
+    <?php endif; ?>
+   </div>
 
-    <div class="section__calendar">
-		
 
-	<div class="container">
-
-            <div class="section__title--block">
-                <div class="section__title">
-                    <?php echo app('translator')->get('front_main.title.Calendar_events'); ?>
-
-                </div>
-            </div>
-					<?php echo $__env->make('orda.components.calendar-slider',$gid, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+	<!----------------календарь мероприятий-------------------------->
+   <div class="section__calendar">
+	 <div class="container">
+       <div class="section__title--block">
+          <div class="section__title">
+             <?php echo app('translator')->get('front_main.title.Calendar_events'); ?>
+       </div>
+      </div>
+		<?php echo $__env->make('orda.components.calendar-slider',$gid, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
 		
         

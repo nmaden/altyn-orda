@@ -59,28 +59,24 @@
 
 	
 
-	<!----------------календарь мероприятий-------------------------->
+	<!----------------карта-------------------------->
 
 	@if(isset($home->sights))
       <div id="inter__map" class="section__map--home">
-  
-  </div>
-    @endif
-
     </div>
+    @endif
+   </div>
 
-    <div class="section__calendar">
-		
 
-	<div class="container">
-
-            <div class="section__title--block">
-                <div class="section__title">
-                    @lang('front_main.title.Calendar_events')
-
-                </div>
-            </div>
-					@include('orda.components.calendar-slider',$gid)
+	<!----------------календарь мероприятий-------------------------->
+   <div class="section__calendar">
+	 <div class="container">
+       <div class="section__title--block">
+          <div class="section__title">
+             @lang('front_main.title.Calendar_events')
+       </div>
+      </div>
+		@include('orda.components.calendar-slider',$gid)
         </div>
 		
         
