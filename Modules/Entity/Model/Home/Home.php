@@ -22,6 +22,10 @@ class Home extends ModelParent {
         return $this->belongsToMany('Modules\Entity\Model\Calendar\Calendar','Modules\Entity\Model\Home\SightsLib','home_id','calendar_id');
     }
 	
+	 function gids(){
+        return $this->belongsToMany('Modules\Entity\Model\Gid\Gid','Modules\Entity\Model\Home\SightsLib','home_id','gid_id');
+    }
+	
 	 function sliders(){
         return $this->hasMany('Modules\Entity\Model\Slider\Slider', 'page_id');
     }

@@ -19,12 +19,10 @@ use Modules\Entity\Model\Home\Home;
 class IndexController extends SiteController
 {
     
-    public function __construct(SlidersRepository $s_rep,GidsPepository $gids_rep, CalendarPepository $cld_rep) {
+    public function __construct(SlidersRepository $s_rep) {
 
       
 		$this->s_rep = $s_rep;
-		$this->gid_rep = $gids_rep;
-		$this->calenar_rep = $cld_rep; 
 		$this->template = 'orda'.'.index';
 				
 
@@ -35,39 +33,21 @@ class IndexController extends SiteController
     public function index(Request $request)
     {
 		
-		$home_all=Home::with(['sights','calendars'])->get();
+		$home_all=Home::with(['sights','calendars','gids'])->get();
 		$home = $home_all->shift();
-
-		$city_f = $home->sights->where('coord', '!=', '');
-
-
-		//dd($city_f);
-		$count = count($city_f);
+        $city_f = $home->sights->where('coord', '!=', '');
+        $count = count($city_f);
 		 if($count <=0 ){
 			   $php_json = 0;
 		   }else{
 			  $php_json = urlencode(json_encode($city_f));
 
 		   }
-		
-		
-		$calenderItems = $this->getCalendar();
-        $gid = $this->getTabs();
-		
-        $sliders = view('orda'.'.slider')->with('sliders',$home)->render();
-		
+		$sliders = view('orda'.'.slider')->with('sliders',$home)->render();
 		$this->vars['sliders'] = $sliders;
 		  
 		  
-		  
-		  
-		  //$nav = view('orda'.'.navigation')->with(['menu'=>$menu,'a'=>33])->render();
-		  //$this->vars['navigation'] = $nav;
-		  
 		$home_page = view('orda'.'.home')->with([
-		'calendar'=>$calenderItems,
-		
-		'gid'=>$gid,
 		'home'=>$home,
 		'home_all'=>$home_all,
 		'php_json'=>$php_json
@@ -142,23 +122,6 @@ class IndexController extends SiteController
   
     
   
-    public function getSliders() {
-    	$sliders = $this->s_rep->get();
-    	
-    	if($sliders->isEmpty()) {
-			return FALSE;
-		}
-		
-		$sliders->transform(function($item,$key) {
-			
-			$item->img = 'img'.'/'.$item->img;
-			return $item;
-			
-		});
-    	
-    	
-    	return $sliders;
-    }	
     
     
 }

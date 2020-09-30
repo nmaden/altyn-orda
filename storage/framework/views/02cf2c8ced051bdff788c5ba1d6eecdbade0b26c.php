@@ -6,10 +6,9 @@
             </div>
 			
 		  
-		  
 		  <div class="gid__slider">
                 <div class="row swiper-wrapper">
-              <?php $__currentLoopData = $gid; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php $__currentLoopData = $home->gids; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-lg-4 swiper-slide">
                         <div class="gid__item">
                             <div class="gid__item--top">

@@ -72,6 +72,8 @@
 
 
 	<!----------------календарь мероприятий-------------------------->
+	<?php if(!$home->calendars->isEmpty()): ?>
+
    <div class="section__calendar">
 	 <div class="container">
        <div class="section__title--block">
@@ -79,24 +81,20 @@
              <?php echo app('translator')->get('front_main.title.Calendar_events'); ?>
        </div>
       </div>
-		<?php echo $__env->make('orda.components.calendar-slider',$gid, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+		<?php echo $__env->make('orda.components.calendar-slider', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
 		
         
     </div>
+	<?php endif; ?>
 	<!----------------гиды и тупоператоры-------------------------->
-<?php if(isset($gid)): ?>
+<?php if(!$home->gids->isEmpty()): ?>
     <div class="section__gid">
         <div class="container">
-           <?php echo $__env->make('orda.components.slider-gid',$gid, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+           <?php echo $__env->make('orda.components.slider-gid', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
      </div>
     </div>
 <?php endif; ?>
-
-
-  
-    
-
 <script>var json = "<?php echo e($php_json); ?>";</script>
 
 <?php /**PATH /home/vagrant/code/orda/resources/views/orda/home.blade.php ENDPATH**/ ?>

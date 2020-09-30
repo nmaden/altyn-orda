@@ -6,10 +6,9 @@
             </div>
 			
 		  
-		  
 		  <div class="gid__slider">
                 <div class="row swiper-wrapper">
-              @foreach($gid as $item)
+              @foreach($home->gids as $item)
                     <div class="col-lg-4 swiper-slide">
                         <div class="gid__item">
                             <div class="gid__item--top">

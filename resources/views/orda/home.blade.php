@@ -69,6 +69,8 @@
 
 
 	<!----------------календарь мероприятий-------------------------->
+	@if(!$home->calendars->isEmpty())
+
    <div class="section__calendar">
 	 <div class="container">
        <div class="section__title--block">
@@ -76,23 +78,19 @@
              @lang('front_main.title.Calendar_events')
        </div>
       </div>
-		@include('orda.components.calendar-slider',$gid)
+		@include('orda.components.calendar-slider')
         </div>
 		
         
     </div>
+	@endif
 	<!----------------гиды и тупоператоры-------------------------->
-@if(isset($gid))
+@if(!$home->gids->isEmpty())
     <div class="section__gid">
         <div class="container">
-           @include('orda.components.slider-gid',$gid)
+           @include('orda.components.slider-gid')
      </div>
     </div>
 @endif
-
-
-  
-    
-
 <script>var json = "{{$php_json}}";</script>
 

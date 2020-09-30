@@ -1,11 +1,13 @@
 @php
 //dd($home->calendars);
 @endphp
+
             <div class="calendar__slider">
 
                 <div class="swiper-wrapper">
 				@if(isset($home->calendars[0]))
                   @foreach($home->calendars as $item)
+			  
                     <div class="swiper-slide">
                         <div class="calendar__item">
                             <div class="calendar__item--cat">

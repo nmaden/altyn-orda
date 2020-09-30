@@ -50,6 +50,27 @@ value="{{ $k }}"
 @endforeach
 </select>
 </div> 
+<br><br><br>
+<div>
+@php
+
+@endphp
+<label for="text"><b>Выбор гидов</b></label> 
+<select name="gid_id[]" 
+ class="form-control select2"   
+ {{$page ? 'disabled': ''}}
+ multiple
+     >
+@foreach ($model->getGidsAr() as $k => $v)
+<option 
+value="{{ $k }}" 
+
+{{ is_array($model->argids) && in_array($k, $model->argids) ? 'selected' : '' }}
+>{{ $v }}</option>
+</option>
+@endforeach
+</select>
+</div> 
 
 @else
 	

@@ -20,7 +20,8 @@ class HomeUpdateAction {
         $this->saveMain();
 		$this->saveSights();
 	    $this->saveCalendars();
-	
+		$this->saveGids();
+
     }
 
     private function saveMain(){
@@ -47,6 +48,38 @@ class HomeUpdateAction {
         $this->model->fill($ar);
         $this->model->save();
     }
+	
+	
+	
+	
+	
+	private function saveGids(){
+	 if($this->request->lang != 'ru' && strpos(Route::currentRouteName(),'create')){return false;}
+	
+    if(empty($this->request->gid_id)){
+	   if(isset($this->model->gids[0])){
+		    foreach ($this->model->gids as $sight_id) {
+						$this->model->gids()->detach($sight_id);}
+	   }
+             return false;
+	}
+
+   $check= $this->model->checkUpdateBelongMany($this->request,'gids','gid_id');
+   if($check){
+	  	 
+
+    foreach ($this->request->gid_id as $sight_id) {
+		
+		     $this->model->gids()->detach($sight_id);
+		   
+
+	}
+		  $this->model->gids()->sync($this->request->gid_id);
+
+  }
+ }
+ 
+	
 	
 	
 	
