@@ -32,6 +32,11 @@ return [
 	'lib_language_show'=>'Просмотр',
 	'lib_language_create'=>'Создание',
 	
+	'lib_cat_update'=>'Обновление',
+	'lib_cat'=>'Категории',
+	'lib_cat_show'=>'Просмотр',
+	'lib_cat_create'=>'Создание',
+	
 	'lib_city_update'=>'Обновление',
 	'lib_city'=>'Города',
 	'lib_city_show'=>'Просмотр',

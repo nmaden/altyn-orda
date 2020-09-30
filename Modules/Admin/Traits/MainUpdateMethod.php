@@ -14,7 +14,6 @@ trait MainUpdateMethod  {
             \App::setLocale('ru');
           }
 
- 
 	
         $title = trans($this->title_path.'_update');
 		//echo trans($this->title_path.'');exit(); 

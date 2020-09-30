@@ -92,12 +92,7 @@ $ar=explode('_',$route);
 
 	   
 	   
-	    <li  style="background: {{in_array('menu',$ar) ? '#ccc' : '' }}">
-	   <a href="{{ route('admin_menu') }}">
-	   <i class="icon-city"></i>
-	   <span>Меню
-	   </span></a>
-	   </li>
+	   
 <!--------------
 	    <li  style="background: {{in_array('social',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_social') }}">

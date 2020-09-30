@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
 	 	public function getmenu($menu){
     
         // Route::getRoutes()
+		
 			$mBuilder = Menu::make('menu', function($m) use ($menu) {
 			
 			foreach($menu as $item) {
@@ -88,10 +89,14 @@ class AppServiceProvider extends ServiceProvider
       }
 
 
-     $nav= Menus::get('*');
+      $nav= Menus::get('*');
        $menu= $this->getmenu($nav);
         $this->menus = $menu;
+		
         View::composer('orda.*', function ($view) {
+			
+			
+			
          $view->with('menu',$this->menus);
         });
 		/*

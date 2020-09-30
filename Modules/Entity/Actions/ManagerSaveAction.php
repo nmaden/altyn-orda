@@ -48,11 +48,7 @@ class ManagerSaveAction {
 
         $this->model->relUnivers()->delete();
 
-        if (is_array($this->request->univer_id) && count($this->request->univer_id)){
-            foreach ($this->request->univer_id as $univer_id) {
-                $this->model->relUnivers()->create(['univer_id' => $univer_id]);
-            }
-        }
+        
     }
 
 }

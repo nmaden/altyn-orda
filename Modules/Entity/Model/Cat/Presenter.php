@@ -17,6 +17,7 @@ trait Presenter {
     }
 
     function getNameAttribute($v){
+		
         return $this->getTransField('name', $v);
     }
 
