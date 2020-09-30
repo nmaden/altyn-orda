@@ -91,6 +91,9 @@
 <?php if(!$home->gids->isEmpty()): ?>
     <div class="section__gid">
         <div class="container">
+		   <?php
+		   $gid = $home->gids;
+		   ?>
            <?php echo $__env->make('orda.components.slider-gid', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
      </div>
     </div>

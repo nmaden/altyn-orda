@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466
+class ComposerStaticInitb8e71914a497ed7ed9dbdfb16b5dd489
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -2998,15 +2998,12 @@ class ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466
         'Modules\\Admin\\Http\\Controllers\\Edit\\Drobsone2Controller' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Edit/Drobsone2Controller.php',
         'Modules\\Admin\\Http\\Controllers\\Gid\\GidController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Gid/GidController.php',
         'Modules\\Admin\\Http\\Controllers\\Home\\HomeController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Home/HomeController.php',
+        'Modules\\Admin\\Http\\Controllers\\Lib\\CategoryController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/CategoryController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\CityController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/CityController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\ContinentController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/ContinentController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\CountryController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/CountryController.php',
-        'Modules\\Admin\\Http\\Controllers\\Lib\\DegreeController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/DegreeController.php',
-        'Modules\\Admin\\Http\\Controllers\\Lib\\DisciplineController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/DisciplineController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\LangStudyController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/LangStudyController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\LanguageController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Language/LanguageController.php',
-        'Modules\\Admin\\Http\\Controllers\\Lib\\RequirementController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/RequirementController.php',
-        'Modules\\Admin\\Http\\Controllers\\Lib\\UniverCatController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/UniverCatController.php',
         'Modules\\Admin\\Http\\Controllers\\Menu\\MenuController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/menu/MenuController.php',
         'Modules\\Admin\\Http\\Controllers\\Routes\\RoutesController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/routes/RoutesController.php',
         'Modules\\Admin\\Http\\Controllers\\Sights\\SightsController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/sights/SightsController.php',
@@ -3075,10 +3072,14 @@ class ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466
         'Modules\\Entity\\Model\\Calendar\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Filter.php',
         'Modules\\Entity\\Model\\Calendar\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Presenter.php',
         'Modules\\Entity\\Model\\Calendar\\TransCalendar' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/TransCalendar.php',
+        'Modules\\Entity\\Model\\Cat\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Cat/Filter.php',
+        'Modules\\Entity\\Model\\Cat\\LibCat' => __DIR__ . '/../..' . '/Modules/Entity/Model/Cat/LibCat.php',
+        'Modules\\Entity\\Model\\Cat\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Cat/Presenter.php',
         'Modules\\Entity\\Model\\Categories\\Categories' => __DIR__ . '/../..' . '/Modules/Entity/Model/Categories/Categories.php',
         'Modules\\Entity\\Model\\Coords\\Coords' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/Coords.php',
         'Modules\\Entity\\Model\\Coords\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/Filter.php',
         'Modules\\Entity\\Model\\Coords\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/Presenter.php',
+        'Modules\\Entity\\Model\\Coords\\TransCoords' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/TransCoords.php',
         'Modules\\Entity\\Model\\Figure\\Figure' => __DIR__ . '/../..' . '/Modules/Entity/Model/Figure/Figure.php',
         'Modules\\Entity\\Model\\Figure\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Figure/Filter.php',
         'Modules\\Entity\\Model\\Figure\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Figure/Presenter.php',
@@ -3148,8 +3149,7 @@ class ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466
         'Modules\\Entity\\Model\\Slider\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Slider/Filter.php',
         'Modules\\Entity\\Model\\Slider\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Slider/Presenter.php',
         'Modules\\Entity\\Model\\Slider\\Slider' => __DIR__ . '/../..' . '/Modules/Entity/Model/Slider/Slider.php',
-        'Modules\\Entity\\Model\\Slider\\TransCoords' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/TransCoords.php',
-        'Modules\\Entity\\Model\\Slider\\TransSlider' => __DIR__ . '/../..' . '/Modules/Entity/Model/Slider/TransSlider.php',
+        'Modules\\Entity\\Model\\Slider\\TransSlider' => __DIR__ . '/../..' . '/Modules/Entity/Model/Coords/TransSlider.php',
         'Modules\\Entity\\Model\\Social\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Social/Filter.php',
         'Modules\\Entity\\Model\\Social\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Social/Presenter.php',
         'Modules\\Entity\\Model\\Social\\Social' => __DIR__ . '/../..' . '/Modules/Entity/Model/Social/Social.php',
@@ -5457,10 +5457,10 @@ class ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5ab27db9c56ad7c70e319374bc5a1466::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitb8e71914a497ed7ed9dbdfb16b5dd489::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitb8e71914a497ed7ed9dbdfb16b5dd489::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitb8e71914a497ed7ed9dbdfb16b5dd489::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitb8e71914a497ed7ed9dbdfb16b5dd489::$classMap;
 
         }, null, ClassLoader::class);
     }
