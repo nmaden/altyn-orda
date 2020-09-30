@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Modules\Entity\Model\LibCountry\LibCountry;
 use Lang;
+use Modules\Entity\Model\Cat\LibCat;
+
+
 class CalendarsController extends SiteController
 {
 
@@ -49,10 +52,10 @@ class CalendarsController extends SiteController
 		$gids = $this->getTabs();
 		
 		
-		$cities = LibCity::query()->get();
+		$cities = LibCity::orderBy('name', 'asc')->get();
 
 
-		$categories = DB::table('categories')->get();
+		$categories = LibCat::orderBy('name', 'asc')->get();
 
 		$search_cities = [];
 		$search_dates = [];

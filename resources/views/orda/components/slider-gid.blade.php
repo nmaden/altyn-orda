@@ -8,7 +8,7 @@
 		  
 		  <div class="gid__slider">
                 <div class="row swiper-wrapper">
-              @foreach($home->gids as $item)
+              @foreach($gid as $item)
                     <div class="col-lg-4 swiper-slide">
                         <div class="gid__item">
                             <div class="gid__item--top">

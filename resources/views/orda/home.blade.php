@@ -88,6 +88,9 @@
 @if(!$home->gids->isEmpty())
     <div class="section__gid">
         <div class="container">
+		   @php
+		   $gid = $home->gids;
+		   @endphp
            @include('orda.components.slider-gid')
      </div>
     </div>
