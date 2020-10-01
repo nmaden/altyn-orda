@@ -35,14 +35,14 @@ class GidsController extends SiteController
 		
 		
 		
-        $sliderItems = $this->getSliders();
+        //$sliderItems = $this->getSliders();
 		
         $gid = Gid::filter($request)->with(['langGid','sights'])->latest()->paginate(9);
 
        
         $cities = LibCity::query()->get();
         $languages = Language::query()->get();
-		$categories = DB::table('gid_speacialisations')->get();
+		$categories = DB::table('lib_gid_speacialisations')->get();
         
         
 		        		

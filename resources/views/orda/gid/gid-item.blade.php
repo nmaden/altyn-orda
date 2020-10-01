@@ -130,25 +130,17 @@
 								
                                 </div>
                             </div>
-
-                            <div class="gid__about-price--block">
-                                <div class="gid__aboutprice--title">
-                                    @lang('front_main.price')
-:
-                                </div>
-                                <div class="gid__aboutprice--desc">
-                                     
 						@if(isset($item->price))
-						
-						{{$item->price}}
-						тг 
-					@include('orda.components.sposob-oplaty
-					',$item)
-
-					     @endif 
-                                </div>
-                            </div>
-
+                         <div class="gid__about-price--block">
+                            <div class="gid__aboutprice--title">
+                                @lang('front_main.price'):
+                             </div>
+                          <div class="gid__aboutprice--desc">
+                            {{$item->price}} тг 
+					       @include('orda.components.sposob-oplaty',$item)
+                          </div>
+                         </div>
+                        @endif 
                             
                         </div>
 

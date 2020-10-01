@@ -1,11 +1,11 @@
 <?php
-namespace Modules\Entity\Model\Cat;
+namespace Modules\Entity\Model\Speac;
 
 use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
-class LibCat extends ModelParent {
-    protected $table = 'lib_categories';
+class LibSpeac extends ModelParent {
+    protected $table = 'categories';
     protected $fillable = [ 'name', 'edited_user_id'];
     protected $filter_class = Filter::class; 
     use Presenter, CheckTrans;

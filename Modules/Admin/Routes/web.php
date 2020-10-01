@@ -378,6 +378,38 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	  
 	  
 	  
+Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
+
+	Route::group(['prefix' => 'speac'], function () {
+            Route::get('/', 'SpeacController@index')
+                //->middleware('can:list,Modules\Entity\Model\LibCity\LibCity')
+                ->name('admin_lib_speac');
+
+            Route::get('create', 'SpeacController@create')
+                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->name('admin_lib_speac_create');
+
+            Route::post('create', 'SpeacController@saveCreate')
+                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->name('admin_lib_speac_create_save');
+
+            Route::get('update/{speac}', 'SpeacController@update')
+                //->middleware('can:update,city')
+                ->name('admin_lib_speac_update');
+
+            Route::post('update/{speac}', 'SpeacController@saveUpdate')
+                //->middleware('can:update,city')
+                ->name('admin_lib_speac_update_save');
+
+            Route::get('delete/{speac}', 'SpeacController@delete')
+                //->middleware('can:delete,city')
+                ->name('admin_lib_speac_delete');
+
+            Route::get('view/{speac}', 'SpeacController@show')
+                //->middleware('can:view,city')
+                ->name('admin_lib_speac_show');
+        });
+      });
 	  
 	  
 	  
