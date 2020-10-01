@@ -25,7 +25,9 @@ return [
 'routes'=>[
      'title'=>'노선',
 	  'exhibition'=>'전시회',
-	 'price'=>'경로 비용',
+	 'price'=>'에서 경로 비용:',
+	 'price1'=>'그룹',
+	 'price2'=>'개별적으로',
 	 'path'=>'길을 히트'
    ],
 	 'bread'=>[

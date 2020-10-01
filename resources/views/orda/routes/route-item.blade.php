@@ -123,7 +123,11 @@
 
 <br>
                 <div class="route__page--price">
-                    @lang('front_main.routes.price'): <strong>				
+                    @lang('front_main.routes.price') <strong>
+					@if($item->group)
+					{{$item->group}}
+					@endif
+							
 					@if(isset($item->price))
 					{{$item->price}} тнг.
                     @endif

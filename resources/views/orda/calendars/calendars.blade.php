@@ -143,16 +143,16 @@
                                 </div>
                                 <div class="calendar__item--info">
                                     <div class="calendar__item--date">
-									@if(isset($item->text))
+									@if(isset($item->date))
 									  {{$item->date}}
                                         
 									@endif
                                     </div>
-									@if(isset($item->headers_title))
+									@if(isset($item->name))
                                     <div class="calendar__item--title">
                                         <a href="{{route('calendars-item',$item)}}">
 									
-						{!! mb_substr($item->headers_title,0,65) !!}
+						{!! mb_substr($item->name,0,65) !!}
 										
                                         </a>
                                     </div>

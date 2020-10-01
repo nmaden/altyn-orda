@@ -131,7 +131,7 @@
 								@if(isset($item->price))
                                         <div class="sights__list--item">
                                             <div class="sights__list--price">
-                                                Стоимость маршрута: {{$item->price}} тнг. 
+                                               @lang('front_main.routes.price'): {{$item->price}} тнг. 
                                             </div>
                                         </div>
                                  @endif

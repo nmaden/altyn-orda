@@ -25,7 +25,9 @@ return [
 'routes'=>[
      'title'=>'Itinéraires',
 	  'exhibition'=>'Exposition',
-	 'price'=>"Coût de l'itinéraire",
+	 'price'=>"Coût de l'itinéraire à partir de:",
+	 'price1'=>'groupe',
+	 'price2'=>"individuellement",
 	 'path'=>'Prendre la route'
    ],
 	 'bread'=>[

@@ -25,7 +25,9 @@ return [
 'routes'=>[
      'title'=>'Routen',
 	  'exhibition'=>'Die Ausstellung',
-	 'price'=>'Kosten der Route',
+	 'price'=>'Die Kosten der Route von:',
+	 'price1'=>'die Gruppe',
+	 'price2'=>'als Einzelperson',
 	 'path'=>'Auf die Reise gehen'
    ],
 	 'bread'=>[

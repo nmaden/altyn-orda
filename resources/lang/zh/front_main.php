@@ -25,7 +25,9 @@ return [
 'routes'=>[
      'title'=>'路线',
 	  'exhibition'=>'展览',
-	 'price'=>'路线的成本',
+	 'price'=>'从路线的成本:',
+	 'price1'=>'组',
+	 'price2'=>'单独',
 	 'path'=>'上路吧'
    ],
 	 'bread'=>[
