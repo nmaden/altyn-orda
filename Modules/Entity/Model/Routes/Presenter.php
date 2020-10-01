@@ -53,19 +53,28 @@ function getCityAr(){
 	function getGroupAttribute($v){
 		if(@unserialize($this->groups)){
 			$arr = unserialize($this->groups);
+			$flag = false;
 			foreach($arr as $k=>$item){
 				if($item == 1 && $this->price){
-				$arr[$k] = 	Lang::get('front_main.routes.price'.$item).' '.$this->price.' тнг ';
+				$flag = true;
+				$arr2[$k] = 	Lang::get('front_main.routes.price'.$item).' '.$this->price.' тнг ';
 				}
 				if($item == 2 && $this->personally_price){
-					$arr[$k] = 	Lang::get('front_main.routes.price'.$item).' '.$this->personally_price.' тнг ';;
+					$flag = true;
+                 
+					$arr2[$k] = 	Lang::get('front_main.routes.price'.$item).' '.$this->personally_price.' тнг ';;
 
 				}
 
             }
-		   
-			$str = implode(',', $arr); 
+		   if($flag){
+			  
+			$str = implode(',', $arr2); 
 			return $str;
+		   }else{
+			   return false;
+
+		   }
 		}else{
 			return false;
 		}
