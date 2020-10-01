@@ -133,13 +133,13 @@
 
                             <div class="gid__about-price--block">
                                 <div class="gid__aboutprice--title">
-                                    @lang('front_main.sights.price')
+                                    @lang('front_main.price')
 :
                                 </div>
                                 <div class="gid__aboutprice--desc">
                                      
 						@if(isset($item->price))
-						от 
+						
 						{{$item->price}}
 						тг 
 					@include('orda.components.sposob-oplaty

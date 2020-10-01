@@ -127,6 +127,24 @@ name='currency' placeholder="тг" class="form-control"></input>
    </span>
 @endif
 </div>
+
+
+<br><br>
+<div>  
+<label for="title"><b>Стоимость</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+@if(old('phone'))
+	value="{{old('price')}}" 
+@else
+	value="{{isset($model->price) ? $model->price : ''}}" 
+@endif
+name='price' placeholder="Цифра" class="form-control"></input>
+@if ($errors->has('opyt'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
+   </span>
+@endif
+</div>
 <br><br>
 <div>  
 <label for="title"><b>Телефон</b></label> 
@@ -142,7 +160,6 @@ name='phone' placeholder="Телефон(текст)" class="form-control"></inp
      <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
    </span>
 @endif
-
 </div>
 
 <br><br>
