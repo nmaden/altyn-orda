@@ -128,9 +128,7 @@
 					{{$item->group}}
 					@endif
 							
-					@if(isset($item->price))
-					{{$item->price}} тнг.
-                    @endif
+					
 </strong>
                 </div>
             </div>

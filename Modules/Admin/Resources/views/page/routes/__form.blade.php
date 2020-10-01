@@ -115,13 +115,45 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 
 <br><br>
 
-
+<div style='border:1px solid #ccc;padding:5px;'>
 <div> 
-<label for="title"><b>Стоимость</b></label> 
+<label for="title"><b>Стоимость группа</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->price) ? $model->price : ''}}' name='price' placeholder="цифра" class="form-control"/>
 </div>
 
+<br><br>
+<div> 
+<label for="title"><b>Стоимость индивидуально</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->personally_price) ? 
+$model->personally_price : ''}}' name='personally_price' placeholder="цифра" class="form-control"/>
+</div>
 
+<br><br>
+
+<div style='margin:0px 0px;'>
+<label for="text"><b>Группа, индивидуально </b></label> 
+<select name="groups[]" 
+class="form-control select2"   
+ {{$page ? 'disabled': ''}}
+ multiple
+>
+<option 
+value="1" 
+{{ is_array($model->group_unserialize) && in_array(1,$model->group_unserialize) ? 'selected' : '' }}
+>
+группа
+</option>
+
+<option 
+value="2" 
+{{ is_array($model->group_unserialize)  && in_array(2,$model->group_unserialize) ? 'selected' : '' }}
+>
+индивидуально
+</option>
+           
+</select>
+</div> 
+</div>
 <br><br>
 
 <div style='padding:10px 5px;'> 
@@ -198,31 +230,6 @@ name='coord[]' placeholder="координаты" class="form-control"/>
         </select>
 		</div>
 
-<br><br>
-
-<div style='margin:0px 5px;'>
-<label for="text"><b>Группа, индивидуально </b></label> 
-<select name="groups[]" 
-class="form-control select2"   
- {{$page ? 'disabled': ''}}
- multiple
->
-<option 
-value="1" 
-{{ is_array($model->group_unserialize) && in_array(1,$model->group_unserialize) ? 'selected' : '' }}
->
-группа
-</option>
-
-<option 
-value="2" 
-{{ is_array($model->group_unserialize)  && in_array(2,$model->group_unserialize) ? 'selected' : '' }}
->
-индивидуально
-</option>
-           
-</select>
-</div> 
 
 
 <script>

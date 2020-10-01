@@ -54,7 +54,14 @@ function getCityAr(){
 		if(@unserialize($this->groups)){
 			$arr = unserialize($this->groups);
 			foreach($arr as $k=>$item){
-				$arr[$k] = 	Lang::get('front_main.routes.price'.$item);
+				if($item == 1 && $this->price){
+				$arr[$k] = 	Lang::get('front_main.routes.price'.$item).' '.$this->price.' тнг ';
+				}
+				if($item == 2 && $this->personally_price){
+					$arr[$k] = 	Lang::get('front_main.routes.price'.$item).' '.$this->personally_price.' тнг ';;
+
+				}
+
             }
 		   
 			$str = implode(',', $arr); 
