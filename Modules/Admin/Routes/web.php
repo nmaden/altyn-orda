@@ -132,6 +132,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
                ->name('admin_routes_update');
 			   
 			   Route::post('update/{routes}', 'RoutesController@saveUpdate')
+			   ->middleware('can:update,routes')
                ->name('admin_routes_update_save');
 			   
 			   Route::get('delete/{routes}', 'RoutesController@delete')

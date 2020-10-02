@@ -39,9 +39,16 @@ class ContentPolicy {
     }
 
     public function update($user, $item){
+		if($item->title == 'routes'){
+			 if($item->user_id !=$user->id)
+			return false;
+
+		     }
+	  if($item->title != 'routes'){
+
         if (!$this->mainCheck($user))
             return false;
-
+      }
         return true;
     }
 

@@ -124,6 +124,7 @@ $ar=explode('_',$route);
 	   <span>Меню
 	   </span></a>
 	   </li>
+	   
 	   <?php endif; ?>
 	   
 	                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\About\About::class)): ?>

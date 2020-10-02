@@ -43,6 +43,8 @@ class AuthServiceProvider extends ServiceProvider
 		Figure::class => ContentPolicy::class,
 		Social::class => ContentPolicy::class,
 		Menu::class => ContentPolicy::class,
+		Routes::class => ContentPolicy::class,
+
 		
 		LibCity::class => MainPolicy::class,
 		LibLanguage::class => MainPolicy::class,
