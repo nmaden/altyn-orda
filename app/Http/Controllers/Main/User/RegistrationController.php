@@ -18,7 +18,6 @@ class RegistrationController extends Controller {
     function index (Request $request){
 		
 		
-		
         $ar = array();
         $ar['title'] = trans('front_main.title.registration');
         $theme = Session::get('mobilSwitch');
@@ -35,7 +34,7 @@ class RegistrationController extends Controller {
         try {
             $action->run();
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->route('registration')->with('error', $e->getMessage());
         }
 		
 		

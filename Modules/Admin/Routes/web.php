@@ -18,26 +18,32 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
         Route::group(['prefix' => 'calendar'], function () {
 			
             Route::get('/', 'CalendarController@index')
+			 ->middleware('can:list,Modules\Entity\Model\Calendar\Calendar')
              ->name('admin_gallery');
 
 	       Route::get('create', 'CalendarController@create')
+		        ->middleware('can:create,Modules\Entity\Model\Calendar\Calendar')
                 ->name('admin_gallery_create');
 				
 			  Route::post('create', 'CalendarController@saveCreate')
-               ->name('admin_gallery_create_save');
+			  	->middleware('can:create,Modules\Entity\Model\Calendar\Calendar')
+              ->name('admin_gallery_create_save');
 			   
 			  Route::get('update/{calendar}', 'CalendarController@update')
-			   //->middleware('can:update,gallery')
+			   	->middleware('can:update,calendar')
                ->name('admin_gallery_update');
 			   
 			   Route::post('update/{calendar}', 'CalendarController@saveUpdate')
-               ->name('admin_gallery_update_save');
+			   	->middleware('can:update,calendar')
+                ->name('admin_gallery_update_save');
 			   
 			   Route::get('delete/{calendar}', 'CalendarController@delete')
-               ->name('admin_gallery_delete');
+			   	->middleware('can:delete,calendar')
+                ->name('admin_gallery_delete');
 			   
 			     Route::get('view/{calendar}', 'CalendarController@show')
-               ->name('admin_gallery_show');
+				  ->middleware('can:view,calendar')
+                  ->name('admin_gallery_show');
         });
 
   });
@@ -52,6 +58,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
              ->name('admin_gid');
 
 	       Route::get('create', 'GidController@create')
+		   		->middleware('can:create,Modules\Entity\Model\Gid\Gid')
+
                 ->name('admin_gid_create');
 				
 			  Route::post('create', 'GidController@saveCreate')
@@ -77,26 +85,32 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
       
 			
             Route::get('/', 'SightsController@index')
-             ->name('admin_sights');
+			 ->middleware('can:list,Modules\Entity\Model\Sights\Sights')
+            ->name('admin_sights');
 
 	       Route::get('create', 'SightsController@create')
+		   		->middleware('can:create,Modules\Entity\Model\Sights\Sights')
                 ->name('admin_sights_create');
 				
 			  Route::post('create', 'SightsController@saveCreate')
-               ->name('admin_sights_create_save');
+			  	->middleware('can:create,sights')
+                ->name('admin_sights_create_save');
 			   
 			  Route::get('update/{sights}', 'SightsController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_sights_update');
+			   	->middleware('can:update,sights')
+                ->name('admin_sights_update');
 			   
 			   Route::post('update/{sights}', 'SightsController@saveUpdate')
-               ->name('admin_sights_update_save');
+			   	 ->middleware('can:update,sights')
+                 ->name('admin_sights_update_save');
 			   
 			   Route::get('delete/{sights}', 'SightsController@delete')
-               ->name('admin_sights_delete');
+			   	->middleware('can:delete,sights')
+                ->name('admin_sights_delete');
 			   
 			     Route::get('view/{sights}', 'SightsController@show')
-               ->name('admin_sights_show');
+				  ->middleware('can:view,sights')
+                  ->name('admin_sights_show');
        
 	    });
 	  
@@ -114,10 +128,11 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
                ->name('admin_routes_create_save');
 			   
 			  Route::get('update/{routes}', 'RoutesController@update')
-			   //->middleware('can:update,gallery')
+			   ->middleware('can:update,routes')
                ->name('admin_routes_update');
 			   
 			   Route::post('update/{routes}', 'RoutesController@saveUpdate')
+			   ->middleware('can:update,routes')
                ->name('admin_routes_update_save');
 			   
 			   Route::get('delete/{routes}', 'RoutesController@delete')
@@ -132,23 +147,33 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 		
 		
 	    Route::group(['prefix' => 'home', 'namespace' => 'Home'], function () {
+			
           Route::get('/', 'HomeController@index')
-             ->name('admin_home');
+		  	->middleware('can:list,Modules\Entity\Model\Home\Home')
+            ->name('admin_home');
 
 	       Route::get('create', 'HomeController@create')
-                ->name('admin_home_create');
+		   		->middleware('can:create,Modules\Entity\Model\Home\Home')
+            ->name('admin_home_create');
 				
 			  Route::post('create', 'HomeController@saveCreate')
-               ->name('admin_home_create_save');
+			  	->middleware('can:create,Modules\Entity\Model\Home\Home')
+                ->name('admin_home_create_save');
 			   
 			  Route::get('update/{home}', 'HomeController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_home_update');
+			   	->middleware('can:update,home')
+              ->name('admin_home_update');
+			  
 			  Route::post('update/{home}', 'HomeController@saveUpdate')
+			     ->middleware('can:update,home')
                ->name('admin_home_update_save');
+			   
 			  Route::get('view/{home}', 'HomeController@show')
-               ->name('admin_home_show');
+			  	->middleware('can:view,home')
+              ->name('admin_home_show');
+			   
 			   Route::get('delete/{home}', 'HomeController@delete')
+			   	  ->middleware('can:delete,home')
                ->name('admin_home_delete');
 			   
 			    
@@ -158,104 +183,128 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 		
 	    Route::group(['prefix' => 'slider', 'namespace' => 'Slider'], function () {
           Route::get('/', 'SliderController@index')
-             ->name('admin_slider');
+		  	->middleware('can:list,Modules\Entity\Model\Slider\Slider')
+           ->name('admin_slider');
 
 	       Route::get('create', 'SliderController@create')
+		   		->middleware('can:create,Modules\Entity\Model\Slider\Slider')
                 ->name('admin_slider_create');
 				
 			  Route::post('create', 'SliderController@saveCreate')
-               ->name('admin_slider_create_save');
+			    ->middleware('can:create,Modules\Entity\Model\Slider\Slider')
+                ->name('admin_slider_create_save');
 			   
 			  Route::get('update/{slider}', 'SliderController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_slider_update');
+			   	->middleware('can:update,slider')
+                ->name('admin_slider_update');
 			   
 			   Route::post('update/{slider}', 'SliderController@saveUpdate')
-               ->name('admin_slider_update_save');
+			   	->middleware('can:update,slider')
+                ->name('admin_slider_update_save');
 			   
 			   Route::get('delete/{slider}', 'SliderController@delete')
-               ->name('admin_slider_delete');
+			   	->middleware('can:delete,slider')
+                ->name('admin_slider_delete');
 			   
 			     Route::get('view/{slider}', 'SliderController@show')
-               ->name('admin_slider_show');
+				 ->middleware('can:view,slider')
+                 ->name('admin_slider_show');
        
 	    });
 	  
 		
 	    Route::group(['prefix' => 'about', 'namespace' => 'About'], function () {
           Route::get('/', 'AboutController@index')
-             ->name('admin_about');
+		  	->middleware('can:list,Modules\Entity\Model\About\About')
+            ->name('admin_about');
 
 	       Route::get('create', 'AboutController@create')
+		   		->middleware('can:create,Modules\Entity\Model\About\About')
                 ->name('admin_about_create');
 				
 			  Route::post('create', 'AboutController@saveCreate')
-               ->name('admin_about_create_save');
+			  	->middleware('can:create,Modules\Entity\Model\About\About')
+                ->name('admin_about_create_save');
 			   
 			  Route::get('update/{about}', 'AboutController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_about_update');
+			  	->middleware('can:update,about')
+                ->name('admin_about_update');
 			   
 			   Route::post('update/{about}', 'AboutController@saveUpdate')
-               ->name('admin_about_update_save');
+			   	->middleware('can:update,about')
+                ->name('admin_about_update_save');
 			   
 			   Route::get('delete/{about}', 'AboutController@delete')
-               ->name('admin_about_delete');
+			     ->middleware('can:delete,about')
+                 ->name('admin_about_delete');
 			   
 			     Route::get('view/{about}', 'AboutController@show')
-               ->name('admin_about_show');
+				 ->middleware('can:view,about')
+                 ->name('admin_about_show');
 			   
 			   
 			   
 			   
 		Route::group(['prefix' => 'tabs', 'namespace' => 'Tabs'], function () {
           Route::get('/', 'TabsController@index')
-             ->name('admin_tabs');
+		  	->middleware('can:list,Modules\Entity\Model\Tabs\Tabs')
+            ->name('admin_tabs');
 
 	       Route::get('create', 'TabsController@create')
-                ->name('admin_tabs_create');
+		   	->middleware('can:create,Modules\Entity\Model\Tabs\Tabs')
+            ->name('admin_tabs_create');
 				
 			  Route::post('create', 'TabsController@saveCreate')
-               ->name('admin_tabs_create_save');
+			  	->middleware('can:create,Modules\Entity\Model\Tabs\Tabs')
+                ->name('admin_tabs_create_save');
 			   
 			  Route::get('update/{tabs}', 'TabsController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_tabs_update');
+			   	->middleware('can:update,tabs')
+                ->name('admin_tabs_update');
 			   
 			   Route::post('update/{tabs}', 'TabsController@saveUpdate')
-               ->name('admin_tabs_update_save');
+			   	->middleware('can:update,tabs')
+                ->name('admin_tabs_update_save');
 			   
 			   Route::get('delete/{tabs}', 'TabsController@delete')
-               ->name('admin_tabs_delete');
+			   	->middleware('can:delete,tabs')
+                ->name('admin_tabs_delete');
 			   
 			     Route::get('view/{tabs}', 'TabsController@show')
-               ->name('admin_tabs_show');
+				 ->middleware('can:view,tabs')
+                 ->name('admin_tabs_show');
 			   });
 	
 	
 	
 	Route::group(['prefix' => 'figure', 'namespace' => 'Figure'], function () {
           Route::get('/', 'FigureController@index')
-             ->name('admin_figure');
+		  	->middleware('can:list,Modules\Entity\Model\Figure\Figure')
+            ->name('admin_figure');
 
 	       Route::get('create', 'FigureController@create')
-                ->name('admin_figure_create');
+		   	->middleware('can:create,Modules\Entity\Model\Figure\Figure')
+            ->name('admin_figure_create');
 				
 			  Route::post('create', 'FigureController@saveCreate')
-               ->name('admin_figure_create_save');
+			  	->middleware('can:create,Modules\Entity\Model\Figure\Figure')
+                ->name('admin_figure_create_save');
 			   
 			  Route::get('update/{figure}', 'FigureController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_figure_update');
+			   	->middleware('can:update,figure')
+                ->name('admin_figure_update');
 			   
 			   Route::post('update/{figure}', 'FigureController@saveUpdate')
-               ->name('admin_figure_update_save');
+			   	->middleware('can:update,figure')
+                ->name('admin_figure_update_save');
 			   
 			   Route::get('delete/{figure}', 'FigureController@delete')
-               ->name('admin_figure_delete');
+			   	->middleware('can:delete,figure')
+                ->name('admin_figure_delete');
 			   
 			     Route::get('view/{figure}', 'FigureController@show')
-               ->name('admin_figure_show');
+				 ->middleware('can:view,figure')
+                 ->name('admin_figure_show');
 			   });
 	
 	
@@ -296,50 +345,62 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
       
 				
             Route::get('/', 'SocialController@index')
-             ->name('admin_social');
+			->middleware('can:list,Modules\Entity\Model\Social\Social')
+            ->name('admin_social');
 
 	       Route::get('create', 'SocialController@create')
+		   		->middleware('can:create,Modules\Entity\Model\Social\Social')
                 ->name('admin_social_create');
 				
 			  Route::post('create', 'SocialController@saveCreate')
-               ->name('admin_social_create_save');
+			    ->middleware('can:create,Modules\Entity\Model\Social\Social')
+                ->name('admin_social_create_save');
 			   
 			  Route::get('update/{social}', 'SocialController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_social_update');
+			   	->middleware('can:update,social')
+                ->name('admin_social_update');
 			   
 			   Route::post('update/{social}', 'SocialController@saveUpdate')
+			   	 ->middleware('can:update,social')
                ->name('admin_social_update_save');
 			   
 			   Route::get('delete/{social}', 'SocialController@delete')
-               ->name('admin_social_delete');
+			    ->middleware('can:delete,social')
+                ->name('admin_social_delete');
 			   
 			     Route::get('view/{social}', 'SocialController@show')
-               ->name('admin_social_show');
+				  ->middleware('can:view,social')
+                  ->name('admin_social_show');
        
 	    });
 	    Route::group(['prefix' => 'menu', 'namespace' => 'Menu'], function () {
           Route::get('/', 'MenuController@index')
-             ->name('admin_menu');
+		  	->middleware('can:list,Modules\Entity\Model\Menu\Menu')
+            ->name('admin_menu');
 
 	       Route::get('create', 'MenuController@create')
+		   		->middleware('can:create,Modules\Entity\Model\Menu\Menu')
                 ->name('admin_menu_create');
 				
 			  Route::post('create', 'MenuController@saveCreate')
-               ->name('admin_menu_create_save');
+			  	->middleware('can:create,Modules\Entity\Model\Menu\Menu')
+                ->name('admin_menu_create_save');
 			   
 			  Route::get('update/{menu}', 'MenuController@update')
-			   //->middleware('can:update,gallery')
-               ->name('admin_menu_update');
+			   	->middleware('can:update,menu')
+                ->name('admin_menu_update');
 			   
 			   Route::post('update/{menu}', 'MenuController@saveUpdate')
-               ->name('admin_menu_update_save');
+			   	->middleware('can:update,menu')
+                ->name('admin_menu_update_save');
 			   
 			   Route::get('delete/{menu}', 'MenuController@delete')
-               ->name('admin_menu_delete');
+			   	->middleware('can:delete,menu')
+                ->name('admin_menu_delete');
 			   
 			     Route::get('view/{menu}', 'MenuController@show')
-               ->name('admin_menu_show');
+				 ->middleware('can:view,menu')
+                 ->name('admin_menu_show');
        
 	    });
 	  
@@ -347,32 +408,32 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 
 	Route::group(['prefix' => 'city'], function () {
             Route::get('/', 'CityController@index')
-                //->middleware('can:list,Modules\Entity\Model\LibCity\LibCity')
-                ->name('admin_lib_city');
+			  ->middleware('can:list,Modules\Entity\Model\LibCity\LibCity')
+              ->name('admin_lib_city');
 
             Route::get('create', 'CityController@create')
-                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
                 ->name('admin_lib_city_create');
 
             Route::post('create', 'CityController@saveCreate')
-                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
                 ->name('admin_lib_city_create_save');
 
             Route::get('update/{city}', 'CityController@update')
-                //->middleware('can:update,city')
+                ->middleware('can:update,city')
                 ->name('admin_lib_city_update');
 
             Route::post('update/{city}', 'CityController@saveUpdate')
-                //->middleware('can:update,city')
+                ->middleware('can:update,city')
                 ->name('admin_lib_city_update_save');
 
             Route::get('delete/{city}', 'CityController@delete')
-                //->middleware('can:delete,city')
-                ->name('admin_lib_city_delete');
+               ->middleware('can:delete,city')
+               ->name('admin_lib_city_delete');
 
             Route::get('view/{city}', 'CityController@show')
-                //->middleware('can:view,city')
-                ->name('admin_lib_city_show');
+               ->middleware('can:view,city')
+               ->name('admin_lib_city_show');
         });
       });
 	  
@@ -382,7 +443,7 @@ Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
 
 	Route::group(['prefix' => 'speac'], function () {
             Route::get('/', 'SpeacController@index')
-                //->middleware('can:list,Modules\Entity\Model\LibCity\LibCity')
+                ->middleware('can:list,Modules\Entity\Model\LibCity\LibCity')
                 ->name('admin_lib_speac');
 
             Route::get('create', 'SpeacController@create')
@@ -419,32 +480,32 @@ Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
 
 	Route::group(['prefix' => 'language'], function () {
             Route::get('/', 'LanguageController@index')
-                //->middleware('can:list,Modules\Entity\Model\LibCity\LibCity')
+                ->middleware('can:list,Modules\Entity\Model\LibLanguage\LibLanguage')
                 ->name('admin_lib_language');
 
             Route::get('create', 'LanguageController@create')
-                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->middleware('can:create,Modules\Entity\Model\LibLanguage\LibLanguage')
                 ->name('admin_lib_language_create');
 
             Route::post('create', 'LanguageController@saveCreate')
-                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
-                ->name('admin_lib_language_create_save');
+               ->middleware('can:create,Modules\Entity\Model\LibLanguage\LibLanguage')
+               ->name('admin_lib_language_create_save');
 
             Route::get('update/{language}', 'LanguageController@update')
-                //->middleware('can:update,city')
+                ->middleware('can:update,language')
                 ->name('admin_lib_language_update');
 
             Route::post('update/{language}', 'LanguageController@saveUpdate')
-                //->middleware('can:update,city')
-                ->name('admin_lib_language_update_save');
+               ->middleware('can:update,language')
+               ->name('admin_lib_language_update_save');
 
             Route::get('delete/{language}', 'LanguageController@delete')
-                //->middleware('can:delete,city')
+                ->middleware('can:delete,language')
                 ->name('admin_lib_language_delete');
 
             Route::get('view/{language}', 'LanguageController@show')
-                //->middleware('can:view,city')
-                ->name('admin_lib_language_show');
+               ->middleware('can:view,language')
+               ->name('admin_lib_language_show');
         });
       });
 	  
@@ -453,32 +514,32 @@ Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
 
 	Route::group(['prefix' => 'cat'], function () {
             Route::get('/', 'CategoryController@index')
-                //->middleware('can:list,Modules\Entity\Model\LibCity\LibCity')
+                ->middleware('can:list,Modules\Entity\Model\Cat\LibCat')
                 ->name('admin_lib_cat');
 
             Route::get('create', 'CategoryController@create')
-                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->middleware('can:create,Modules\Entity\Model\Cat\LibCat')
                 ->name('admin_lib_cat_create');
 
             Route::post('create', 'CategoryController@saveCreate')
-                //->middleware('can:create,Modules\Entity\Model\LibCity\LibCity')
+                ->middleware('can:create,Modules\Entity\Model\Cat\LibCat')
                 ->name('admin_lib_cat_create_save');
 
             Route::get('update/{cat}', 'CategoryController@update')
-                //->middleware('can:update,city')
+                ->middleware('can:update,cat')
                 ->name('admin_lib_cat_update');
 
             Route::post('update/{cat}', 'CategoryController@saveUpdate')
-                //->middleware('can:update,city')
+                ->middleware('can:update,cat')
                 ->name('admin_lib_cat_update_save');
 
             Route::get('delete/{cat}', 'CategoryController@delete')
-                //->middleware('can:delete,city')
-                ->name('admin_lib_cat_delete');
+               ->middleware('can:delete,cat')
+               ->name('admin_lib_cat_delete');
 
             Route::get('view/{cat}', 'CategoryController@show')
-                //->middleware('can:view,city')
-                ->name('admin_lib_cat_show');
+               ->middleware('can:view,cat')
+               ->name('admin_lib_cat_show');
         });
       });
 	  

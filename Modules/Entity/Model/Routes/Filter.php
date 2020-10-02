@@ -2,13 +2,18 @@
 namespace Modules\Entity\Model\Routes;
 
 use Modules\Entity\Services\ModelFilter;
-
+use Auth;
 class Filter extends ModelFilter {
     public function filter(){
+		$user_type = Auth::user()->type_id;
+		if($user_type == 2){
+		  $user = Auth::user()->id;
+            $this->query->where('user_id', $user);
+		}
 		
 		$request  = $this->request;
 		 
-      		 	//dd($request->all());
+      		
 	
 		if ($this->request->routes && $this->request->routes !='0'){			
             $this->query->where('id', $request->routes);
