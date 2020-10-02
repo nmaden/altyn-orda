@@ -8,7 +8,7 @@ if(in_array('show',$ar)){
 	$page = true;
 }
 
-$categories = DB::table('categories')->get();
+$categories = DB::table('lib_categories')->get();
 
 @endphp
 

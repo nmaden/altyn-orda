@@ -10,7 +10,7 @@ if(in_array('show',$ar)){
 }
 
 
-$categories = DB::table('gid_speacialisations')->get();
+$categories = DB::table('lib_gid_speacialisations')->get();
 @endphp
 
 

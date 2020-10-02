@@ -7,7 +7,9 @@ class SysUserType extends Model {
     protected $table = 'sys_user_type';
 
     CONST ADMIN = 1;
-    CONST MODERATOR = 2; 
+    CONST MODERATOR = 5; 
+	    CONST GID = 2; 
+
     CONST MANAGER = 3; 
     CONST USER = 4; 
 

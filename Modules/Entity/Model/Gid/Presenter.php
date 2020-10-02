@@ -59,6 +59,11 @@ trait Presenter {
 		  return Lang::get('front_main.oplata_'.$v);
 		  
 		}
+		function getCurrencyAttribute($v){
+		  		return $this->getTransField('currency', $v);
+
+		  
+		}
 		
     
 }

@@ -15,6 +15,9 @@ class ContentPolicy {
 
         return in_array($user->type_id, [SysUserType::ADMIN]);
     }
+    private function mainCheck2($user){
+			return in_array($user->type_id, [SysUserType::ADMIN,SysUserType::GID]);
+    }
 
     public function list(User $user){
 		
@@ -39,16 +42,18 @@ class ContentPolicy {
     }
 
     public function update($user, $item){
-		if($item->title == 'routes'){
-			 if($item->user_id !=$user->id)
-			return false;
-
-		     }
-	  if($item->title != 'routes'){
-
-        if (!$this->mainCheck($user))
+		  if (!$this->mainCheck2($user))
             return false;
-      }
+      
+		if($user->type_id == SysUserType::GID){
+		if($item->user_id !=$user->id){
+				 
+			return false;
+			 }
+		}
+	  
+
+      
         return true;
     }
 
