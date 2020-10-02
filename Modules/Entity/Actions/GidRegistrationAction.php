@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use Hash;
 use App\User;
 use Modules\Entity\Model\SysUserType\SysUserType;
-use Modules\Entity\Model\Gid\Gid;
-use Lang;
-class RegistrationAction {
+use Modules\Entity\Model\StudentData\StudentData;
+
+class StudentRegistrationAction {
     private $model = false;
     private $request = false;
 
@@ -22,34 +22,27 @@ class RegistrationAction {
         $ar = $this->request->all();
         $ar['edited_user_id'] = 1;
 
-        if (User::where('email', $this->request->email)->where('id', '<>',  $this->model->id)->count() > 0){
-			throw new \Exception(Lang::get('model.users.email_exist'));
-		}
+        if (User::where('email', $this->request->email)->where('id', '<>',  $this->model->id)->count() > 0)
+            throw new \Exception(trans('model.users.email_exist'));
+
         
-        if (!$this->request->password && !$this->model->password){
-			throw new \Exception(Lang::get('model.users.need_password'));
-		}
+        if (!$this->request->password && !$this->model->password)
+            throw new \Exception(trans('model.users.need_password'));
 
-        if ($this->request->password){
-						
-
+        if ($this->request->password)
             $ar['password'] = Hash::make($this->request->password);
-		}
-        else{
+        else
             unset($ar['password']);
-		}
 
+        $ar['type_id'] = SysUserType::USER;
 
-        $ar['type_id'] = 2;
         $this->model->fill($ar);
         $this->model->save();
 
-        $data = new Gid();
+        $data = new StudentData();
         $data->user_id = $this->model->id;
-        //$data->edited_user_id = 2;
+        $data->edited_user_id = 1;
         $data->save();
-		
-        
     }
 
 }

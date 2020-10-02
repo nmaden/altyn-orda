@@ -22,11 +22,11 @@ class SetLocale
         if($langPrefix) {
 
             App::setLocale($langPrefix);
-			CurrentLang::set($langPrefix);
+			//CurrentLang::set($langPrefix);
 
         }else{
           \App::setLocale('ru');
-            CurrentLang::set('ru');
+            //CurrentLang::set('ru');
 		}
 		
         return $next($request);

@@ -4,11 +4,23 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+		
+		
+
+@if(session('error'))
+       <div class="alert alert-danger" style='text-align:center'>
+{{session('error') }}
+    </div>
+@endif
+		
+		
+		
+		
             <div class="panel panel-default">
                 <div class="panel-heading">Регистрация</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('student_registration_save') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('registration_save') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('login') ? ' has-error' : '' }}">

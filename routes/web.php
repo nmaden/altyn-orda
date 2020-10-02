@@ -74,8 +74,8 @@ Route::get('/home',['uses' => 'Admin\ArticlesController@index'])->name('home');
 	    Route::get('login/{phone?}', 'LoginController@index')->name('login');
 	    Route::post('check/{phone?}', 'LoginController@check')->name('check_login');
 
-        Route::get('registration/{phone?}', 'RegistrationController@index')->name('student_registration');
-        Route::post('registration', 'RegistrationController@save')->name('student_registration_save');
+        Route::get('registration/{phone?}', 'RegistrationController@index')->name('registration');
+        Route::post('registration', 'RegistrationController@save')->name('registration_save');
 		Route::any('logout', 'LoginController@logout')->name('admin_logout');
 
      

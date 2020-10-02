@@ -36,14 +36,15 @@ $ar=explode('_',$route);
  
 
               
-
-       <li  style="background: {{in_array('gallery',$ar) ? '#ccc' : '' }}">
+@can('list', Modules\Entity\Model\Calendar\Calendar::class)
+      <li  style="background: {{in_array('gallery',$ar) ? '#ccc' : '' }}">
        <a href="{{ route('admin_gallery') }}">
 	   <i class="icon-city"></i>
 	   <span>Календарь мероприятий 
 	   </span></a>
 	   </li>
-	   
+@endcan
+
 	  <li  style="background: {{in_array('gid',$ar) ? '#ccc' : '' }}">
        <a href="{{ route('admin_gid') }}">
 	   <i class="icon-city"></i>
@@ -51,44 +52,41 @@ $ar=explode('_',$route);
 	   </span></a>
 	   </li>
 	   
+	   
+@can('list', Modules\Entity\Model\Sights\Sights::class)
+	   
 	    <li  style="background: {{in_array('sights',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_sights') }}">
 	   <i class="icon-city"></i>
 	   <span>Достопримечательности
 	   </span></a>
 	   </li>
-	   
-	   
-	   	                     
-               <li>
+@endcan
 
-                        <a href="#" style="background: {{in_array('home',$ar) ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
-						Главная
-						
-						</span></a>
-						
-                        <ul class="hidden-ul">
-					    <li>
-							
-							<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
-                             <a href="{{ route('admin_home_update',5) }}"><span>
-							 Фильты на главной
-							 
-							 </span></a>
-							 </li>
-							
-						  
-							
-							<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
-                             <a href="{{ route('admin_home') }}"><span>
-							 О золотой орде
-							 
-							 </span></a>
-							 </li>
-							 
-                        </ul>
-                    </li>
+@can('list', Modules\Entity\Model\Home\Home::class)
+	   	                     
+<li>
+  <a href="#" style="background: {{in_array('home',$ar) ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
+	Главная
+</span>
+</a>
+	<ul class="hidden-ul">
+	  <li>
+	  <li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
+        <a href="{{ route('admin_home_update',5) }}"><span>
+		  Фильтры на главной
+		</span></a>
+	</li>
+	<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
+       <a href="{{ route('admin_home') }}"><span>
+		 О золотой орде
+		</span>
+		</a>
+	</li>
+ </ul>
 </li>
+</li>
+@endcan
 
 	   
 	   
@@ -102,14 +100,15 @@ $ar=explode('_',$route);
 	   </li>
 ------------------->
 	   
-	   
+	   @can('list', Modules\Entity\Model\Slider\Slider::class)
+
 	    <li  style="background: {{in_array('slider',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_slider') }}">
 	   <i class="icon-city"></i>
 	   <span>Слайдер
 	   </span></a>
 	   </li>
-	   
+	   @endcan
 	    <li  style="background: {{in_array('routes',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_routes') }}">
 	   <i class="icon-city"></i>
@@ -117,7 +116,18 @@ $ar=explode('_',$route);
 	   </span></a>
 	   </li>
 	   
-	                     
+	   	   @can('list', Modules\Entity\Model\Menu\Menu::class)
+
+	    <li  style="background: {{in_array('menu',$ar) ? '#ccc' : '' }}">
+	   <a href="{{ route('admin_menu') }}">
+	   <i class="icon-city"></i>
+	   <span>Меню
+	   </span></a>
+	   </li>
+	   @endcan
+	   
+	                 @can('list', Modules\Entity\Model\About\About::class)
+    
                     <li class="">
                        <a href="#" style="background: {{in_array('about',$ar) || 
 					   in_array('tabs',$ar) || 
@@ -146,9 +156,10 @@ $ar=explode('_',$route);
                         </ul>
                     </li>
                </li>
-
+             @endcan
 	   
-                  
+                  @can('list', Modules\Entity\Model\LibCity\LibCity::class)
+
                     <li class="">
                         <a href="#" class="has-ul"><i class="icon-database-menu"></i><span>@lang('sidebar.library')</span></a>
                         <ul class="hidden-ul" style="display: none;">
@@ -168,7 +179,7 @@ $ar=explode('_',$route);
 							 
                         </ul>
                     </li>
-
+            @endcan
 
                  
                 </ul>
