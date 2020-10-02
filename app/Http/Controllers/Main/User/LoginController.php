@@ -22,7 +22,7 @@ class LoginController extends Controller {
 
     function check(Request $request){
 		
-        $user = User::where(['email' => $request->input('email')])->whereIn('type_id', [SysUserType::USER,SysUserType::MODERATOR,SysUserType::MANAGER,SysUserType::ADMIN])->first();
+        $user = User::where(['email' => $request->input('email')])->whereIn('type_id', [SysUserType::USER,SysUserType::MODERATOR,SysUserType::GID,SysUserType::ADMIN])->first();
         if (!$user){
             return back()->with('error', trans('front_main.message.wrong_access'));
 		}

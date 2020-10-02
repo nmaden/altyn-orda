@@ -16,7 +16,7 @@ class AdminAuth {
     public function handle($request, Closure $next){
         //\App\Helper\CurrentLang::set('ru');
 
-        if ($this->auth->guest() || !in_array($this->auth->user()->type_id, [SysUserType::ADMIN, SysUserType::MODERATOR,SysUserType::MANAGER])){
+        if ($this->auth->guest() || !in_array($this->auth->user()->type_id, [SysUserType::ADMIN, SysUserType::GID])){
             Auth::logout();
             
 			
