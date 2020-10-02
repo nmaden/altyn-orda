@@ -124,6 +124,7 @@ $ar=explode('_',$route);
 	   <span>Меню
 	   </span></a>
 	   </li>
+	   
 	   @endcan
 	   
 	                 @can('list', Modules\Entity\Model\About\About::class)

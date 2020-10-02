@@ -58,6 +58,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
              ->name('admin_gid');
 
 	       Route::get('create', 'GidController@create')
+		   		->middleware('can:create,Modules\Entity\Model\Gid\Gid')
+
                 ->name('admin_gid_create');
 				
 			  Route::post('create', 'GidController@saveCreate')
@@ -126,7 +128,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
                ->name('admin_routes_create_save');
 			   
 			  Route::get('update/{routes}', 'RoutesController@update')
-			   //->middleware('can:update,gallery')
+			   ->middleware('can:update,routes')
                ->name('admin_routes_update');
 			   
 			   Route::post('update/{routes}', 'RoutesController@saveUpdate')

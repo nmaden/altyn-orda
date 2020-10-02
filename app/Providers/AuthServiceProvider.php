@@ -13,6 +13,8 @@ use Modules\Entity\Model\Tabs\Tabs;
 use Modules\Entity\Model\Figure\Figure;
 use Modules\Entity\Model\Social\Social;
 use Modules\Entity\Model\Menu\Menu;
+use Modules\Entity\Model\Routes\Routes;
+
 
 use Modules\Entity\Model\LibCity\LibCity;
 use Modules\Entity\Model\LibLanguage\LibLanguage;
