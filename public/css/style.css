@@ -398,7 +398,9 @@ a.modal__map--item:hover:before {
 .about__line--title {
     color: #0e4f32;
     font-size: 16px;
+    line-height: 1.2;
     font-weight: 700;
+    margin-bottom: 5px;
 }
 
 .about__line--text {
@@ -459,7 +461,7 @@ span.numer__litl {
     -ms-flex-pack: justify;
     justify-content: space-between;
     position: relative;
-    padding: 310px 0;
+    padding: 350px 0;
     padding-bottom: 350px;
     background-image: url(../img/line__bg.svg);
     background-position: left center;
