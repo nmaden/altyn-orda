@@ -5,12 +5,16 @@ use Modules\Entity\Services\ModelFilter;
 use Auth;
 class Filter extends ModelFilter {
     public function filter(){
+		
+		
+				if (!Auth::guest()) {
+
 		$user_type = Auth::user()->type_id;
 		if($user_type == 2){
 		  $user = Auth::user()->id;
             $this->query->where('user_id', $user);
 		}
-		
+				}
 		$request  = $this->request;
 		 
       		

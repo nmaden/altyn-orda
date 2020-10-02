@@ -6,13 +6,14 @@ use Auth;
 class Filter extends ModelFilter {
     public function filter(){
 		
-		
+		if (!Auth::guest()) {
+			dd(18);
 		$user_type = Auth::user()->type_id;
 		if($user_type == 2){
 		  $user = Auth::user()->id;
             $this->query->where('user_id', $user);
 		}
-		
+	}
         $request  = $this->request;
        if($this->request->has('q') && $this->request->q){
            $this->query->where('imya', 'like', '%'.$this->request->q.'%');
