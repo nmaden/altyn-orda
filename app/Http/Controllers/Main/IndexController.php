@@ -35,6 +35,7 @@ class IndexController extends SiteController
 		
 		$home_all=Home::with(['sights','calendars','gids'])->get();
 		$home = $home_all->shift();
+		
         $city_f = $home->sights->where('coord', '!=', '');
         $count = count($city_f);
 		 if($count <=0 ){
@@ -58,8 +59,9 @@ class IndexController extends SiteController
         $content=$home_page;
         $this->vars['content']= $content;
         $this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
+		$this->meta_desc = $home->seo_description;
+		$this->meta_title = $home->seo_title;
+		
 		return $this->renderOutput();
 		
     }

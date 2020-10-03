@@ -49,8 +49,9 @@ class SightController extends SiteController
 	    $content=$item_page;
         $this->vars['content']= $content;
         $this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
+		$this->meta_desc = $sight->seo_description;
+		$this->meta_title = $sight->seo_title;
+		
 		
 		return $this->renderOutput();
     }

@@ -51,8 +51,8 @@ class FiguresController extends SiteController
         $this->vars['content']= $content;
         $this->keywords = '';
 		
-		$this->meta_desc = '';
-		$this->title = '';
+		$this->meta_desc = $figure->seo_description;
+		$this->meta_title = $figure->seo_title;
 
 		return $this->renderOutput();
 

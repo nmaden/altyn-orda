@@ -32,8 +32,9 @@ class AboutController extends SiteController
         $content=$about_page;
         $this->vars['content']= $content;
         $this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
+		
+		$this->meta_desc = $about->seo_description;
+		$this->meta_title = $about->seo_title;
 		
 		return $this->renderOutput();
     }

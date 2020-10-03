@@ -85,8 +85,9 @@ class RoutesController extends SiteController
         $this->vars['content']= $content;
         $this->keywords = '';
 		
-		$this->meta_desc = '';
-		$this->title = '';
+		$this->meta_desc = $routes->seo_description;
+		$this->meta_title = $routes->seo_title;
+		
 
 		return $this->renderOutput();
 

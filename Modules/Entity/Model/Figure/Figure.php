@@ -8,7 +8,7 @@ class Figure extends ModelParent {
     protected $table = 'figures';
 	protected $fillable = [ 'namefigure',
 	'descriptionfigure','photo','birth',
-	'status','edited_user_id','introtext','subtitle','editor'];
+	'status','edited_user_id','introtext','subtitle','editor','seo_title','seo_description'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
