@@ -37,11 +37,13 @@ class CalendarsController extends SiteController
 
 	public function index(Request $request)
 	{
-		//Carbon::createFromDate(2013, 12, 25);
+	
 		
 		$items = Calendar::filter($request)->latest()->paginate(9);
+				//dd($items);
 
-		//dd($items);
+        //$items_general= $items->where('id','=','101');
+		//dd($items_general);
 
 		$sort_calendar = [
 		Lang::get('front_main.filter.all_calendar'),
@@ -53,9 +55,7 @@ class CalendarsController extends SiteController
 		
 		
 		$cities = LibCity::orderBy('name', 'asc')->get();
-
-
-		$categories = LibCat::orderBy('name', 'asc')->get();
+        $categories = LibCat::orderBy('name', 'asc')->get();
 
 		$search_cities = [];
 		$search_dates = [];
@@ -77,13 +77,14 @@ class CalendarsController extends SiteController
 	{
 
 		$gids = $this->getTabs();
-		$item_page = view('orda' . '.calendars.calendar-item')->with(['calendar' => $calendar, 'gid' => $gids])->render();
+		$item_page = view('orda' . '.calendars.calendar-item')->with([
+		'calendar' => $calendar, 'gid' => $gids])->render();
+		
 		$content = $item_page;
 		$this->vars['content'] = $content;
 		$this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
-
+		$this->meta_desc = $calendar->seo_description;
+		$this->meta_title = $calendar->seo_title;
 		return $this->renderOutput();
 	}
 

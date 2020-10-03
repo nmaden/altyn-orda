@@ -8,7 +8,9 @@ class Calendar extends ModelParent {
     protected $table = 'galleries';
 	
 	
-    protected $fillable = [ 'photo','name','text','user_id','city_id','category_id','date','social'];
+    protected $fillable = [ 'photo','name','text','user_id','city_id','category_id','date','social',
+	'seo_description','seo_title'
+	];
 	
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
@@ -27,7 +29,10 @@ class Calendar extends ModelParent {
         return $this->hasOne('Modules\Entity\Model\Calendar\TransCalendar', 'el_id');
     }
 	
- 
+	function relMeta(){
+        return $this->hasOne('Modules\Entity\Model\Meta\MetaCalendar', 'items_id');
+    }
+	
 	   function getTransTableNameAttribute(){
         return $this->getTable();
     }

@@ -62,7 +62,7 @@ class ModelParent extends Model {
 		
 		$table_name = $this->getTable();
 
-        if (strpos($table_name, 'lib_') !== false){
+        if (strpos($table_name, 'lib_') !== false || strpos($table_name, 'general') !== false){
 			
             $lang = $this->relTrans()->where(['lang'=>$this->lang])->first();
             if (!$lang){

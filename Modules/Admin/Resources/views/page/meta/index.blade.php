@@ -15,7 +15,7 @@
 				<thead>
 					<tr>
 						<th >{{ $model->getLabel('id') }}</th>
-						<th >{{ $model->getLabel('photo') }}</th>
+						
 						<th >{{ $model->getLabel('name') }}</th>
 							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
@@ -28,24 +28,10 @@
 				</thead>
 					<tbody>
 					@foreach ($items as $i)
-					if($i->id == 101){
-						   continue;
-					   }
-					   
 						<tr>
 							<td>{{ $i->id }}</td>
-							<td>
-							@if($i->photo)
-								загружено <a href="{{URL::asset($i->photo)}}" target="_blank">просмотреть</a>
-							@else
-								не загружено
-							@endif
-	
-							
-							
-							
-							</td>
-							<td>{{ $i->name }}</td>
+
+							<td>{{ $i->path }}</td>
 							<td>{{ $i->edited_user_name }}</td>
 							
 							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
@@ -56,7 +42,7 @@
 										<i class="icon-menu7"></i> 
 									</button>
 									<ul class="dropdown-menu dropdown-menu-right">
-@include('admin::page.components.lang.switch_lang_index')
+@include('admin::page.components.lang.switch_lang_nolang')
                                    <li class="divider"></li>
 										<li><a href="{{ route($route_path.'_delete', $i) }}">@lang('main.delete')</a></li>
 									</ul>

@@ -1,5 +1,5 @@
 <?php
-namespace Modules\Entity\Model\Gid;
+namespace Modules\Entity\Model\Meta;
 
 use Modules\Entity\Services\ModelFilter;
 use Auth;

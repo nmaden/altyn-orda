@@ -7,7 +7,7 @@ use Modules\Entity\Traits\CheckTrans;
 class TransCalendar extends ModelParent {
     protected $table = 'trans_gallery';
 	 protected $table_ru = 'gallery';
-    protected $fillable = [ 'el_id', 'lang', 'name','text','title'];
+    protected $fillable = [ 'el_id', 'lang', 'name','text','title','seo_description','seo_title'];
     //use CheckTrans;
 
     function getTransTableNameAttribute(){

@@ -50,6 +50,7 @@ trait Presenter {
 		return $this->getTransField('text', $v);
     }
 	
+   
 
 
 	

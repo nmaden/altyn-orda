@@ -37,12 +37,40 @@ $ar=explode('_',$route);
 
               
 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Calendar\Calendar::class)): ?>
-      <li  style="background: <?php echo e(in_array('gallery',$ar) ? '#ccc' : ''); ?>">
-       <a href="<?php echo e(route('admin_gallery')); ?>">
+      <li>
+       <a   style="background: <?php echo e(in_array('gallery',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
 	   <span>Календарь мероприятий 
 	   </span></a>
+	   
+	   
+	   	<ul class="hidden-ul">
+	  <li>
+	  <!-----------------
+	  <li  style="">
+        <a href="<?php echo e(route('admin_gallery_update',101)); ?>"><span>
+		  Общие элементы страницы
+		</span></a>
+	</li>
+	------------------>
+	<li  style="">
+       <a href="<?php echo e(route('admin_gallery')); ?>">
+	   
+	   <span>Календарь мероприятий 
+	   </span></a>
+	   
+	</li>
+ </ul>
+ 
+	   
+	   
 	   </li>
+	   
+	   
+
+
+	   
+	   
 <?php endif; ?>
 
 	  <li  style="background: <?php echo e(in_array('gid',$ar) ? '#ccc' : ''); ?>">
@@ -76,12 +104,12 @@ $ar=explode('_',$route);
 </a>
 	<ul class="hidden-ul">
 	  <li>
-	  <li  style="border: <?php echo e(in_array('about',$ar) ? ' 1px solid #ccc' : ''); ?>">
+	  <li  style="">
         <a href="<?php echo e(route('admin_home_update',5)); ?>"><span>
 		  Фильтры на главной
 		</span></a>
 	</li>
-	<li  style="border: <?php echo e(in_array('about',$ar) ? ' 1px solid #ccc' : ''); ?>">
+	<li  style="">
        <a href="<?php echo e(route('admin_home')); ?>"><span>
 		 О золотой орде
 		</span>
@@ -90,6 +118,8 @@ $ar=explode('_',$route);
  </ul>
 </li>
 </li>
+
+
 <?php endif; ?>
 
 	   

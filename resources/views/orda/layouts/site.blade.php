@@ -28,8 +28,8 @@ $cssVersion="3.5.0";
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
-	<title>Золотая Орда</title>
+    <meta name="description" content="{{isset($meta_desc) ? $meta_desc : ''}}"/>
+	<title>{{isset($meta_title) ? $meta_title : 'Золототая орда'}}</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	

@@ -37,12 +37,40 @@ $ar=explode('_',$route);
 
               
 @can('list', Modules\Entity\Model\Calendar\Calendar::class)
-      <li  style="background: {{in_array('gallery',$ar) ? '#ccc' : '' }}">
-       <a href="{{ route('admin_gallery') }}">
+      <li>
+       <a   style="background: {{in_array('gallery',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Календарь мероприятий 
 	   </span></a>
+	   
+	   
+	   	<ul class="hidden-ul">
+	  <li>
+	  <!-----------------
+	  <li  style="">
+        <a href="{{ route('admin_gallery_update',101) }}"><span>
+		  Общие элементы страницы
+		</span></a>
+	</li>
+	------------------>
+	<li  style="">
+       <a href="{{ route('admin_gallery') }}">
+	   
+	   <span>Календарь мероприятий 
+	   </span></a>
+	   
+	</li>
+ </ul>
+ 
+	   
+	   
 	   </li>
+	   
+	   
+
+
+	   
+	   
 @endcan
 
 	  <li  style="background: {{in_array('gid',$ar) ? '#ccc' : '' }}">
@@ -76,12 +104,12 @@ $ar=explode('_',$route);
 </a>
 	<ul class="hidden-ul">
 	  <li>
-	  <li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
+	  <li  style="">
         <a href="{{ route('admin_home_update',5) }}"><span>
 		  Фильтры на главной
 		</span></a>
 	</li>
-	<li  style="border: {{in_array('about',$ar) ? ' 1px solid #ccc' : '' }}">
+	<li  style="">
        <a href="{{ route('admin_home') }}"><span>
 		 О золотой орде
 		</span>
@@ -90,6 +118,8 @@ $ar=explode('_',$route);
  </ul>
 </li>
 </li>
+
+
 @endcan
 
 	   
