@@ -28,10 +28,7 @@
 				</thead>
 					<tbody>
 					@foreach ($items as $i)
-					if($i->id == 101){
-						   continue;
-					   }
-					   
+					
 						<tr>
 							<td>{{ $i->id }}</td>
 							<td>

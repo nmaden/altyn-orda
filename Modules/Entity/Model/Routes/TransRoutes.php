@@ -7,7 +7,7 @@ use Modules\Entity\Traits\CheckTrans;
 class TransRoutes extends ModelParent {
     protected $table = 'trans_routes';
 	 protected $table_ru = 'routes';
-    protected $fillable = [ 'el_id', 'lang', 'description','name','subtitle'];
+    protected $fillable = [ 'el_id', 'lang', 'description','name','subtitle','seo_title','seo_description'];
     //use CheckTrans;
 
     function getTransTableNameAttribute(){

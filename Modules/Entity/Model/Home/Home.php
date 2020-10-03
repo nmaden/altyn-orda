@@ -6,7 +6,7 @@ use Modules\Entity\Traits\CheckTrans;
 
 class Home extends ModelParent {
     protected $table = 'home';
-	protected $fillable = [ 'name','description','user_id','date','color'];
+	protected $fillable = [ 'name','description','user_id','date','color','seo_title','seo_description'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

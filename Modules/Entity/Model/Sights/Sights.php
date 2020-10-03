@@ -9,7 +9,8 @@ class Sights extends ModelParent {
 	
 	
     protected $fillable = ['photo','coord','name','description','user_id','city_id','props_1',
-	'props_2','time','props_4','props_5','price','video','coord_name','subtitle','introtext','date','longitude','latitude'];
+	'props_2','time','props_4','props_5','price','video','coord_name','subtitle','introtext',
+	'date','longitude','latitude','seo_title','seo_description'];
 	
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
