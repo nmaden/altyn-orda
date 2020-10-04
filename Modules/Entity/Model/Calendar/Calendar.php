@@ -9,7 +9,7 @@ class Calendar extends ModelParent {
 	
 	
     protected $fillable = [ 'photo','name','text','user_id','city_id','category_id','date','social',
-	'seo_description','seo_title'
+	'seo_description','seo_title','general'
 	];
 	
     protected $filter_class = Filter::class; 

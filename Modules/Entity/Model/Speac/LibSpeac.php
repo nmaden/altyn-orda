@@ -5,7 +5,7 @@ use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
 class LibSpeac extends ModelParent {
-    protected $table = 'categories';
+    protected $table = 'lib_gid_speacialisations';
     protected $fillable = [ 'name', 'edited_user_id'];
     protected $filter_class = Filter::class; 
     use Presenter, CheckTrans;

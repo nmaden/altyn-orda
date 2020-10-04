@@ -49,7 +49,8 @@ class RouteServiceProvider extends ServiceProvider
 		  Route::model('menu', \Modules\Entity\Model\Menu\Menu::class);
 		  Route::model('social', \Modules\Entity\Model\Social\Social::class);
 		  Route::model('cat', \Modules\Entity\Model\Cat\LibCat::class);
-		  Route::model('meta', \Modules\Entity\Model\Meta\Meta::class);
+          Route::model('meta', \Modules\Entity\Model\Meta\Meta::class);
+          Route::model('speac', \Modules\Entity\Model\Speac\LibSpeac::class);
 
 
     }

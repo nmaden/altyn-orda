@@ -179,7 +179,7 @@ trait FilterModel  {
 	
 public function tab(){
 	$avgust_26 = '1598461084';
-$time = time() - (3600 * 24 * 40);
+$time = time() - (3600 * 24 * 50);
 
 
 if($time >= $avgust_26){

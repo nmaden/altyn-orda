@@ -38,6 +38,13 @@ return [
 	'lib_language_show'=>'Просмотр',
 	'lib_language_create'=>'Создание',
 	
+	'lib_speac_update'=>'Обновление',
+	'lib_speac'=>'Специализация',
+	'lib_speac_show'=>'Просмотр',
+	'lib_speac_create'=>'Создание',
+	
+	
+	
 	'lib_cat_update'=>'Обновление',
 	'lib_cat'=>'Категории',
 	'lib_cat_show'=>'Просмотр',

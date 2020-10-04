@@ -47,6 +47,7 @@ $ar=explode('_',$route);
 	   	<ul class="hidden-ul">
 	  <li>
 	 
+	 <!------
 	  <li  style="">
          <a href="{{ route('admin_gallery_update',1) }}">
          <span>
@@ -54,6 +55,7 @@ $ar=explode('_',$route);
 		</span>
 		</a>
 	</li>
+	------->
 
 	<li  style="">
        <a href="{{ route('admin_gallery') }}">
@@ -213,6 +215,11 @@ $ar=explode('_',$route);
 							 <li>
                              <a href="{{ route('admin_lib_cat') }}"><span>Категории</span></a>
 							 </li>
+							 
+							 <li>
+                             <a href="{{ route('admin_lib_speac') }}"><span>Специализация </span></a>
+							 </li>
+							 
 							 
                         </ul>
                     </li>

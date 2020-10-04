@@ -15,9 +15,9 @@ use Modules\Entity\Model\Speac\LibSpeac as Model;
 
 class SpeacController extends Controller {
     use MainCrudMethod;
-    protected $view_path = 'admin::page.lib.cat';
-    protected $route_path = 'admin_lib_cat';
-    protected $title_path = 'title.lib_cat';
+    protected $view_path = 'admin::page.lib.speac';
+    protected $route_path = 'admin_lib_speac';
+    protected $title_path = 'title.lib_speac';
     protected $def_model = Model::class;
     protected $action_create = ModelCreateAction::class;
     protected $action_update = ModelUpdateAction::class;

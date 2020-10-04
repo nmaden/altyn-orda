@@ -12,6 +12,7 @@ use Modules\Entity\Model\LibCity\LibCity;
 use Modules\Entity\Model\Language\Language;
 use Illuminate\Support\Facades\DB;
 use Config;
+use Modules\Entity\Model\Speac\LibSpeac;
 
 class GidsController extends SiteController
 {
@@ -42,7 +43,8 @@ class GidsController extends SiteController
        
         $cities = LibCity::query()->get();
         $languages = Language::query()->get();
-		$categories = DB::table('lib_gid_speacialisations')->get();
+		$categories = LibSpeac::query()->get();
+
         
         
 		        		

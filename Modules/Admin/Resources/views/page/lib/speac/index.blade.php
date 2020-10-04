@@ -15,8 +15,8 @@
 				<thead>
 					<tr>
 						<th >{{ $model->getLabel('id') }}</th>
-						<th >{{ $model->getLabel('name') }}</th>
-						<th >{{ $model->getLabel('country_id') }}</th>
+						<th >название</th>
+						
 						<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
@@ -30,7 +30,7 @@
 						<tr>
 							<td>{{ $i->id }}</td>
 							<td>{{ $i->name }}</td>
-							<td>{{ $i->country_name }}</td>
+					
 							<td>{{ $i->edited_user_name }}</td>
 							<td>{{ $i->created_cool }}</td>
 							<td>{{ $i->updated_cool }}</td>
