@@ -99,7 +99,8 @@ class Filter extends ModelFilter {
         }
         else {
 			
-            $this->query->latest();
+             $this->query->where('general','=',NULL)->Orwhere('general','=',0);
+
 		}
 
     }
