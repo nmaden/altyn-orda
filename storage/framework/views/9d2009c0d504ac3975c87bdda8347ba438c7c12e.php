@@ -46,13 +46,15 @@ $ar=explode('_',$route);
 	   
 	   	<ul class="hidden-ul">
 	  <li>
-	  <!-----------------
+	 
 	  <li  style="">
-        <a href="<?php echo e(route('admin_gallery_update',101)); ?>"><span>
+         <a href="<?php echo e(route('admin_gallery_update',1)); ?>">
+         <span>
 		  Общие элементы страницы
-		</span></a>
+		</span>
+		</a>
 	</li>
-	------------------>
+
 	<li  style="">
        <a href="<?php echo e(route('admin_gallery')); ?>">
 	   

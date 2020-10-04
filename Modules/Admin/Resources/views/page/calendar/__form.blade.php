@@ -141,6 +141,7 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
 </div>
 
 
+
 <script>
 $('.select2').select2({
     minimumResultsForSearch: Infinity,

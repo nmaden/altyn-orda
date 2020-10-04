@@ -49,6 +49,13 @@ trait Presenter {
 	function getTextAttribute($v){
 		return $this->getTransField('text', $v);
     }
+	function getSeoTitleAttribute($v){
+		return $this->getTransField('seo_title', $v);
+    }
+	
+	function getSeoDescriptionAttribute($v){
+		return $this->getTransField('seo_description', $v);
+    }
 	
    
 

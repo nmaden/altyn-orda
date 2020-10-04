@@ -4,11 +4,11 @@ namespace Modules\Entity\Model\Meta;
 use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
-class Gid extends ModelParent {
+class Meta extends ModelParent {
     protected $table = 'general';
 	
 	
-    protected $fillable = [ 'meta_description','meta_title'];
+    protected $fillable = [ 'seo_description','seo_title','items_id'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -36,6 +36,9 @@ class Gid extends ModelParent {
     }
 	 function relInforms(){
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
+    }
+	 function relCalendars(){
+        return $this->hasMany('Modules\Entity\Model\Calendar\Calendar', 'general_id');
     }
 	
 	

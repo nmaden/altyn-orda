@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Modules\Entity\Model\LibCountry\LibCountry;
 use Lang;
+use Cache;
 use Modules\Entity\Model\Cat\LibCat;
 
 
@@ -38,12 +39,20 @@ class CalendarsController extends SiteController
 	public function index(Request $request)
 	{
 	
-		
+        
 		$items = Calendar::filter($request)->latest()->paginate(9);
-				//dd($items);
+		
+	   $seo_desc=false;
+	   $seo_title=false;
+	   if(Cache::has('seo')){
+		$item_seo = Cache::get('seo');
+		
+		 $seo_desc= $item_seo[1];
+		  $seo_title = $item_seo[0];
+	   }
 
-        //$items_general= $items->where('id','=','101');
-		//dd($items_general);
+		
+		
 
 		$sort_calendar = [
 		Lang::get('front_main.filter.all_calendar'),
@@ -65,11 +74,12 @@ class CalendarsController extends SiteController
 			'protocol' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://",
 			'items' => $items, 'categories'=>$categories,'cities'=>$cities, 'sort_calendars'=>$sort_calendar, 'gid' => $gids, 'request' => $request])->render();
 		
+		//dd($item_seo->meta_title);
 		$content = $sights_page;
 		$this->vars['content'] = $content;
 		$this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
+		$this->meta_desc = $seo_desc;
+		$this->meta_title = $seo_title;
 
 		return $this->renderOutput();
 	}

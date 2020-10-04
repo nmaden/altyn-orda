@@ -14,6 +14,7 @@ trait Presenter {
 	function getSightsAr(){
 		return Sights::pluck('name', 'id')->toArray();
     }
+	
 	function getGidsAr(){
 		return Gid::pluck('imya', 'id')->toArray();
     }
@@ -21,6 +22,7 @@ trait Presenter {
 		function getCalendarsAr(){
 		return Calendar::pluck('name', 'id')->toArray();
     }
+	
 	function getArCalendarsAttribute(){
 	   return $this->calendars()->pluck('calendar_id')->toArray();
      }
@@ -35,34 +37,7 @@ trait Presenter {
 	 function getArSlidersAttribute(){
 	   //return $this->relSliders()->pluck('sight_id')->toArray();
      }
-	 /*
-		function getArMapPoint(){
-			if(isset($this->sights[0]->coord)){
-            $php_json = urlencode(json_encode($this->sights));
-            return $php_json;
-			}else{
-		     $ar = [
-		      'coord'=>'48.703801, 67.904896',
-		       'name'=>'Мавзолей Алаша хана'
-		     ];
-			 $php_json = urlencode(json_encode($ar));
-			 return $php_json;
-
-		}
-		  }
-		  */
-
-/*
-	function getAddress2Attribute($v){
-	   
-	     $ar= explode(',',$this->coord);
-		if(count($ar) < 2){
-			$ar[0] = 59.9342802;
-			$ar[1] = 30.335098600000038;
-		}
-		 return $ar;
-		  }
-		  */
+	 
 	function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 
@@ -82,6 +57,13 @@ trait Presenter {
     }
 
 
+	function getSeoTitleAttribute($v){
+		return $this->getTransField('seo_title', $v);
+    }
+	
+	function getSeoDescriptionAttribute($v){
+		return $this->getTransField('seo_description', $v);
+    }
 	
 	
 

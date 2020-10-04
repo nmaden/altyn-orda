@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
+use Cache;
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -39,8 +40,12 @@ class CalendarUpdateAction {
        if($this->request->social && is_array($this->request->social)){
          $ar['social'] = serialize($this->request->social);
        }
-     
-      
+       
+	   if($this->model->id == 1 && $this->request->seo_title || 
+	   $this->model->id == 1 && $this->request->seo_description){
+		   Cache::forever('seo',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+
+	   }
         $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
 		
     }

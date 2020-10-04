@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 trait MainListMethod  {
     public function index(Request $request) {
 		
-        
+		
+                  
+
 		
        
         return view($this->view_path.'.index', [

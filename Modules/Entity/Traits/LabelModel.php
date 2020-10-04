@@ -23,7 +23,7 @@ trait LabelModel  {
 		  $action_index = strpos($action,'index');
 		  if($action_index){$this->lang = 'ru'; App::setLocale($this->lang);  }
 		 
-		  
+		  App::setLocale('ru');
 		  return Lang::get('model.'.$this->getTable().'.'.$field);
     }
 

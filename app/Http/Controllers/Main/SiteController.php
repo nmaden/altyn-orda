@@ -44,9 +44,12 @@ class SiteController extends Controller
 	
 	
 		$this->vars['keywords'] = $this->keywords;
+		if(isset($this->meta_desc)){
 		$this->vars['meta_desc']=$this->meta_desc;
+		}
+		if(isset($this->meta_title)){
 		$this->vars['meta_title']=$this->meta_title;
-
+        }
 		
 		$footer = view('orda'.'.footer')->render();
 		$this->vars['footer']=$footer;

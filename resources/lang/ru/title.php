@@ -7,6 +7,12 @@ return [
 	'gallery_show'=>'Просмотр',
 	'gallery_create'=>'Создание',
 	
+	'meta_update'=>'Обновление',
+	'meta'=>'SEO для общей страницы',
+	'meta_show'=>'Просмотр',
+	'meta_create'=>'Создание',
+	
+	
 	'figure_update'=>'Обновление',
 	'figure'=>'Исторические личности',
 	'about_show'=>'Просмотр',

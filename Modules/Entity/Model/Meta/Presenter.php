@@ -10,15 +10,21 @@ use Modules\Entity\Model\Sights\Sights;
 use Cache;
 
 use Lang;
+use Modules\Entity\Model\Calendar\Calendar;
 
 trait Presenter {
 
 	function getSightsAr(){
 		return Sights::pluck('name', 'id')->toArray();
     }
+		function getCalendarsAr(){
+		return Calendar::pluck('name', 'id')->toArray();
+    }
+	
 	function getArSightsAttribute(){
 	   return $this->sights()->pluck('sight_id')->toArray();
      }
+	 
 	function getPhotoUnAttribute(){
 
 		if(@unserialize($this->gallery)){

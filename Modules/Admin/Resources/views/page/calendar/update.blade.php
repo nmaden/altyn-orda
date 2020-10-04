@@ -14,9 +14,25 @@
                 <div class="panel-body">
                    <form action="{{ route($route_path.'_update_save', $model) }}" method="post" enctype="multipart/form-data" class="need_validate_form " novalidate>
                          @if($lang == 'ru')
-                         @include($view.'.__form')
+						   @if($model->id == 1)
+							@include($view.'.seo__form')
+
+						   @else
+							 @include($view.'.__form')
+						 @endif
+				   
+						 
+                        
 					     @else
-						 @include($view.'.__form_lang')
+						 	  @if($model->id == 1)
+								@include($view.'.seo__form')
+
+						   @else
+							   
+							 @include($view.'.__form_lang')
+
+						 @endif
+				   
                          @endif
                     
                         <br>

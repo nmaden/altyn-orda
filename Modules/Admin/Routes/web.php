@@ -81,6 +81,35 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	    });
 	  
 	 
+	    Route::group(['prefix' => 'meta', 'namespace' => 'Meta'], function () {
+      
+			
+            Route::get('/', 'MetaController@index')
+             ->name('admin_meta');
+
+	       Route::get('create', 'MetaController@create')
+		   		//->middleware('can:create,Modules\Entity\Model\Gid\Gid')
+
+                ->name('admin_meta_create');
+				
+			  Route::post('create', 'MetaController@saveCreate')
+               ->name('admin_meta_create_save');
+			   
+			  Route::get('update/{meta}', 'MetaController@update')
+			   //->middleware('can:update,gallery')
+               ->name('admin_meta_update');
+			   
+			   Route::post('update/{meta}', 'MetaController@saveUpdate')
+               ->name('admin_meta_update_save');
+			   
+			   Route::get('delete/{meta}', 'MetaController@delete')
+               ->name('admin_meta_delete');
+			   
+			     Route::get('view/{meta}', 'MetaController@show')
+               ->name('admin_meta_show');
+       
+	    });
+	  
 	    Route::group(['prefix' => 'sights', 'namespace' => 'sights'], function () {
       
 			

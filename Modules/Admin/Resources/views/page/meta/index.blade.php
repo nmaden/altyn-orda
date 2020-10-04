@@ -16,7 +16,7 @@
 					<tr>
 						<th >{{ $model->getLabel('id') }}</th>
 						
-						<th >{{ $model->getLabel('name') }}</th>
+						<th>Привязка к мероприятию</th>
 							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
@@ -27,11 +27,14 @@
 					</tr>
 				</thead>
 					<tbody>
+					@php
+					//dd($items[0]->getCalendarsAr());
+					@endphp
 					@foreach ($items as $i)
 						<tr>
 							<td>{{ $i->id }}</td>
 
-							<td>{{ $i->path }}</td>
+							<td>{{ $i->getCalendarsAr()[$i->items_id] }}</td>
 							<td>{{ $i->edited_user_name }}</td>
 							
 							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
