@@ -33,8 +33,8 @@
 						<th >{{ $model->getLabel('id') }}</th>
 						<th >{{ $model->getLabel('photo') }}</th>
 						<th >название</th>
-							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
-						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
+						<th >дата</th>
+
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
 					
 						<th>
@@ -58,9 +58,8 @@
 							
 							</td>
 							<td>{{ $i->name }}</td>
-							<td>{{ $i->edited_user_name }}</td>
-							
-							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
+							<td>{{ $i->date }}</td>
+
 							<td>{{ $i->updated_cool }}</td>
 						<th>
 								<div class="btn-group">

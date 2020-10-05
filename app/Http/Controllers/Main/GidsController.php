@@ -67,7 +67,8 @@ class GidsController extends SiteController
       
 		        		
 
-		$home_page = view('orda'.'.gid.gids')->with(['gid'=>$gid,'languages'=>$languages,'cities'=>$cities,'categories'=>$categories,'request'=> $request])->render();
+		$home_page = view('orda'.'.gid.gids')->with(['gid'=>$gid,'languages'=>$languages,
+		'cities'=>$cities,'categories'=>$categories,'request'=> $request])->render();
 		
 		
 		

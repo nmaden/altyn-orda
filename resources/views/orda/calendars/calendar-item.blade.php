@@ -72,6 +72,7 @@
 					@if(isset($calendar->photo))
                         <img src="{{URL::asset($calendar->photo)}}" alt="">
 					@endif
+					
                     </div>
                 </div>
 
@@ -107,139 +108,43 @@
 
                     <div class="swiper-wrapper">
 
-                        <div class="swiper-slide">
-                            <div class="calendar__item">
-                                <div class="calendar__item--cat">
-                                    Караганда
-                                </div>
-                                <div class="calendar__item--img">
-                                    <a href="/calendar-item.html">
-                                        <img src="/img/calendar-1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="calendar__item--info">
-                                    <div class="calendar__item--data">
-                                        27.02.2020
-                                    </div>
-                                    <div class="calendar__item--title">
-                                        <a href="/calendar-item.html">
-                                            Литературный  диалог «Золотая Орда: истоки казахской государственности и современность»
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="calendar__item">
-                                <div class="calendar__item--cat">
-                                    Караганда
-                                </div>
-                                <div class="calendar__item--img">
-                                    <a href="/calendar-item.html">
-                                        <img src="/img/calendar-2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="calendar__item--info">
-                                    <div class="calendar__item--data">
-                                        26.06.2020
-                                    </div>
-                                    <div class="calendar__item--title">
-                                        <a href="/calendar-item.html">
-                                            Историко-литературное путешествие «Цивилизация великой степи»
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="calendar__item">
-                                <div class="calendar__item--cat">
-                                    Караганда
-                                </div>
-                                <div class="calendar__item--img">
-                                    <a href="/calendar-item.html">
-                                        <img src="/img/calendar-3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="calendar__item--info">
-                                    <div class="calendar__item--data">
-                                        10.12.2020
-                                    </div>
-                                    <div class="calendar__item--title">
-                                        <a href="/calendar-item.html">
-                                            День книг по истории «Изучаем наследие Золотой Орды»
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="calendar__item">
-                                <div class="calendar__item--cat">
-                                    Караганда
-                                </div>
-                                <div class="calendar__item--img">
-                                    <a href="/calendar-item.html">
-                                        <img src="/img/calendar-1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="calendar__item--info">
-                                    <div class="calendar__item--data">
-                                        27.02.2020
-                                    </div>
-                                    <div class="calendar__item--title">
-                                        <a href="/calendar-item.html">
-                                            Литературный  диалог «Золотая Орда: истоки казахской государственности и современность»
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="calendar__item">
-                                <div class="calendar__item--cat">
-                                    Караганда
-                                </div>
-                                <div class="calendar__item--img">
-                                    <a href="/calendar-item.html">
-                                        <img src="/img/calendar-2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="calendar__item--info">
-                                    <div class="calendar__item--data">
-                                        26.06.2020
-                                    </div>
-                                    <div class="calendar__item--title">
-                                        <a href="/calendar-item.html">
-                                            Историко-литературное путешествие «Цивилизация великой степи»
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="calendar__item">
-                                <div class="calendar__item--cat">
-                                    Караганда
-                                </div>
-                                <div class="calendar__item--img">
-                                    <a href="/calendar-item.html">
-                                        <img src="/img/calendar-3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="calendar__item--info">
-                                    <div class="calendar__item--data">
-                                        10.12.2020
-                                    </div>
-                                    <div class="calendar__item--title">
-                                        <a href="/calendar-item.html">
-                                            День книг по истории «Изучаем наследие Золотой Орды»
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
+
+                    @if($calendar->ca)
+                     @foreach($calendar->ca as $v)
+                        <div class="swiper-slide">
+                            <div class="calendar__item">
+								@if(isset($v->relCity->name))
+                                <div class="calendar__item--cat">
+								{{$v->relCity->name}}
+                                </div>
+								@endif
+                                <div class="calendar__item--img">
+								@if(isset($calendar->photo))
+								 <a href="{{route('calendars-item',$v)}}">
+                                   <img src="{{URL::asset($v->photo)}}" alt="">
+								</a>
+					           @endif
+					        </div>
+                                <div class="calendar__item--info">
+                                    <div class="calendar__item--data">
+									@if(isset($calendar->photo))
+
+									{{$v->date}}
+									@endif
+                                    </div>
+									
+                                    <div class="calendar__item--title">
+                                        <a href="/calendar-item.html">
+										{!! mb_substr($v->name,0,65) !!}
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						@endforeach
+                    @endif
                     </div>
 
                 </div>

@@ -69,6 +69,7 @@ class CalendarsController extends SiteController
         Lang::get('front_main.filter.month'),
         Lang::get('front_main.filter.year'),
        ];
+	   
 		$gids = $this->getTabs();
 		
 		

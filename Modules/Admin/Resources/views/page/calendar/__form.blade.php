@@ -95,8 +95,31 @@ value='' name='text'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-de
 			@endif
         </select>
 		</div>
+		
 
 <br><br>
+ <div>   
+@php
+//dd($model->getDateAr());
+@endphp
+    Близкие мероприятия(по умолчанию все события на неделю вперед)
+			<select {{$page ? 'disabled': ''}} name="blizkie" id="" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				
+			@if(count($model->getDateAr()) > 0)
+            @foreach ($model->getDateAr() as $k => $v)
+                <option value="{{ $k }}" {{ $model->blizkie == $k ? 'selected' : '' }}>{{ $v }}</option>
+            @endforeach
+			@else
+				ничего нет
+			@endif
+        </select>
+		</div>
+<br><br>		
+		
+
+
+
 <div>
 <label for="text"><b>социальные кнопки:  поделиться</b></label>
  @php
