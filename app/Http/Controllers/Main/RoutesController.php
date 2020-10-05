@@ -15,7 +15,7 @@ use App\Http\Controllers\SiteController;
 use Modules\Entity\Model\Categories\Categories;
 use Modules\Entity\Model\LibCity\LibCity;
 use Illuminate\Support\Facades\DB;
-
+use Cache;
 
 class RoutesController extends SiteController
 {
@@ -40,8 +40,27 @@ class RoutesController extends SiteController
 	public function index(Request $request)
 	{
 
-		$items = Routes::filter($request)->latest()->paginate(10);
+		$items = Routes::filter($request)->latest()->paginate(9);
+		
+       $seo_desc=false;
+	   $seo_title=false;
+	   $lang = app()->getLocale();
+	   
+	   if(!isset($lang)){
+		   $lang ='ru';
+	   }
+	   if(Cache::has('seo-routes-'.$lang)){
 
+		 $item_seo = Cache::get('seo-routes-'.$lang);
+		  $seo_desc= $item_seo[1];
+		  $seo_title = $item_seo[0];
+		  
+	   }else{
+		   $model= Routes::where('id','=',1)->first();
+           $seo_desc=$model->seo_title;
+		   $seo_title = $model->seo_description;
+		}
+      
 
 		$cities = LibCity::query()->get();
 		$categories = DB::table('routes_categories')->get();
@@ -55,9 +74,9 @@ class RoutesController extends SiteController
 		$content = $sights_page;
 		$this->vars['content'] = $content;
 		$this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
-
+        $this->meta_desc = $seo_desc;
+		$this->meta_title = $seo_title;
+		
 		return $this->renderOutput();
 
     }

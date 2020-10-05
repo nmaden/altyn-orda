@@ -37,8 +37,8 @@ class Filter extends ModelFilter {
 	// 				$this->query->where('id', $request->routes);
 	// }
 	else {
-		//dd(15);
-					$this->query->latest();
+		$this->query->where('general','=',NULL);
+
 	}
 	
 		

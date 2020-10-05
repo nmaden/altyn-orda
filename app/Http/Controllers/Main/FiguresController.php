@@ -13,7 +13,7 @@ use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\DB;
 
 use Modules\Entity\Model\Figure\Figure;
-
+use Cache;
 class FiguresController extends SiteController
 {
 
@@ -27,14 +27,38 @@ class FiguresController extends SiteController
     public function index(Request $request)
 	{
         
-		$items = Figure::filter($request)->latest()->paginate(10);
+		$items = Figure::filter($request)->latest()->paginate(6);
+		
+	   $seo_desc=false;
+	   $seo_title=false;
+	   $lang = app()->getLocale();
+	   
+	   if(!isset($lang)){
+		   $lang ='ru';
+	   }
+	   if(Cache::has('seo-figure-'.$lang)){
+		 $item_seo = Cache::get('seo-figure-'.$lang);
+		  $seo_desc= $item_seo[1];
+		  $seo_title = $item_seo[0];
+		  
+	   }else{
+		   $model= Figure::where('id','=',1)->first();
+           $seo_desc=$model->seo_title;
+		   $seo_title = $model->seo_description;
+		}
+      
+		
+		
+		
 		
         $figures_page = view('orda' . '.figures.about-figures')->with(['items' => $items,'request' => $request])->render();
         $content = $figures_page;
 		$this->vars['content'] = $content;
 		$this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
+		
+		$this->meta_desc = $seo_desc;
+		$this->meta_title = $seo_title;
+		
 
 		return $this->renderOutput();
 

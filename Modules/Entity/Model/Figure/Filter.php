@@ -117,8 +117,9 @@ class Filter extends ModelFilter {
                     ->orderBy('university.rank_word', 'desc');
         }
         else {
-			
-            $this->query->latest();
+			$this->query->where('general','=',NULL);
+
+           
 		}
 
     }

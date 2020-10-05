@@ -12,7 +12,7 @@ use Modules\Entity\Model\Sights\Sights;
 use App\Repositories\GidsPepository;
 
 use App\Http\Controllers\SiteController;
-
+use Cache;
 class SightController extends SiteController
 {
     
@@ -31,13 +31,35 @@ class SightController extends SiteController
     {
 		
 	  $items = Sights::filter($request)->latest()->paginate(9);
+	  
+	  
+	   $seo_desc=false;
+	   $seo_title=false;
+	   $lang = app()->getLocale();
+	   
+	   if(!isset($lang)){
+		   $lang ='ru';
+	   }
+	   if(Cache::has('seo-sights-'.$lang)){
+		 $item_seo = Cache::get('seo-sights-'.$lang);
+		  $seo_desc= $item_seo[1];
+		  $seo_title = $item_seo[0];
+		  
+	   }else{
+		   $model= Sights::where('id','=',1)->first();
+           $seo_desc=$model->seo_title;
+		   $seo_title = $model->seo_description;
+		}
+      
+	  
+	  
 	  $gids = $this->getTabs();
       $sights_page = view('orda'.'.sights.sights')->with(['items'=>$items,'gid'=>$gids,'request'=>$request])->render();
 	    $content=$sights_page;
         $this->vars['content']= $content;
         $this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
+		$this->meta_desc = $seo_desc;
+		$this->meta_title = $seo_title;
 		
 		return $this->renderOutput();
     }
@@ -60,7 +82,7 @@ class SightController extends SiteController
 		       
 
 		//dd($this->gid_rep->get('*',3));
-		$gids= $this->gid_rep->get('*',3);
+		$gids= $this->gid_rep->get('*',3,false,['general',null]);
 		return $gids;
     	
     }	

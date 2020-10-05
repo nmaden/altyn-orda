@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
+use Cache;
 class DefaultUpdateAction {
     private $model = false;
     private $request = false;
@@ -40,12 +41,19 @@ class DefaultUpdateAction {
 		}
           $ar['edited_user_id'] = $this->request->user()->id;
 
-	     //dd($this->request->all());
-        $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
+	     if($this->request->seo_description && $this->request->seo_title){
+		   if($this->request->lang){
+			 
+			 Cache::forever('seo-figure-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
 
-        //dd($this->model->photo);
-        //$this->model->fill($ar);
-        //$this->model->save();
+		   }else{
+			   
+		     Cache::forever('seo-figure-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+		   }
+	   }
+	   
+        $this->model->fill($ar);
+        $this->model->save();
     }
 
    private function saveApplication(){

@@ -41,11 +41,16 @@ class CalendarUpdateAction {
          $ar['social'] = serialize($this->request->social);
        }
        
-	   if($this->model->id == 1 && $this->request->seo_title || 
-	   $this->model->id == 1 && $this->request->seo_description){
-		   Cache::forever('seo',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+	    if($this->request->seo_description && $this->request->seo_title){
+		   if($this->request->lang){
+			 
+			 Cache::forever('seo-calendar-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
 
+		   }else{
+		     Cache::forever('seo-calendar-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+		   }
 	   }
+	   
         $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
 		
     }

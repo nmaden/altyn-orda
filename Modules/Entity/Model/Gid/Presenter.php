@@ -66,6 +66,7 @@ trait Presenter {
 		}
 		
     function getSeoTitleAttribute($v){
+		
 		return $this->getTransField('seo_title', $v);
     }
 	

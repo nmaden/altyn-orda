@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
 use Route;
+use Cache;
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -46,6 +47,18 @@ class CalendarUpdateAction {
 			$ar['groups'] = serialize($this->request->groups);
 			
 		}
+		
+		if($this->request->seo_description && $this->request->seo_title){
+		   if($this->request->lang){
+			 
+			 Cache::forever('seo-routes-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+
+		   }else{
+			   
+		     Cache::forever('seo-routes-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+		   }
+	   }
+	   
         $this->model->fill($ar);
         $this->model->save();
     }

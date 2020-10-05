@@ -44,8 +44,9 @@ class Filter extends ModelFilter {
           
         
         else {
-			
-            $this->query->latest();
+			 $this->query->where('general','=',NULL);
+
+            //$this->query->latest();
 		}
 
     }

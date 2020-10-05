@@ -47,6 +47,7 @@ $ar=explode('_',$route);
 	   	<ul class="hidden-ul">
 	  <li>
 	 
+	
 	  <li  style="">
          <a href="<?php echo e(route('admin_gallery_update',1)); ?>">
          <span>
@@ -54,6 +55,7 @@ $ar=explode('_',$route);
 		</span>
 		</a>
 	</li>
+	
 
 	<li  style="">
        <a href="<?php echo e(route('admin_gallery')); ?>">
@@ -68,29 +70,75 @@ $ar=explode('_',$route);
 	   
 	   </li>
 	   
-	   
-
-
-	   
-	   
 <?php endif; ?>
 
-	  <li  style="background: <?php echo e(in_array('gid',$ar) ? '#ccc' : ''); ?>">
-       <a href="<?php echo e(route('admin_gid')); ?>">
+<li>
+       <a   style="background: <?php echo e(in_array('gid',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
 	   <span>Гиды и туроператоры
 	   </span></a>
-	   </li>
 	   
+	   
+	 <ul class="hidden-ul">
+	  <li>
+	 
+	
+	  <li  style="">
+         <a href="<?php echo e(route('admin_gid_update',1)); ?>">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+	</li>
+	
+
+	<li  style="">
+       <a href="<?php echo e(route('admin_gid')); ?>">
+	    <span>
+		 Гиды и туроператоры
+	   </span></a>
+	 </li>
+ </ul>
+ </li>
+	   
+	  
 	   
 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Sights\Sights::class)): ?>
 	   
-	    <li  style="background: <?php echo e(in_array('sights',$ar) ? '#ccc' : ''); ?>">
-	   <a href="<?php echo e(route('admin_sights')); ?>">
+	   
+	   
+	   
+<li>
+       <a   style="background: <?php echo e(in_array('sights',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
 	   <span>Достопримечательности
 	   </span></a>
-	   </li>
+	   
+	   
+	 <ul class="hidden-ul">
+	  <li>
+	 
+	
+	  <li  style="">
+         <a href="<?php echo e(route('admin_sights_update',1)); ?>">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+		
+	</li>
+	
+
+	<li  style="">
+       <a href="<?php echo e(route('admin_sights')); ?>">
+	 
+	   <span>Достопримечательности
+	   </span></a>
+	   
+	 </li>
+ </ul>
+ </li>
+	 
 <?php endif; ?>
 	   
 	   	                     
@@ -145,13 +193,41 @@ $ar=explode('_',$route);
 	   </span></a>
 	   </li>
 	   <?php endif; ?>
-	    <li  style="background: <?php echo e(in_array('routes',$ar) ? '#ccc' : ''); ?>">
-	   <a href="<?php echo e(route('admin_routes')); ?>">
+	    
+	   
+	   
+<li>
+       <a   style="background: <?php echo e(in_array('sights',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
 	   <span>Маршруты
 	   </span></a>
-	   </li>
 	   
+	   
+	 <ul class="hidden-ul">
+	  <li>
+	 
+	
+	  <li  style="">
+         <a href="<?php echo e(route('admin_routes_update',1)); ?>">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+		
+	</li>
+	
+
+	<li  style="">
+      <a href="<?php echo e(route('admin_routes')); ?>">
+	  
+	   <span>Маршруты
+	   </span></a>
+	   
+	   
+	 </li>
+ </ul>
+ </li>
+	
 	   	   <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Menu\Menu::class)): ?>
 
 	    <li  style="background: <?php echo e(in_array('menu',$ar) ? '#ccc' : ''); ?>">
@@ -167,8 +243,7 @@ $ar=explode('_',$route);
     
                     <li class="">
                        <a href="#" style="background: <?php echo e(in_array('about',$ar) || 
-					   in_array('tabs',$ar) || 
-					   in_array('figure',$ar)
+					   in_array('tabs',$ar)
 					   ? '#ccc' : ''); ?>" class="has-ul"><i class="icon-database-menu"></i><span>
 						О золотой орде
 						</span></a>
@@ -185,16 +260,45 @@ $ar=explode('_',$route);
                              <a href="<?php echo e(route('admin_tabs')); ?>"><span>табы</span></a>
 							 </li>
 							 
-							 <li  style="border: <?php echo e(in_array('figure',$ar) ? ' 1px solid #ccc' : ''); ?>">
-                             <a href="<?php echo e(route('admin_figure')); ?>"><span>Исторические личности</span></a>
-							 </li>
 							 
 							 
                         </ul>
                     </li>
                </li>
              <?php endif; ?>
+	   <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Figure\Figure::class)): ?>
+	   <li>
+       <a   style="background: <?php echo e(in_array('figure',$ar) ? '#ccc' : ''); ?>" href="#">
+	   <i class="icon-city"></i>
+	   <span>Исторические личности
+	   </span></a>
 	   
+	   
+	 <ul class="hidden-ul">
+	  <li>
+	 
+	
+	  <li  style="">
+         <a href="<?php echo e(route('admin_figure_update',1)); ?>">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+		
+	</li>
+	
+
+	<li  style="">
+        <a href="<?php echo e(route('admin_figure')); ?>"><span>Исторические личности</span></a>
+	</li>
+							 
+ </ul>
+ </li>
+	
+			 
+			 <?php endif; ?>
+
+
                   <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\LibCity\LibCity::class)): ?>
 
                     <li class="">

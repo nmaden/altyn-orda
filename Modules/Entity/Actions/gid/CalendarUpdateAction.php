@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
 use Route;
+use Cache;
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -40,8 +41,17 @@ class CalendarUpdateAction {
         else {
             unset($ar['photo']);
 		}
-      
-        
+     
+        if($this->request->seo_description && $this->request->seo_title){
+		   if($this->request->lang){
+			 
+			 Cache::forever('seo-gid-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+
+		   }else{
+		     Cache::forever('seo-gid-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+		   }
+	   }
+	   
         //$this->model->updateOrCreate(['id'=>$this->model->id],$ar);
 
         $this->model->fill($ar);

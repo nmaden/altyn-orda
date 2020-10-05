@@ -47,7 +47,7 @@ $ar=explode('_',$route);
 	   	<ul class="hidden-ul">
 	  <li>
 	 
-	 <!------
+	
 	  <li  style="">
          <a href="{{ route('admin_gallery_update',1) }}">
          <span>
@@ -55,7 +55,7 @@ $ar=explode('_',$route);
 		</span>
 		</a>
 	</li>
-	------->
+	
 
 	<li  style="">
        <a href="{{ route('admin_gallery') }}">
@@ -70,29 +70,75 @@ $ar=explode('_',$route);
 	   
 	   </li>
 	   
-	   
-
-
-	   
-	   
 @endcan
 
-	  <li  style="background: {{in_array('gid',$ar) ? '#ccc' : '' }}">
-       <a href="{{ route('admin_gid') }}">
+<li>
+       <a   style="background: {{in_array('gid',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Гиды и туроператоры
 	   </span></a>
-	   </li>
 	   
+	   
+	 <ul class="hidden-ul">
+	  <li>
+	 
+	
+	  <li  style="">
+         <a href="{{ route('admin_gid_update',1) }}">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+	</li>
+	
+
+	<li  style="">
+       <a href="{{ route('admin_gid') }}">
+	    <span>
+		 Гиды и туроператоры
+	   </span></a>
+	 </li>
+ </ul>
+ </li>
+	   
+	  
 	   
 @can('list', Modules\Entity\Model\Sights\Sights::class)
 	   
-	    <li  style="background: {{in_array('sights',$ar) ? '#ccc' : '' }}">
-	   <a href="{{ route('admin_sights') }}">
+	   
+	   
+	   
+<li>
+       <a   style="background: {{in_array('sights',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Достопримечательности
 	   </span></a>
-	   </li>
+	   
+	   
+	 <ul class="hidden-ul">
+	  <li>
+	 
+	
+	  <li  style="">
+         <a href="{{ route('admin_sights_update',1) }}">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+		
+	</li>
+	
+
+	<li  style="">
+       <a href="{{ route('admin_sights') }}">
+	 
+	   <span>Достопримечательности
+	   </span></a>
+	   
+	 </li>
+ </ul>
+ </li>
+	 
 @endcan
 	   
 	   	                     
@@ -147,13 +193,41 @@ $ar=explode('_',$route);
 	   </span></a>
 	   </li>
 	   @endcan
-	    <li  style="background: {{in_array('routes',$ar) ? '#ccc' : '' }}">
-	   <a href="{{ route('admin_routes') }}">
+	    
+	   
+	   
+<li>
+       <a   style="background: {{in_array('sights',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Маршруты
 	   </span></a>
-	   </li>
 	   
+	   
+	 <ul class="hidden-ul">
+	  <li>
+	 
+	
+	  <li  style="">
+         <a href="{{ route('admin_routes_update',1) }}">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+		
+	</li>
+	
+
+	<li  style="">
+      <a href="{{ route('admin_routes') }}">
+	  
+	   <span>Маршруты
+	   </span></a>
+	   
+	   
+	 </li>
+ </ul>
+ </li>
+	
 	   	   @can('list', Modules\Entity\Model\Menu\Menu::class)
 
 	    <li  style="background: {{in_array('menu',$ar) ? '#ccc' : '' }}">
@@ -169,8 +243,7 @@ $ar=explode('_',$route);
     
                     <li class="">
                        <a href="#" style="background: {{in_array('about',$ar) || 
-					   in_array('tabs',$ar) || 
-					   in_array('figure',$ar)
+					   in_array('tabs',$ar)
 					   ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
 						О золотой орде
 						</span></a>
@@ -187,16 +260,45 @@ $ar=explode('_',$route);
                              <a href="{{ route('admin_tabs') }}"><span>табы</span></a>
 							 </li>
 							 
-							 <li  style="border: {{in_array('figure',$ar) ? ' 1px solid #ccc' : '' }}">
-                             <a href="{{ route('admin_figure') }}"><span>Исторические личности</span></a>
-							 </li>
 							 
 							 
                         </ul>
                     </li>
                </li>
              @endcan
+	   @can('list', Modules\Entity\Model\Figure\Figure::class)
+	   <li>
+       <a   style="background: {{in_array('figure',$ar) ? '#ccc' : '' }}" href="#">
+	   <i class="icon-city"></i>
+	   <span>Исторические личности
+	   </span></a>
 	   
+	   
+	 <ul class="hidden-ul">
+	  <li>
+	 
+	
+	  <li  style="">
+         <a href="{{ route('admin_figure_update',1) }}">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+		
+	</li>
+	
+
+	<li  style="">
+        <a href="{{ route('admin_figure') }}"><span>Исторические личности</span></a>
+	</li>
+							 
+ </ul>
+ </li>
+	
+			 
+			 @endcan
+
+
                   @can('list', Modules\Entity\Model\LibCity\LibCity::class)
 
                     <li class="">

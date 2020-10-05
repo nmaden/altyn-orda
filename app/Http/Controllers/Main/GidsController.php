@@ -13,7 +13,7 @@ use Modules\Entity\Model\Language\Language;
 use Illuminate\Support\Facades\DB;
 use Config;
 use Modules\Entity\Model\Speac\LibSpeac;
-
+use Cache;
 class GidsController extends SiteController
 {
     
@@ -46,7 +46,25 @@ class GidsController extends SiteController
 		$categories = LibSpeac::query()->get();
 
         
-        
+       $seo_desc=false;
+	   $seo_title=false;
+	   	   
+       
+	   $lang = app()->getLocale();
+	   	   if(!isset($lang)){
+		   $lang ='ru';
+	   }
+	   if(Cache::has('seo-gid-'.$lang)){
+		 $item_seo = Cache::get('seo-gid-'.$lang);
+		  $seo_desc= $item_seo[1];
+		  $seo_title = $item_seo[0];
+		  
+	   }else{
+		   $model= Gid::where('id','=',1)->first();
+           $seo_desc=$model->seo_title;
+		   $seo_title = $model->seo_description;
+		}
+      
 		        		
 
 		$home_page = view('orda'.'.gid.gids')->with(['gid'=>$gid,'languages'=>$languages,'cities'=>$cities,'categories'=>$categories,'request'=> $request])->render();
@@ -56,8 +74,8 @@ class GidsController extends SiteController
         $content=$home_page;
         $this->vars['content']= $content;
         $this->keywords = '';
-		$this->meta_desc = '';
-		$this->title = '';
+		$this->meta_desc = $seo_desc;
+		$this->meta_title = $seo_title;
 		return $this->renderOutput();
 		
     }
