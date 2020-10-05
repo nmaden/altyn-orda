@@ -47,7 +47,8 @@ class CalendarUpdateAction {
 			$ar['groups'] = serialize($this->request->groups);
 			
 		}
-		
+			   if($this->request->general){
+
 		if($this->request->seo_description && $this->request->seo_title){
 		   if($this->request->lang){
 			 
@@ -58,7 +59,7 @@ class CalendarUpdateAction {
 		     Cache::forever('seo-routes-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
 		   }
 	   }
-	   
+			   }
         $this->model->fill($ar);
         $this->model->save();
     }

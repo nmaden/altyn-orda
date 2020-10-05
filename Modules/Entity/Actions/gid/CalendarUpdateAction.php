@@ -41,7 +41,8 @@ class CalendarUpdateAction {
         else {
             unset($ar['photo']);
 		}
-     
+     	   if($this->request->general){
+
         if($this->request->seo_description && $this->request->seo_title){
 		   if($this->request->lang){
 			 
@@ -51,7 +52,7 @@ class CalendarUpdateAction {
 		     Cache::forever('seo-gid-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
 		   }
 	   }
-	   
+		   }
         //$this->model->updateOrCreate(['id'=>$this->model->id],$ar);
 
         $this->model->fill($ar);
