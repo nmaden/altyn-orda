@@ -117,7 +117,7 @@ class RoutesController extends SiteController
 
 
 		//dd($this->gid_rep->get('*',3));
-		$gids = $this->gid_rep->get('*', 3);
+		$gids = $this->gid_rep->get('*', 3,false,['general',null]);
 		return $gids;
 	}
 }
