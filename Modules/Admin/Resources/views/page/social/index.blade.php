@@ -16,7 +16,7 @@
 					<tr>
 						<th >{{ $model->getLabel('id') }}</th>
 						
-						<th >{{ $model->getLabel('name') }}</th>
+						<th >ссылка на сеть</th>
 							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
@@ -31,7 +31,7 @@
 						<tr>
 							<td>{{ $i->id }}</td>
 
-							<td>{{ $i->path }}</td>
+							<td>{{ $i->name }}</td>
 							<td>{{ $i->edited_user_name }}</td>
 							
 							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>

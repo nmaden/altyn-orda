@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1a112f6029b4743989438cfbb76b23ca
+class ComposerStaticInit100d4be97e7693e593f6c98d02a05a18
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -3004,7 +3004,9 @@ class ComposerStaticInit1a112f6029b4743989438cfbb76b23ca
         'Modules\\Admin\\Http\\Controllers\\Lib\\CountryController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/CountryController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\LangStudyController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/LangStudyController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\LanguageController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Language/LanguageController.php',
+        'Modules\\Admin\\Http\\Controllers\\Lib\\SpeacController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/SpeacController.php',
         'Modules\\Admin\\Http\\Controllers\\Menu\\MenuController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/menu/MenuController.php',
+        'Modules\\Admin\\Http\\Controllers\\Meta\\MetaController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Meta/MetaController.php',
         'Modules\\Admin\\Http\\Controllers\\Routes\\RoutesController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/routes/RoutesController.php',
         'Modules\\Admin\\Http\\Controllers\\Sights\\SightsController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/sights/SightsController.php',
         'Modules\\Admin\\Http\\Controllers\\Slider\\SliderController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Slider/SliderController.php',
@@ -3058,6 +3060,7 @@ class ComposerStaticInit1a112f6029b4743989438cfbb76b23ca
         'Modules\\Entity\\Actions\\Sights\\CalendarDeleteAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarDeleteAction.php',
         'Modules\\Entity\\Actions\\Sights\\CalendarSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarSaveAction.php',
         'Modules\\Entity\\Actions\\Sights\\CalendarUpdateAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Sights/CalendarUpdateAction.php',
+        'Modules\\Entity\\Actions\\StudentRegistrationAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/GidRegistrationAction.php',
         'Modules\\Entity\\Actions\\Tabs\\DefaultDeleteAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Tabs/DefaultDeleteAction.php',
         'Modules\\Entity\\Actions\\Tabs\\DefaultUpdateAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Tabs/DefaultUpdateAction.php',
         'Modules\\Entity\\Actions\\UniverSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/UniverSaveAction.php',
@@ -3087,6 +3090,9 @@ class ComposerStaticInit1a112f6029b4743989438cfbb76b23ca
         'Modules\\Entity\\Model\\Gallery\\Application\\Application' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Application/Application.php',
         'Modules\\Entity\\Model\\Gallery\\Application\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Application/Presenter.php',
         'Modules\\Entity\\Model\\Gallery\\Requirement' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/Requirement.php',
+        'Modules\\Entity\\Model\\GidData\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/GidData/Filter.php',
+        'Modules\\Entity\\Model\\GidData\\GidData' => __DIR__ . '/../..' . '/Modules/Entity/Model/GidData/GidData.php',
+        'Modules\\Entity\\Model\\GidData\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/GidData/Presenter.php',
         'Modules\\Entity\\Model\\Gid\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Gid/Filter.php',
         'Modules\\Entity\\Model\\Gid\\Gid' => __DIR__ . '/../..' . '/Modules/Entity/Model/Gid/Gid.php',
         'Modules\\Entity\\Model\\Gid\\GidLang' => __DIR__ . '/../..' . '/Modules/Entity/Model/Gid/GidLang.php',
@@ -3128,6 +3134,10 @@ class ComposerStaticInit1a112f6029b4743989438cfbb76b23ca
         'Modules\\Entity\\Model\\Menu\\Menu' => __DIR__ . '/../..' . '/Modules/Entity/Model/Menu/Menu.php',
         'Modules\\Entity\\Model\\Menu\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Menu/Presenter.php',
         'Modules\\Entity\\Model\\Menu\\TransMenu' => __DIR__ . '/../..' . '/Modules/Entity/Model/Menu/TransMenu.php',
+        'Modules\\Entity\\Model\\Meta\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Meta/Filter.php',
+        'Modules\\Entity\\Model\\Meta\\Meta' => __DIR__ . '/../..' . '/Modules/Entity/Model/Meta/Meta.php',
+        'Modules\\Entity\\Model\\Meta\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Meta/Presenter.php',
+        'Modules\\Entity\\Model\\Meta\\TransMeta' => __DIR__ . '/../..' . '/Modules/Entity/Model/Meta/TransMeta.php',
         'Modules\\Entity\\Model\\Program\\ProgramDiscipline' => __DIR__ . '/../..' . '/Modules/Entity/Model/Calendar/ProgramDiscipline.php',
         'Modules\\Entity\\Model\\Routes\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Routes/Filter.php',
         'Modules\\Entity\\Model\\Routes\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Routes/Presenter.php',
@@ -3146,6 +3156,9 @@ class ComposerStaticInit1a112f6029b4743989438cfbb76b23ca
         'Modules\\Entity\\Model\\Social\\Social' => __DIR__ . '/../..' . '/Modules/Entity/Model/Social/Social.php',
         'Modules\\Entity\\Model\\Social\\Socialitem' => __DIR__ . '/../..' . '/Modules/Entity/Model/Social/Socialitem.php',
         'Modules\\Entity\\Model\\Social\\TransSocial' => __DIR__ . '/../..' . '/Modules/Entity/Model/Social/TransSocial.php',
+        'Modules\\Entity\\Model\\Speac\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Speac/Filter.php',
+        'Modules\\Entity\\Model\\Speac\\LibSpeac' => __DIR__ . '/../..' . '/Modules/Entity/Model/Speac/LibSpeac.php',
+        'Modules\\Entity\\Model\\Speac\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Speac/Presenter.php',
         'Modules\\Entity\\Model\\StatTrans\\StatTrans' => __DIR__ . '/../..' . '/Modules/Entity/Model/StatTrans/StatTrans.php',
         'Modules\\Entity\\Model\\SysLang\\SysLang' => __DIR__ . '/../..' . '/Modules/Entity/Model/SysLang/SysLang.php',
         'Modules\\Entity\\Model\\SysModelLog\\SysModelLog' => __DIR__ . '/../..' . '/Modules/Entity/Model/SysModelLog/SysModelLog.php',
@@ -3156,6 +3169,9 @@ class ComposerStaticInit1a112f6029b4743989438cfbb76b23ca
         'Modules\\Entity\\Model\\Tabs\\Tabs' => __DIR__ . '/../..' . '/Modules/Entity/Model/Tabs/Tabs.php',
         'Modules\\Entity\\Model\\Tabs\\TransTabs' => __DIR__ . '/../..' . '/Modules/Entity/Model/Tabs/TransTabs.php',
         'Modules\\Entity\\Model\\TransLib\\TransLib' => __DIR__ . '/../..' . '/Modules/Entity/Model/TransLib/TransLib.php',
+        'Modules\\Entity\\Policies\\ApplicationPolicy' => __DIR__ . '/../..' . '/Modules/Entity/Policies/ApplicationPolicy.php',
+        'Modules\\Entity\\Policies\\ContentPolicy' => __DIR__ . '/../..' . '/Modules/Entity/Policies/ContentPolicy.php',
+        'Modules\\Entity\\Policies\\MainPolicy' => __DIR__ . '/../..' . '/Modules/Entity/Policies/MainPolicy.php',
         'Modules\\Entity\\Providers\\EntityServiceProvider' => __DIR__ . '/../..' . '/Modules/Entity/Providers/EntityServiceProvider.php',
         'Modules\\Entity\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Entity/Providers/RouteServiceProvider.php',
         'Modules\\Entity\\Services\\ChangeModelService' => __DIR__ . '/../..' . '/Modules/Entity/Services/ChangeModelService.php',
@@ -5444,10 +5460,10 @@ class ComposerStaticInit1a112f6029b4743989438cfbb76b23ca
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1a112f6029b4743989438cfbb76b23ca::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1a112f6029b4743989438cfbb76b23ca::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit1a112f6029b4743989438cfbb76b23ca::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit1a112f6029b4743989438cfbb76b23ca::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit100d4be97e7693e593f6c98d02a05a18::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit100d4be97e7693e593f6c98d02a05a18::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit100d4be97e7693e593f6c98d02a05a18::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit100d4be97e7693e593f6c98d02a05a18::$classMap;
 
         }, null, ClassLoader::class);
     }

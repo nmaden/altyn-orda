@@ -18,6 +18,7 @@ use Cache;
 use DB;
 use Route;
 use Menu;
+
 use Modules\Entity\Model\Menu\Menu as Menus;
 
 class AppServiceProvider extends ServiceProvider
@@ -89,47 +90,25 @@ class AppServiceProvider extends ServiceProvider
       }
 
 
-      $nav= Menus::get('*');
+       $nav= Menus::get('*');
        $menu= $this->getmenu($nav);
-        $this->menus = $menu;
+       $this->menus = $menu;
 		
         View::composer('orda.*', function ($view) {
-			
-			
-			
-         $view->with('menu',$this->menus);
+			$view->with('menu',$this->menus);
         });
-		/*
-   LibCity::creating(function (LibCity $city) {
-	   
-	if(Cache::has('city')){
 		
-		$cache = Cache::get('city');
+		if(Cache::has('social')){
 		
-		$cache[$city->id]=$city->name;
-		Cache::forever('city',$cache);
-    }else{
-		Cache::forever('city',LibCity::pluck('name', 'id')->toArray());
-    }});	
-	LibCity::updating(function (LibCity $city) {
-	if(Cache::has('city')){
-		$cache = Cache::get('city');
-		$cache[$city->id]=$city->name;
-		Cache::forever('city',$cache);
-    }else{
-		Cache::forever('city',LibCity::pluck('name', 'id')->toArray());
-    }});
-	LibCity::deleted(function (LibCity $city) {
-	if(Cache::has('city')){
-		$cache = Cache::get('city');
-		if(count($cache) > 1){
-		$arr=array($city->name);
-		$cache = array_diff($cache,$arr);
-		Cache::forever('city',$cache);
-		}else{Cache::forget('city');}
-    }});
-	*/
-/*----------------------------------------------------------------------*/	
+        View::composer('orda.footer.footer', function ($view) {
+			$social = Cache::get('social');
+
+			$view->with('social',$social);
+        });
+		}
+		
+		
+	/*
 	LibCountry::updating(function (LibCountry $country) {
 	if(Cache::has('country')){
 		$cache = Cache::get('country');
@@ -138,6 +117,7 @@ class AppServiceProvider extends ServiceProvider
     }else{
 		Cache::forever('country',LibCountry::pluck('name', 'id')->toArray());
     }});
+	
 	LibCountry::creating(function (LibCountry $country) {
 	if(Cache::has('country')){
 		$cache = Cache::get('country');
@@ -155,6 +135,7 @@ class AppServiceProvider extends ServiceProvider
 		Cache::forever('country',$cache);
 		}else{Cache::forget('country');}
     }});
+	*/
 /*----------------------------------------------------------------------*/		
 		
 		

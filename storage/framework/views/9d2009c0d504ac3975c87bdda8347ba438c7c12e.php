@@ -175,14 +175,14 @@ $ar=explode('_',$route);
 	   
 	   
 	   
-<!--------------
+
 	    <li  style="background: <?php echo e(in_array('social',$ar) ? '#ccc' : ''); ?>">
 	   <a href="<?php echo e(route('admin_social')); ?>">
 	   <i class="icon-city"></i>
 	   <span>социальные кнопки
 	   </span></a>
 	   </li>
-------------------->
+
 	   
 	   <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Slider\Slider::class)): ?>
 

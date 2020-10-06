@@ -21,7 +21,7 @@
 
 
 <?php $__env->startSection('footer'); ?>
-<?php echo $__env->make('orda'.'.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('orda'.'.footer.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->stopSection(); ?>
 
 

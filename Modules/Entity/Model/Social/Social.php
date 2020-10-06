@@ -6,7 +6,7 @@ use Modules\Entity\Traits\CheckTrans;
 
 class Social extends ModelParent {
     protected $table = 'social';
-	protected $fillable = ['namesocial','edited_user_id','path'];
+	protected $fillable = ['photo','edited_user_id','name'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

@@ -40,19 +40,13 @@ class DefaultUpdateAction {
             unset($ar['photo']);
 		}
           $ar['edited_user_id'] = $this->request->user()->id;
-	   if($this->request->general){
-
-	     if($this->request->seo_description && $this->request->seo_title){
-		   if($this->request->lang){
-			 
-			 Cache::forever('seo-figure-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
-
-		   }else{
-			   
-		     Cache::forever('seo-figure-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
-		   }
-	   }
-	   }
+		  
+	   if($this->request->general){if($this->request->seo_description && $this->request->seo_title){
+		   if($this->request->lang){Cache::forever('seo-figure-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+          }else{Cache::forever('seo-figure-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+		   }}}
+	   
+	   
         $this->model->fill($ar);
         $this->model->save();
     }

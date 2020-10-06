@@ -19,6 +19,6 @@
 
 
 @section('footer')
-@include('orda'.'.layouts.footer')
+@include('orda'.'.footer.footer')
 @endsection
 

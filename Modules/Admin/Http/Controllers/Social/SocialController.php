@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 
 use Modules\Admin\Traits\MainCrudMethod;
 
-use Modules\Entity\Actions\Defaults\DefaultSaveAction as ModelCreateAction;
+use Modules\Entity\Actions\Defaults\DefaultUpdateAction as ModelCreateAction;
 
 use Modules\Entity\Actions\Defaults\DefaultUpdateAction as ModelUpdateAction;
 

@@ -175,14 +175,14 @@ $ar=explode('_',$route);
 	   
 	   
 	   
-<!--------------
+
 	    <li  style="background: {{in_array('social',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_social') }}">
 	   <i class="icon-city"></i>
 	   <span>социальные кнопки
 	   </span></a>
 	   </li>
-------------------->
+
 	   
 	   @can('list', Modules\Entity\Model\Slider\Slider::class)
 

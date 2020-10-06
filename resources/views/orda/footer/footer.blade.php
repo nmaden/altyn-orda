@@ -9,8 +9,16 @@
                     </a>
                 </div>
                 <div class="header__right">
+				<img src="">
                     <div class="header__menu">
-                @include('orda'.'.navigatitem2',['items'=>$menu->roots()])
+					
+
+                @include('orda'.'.footer.navigatitem',['items'=>$menu->roots()])
+
+                 <div style="clear:both"></div>
+                 <br>
+				@include('orda'.'.footer.logotips',['items'=>$menu->roots(),'social'=>$social])
+				                     
 
                     </div>
                 </div>
