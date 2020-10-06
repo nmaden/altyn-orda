@@ -1,6 +1,6 @@
 <div style='float:right;position:relative;right:15px'>
-<a href=""><img width="80px" src="/test/logo.png"></a>&nbsp&nbsp
-<a href=""><img width="80px" src="/test/1.png"></a>
+<a href=""><img width="80px" src="/logo/logo.png"></a>&nbsp&nbsp
+<a href=""><img width="80px" src="/logo/1.png"></a>
 @if($social)
 	
 @foreach($social as $v)
