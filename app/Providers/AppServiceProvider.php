@@ -102,7 +102,9 @@ class AppServiceProvider extends ServiceProvider
 		
         View::composer('orda.footer.footer', function ($view) {
 			$social = Cache::get('social');
-
+            if(!isset($social)){
+				$social =false;
+			}
 			$view->with('social',$social);
         });
 		}
