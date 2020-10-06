@@ -22,6 +22,7 @@ use Cache;
 use Modules\Entity\Model\Cat\LibCat;
 
 
+
 class CalendarsController extends SiteController
 {
 
@@ -39,7 +40,6 @@ class CalendarsController extends SiteController
 	public function index(Request $request)
 	{
 	
-        
 		$items = Calendar::filter($request)->latest()->paginate(9);
 		
       $seo_desc=false;
@@ -84,7 +84,7 @@ class CalendarsController extends SiteController
 			'protocol' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://",
 			'items' => $items, 'categories'=>$categories,'cities'=>$cities, 'sort_calendars'=>$sort_calendar, 'gid' => $gids, 'request' => $request])->render();
 		
-		//dd($item_seo->meta_title);
+		
 		$content = $sights_page;
 		$this->vars['content'] = $content;
 		$this->keywords = '';

@@ -43,7 +43,6 @@ return array(
     'App\\Http\\Controllers\\Main\\User\\LoginController' => $baseDir . '/app/Http/Controllers/Main/User/LoginController.php',
     'App\\Http\\Controllers\\Main\\User\\ProfileController' => $baseDir . '/app/Http/Controllers/Main/User/ProfileController.php',
     'App\\Http\\Controllers\\Main\\User\\RegistrationController' => $baseDir . '/app/Http/Controllers/Main/User/RegistrationController.php',
-    'App\\Http\\Controllers\\SiteController' => $baseDir . '/app/Http/Controllers/SiteController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\AdminAuth' => $baseDir . '/app/Http/Middleware/AdminAuth.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

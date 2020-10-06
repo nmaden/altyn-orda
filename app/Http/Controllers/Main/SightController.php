@@ -11,7 +11,7 @@ use Modules\Entity\Model\Sights\Sights;
 
 use App\Repositories\GidsPepository;
 
-use App\Http\Controllers\SiteController;
+
 use Cache;
 class SightController extends SiteController
 {

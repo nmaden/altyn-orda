@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use Config;
 
-use App\Http\Controllers\SiteController;
+
 
 use Illuminate\Support\Facades\DB;
 

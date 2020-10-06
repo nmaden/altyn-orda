@@ -11,7 +11,7 @@ use Modules\Entity\Model\Routes\Routes;
 
 use App\Repositories\GidsPepository;
 
-use App\Http\Controllers\SiteController;
+
 use Modules\Entity\Model\Categories\Categories;
 use Modules\Entity\Model\LibCity\LibCity;
 use Illuminate\Support\Facades\DB;
