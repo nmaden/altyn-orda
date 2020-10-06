@@ -2482,7 +2482,7 @@ return array(
     'Modules\\Admin\\Http\\Controllers\\Lib\\ContinentController' => $baseDir . '/Modules/Admin/Http/Controllers/Lib/ContinentController.php',
     'Modules\\Admin\\Http\\Controllers\\Lib\\CountryController' => $baseDir . '/Modules/Admin/Http/Controllers/Lib/CountryController.php',
     'Modules\\Admin\\Http\\Controllers\\Lib\\LangStudyController' => $baseDir . '/Modules/Admin/Http/Controllers/Lib/LangStudyController.php',
-    'Modules\\Admin\\Http\\Controllers\\Lib\\LanguageController' => $baseDir . '/Modules/Admin/Http/Controllers/Language/LanguageController.php',
+    'Modules\\Admin\\Http\\Controllers\\Lib\\LanguageController' => $baseDir . '/Modules/Admin/Http/Controllers/Lib/LanguageController.php',
     'Modules\\Admin\\Http\\Controllers\\Lib\\SpeacController' => $baseDir . '/Modules/Admin/Http/Controllers/Lib/SpeacController.php',
     'Modules\\Admin\\Http\\Controllers\\Menu\\MenuController' => $baseDir . '/Modules/Admin/Http/Controllers/menu/MenuController.php',
     'Modules\\Admin\\Http\\Controllers\\Meta\\MetaController' => $baseDir . '/Modules/Admin/Http/Controllers/Meta/MetaController.php',

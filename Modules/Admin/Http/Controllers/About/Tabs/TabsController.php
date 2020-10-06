@@ -25,4 +25,17 @@ class TabsController extends Controller {
     protected $action_create = ModelCreateAction::class;
     protected $action_update = ModelUpdateAction::class;
     protected $action_delete = ModelDeleteAction::class;
+	
+	 protected function validator(array $data)
+    {
+		//nullable
+        return \Validator::make($data, [
+		 //'name' => 'sometimes|required|string',
+         //'vosrast' => 'sometimes|nullable|numeric',
+	     //'opyt' => 'sometimes|numeric',
+	     //'imya' => 'sometimes|string',
+	     //'price' => 'sometimes|nullable|numeric',
+        ]);
+    }
+	
 }

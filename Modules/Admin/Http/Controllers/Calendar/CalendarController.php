@@ -24,4 +24,18 @@ class CalendarController extends Controller {
     protected $action_create = ModelCreateAction::class;
     protected $action_update = ModelUpdateAction::class;
     protected $action_delete = ModelDeleteAction::class;
+	
+	//nullable
+        protected function validator(array $data)
+    {
+		//nullable
+        return \Validator::make($data, [
+		 //'name' => 'sometimes|required|nullable',
+         
+        ]);
+		
+    }
+
+	
+		
 }

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit100d4be97e7693e593f6c98d02a05a18
+class ComposerStaticInit5ac0cf5bb4a39c317de7de9a9c1a0ec2
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -3003,7 +3003,7 @@ class ComposerStaticInit100d4be97e7693e593f6c98d02a05a18
         'Modules\\Admin\\Http\\Controllers\\Lib\\ContinentController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/ContinentController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\CountryController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/CountryController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\LangStudyController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/LangStudyController.php',
-        'Modules\\Admin\\Http\\Controllers\\Lib\\LanguageController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Language/LanguageController.php',
+        'Modules\\Admin\\Http\\Controllers\\Lib\\LanguageController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/LanguageController.php',
         'Modules\\Admin\\Http\\Controllers\\Lib\\SpeacController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Lib/SpeacController.php',
         'Modules\\Admin\\Http\\Controllers\\Menu\\MenuController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/menu/MenuController.php',
         'Modules\\Admin\\Http\\Controllers\\Meta\\MetaController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Meta/MetaController.php',
@@ -5460,10 +5460,10 @@ class ComposerStaticInit100d4be97e7693e593f6c98d02a05a18
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit100d4be97e7693e593f6c98d02a05a18::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit100d4be97e7693e593f6c98d02a05a18::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit100d4be97e7693e593f6c98d02a05a18::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit100d4be97e7693e593f6c98d02a05a18::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5ac0cf5bb4a39c317de7de9a9c1a0ec2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5ac0cf5bb4a39c317de7de9a9c1a0ec2::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit5ac0cf5bb4a39c317de7de9a9c1a0ec2::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit5ac0cf5bb4a39c317de7de9a9c1a0ec2::$classMap;
 
         }, null, ClassLoader::class);
     }

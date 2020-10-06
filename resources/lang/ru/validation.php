@@ -177,7 +177,10 @@ return [
 		  'numeric'=>'Поле :attribute должно быть числом',
 		  'string'=>'Поле :attribute должно быть строкой',
 		],
-		
+		'photo'=>[
+		  'dimensions'=>'Разрешеный диапозон ширины изображения от :min_widthpx до :max_widthpx'
+
+		]
     ],
 
     /*

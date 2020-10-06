@@ -25,4 +25,30 @@ class SocialController extends Controller {
     protected $action_create = ModelCreateAction::class;
     protected $action_update = ModelUpdateAction::class;
     protected $action_delete = ModelDeleteAction::class;
+	
+	
+	
+	
+	
+	
+	protected function validator(array $data)
+    {
+		//nullable
+		//size:512|
+        return \Validator::make($data, [
+		 //'name' => 'sometimes|required|nullable',
+         'photo' => 'nullable|sometimes|file|mimes:jpeg,png|dimensions:min_width=30,max_width=40'
+        ]);
+    }
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

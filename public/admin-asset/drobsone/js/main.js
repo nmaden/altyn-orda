@@ -43,7 +43,7 @@ $('body').on('click','.slider_remove',function(e){
         success: function(file, responce){
 		
 	    $('#drobzone-photo').html(responce); 
-        this.removeFile(file);		
+        //this.removeFile(file);		
         //console.log(responce);
         }
     });

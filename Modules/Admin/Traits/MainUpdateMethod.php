@@ -29,7 +29,13 @@ trait MainUpdateMethod  {
     }
 
     public function saveUpdate(Request $request, ModelParent $item) {
-
+		
+		
+       $validator = $this->validator($request->all());
+        if ($validator->fails()) { 
+        return redirect()->back()->withErrors($validator)->withInput();
+        };
+	
 
    
      if ($request->lang && $request->lang != 'ru'){

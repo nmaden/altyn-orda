@@ -48,6 +48,13 @@ class="form-control"/>
 @else
 Фото не загружено
 @endif
+
+@if ($errors->has('photo'))
+   <span class="help-block">
+      <strong style='color:#a94442'>{{ $errors->first('photo') }}</strong>
+    </span>
+@endif
+	
 </div>
 
 <br><br>
@@ -58,7 +65,7 @@ class="form-control"/>
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
 name='name' placeholder="{{$page ? '': 'http://www.w3.org/2000/svg'}} " 
-class="form-control"/>
+class="form-control"/>		   
 </div>
 
 

@@ -1,10 +1,8 @@
-<div style='float:right'>
-<img width="80px" src="/test/logo.png">&nbsp&nbsp
-<img width="80px" src="/test/1.jpg">
+<div style='float:right;position:relative;right:15px'>
+<a href=""><img width="80px" src="/test/logo.png"></a>&nbsp&nbsp
+<a href=""><img width="80px" src="/test/1.png"></a>
 @if($social)
-	@php
-	//dd($social);
-	@endphp
+	
 @foreach($social as $v)
 &nbsp&nbsp
 <a href="{{$v['name']}}">
