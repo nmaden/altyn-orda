@@ -98,16 +98,16 @@ class AppServiceProvider extends ServiceProvider
 			$view->with('menu',$this->menus);
         });
 		
-		if(Cache::has('social')){
 		
         View::composer('orda.footer.footer', function ($view) {
+			$social = false;
+			if(Cache::has('social')){
+
 			$social = Cache::get('social');
-            if(!isset($social)){
-				$social =false;
-			}
+            }
 			$view->with('social',$social);
         });
-		}
+		
 		
 		
 	/*
