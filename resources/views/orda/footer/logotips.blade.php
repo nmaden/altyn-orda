@@ -6,7 +6,7 @@
 @foreach($social as $v)
 &nbsp&nbsp
 <a href="{{$v['name']}}">
-	<img width="30px" src="{{URL::asset($v['photo'])}}"/>
+	<img height="25px"  src="{{URL::asset($v['photo'])}}"/>
 </a>
 @endforeach
 
