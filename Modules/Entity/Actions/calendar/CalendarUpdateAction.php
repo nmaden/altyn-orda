@@ -52,7 +52,9 @@ class CalendarUpdateAction {
 		     Cache::forever('seo-calendar-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
 		   }
 	   }
+	   
 	}
+	
         $this->model->updateOrCreate(['id'=>$this->model->id],$ar);
 		
     }

@@ -197,7 +197,7 @@ $ar=explode('_',$route);
 	   
 	   
 <li>
-       <a   style="background: <?php echo e(in_array('sights',$ar) ? '#ccc' : ''); ?>" href="#">
+       <a   style="background: <?php echo e(in_array('routes',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
 	   <span>Маршруты
 	   </span></a>

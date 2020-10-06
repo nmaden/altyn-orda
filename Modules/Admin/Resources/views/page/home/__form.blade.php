@@ -1,6 +1,7 @@
 @php
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
+
 $page = false;
 if(in_array('show',$ar)){
 	$page = true;
@@ -10,6 +11,8 @@ if(in_array('show',$ar)){
 <br><br>
 
 @if($model->id == 5)
+	@if($lang == 'ru' || !isset($lang) || $lang=='')
+
 <div>
 <label for="text"><b>Достопримечательности на карте</b></label> 
 <select name="sight_id[]" 
@@ -71,6 +74,9 @@ value="{{ $k }}"
 @endforeach
 </select>
 </div> 
+
+
+@endif
 
 @else
 	

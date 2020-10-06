@@ -13,6 +13,11 @@ return [
 	'meta_create'=>'Создание',
 	
 	
+	'home_update'=>'Обновление',
+	'home'=>'Главная',
+	'home_show'=>'Просмотр',
+	'home_create'=>'Создание',
+	
 	'figure_update'=>'Обновление',
 	'figure'=>'Исторические личности',
 	'about_show'=>'Просмотр',
