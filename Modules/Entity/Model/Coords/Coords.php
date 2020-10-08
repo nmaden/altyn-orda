@@ -14,7 +14,7 @@ class Coords extends ModelParent {
  
 	
 	 function relRoutes(){
-       return $this->hasOne('Modules\Entity\Model\Routes\Routes');
+       return $this->hasOne('Modules\Entity\Model\Routes\Routes','routes_id');
     }
 	
 	

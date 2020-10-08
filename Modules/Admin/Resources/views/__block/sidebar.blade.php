@@ -196,7 +196,7 @@ $ar=explode('_',$route);
 	    
 	   
 	   
-<li>
+       <li>
        <a   style="background: {{in_array('routes',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Маршруты
@@ -213,10 +213,14 @@ $ar=explode('_',$route);
 		  Общие элементы страницы
 		</span>
 		</a>
-		
-	</li>
-	
-
+	  </li>
+	  <li  style="">
+         <a href="{{ route('admin_coords') }}">
+         <span>
+		  Конструктор маршрутов
+		</span>
+		</a>
+	  </li>
 	<li  style="">
       <a href="{{ route('admin_routes') }}">
 	  

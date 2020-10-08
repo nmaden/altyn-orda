@@ -9,7 +9,7 @@ use Modules\Admin\Traits\MainCrudMethod;
 
 use Modules\Entity\Actions\Defaults\DefaultSaveAction as ModelCreateAction;
 
-use Modules\Entity\Actions\Defaults\DefaultUpdateAction as ModelUpdateAction;
+use Modules\Entity\Actions\Coords\DefaultUpdateAction as ModelUpdateAction;
 
 use Modules\Entity\Actions\Defaults\DefaultDeleteAction as ModelDeleteAction;
 
