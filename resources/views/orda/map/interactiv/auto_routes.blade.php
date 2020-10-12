@@ -1,6 +1,7 @@
 <script>
 
-var json_model_mame = JSON.parse(decodeURIComponent(name_json));
+var json_model_mame= JSON.parse(decodeURIComponent(name_json));
+
 	
      var ar =[];
 	 //console.log(json_model[0][0]);
@@ -18,61 +19,13 @@ var json_model_mame = JSON.parse(decodeURIComponent(name_json));
 
   
 		})
+		
 		//console.log(ar[0][0]);
         window.onload = function () {
             setTimeout(function () { getYaMap(); }, 3000);
         }
 
         function getYaMap() {
-
-            var multiRoute = new ymaps.multiRouter.MultiRoute({
-                referencePoints: ar,
-                params: {
-                    results: 1,
-                    reverseGeocoding: true
-                }
-
-            }, {
-                boundsAutoApply: true,
-
-                wayPointStartIconLayout: "default#image",
-                wayPointStartIconImageHref: "",
-                wayPointIconLayout: "default#image",
-                wayPointIconImageHref: "",
-                wayPointFinishIconLayout: "default#image",
-                wayPointFinishIconImageHref: "",
-
-
-                routeStrokeWidth: 2,
-                routeStrokeColor: "#0A8232",
-                routeActiveStrokeWidth: 6,
-                routeActiveStrokeColor: "#0A8232",
-            });
-
-
-            multiRoute.model.events.add('requestsuccess', function () {
-                var activeRoute = multiRoute.getActiveRoute();
-                var activeRoutePaths = activeRoute.getPaths();
-              
-                var i = 0;
-                var distance = [];
-                var distance2 = [];
-                activeRoutePaths.each(function (path) {
-                    distance[i] = path.properties.get("distance").value/1000;
-                    distance2[i] = 0;
-                    i++;
-                    /*console.log("Distance: " + path.properties.get("distance").text);
-                    console.log("Travel time: " + path.properties.get("duration").text);*/
-                });
-                for(var i = 0; i<distance.length; i++){
-                    for(var j = i; j<distance.length; j++){
-                        distance2[i] += distance[j];
-                    }
-                    distance2[i] = Math.ceil(distance2[i]);
-                    document.getElementById('route'+i).textContent = distance2[i] + ' км';
-                }
-                //console.log(distance2);
-            });
 
             // Создаем карту с добавленными на нее кнопками.
             var map_m = new ymaps.Map('maps', {
@@ -113,8 +66,12 @@ var size = keys.length;
 		var index = coord.indexOf(',');
         var coord_a_1 = coord.substr(0,index);
         var coord_a_2 = coord.substr(index+1);
-				var coord_name = json_model_mame[key];
+		var coord_name = json_model_mame[key];
+		if(coord_name){
 		coord_name = coord_name.replace(/\+/g, ' ');
+		}else{
+			coord_name ='';
+		}
 
 		//coord_name = coord_name.replace(/\+/g, ' ');
 		coord_a_2 = coord_a_2.replace(/\+/g, ' ');
@@ -140,10 +97,24 @@ var size = keys.length;
 		
 	       })
    
+var geometry = ar,
+			
+			properties = {
+				hintContent: "Ломаная линия"
+			},
+			options = {
+				draggable: true,
+				strokeColor: '#0A8232',
+				strokeWidth: 5
+        
+			},
+			
+			polyline = new ymaps.Polyline(geometry, properties, options);
+			
             map_m.behaviors.disable('scrollZoom');
             // Добавляем мультимаршрут на карту.
-            map_m.geoObjects.add(multiRoute);
-
+            map_m.geoObjects.add(polyline);
+	       map_m.setBounds(map_m.geoObjects.getBounds(),{checkZoomRange:true, zoomMargin:9});
         }
 
   

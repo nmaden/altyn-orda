@@ -17,10 +17,8 @@ class Routes extends ModelParent {
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
 
-	
-
-	 function coords(){
-        return $this->hasMany('Modules\Entity\Model\Coords\Coords', 'routes_id');
+	function coords(){
+        return $this->hasOne('Modules\Entity\Model\Coords\Coords', 'routes_id');
     }
 	
 

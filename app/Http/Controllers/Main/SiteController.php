@@ -22,7 +22,8 @@ class SiteController extends Controller
     protected $keywords;
 	protected $meta_desc;
 	protected $title;
-    
+    	protected $auto = 2;
+
     protected $temlate;
     
     protected $vars = array();
@@ -47,6 +48,11 @@ class SiteController extends Controller
 		if(isset($this->meta_desc)){
 		$this->vars['meta_desc']=$this->meta_desc;
 		}
+		if(isset($this->auto)){
+					$this->vars['auto']=$this->auto;
+
+		}
+
 		if(isset($this->meta_title)){
 		$this->vars['meta_title']=$this->meta_title;
         }

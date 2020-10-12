@@ -34,14 +34,17 @@ class IndexController extends SiteController
     {
 		
 		$home_all=Home::with(['sights','calendars','gids'])->get();
-		$home = $home_all->shift();
 		
-        $city_f = $home->sights->where('coord', '!=', '');
-        $count = count($city_f);
+		$home = $home_all->shift();
+
+        $sights = $home->sights->where('coord', '!=', '');
+		
+		
+        $count = count($sights);
 		 if($count <=0 ){
 			   $php_json = 0;
 		   }else{
-			  $php_json = urlencode(json_encode($city_f));
+			  $php_json = urlencode(json_encode($sights));
 
 		   }
 		$sliders = view('orda'.'.slider')->with('sliders',$home)->render();

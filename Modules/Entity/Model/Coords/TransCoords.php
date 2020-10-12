@@ -5,8 +5,8 @@ use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
 class TransCoords extends ModelParent {
-    protected $table = 'trans_coords';
-	 protected $table_ru = 'lib_coord';
+    protected $table = 'trans_coors';
+	 protected $table_ru = 'coord';
     protected $fillable = [ 'el_id', 'lang', 'coord_name'];
     //use CheckTrans;
 

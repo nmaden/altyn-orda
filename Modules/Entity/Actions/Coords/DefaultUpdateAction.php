@@ -22,8 +22,12 @@ class DefaultUpdateAction {
     }
 
     private function saveMain(){
-	   $ar = $this->request->all();
 		
+	   $ar = $this->request->all();
+					$ar['coord']='';
+					$ar['coord_name']='';
+					$ar['metr']='';
+
         $ar['user_id'] = $this->request->user()->id;
     
 	 	if ($this->request->has('photo')){
@@ -36,13 +40,33 @@ class DefaultUpdateAction {
             unset($ar['photo']);
 		}
           $ar['edited_user_id'] = $this->request->user()->id;
-		  
-	    
-	   
+		 
+	    if(isset($this->request->metr[0])){
+		
+			$ar['metr']= $this->request->metr[0];
+		}
+
+        //dd($this->request->all());
+	    if(isset($this->request->data['coor'][0])){
+			//dd($this->request->data['coor']);
+			$ar['coord'] = $this->request->data['coor'];
+	
+			  $ar['coord_name'] = serialize($this->request->coord_name);
+			
+
+		}
+		
+
+        if($this->request->lang !='ru'){
+			$ar['coord_name'] = serialize($this->request->coord_name);
+
+		}
+				
+
         $this->model->fill($ar);
         $this->model->save();
-    }
-
+    
+	}
 
 
 

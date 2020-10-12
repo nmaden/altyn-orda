@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 
 use Modules\Admin\Http\Requests\MainRequest;
 use Session;
+use Illuminate\Support\Facades\Validator;
+
 trait MainCreateMethod  {
     public function create(Request $request) {
 		
@@ -22,15 +24,11 @@ trait MainCreateMethod  {
     public function saveCreate(Request $request) {
 		
 		
-	//dd($request->all());
-	/*
-  	$validator = $this->validator($request->all());
-    if($validator->fails()) {
-	  Session::put('old',$request->all());
-	  Session()->save();
-	  return redirect()->back()->withErrors($validator)->withInput($request->all());
-     }
-	*/
+	   $validator = $this->validator($request->all());
+        if ($validator->fails()) { 
+        return redirect()->back()->withErrors($validator)->withInput();
+        };
+	
 	$model = new $this->def_model();
 	//dd($request->all());
 	$action = new $this->action_create(new $this->def_model(), $request);
@@ -41,10 +39,10 @@ trait MainCreateMethod  {
 			
             return redirect()->back()->with('error', $e->getMessage());
         }
-
-       Session::forget('old');
-
         return redirect()->route($this->route_path)->with('success', trans('main.created_model'));
+
+
+        
     }
 	
 

@@ -10,45 +10,49 @@ if(in_array('show',$ar)){
 @endphp
 <style>
 #divs,#divs2{
-	margin-bottom:10px;
-	margin-top:10px;
+	margin-bottom:20px;
+	margin-top:20px;
 }
 </style>
 
 
 
 
-<button class="add_field_button btn btn-success
-">Добавить координату</button>
+
 <div class='clearfix'></div>
 <div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
 
-@if($model->coord)
-@foreach($model->coord as $k=>$coord)
+@if($model->coordinate)
+@foreach($model->coordinate as $k=>$coord)
 <div> 
-<label for="title"><b>координата {{$k+1}} (<span style='font-size:11px;color:#ccc'>
-для удаления сделайте поле пустым</span>)</b></label> 
+<label for="title"><b>координата {{$k+1}}</label> 
 <input {{$page ? 'disabled': ''}} type="text" 
-value='{{isset($coord->coord) ? $coord->coord : ''}}' 
-name='coord[]' placeholder="координаты" class="form-control"/>
+value='{{isset($coord) ? $coord : ''}}' 
+name='coord[]' placeholder="координаты" class="form-control coords"
+
+/>
 </div>
+<br>
+
 @endforeach
+
 @endif
-
-<div class="input_fields_wrap"></div>
-
 </div>
 
 
 
 <div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
 
-@if($model->coords)
-@foreach($model->coords as $k=>$coord)
+@if($model->coordinate)
+@foreach($model->coordinate as $k=>$name)
 <div> 
 <label for="title"><b>название координаты {{$k+1}}</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($coord->coord_name) ? $coord->coord_name : ''}}' name='coord_name[]' placeholder="координаты" class="form-control"/>
+<input  {{$page ? 'disabled': ''}} 
+type="text" value='{{isset($model->coordinate_name[$k]) ? $model->coordinate_name[$k] : ''}}' 
+name='coord_name[]' onchange="bb()" placeholder="координаты" class="form-control"/>
+
 </div>
+<br>
 @endforeach
 @endif
 
@@ -56,9 +60,6 @@ name='coord[]' placeholder="координаты" class="form-control"/>
  
 </div>
 </div>
-
-
-<div class='clearfix'></div>
 <br><br>
 
 
@@ -73,10 +74,14 @@ name='coord[]' placeholder="координаты" class="form-control"/>
         <div class="col-md-12">
             <div id='map' style="width: 100%; height: 600px;" ></div>
         </div>
-        <input type="hidden" name="data[coor]" value="" id="data_coor">
+        <input type="hidden" name="data[coor]" value="{{$model->check_coordinate}}" id="data_coor">
+		 <input type="hidden" name="metr[]" value="{{$model->metr}}" id="data_metr">
+
     </div>  
 </fieldset>
-
+<input type="button" value="Завершить редактирование" id="stopEditPolyline"/>
+<input type="button" value="Начать редактирование" id="start"/>
+<input type="button" value="Расчет растояния" id="kilometr"/>
 
 
 
@@ -95,21 +100,33 @@ name='coord[]' placeholder="координаты" class="form-control"/>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+<br></br>
 
  <div>   
- <label for="title"><b>Выберите Маршрут
+ <label for="title"><b>ручное или автоматическое определение
+</b></label> 
+
+	   <select {{$page ? 'disabled': ''}} name="auto" id="city_id" class="form-control select2">
+			<option value=""></option>
+			
+			<option value="1" {{ $model->auto == 1 ? 'selected' : '' }}>ручное определение</option>
+			<option value="2" {{ $model->auto == 2 ? 'selected' : '' }}>автоматическое определение</option>
+
+			
+        </select>
+		@if ($errors->has('auto'))
+         <span class="help-block">
+         <strong style='color:#a94442'>{{ $errors->first('auto') }}</strong>
+         </span>
+       @endif
+	   
+ </div>
+<br>
+</br>
+
+
+<div>   
+ <label for="title"><b>Маршрут
 </b></label> 
 
 	   <select {{$page ? 'disabled': ''}} name="routes_id" id="city_id" class="form-control select2">
@@ -123,8 +140,14 @@ name='coord[]' placeholder="координаты" class="form-control"/>
 				ничего нет
 			@endif
         </select>
+		@if ($errors->has('routes_id'))
+         <span class="help-block">
+         <strong style='color:#a94442'>{{ $errors->first('routes_id') }}</strong>
+         </span>
+       @endif
+	   
 		</div>
-		
+
 		
  <script src="https://api-maps.yandex.ru/2.1/?apikey=e65e00dd-dbe3-4020-a0f5-272019ac69a9&lang=ru_RU"
         type="text/javascript">
@@ -132,23 +155,38 @@ name='coord[]' placeholder="координаты" class="form-control"/>
 
 
 <script type="text/javascript">
-        
-    
-        $(document).ready(function () {
+        // Как только будет загружен API и готов DOM, выполняем инициализацию
+	        
 
-            var myMap;
-            ymaps.ready(init);
-             center = [];
+		$('.coords').on('input',function () {
+		var arc =[];
+        $('.coords').each(function(index,v){
+			var values = v.value;
+			if(values){
+
+			arc[index]=values.split(',');
+			}
+		})
+			console.log(arc);
+			$('#data_coor').val(JSON.stringify(arc));
+
+
+		 
+
+		 
+		});
+	
+	   
+        ymaps.ready(init);
 
 			 var ar =[];
-
+             var center = [];
 			//JSON.parse($('#data_coor').val(''));
-							
-
-			center=[43.21032757450292,76.8788819999999];
-
-		if($('#data_coor').val()){
+			
+			if($('#data_coor').val()){
                 var keys = JSON.parse($('#data_coor').val());
+
+		         
 
 		         keys.forEach(key=>{
 					var coord_a_1 = key[0];
@@ -156,239 +194,156 @@ name='coord[]' placeholder="координаты" class="form-control"/>
 		           ar.push(new Array(coord_a_1,coord_a_2)); 
 
 				   })
-				   				   center=[ar[0][0],ar[0][1]];
+				   center=[ar[0][0],ar[0][1]];
+			}else{
+				   center=[43.21032757450292,76.8788819999999];
 
-		}
-		
-			console.log(ar);
-			
-/*---------------------------------------------------------------*/
-            function init()
-            {
+			}
 
-                try {
+
+        function init () {
+            // Создание экземпляра карты и его привязка к контейнеру с
+            // заданным id ("map")
+            var myMap = new ymaps.Map('map', {
+                    // При инициализации карты, обязательно нужно указать
+                    // ее центр и коэффициент масштабирования
+                    center: center, // Нижний Новгород
+                    zoom: 8
+                });
+				 //myMap.controls.add('zoomControl').add('typeSelector').add('mapTools')
+				
+				try {
                     ar_coor = JSON.parse($('#data_coor').val());
                 } catch (err) {
                     ar_coor = [];
                 }
 
-
-
-
-                        
-						
-			   var multiRoute = new ymaps.multiRouter.MultiRoute({
-                referencePoints:ar,
 				
-                params: {
-					routingMode: 'masstransit',
-					      viaIndexes: [10]
-					//routingMode: 'auto' //на автомобиле
-					//routingMode: 'pedestrian' //пешеходный маршрут
-				    //routingMode: 'bicycle' //на велосипеде
-                     //avoidTrafficJams: true с учетом пробок
+							console.log(ar);
 
-                    //results: 1,
-                    //reverseGeocoding: true
-                }
-
-            }, {
-                boundsAutoApply: true,
-                editorDrawOver: false,
-				    editorMidPointsType: "via",
-                wayPointStartIconLayout: "default#image",
-                wayPointStartIconImageHref: "",
-                wayPointIconLayout: "default#image",
-                wayPointIconImageHref: "",
-                wayPointFinishIconLayout: "default#image",
-                wayPointFinishIconImageHref: "",
-
-
-                routeStrokeWidth: 2,
-                routeStrokeColor: "#0A8232",
-                routeActiveStrokeWidth: 10,
-                routeActiveStrokeColor: "#0A8232",
+			
 				
-            });
+			var geometry = ar,
 			
-			multiRoute.editor.start({
-    // При включении опции addWayPoints пользователи смогут создавать
-    // путевые точки по клику на карте.
-    addWayPoints: true,
-    // При включении опции removeWayPoints пользователи смогут удалять
-    // путевые точки. 
-    // Для удаления точки нужно дважды кликнуть по ней.
-    removeWayPoints: true,
-    // При включении опции addMidPoints пользователи смогут создавать
-    // новые промежуточные точки.
-    // Чтобы создать промежуточную точку, нужно кликнуть по линии маршрута и,
-    // удерживая кнопку, переместить точку в нужную позицию на карте.
-    // Тип промежуточной точки (путевая или транзитная) задается в опции 
-    // editorMidPointsType.
-    addMidPoints: true
-});
-			/*
-var changeLayoutButton = new ymaps.control.Button({
-data: { content: "Показывать время для пеших сегментов"},
-options: { selectOnClick: true } });
-// Объявляем обработчики для кнопки.
-changeLayoutButton.events.add('select', function () {
-multiRoute.options.set(
-// routeMarkerIconContentLayout - чтобы показывать время для всех сегментов.
-"routeWalkMarkerIconContentLayout",
-ymaps.templateLayoutFactory.createClass('ffffffffff')); });
-*/
-						
-                var myMap = new ymaps.Map("map",{
-                    center: center,
-
-                    zoom: 14,
-                    //behaviors: ["default", "scrollZoom"]
-                },
-                {
-                    //balloonMaxWidth: 300
-                });
+			properties = {
+				hintContent: "Ломаная линия"
+			},
+			options = {
+				draggable: true,
+				strokeColor: '#ff0000',
+				strokeWidth: 5
+        
+			},
+			polyline = new ymaps.Polyline(geometry, properties, options);
 
 						
-           ar_coor.forEach(key=>{
-			var coord_a_1 = key[0];
-           var coord_a_2 = key[1];
-	       var t = '<div class="route__miker--block"><div class="route__miker--m"></div><div class="route__miker--title">'+'стоооооооо'+'</div></div>'
 				
+			myMap.geoObjects.add(polyline);
 			
+					$('#start').click( 
+					function () {polyline.editor.startEditing();polyline.editor.startDrawing();})
 
-	        myMap.geoObjects.add(
-			new ymaps.Placemark(
-                [coord_a_1, coord_a_2],
-                {
-                    hintContent: ''
-                }, {
-                iconLayout: ymaps.templateLayoutFactory.createClass(t),
-            }
-            ));
-		
-	       })
-   
-		 
-            myMap.geoObjects.add(multiRoute);
-			
-			
-	// Подписка на событие обновления данных маршрута.
-// Подробнее о событии в справочнике.
-// Обратите внимание, подписка осуществляется для поля model.
-multiRoute.model.events.add('requestsuccess', function() {
-    // Получение ссылки на активный маршрут.
-    var activeRoute = multiRoute.getActiveRoute();
-    // Вывод информации о маршруте.
-    console.log("Длина: " + activeRoute.properties.get("distance").text);
-    console.log("Время прохождения: " + activeRoute.properties.get("duration").text);
-    // Для автомобильных маршрутов можно вывести 
-    // информацию о перекрытых участках.
-    if (activeRoute.properties.get("blocked")) {
-        console.log("На маршруте имеются участки с перекрытыми дорогами.");
-    }
-});
-						
 
-                $.each( ar_coor, function( key, value ) {
+			 $('#stopEditPolyline').click(
+			 
+                function () {
+                    // Отключаем кнопки, чтобы на карту нельзя было
+                    // добавить более одного редактируемого объекта (чтобы в них не запутаться).
+                    //$('input').attr('disabled', true);
+
+                    polyline.editor.stopEditing();
+					printGeometry(polyline.geometry.getCoordinates());
+
+                });	
+				
+				function printGeometry (coords) {
+                  $('#data_coor').val(JSON.stringify(coords));
+				  console.log(coords);
+                  
+                 }	
+				
+				
+				   $.each( ar_coor, function( key, value ) {
 					
                     var myPlacemark = new ymaps.Placemark(value);
                     myPlacemark.unix_id = ar_coor.length - 1;
                     myMap.geoObjects.add(myPlacemark);
 
-                    myPlacemark.events.add('click', function (e) {
-                        var pl = e.get('target');
-
-                        ar_coor.splice(pl.unix_id, 1);
-                        myMap.geoObjects.remove(pl);
-
-                        
-                        $('#data_coor').val(JSON.stringify(ar_coor));
-                    });
                     
                 });
 
 
+				
+				$('#kilometr').click(function(){
+					var ctx = $(this);
+			      $("#kilometr").val("Загрузка...");
+				   
+                   var ar_coor = JSON.parse($('#data_coor').val());
+				   
+				   //console.log(ar_coor);
+				   var last_coord = ar_coor.length-1;
+				  
+				   var km=[];
+                   var index=0;
+				   var index2=0;
 
+                   ar_coor.forEach(key=>{
+					   index++;
+				   var pointA = key[0]+','+key[1]; //Откуда считаем
+                   var pointB = ar_coor[last_coord][0]+','+ar_coor[last_coord][1]; //Куда считаем
+	               ymaps.route([pointA , pointB ]).then(
+                   function (route) {
+					   
+                    var distance = route.getHumanLength(); //Получаем расстояние
+					var point = route.requestPoints[0];
+						var m = distance.match(/^[\d]+&/);
+						var m2 = distance.match(/^[\d]+/);
+						 $('#data_metr').val('');
+                         km.push(new Array(m2,point)); 
+                         $('#data_metr').val(JSON.stringify(km));
+						 var len = km.length;
+						 if(index2 !=0){
+							 len = len + index2;
+						 }
+                         if(len ==index){
+							$("#kilometr").val("расчет растояния");
 
+						 }
+                      },
+                  function (error) {
+					  index2++;
+					  //alert('Ошибка: ' + error.message); 
+				  }
+                 );
+				 
+			   })
+			     
+                 //console.log(km);
 
-
-
-
-                myMap.events.add("click", function(e){
-					
-                    var coords = e.get("coords");
-                   
-                    ar_coor.push([coords[0].toPrecision(10), coords[1].toPrecision(10)])
+		
+				})
+				
+		$('.btn-primary').on('click',function(e){
+		            //polyline.editor.stopEditing();
+					//printGeometry(polyline.geometry.getCoordinates());
                     
-
-                    //myPlacemark = new ymaps.Placemark([coords[0].toPrecision(10), coords[1].toPrecision(10)]);
-                    //myPlacemark.unix_id = ar_coor.length - 1;
-                    //myMap.geoObjects.add(myPlacemark);
-                
-/*
-                    myPlacemark.events.add('click', function (e) {
-                        var pl = e.get('target');
-                         
-                        ar_coor.splice(pl.unix_id, 1);
-                        myMap.geoObjects.remove(pl);
-
-                        
-                        $('#data_coor').val(JSON.stringify(ar_coor));
-                    });
-*/
-                    $('#data_coor').val(JSON.stringify(ar_coor));
-                });
-
-                
-				
-		
-var searchControl = new ymaps.control.SearchControl({
-    options: {
-        // Будет производиться поиск только по топонимам.
-        provider: 'yandex#map'
-    }
-});
-//myMap.controls.add(searchControl);
-myMap.controls.remove('searchControl').add(searchControl);
-// Подписка на событие выбора результата поиска.
-searchControl.events.add('resultselect', function (e) {
-	
-    // Получает массив результатов.
-    var results = searchControl.getResultsArray();
-
-    // Индекс выбранного объекта.
-    var selected = e.get('index');
-    // Получает координаты выбранного объекта.
-    var point = results[selected].geometry.getCoordinates();
-	alert(point);
-	                    
-
-	ar_coor.push([point[0], point[1]])
-
-	$('#data_coor').val(JSON.stringify(ar_coor));
-
-			
-
-})
+		   
+            return true;
+	   })
+	   
+		myMap.setBounds(myMap.geoObjects.getBounds(),{checkZoomRange:true, zoomMargin:9});
 
 				
-				
-				
-				
-
-            }
-			
-
-
-
-            
-        });
-		
+        }
     </script>
-	
+
 <script>	
    $(document).ready(function() {
+	  
+	   
+	   
+	   
+	   
     var max_fields = 10; //maximum input boxes allowed
     var wrapper = $(".input_fields_wrap"); //Fields wrapper
 	var wrapper2 = $(".input_fields_wrap2"); //Fields wrapper
@@ -409,7 +364,7 @@ searchControl.events.add('resultselect', function (e) {
                 
 				$(add_button2).trigger( "click" );
 				
-				 $(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  class="form-control" placeholder="название координаты"/></div>'); //add input box
+				 $(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  value="по стопам золотой орды" class="form-control" placeholder="название координаты"/></div>'); //add input box
                
 				
         }

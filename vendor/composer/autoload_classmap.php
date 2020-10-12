@@ -2512,6 +2512,7 @@ return array(
     'Modules\\Entity\\Actions\\ComunaMessageAcceptAction' => $baseDir . '/Modules/Entity/Actions/ComunaMessageAcceptAction.php',
     'Modules\\Entity\\Actions\\ContactSaveAction' => $baseDir . '/Modules/Entity/Actions/ContactSaveAction.php',
     'Modules\\Entity\\Actions\\ContentManagerAction' => $baseDir . '/Modules/Entity/Actions/ContentManagerAction.php',
+    'Modules\\Entity\\Actions\\Coords\\DefaultUpdateAction' => $baseDir . '/Modules/Entity/Actions/Coords/DefaultUpdateAction.php',
     'Modules\\Entity\\Actions\\Defaults\\DefaultDeleteAction' => $baseDir . '/Modules/Entity/Actions/Defaults/DefaultDeleteAction.php',
     'Modules\\Entity\\Actions\\Defaults\\DefaultSaveAction' => $baseDir . '/Modules/Entity/Actions/Defaults/DefaultSaveAction.php',
     'Modules\\Entity\\Actions\\Defaults\\DefaultUpdateAction' => $baseDir . '/Modules/Entity/Actions/Defaults/DefaultUpdateAction.php',

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit13d1d0be4d688b840407b9c92302ca7f
+class ComposerStaticInitbec463af9dff9b4faf605f60de48db7a
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -3033,6 +3033,7 @@ class ComposerStaticInit13d1d0be4d688b840407b9c92302ca7f
         'Modules\\Entity\\Actions\\ComunaMessageAcceptAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/ComunaMessageAcceptAction.php',
         'Modules\\Entity\\Actions\\ContactSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/ContactSaveAction.php',
         'Modules\\Entity\\Actions\\ContentManagerAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/ContentManagerAction.php',
+        'Modules\\Entity\\Actions\\Coords\\DefaultUpdateAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Coords/DefaultUpdateAction.php',
         'Modules\\Entity\\Actions\\Defaults\\DefaultDeleteAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Defaults/DefaultDeleteAction.php',
         'Modules\\Entity\\Actions\\Defaults\\DefaultSaveAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Defaults/DefaultSaveAction.php',
         'Modules\\Entity\\Actions\\Defaults\\DefaultUpdateAction' => __DIR__ . '/../..' . '/Modules/Entity/Actions/Defaults/DefaultUpdateAction.php',
@@ -5459,10 +5460,10 @@ class ComposerStaticInit13d1d0be4d688b840407b9c92302ca7f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit13d1d0be4d688b840407b9c92302ca7f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit13d1d0be4d688b840407b9c92302ca7f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit13d1d0be4d688b840407b9c92302ca7f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit13d1d0be4d688b840407b9c92302ca7f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbec463af9dff9b4faf605f60de48db7a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbec463af9dff9b4faf605f60de48db7a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitbec463af9dff9b4faf605f60de48db7a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitbec463af9dff9b4faf605f60de48db7a::$classMap;
 
         }, null, ClassLoader::class);
     }

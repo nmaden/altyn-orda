@@ -1,17 +1,38 @@
+@php
 
-<div class="row">
-    <div class="col-md-4">
-        <input-text name="name" id="name" :model='$model' required  />
-    </div>
-    <div class="col-md-4">
-        <input-text name="address_off" id="address_off" :model='$model->getRelDataObj()'    />
-    </div>
-    <div class="col-md-4">
-        <input-text name="address_legal" id="address_legal" :model='$model->getRelDataObj()'   />
-    </div>
-    <div class="col-md-12">
-        <input-textarea name="about_text" id="about_text" :model='$model->getRelDataObj()'    />
-        <input-textarea name="student_life_text" id="student_life_text" :model='$model->getRelDataObj()'   />
-        <input-textarea name="note" id="note" :model='$model->getRelDormitory()'    />
-    </div>
+$route = Route::currentRouteName();
+$ar = explode('_',$route);
+$page = false;
+if(in_array('show',$ar)){
+	$page = true;
+}
+
+@endphp
+<style>
+#divs,#divs2{
+	margin-bottom:20px;
+	margin-top:20px;
+}
+</style>
+
+
+<div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
+
+@if($model->coordinate)
+@foreach($model->coordinate as $k=>$name)
+<div> 
+<label for="title"><b>название координаты {{$k+1}}</b></label> 
+<input  {{$page ? 'disabled': ''}} 
+type="text" value='{{isset($model->coordinate_name[$k]) ? $model->coordinate_name[$k] : ''}}' 
+name='coord_name[]' onchange="bb()" placeholder="координаты" class="form-control"/>
+
 </div>
+<br>
+@endforeach
+@endif
+
+<div class="input_fields_wrap2">
+ 
+</div>
+</div>
+<div class='clearfix'></div>

@@ -27,6 +27,7 @@ class MapController extends SiteController
     
     
 public function routes(Request $request){
+	
 	   $filter = FilterLib::get();
 	   $city = $filter['city'];
 	   $sights_lib= $filter['sights'];
@@ -37,21 +38,28 @@ public function routes(Request $request){
 
        $request->sights=false;
 	   $request->regions=false;
-
+       $name_json = '';
 	   $php_json = 0;
 	   $count =0;
 	   //dd($routes_f[0]->coords);
 	   if(count($routes_f) > 0){
-	      $arr = $routes_f[0]->coords->sortBy('undex_coord')->toArray();
-	   $count = count($arr);
-		   if($count > 0 ){
-			   $php_json = urlencode(json_encode($arr));
+	      $coords = $routes_f[0]->coords;
+		  
+		  if(isset($coords->id)){
+			  		  if($coords->auto){$this->auto = $coords->auto;}
 
-		   }
+          $count = count($coords->coordinate);
+		
+           if($count > 0 ){
+			  $php_json = urlencode(json_encode($coords->coordinate));
+			  $name_json = urlencode(json_encode($coords->coordinate_name));
+           }
+		  }
           }
 
 	      $page_map = view('orda'.'.map')->with([
 		   'php_json'=>$php_json,
+		   'name'=>$name_json,
 		   'city'=>$city,
 		   'sights_lib'=>$sights_lib,
 		   'ids'=>$request,

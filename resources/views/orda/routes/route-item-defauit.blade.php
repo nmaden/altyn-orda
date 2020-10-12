@@ -146,23 +146,27 @@
           
             <div class="route__line--block">
                 <div class="route__line">
-				
-                   @if(isset($item->coords->coordinate[0]))
+				@php
+				//dd($item->coords->coordinate_metr);
+				//dd($item->coords->coordinate_metr);
+				@endphp
+                   @if(isset($item->coords->coordinate_metr))
+					   
 					@php
-				
 				    $count =-1;
 					$size= count($item->coords->coordinate);
-					
 				    @endphp
-				    @foreach($item->coords->coordinate as $k=>$v)
+					
+					@if($item->coords->coordinate_metr)
+				    @foreach($item->coords->coordinate_metr as $k=>$v)
 					@php
-					$count++;
-					@endphp
+				    $count++;
+				    @endphp
                     <div class="route__line--li">
                         <div class="route__line--item 
 						{{($size-1) == $count ? 'route__line--active' : ''}}">
                             <div class="route__item--absol">
-							
+							    
                                 <div class="route__item--img">
 								@if(($size-1) == $count)
 								<img src="/img/bus-4.svg" alt="">
@@ -172,20 +176,16 @@
                                
                                 </div>
                                 <div class="route__item--km" id="route{{$count}}">
-                                    0 км
-                                </div>
+                                {{$v[0][0]}}км
+								</div>
                             </div>
                             <div class="route__item--btn">
-                                <a>
-								{{$item->coords->coordinate_name[$k]}}
-                                </a>
+						       <a>{{$v[2]}}</a>
                             </div>
                         </div>
                     </div>
-					
-					  
-
 					@endforeach
+					@endif
                     @endif
                 </div>
 				

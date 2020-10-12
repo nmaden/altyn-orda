@@ -256,12 +256,13 @@
         </div>
     </div>
 	
-@php
-if(isset($home)){
-$php_json = $home->getArMapPoint();
-}
-//dd($php_json);
-@endphp
+
+@if(isset($name))
+	<script>
+	var name_json = "{{$name}}";
+</script>
+@endif
+
 <script>var json = "{{$php_json}}";</script>
 @if($route == 'routes-map')
 <script>

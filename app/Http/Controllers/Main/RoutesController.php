@@ -84,26 +84,37 @@ class RoutesController extends SiteController
     {
 	  
 	  $gids = $this->getTabs();
-	  $coords = $routes->coords->sortBy('undex_coord')->toArray();
-	 
-	  $count = count($coords);
+	  $coords = $routes->coords;
+	  $php_json = '';
+	  $name_json='';
+	  if($coords){
+	  if(isset($coords->auto)){if($coords->auto){$this->auto = $coords->auto;}}
+	  $count = count($coords->coordinate);
+
 		   if($count <=0 ){
 			   $php_json = 0;
 		   }else{
-			  $php_json = urlencode(json_encode($coords));
+			  $php_json = urlencode(json_encode($coords->coordinate));
+			  $name_json = urlencode(json_encode($coords->coordinate_name));
 
 		   }
+	}
+	   if($this->auto == 1){
+		   		   $page = 'route-item-defauit';
+
+	   }else{
 		   
-	   $item_page = view('orda'.'.routes.route-item')->with([
-	   'item'=>$routes,
-	   'gid'=>$gids,
-	   'php_json'=>$php_json
-	   ])->render();
+		   		   $page = 'route-item';
+
+
+	   }
+	   $item_page = view('orda'.'.routes.'.$page)->with([
+	   'item'=>$routes,'gid'=>$gids,'php_json'=>$php_json,'name'=>$name_json])->render();
 	  
 	    $content=$item_page;
         $this->vars['content']= $content;
         $this->keywords = '';
-		
+
 		$this->meta_desc = $routes->seo_description;
 		$this->meta_title = $routes->seo_title;
 		

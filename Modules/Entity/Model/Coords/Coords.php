@@ -5,8 +5,8 @@ use Modules\Entity\ModelParent;
 use Modules\Entity\Traits\CheckTrans;
 
 class Coords extends ModelParent {
-    protected $table = 'lib_coord';
-	protected $fillable = [ 'coord','undex_coord','coord_name','routes_id','user_id'];
+    protected $table = 'coord';
+	protected $fillable = [ 'coord','undex_coord','coord_name','routes_id','user_id','auto','metr'];
 	
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
@@ -27,7 +27,7 @@ class Coords extends ModelParent {
     }
 	
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gid\TransGid', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Coords\TransCoords', 'el_id');
     }
 	
 

@@ -54,14 +54,24 @@
 	</script>
 <script>	
 var json_model= JSON.parse(decodeURIComponent(json));
-    var keys = Object.keys(json_model);
-
+var keys = Object.keys(json_model);
+//console.log(json_model);
 </script>
 
 @endif
+@php
+
+@endphp
+<!------автоматическое определение------>
+@if($route === 'routes-map' && $auto == 1 || $route === 'routes-item' && $auto == 1)
+	  @include('orda.map.interactiv.auto_routes')
+
+@endif
+
 <!------интерактивная 1 routes------>
-@if($route === 'routes-map' || $route === 'routes-item')
+@if($route === 'routes-map' && $auto == 2 || $route === 'routes-item' && $auto == 2)
 	  @include('orda.map.interactiv.karta1')
+  
   @endif
 
 
