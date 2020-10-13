@@ -658,7 +658,13 @@
         height: 300px;
     }
     
+    .burger--left {
+        display: none;
+    }
     
+    .header__menu--burger {
+        margin-left: 0px;
+    }
     .route__item--btn a {
         padding: 10px 10px;
         font-size: 14px;

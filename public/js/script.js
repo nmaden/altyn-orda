@@ -85,7 +85,7 @@ $(".header__menu--click").click(function(){
     $("body").toggleClass('header__menu--active');
 });
 $(".header__serch--click").click(function(e){
-    if(window.innerWidth <= 768){
+    if(window.innerWidth >= 768){
         e.preventDefault();
         var searchform = $(this).parents('.header__serch').find(".searchform");
         if(window.innerWidth >= 992){
