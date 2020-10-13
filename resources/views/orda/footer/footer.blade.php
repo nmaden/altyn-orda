@@ -1,3 +1,7 @@
+    <a href="/page-map" class="modal__fixed">
+        <img src="/img/Vector.svg" alt="">
+    </a>
+    
     <div class="footer__partners">
         <div class="container">
             <div class="footer__partners--row">
