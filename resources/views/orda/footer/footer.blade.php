@@ -58,16 +58,9 @@
                 <div class="header__right">
                     <div class="footer__social">
                         @include('orda'.'.footer.logotips',['items'=>$menu->roots(),'social'=>$social])
-                        <a href="">
-                            <img src="/img/icon-youtube.svg" alt="">
-                        </a>
-                        <a href="">
-                            <img src="/img/icon-facebook-f.svg" alt="">
-                        </a>
-                        <a href="">
-                            <img src="/img/icon-instagram-f.svg" alt="">
-                        </a>
+                        
                     </div>
+					
                     <div class="header__menu">
                     
                         @include('orda'.'.footer.navigatitem',['items'=>$menu->roots()])

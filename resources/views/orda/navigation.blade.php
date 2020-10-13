@@ -42,15 +42,14 @@
                       </ul>
                   </div>
                     <div class="header__social">
-                        <a href="">
-                            <img src="/img/icon-youtube.svg" alt="">
-                        </a>
-                        <a href="">
-                            <img src="/img/icon-facebook-f.svg" alt="">
-                        </a>
-                        <a href="">
-                            <img src="/img/icon-instagram-f.svg" alt="">
-                        </a>
+					
+					@if(is_array($social))
+	                  @foreach($social as $v)
+                       <a href="{{$v['name']}}">
+                        <img src="{{URL::asset($v['photo'])}}" alt="">
+                       </a>
+                      @endforeach
+                     @endif
                     </div>
                     <div class="header__user">
                         <a href="/">

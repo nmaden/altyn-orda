@@ -108,6 +108,14 @@ class AppServiceProvider extends ServiceProvider
 			$view->with('social',$social);
         });
 		
+		View::composer('orda.navigation', function ($view) {
+			$social = false;
+			if(Cache::has('social')){
+
+			$social = Cache::get('social');
+            }
+			$view->with('social',$social);
+        });
 		
 		
 	/*

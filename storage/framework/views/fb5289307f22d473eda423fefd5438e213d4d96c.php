@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', trans('title.main')); ?>
 
 <?php $__env->startSection('top_right'); ?>
