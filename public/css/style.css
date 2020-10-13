@@ -329,13 +329,13 @@ ul.lang__menu > li:hover ul.lang__menu--children {
 }
 
 .burger--right span:nth-child(1) {
-    margin-top: -5px;
+    margin-top: -4px;
 }
 .burger--right span:nth-child(2) {
     margin-top: 0px;
 }
 .burger--right span:nth-child(3) {
-    margin-top: 5px;
+    margin-top: 4px;
 }
 .header__menu--active .burger--right span:nth-child(1) {
     margin-top: 0px;
