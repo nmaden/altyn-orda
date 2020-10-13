@@ -2373,3 +2373,21 @@ footer .header__right {
 .footer__partners--item:hover .footer__partners--text a {
     color: #000;
 }
+
+a.modal__fixed {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    border-radius: 100%;
+    padding: 5px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+}
+
+a.modal__fixed img {
+    width: 100%;
+}
