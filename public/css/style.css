@@ -364,10 +364,11 @@ ul.lang__menu > li:hover ul.lang__menu--children {
     transform: translateY(-120%);
     position: fixed;
     z-index: 10000;
-    background-image: url(../img/line__bg.svg);
+    /* background-image: url(../img/line__bg.svg); */
     background-position: bottom center;
     background-repeat-y: no-repeat;
 }
+.header__menu--container:before {content: "";position: absolute;width: 100%;bottom: 0;background-image: url(../img/line__bg.svg);height: 30px;background-size: contain;background-repeat-y: no-repeat;}
 .header__menu--active .header__menu--container {transform: translateY(0%);}
 .header__menu--close {
     cursor: pointer;
