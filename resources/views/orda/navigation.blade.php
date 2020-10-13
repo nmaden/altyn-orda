@@ -52,7 +52,11 @@
                             <img src="/img/icon-instagram-f.svg" alt="">
                         </a>
                     </div>
-
+                    <div class="header__user">
+                        <a href="/">
+                            <img src="/img/icon-user.svg" alt="">
+                        </a>
+                    </div>
                     <div class="header__menu">
                         <div class="header__menu--burger header__menu--click">
                             <div class="burger--left">
