@@ -1,4 +1,47 @@
+    <div class="footer__partners">
+        <div class="container">
+            <div class="footer__partners--row">
 
+                <div class="footer__partners--item">
+                    <div class="footer__partners--img">
+                        <a href="/">
+                            <img src="/img/gerb_sm1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="footer__partners--text">
+                        <a href="/">
+                            Министерство культуры и спорта Республики Казахстан
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__partners--item">
+                    <div class="footer__partners--img">
+                        <a href="/">
+                            <img src="/img/gerb_sm2.png" alt="">
+                        </a>
+                    </div>
+                    <div class="footer__partners--text">
+                        <a href="/">
+                            АО «Национальная компания «Kazakh Tourism»
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__partners--item">
+                    <div class="footer__partners--img">
+                        <a href="/">
+                            <img src="/img/gerb_sm3.png" alt="">
+                        </a>
+                    </div>
+                    <div class="footer__partners--text">
+                        <a href="/">
+                            Вдохновит вас на путешествие в Казахстан
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <footer>
         <div class="container">
             <div class="header__row">
@@ -9,16 +52,21 @@
                     </a>
                 </div>
                 <div class="header__right">
-				<img src="">
+                    <div class="footer__social">
+                        @include('orda'.'.footer.logotips',['items'=>$menu->roots(),'social'=>$social])
+                        <a href="">
+                            <img src="/img/icon-youtube.svg" alt="">
+                        </a>
+                        <a href="">
+                            <img src="/img/icon-facebook-f.svg" alt="">
+                        </a>
+                        <a href="">
+                            <img src="/img/icon-instagram-f.svg" alt="">
+                        </a>
+                    </div>
                     <div class="header__menu">
-					
-
-                @include('orda'.'.footer.navigatitem',['items'=>$menu->roots()])
-
-                 <div style="clear:both"></div>
-                 <br>
-				@include('orda'.'.footer.logotips',['items'=>$menu->roots(),'social'=>$social])
-				                     
+                    
+                        @include('orda'.'.footer.navigatitem',['items'=>$menu->roots()])
 
                     </div>
                 </div>
