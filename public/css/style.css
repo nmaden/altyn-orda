@@ -389,9 +389,15 @@ ul.lang__menu > li:hover ul.lang__menu--children {
     font-size: 18px;
     color: #151515;
     transition: all 0.5s ease;
+    text-decoration: none;
 }
+a.header__serch--click {
+    cursor: pointer;
+    display: flex;
+}
+
 .header__menu--li ul.menu a:hover {
-    color: #0074B7;
+    color: #0e4f32;
 }
 .header__menu--li ul.menu li {
     margin-left: 30px;
