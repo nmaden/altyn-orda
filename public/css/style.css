@@ -2391,3 +2391,6 @@ a.modal__fixed {
 a.modal__fixed img {
     width: 100%;
 }
+.header__user {
+    margin-left: 20px;
+}
