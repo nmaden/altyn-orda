@@ -31,7 +31,7 @@ trait MainUpdateMethod  {
     public function saveUpdate(Request $request, ModelParent $item) {
 		
 		
-       $validator = $this->validator($request->all());
+       $validator = $this->validator($request->all(),$item);
         if ($validator->fails()) { 
         return redirect()->back()->withErrors($validator)->withInput();
         };

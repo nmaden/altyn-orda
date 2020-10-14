@@ -22,12 +22,8 @@ class ContentManagerAction {
         $ar = $this->request->all();
         $ar['edited_user_id'] = $this->request->user()->id;
 
-        if (User::where('email', $this->request->email)->where('id', '<>',  $this->model->id)->count() > 0)
-            throw new \Exception(trans('model.users.email_exist'));
 
         
-        if (!$this->request->password && !$this->model->password)
-            throw new \Exception(trans('model.users.need_password'));
         
         if ($this->request->has('photo'))
             $ar['photo'] = UploadPhoto::upload($this->request->photo);

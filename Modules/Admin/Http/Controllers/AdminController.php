@@ -9,14 +9,21 @@ use DB;
 use Modules\Entity\Model\Calendar\Calendar;
 use Modules\Entity\Model\SysLang\SysLang;
 use Modules\Entity\Model\Gid\Gid;
-
+use Auth;
 class AdminController extends Controller
 {
     public function index() {
         //alert()->message('Message', 'Optional Title');
 		
-        return view('admin::index');
+		$informs= Gid::where('user_id','=',Auth::user()->id)->first();
+		     $content = view('admin::page.profile')->with(['info'=>$informs])->render();
+         
+	
+        return view('admin::index')->with(['content'=>$content])->render();
     }
+	
+	
+	
 	  public function filter(Request $request){
 		
 		  if($request->q){

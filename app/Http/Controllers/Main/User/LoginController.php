@@ -16,8 +16,10 @@ class LoginController extends Controller {
 		
         $ar = array();
         $ar['title'] = trans('front_main.title.enter');
-        $theme = Session::get('mobilSwitch');
-        return view('orda'.'.user.login', $ar);
+        $login_page = view('orda'.'.user.login')->with(['ar'=>$ar])->render();
+        return view('orda'.'.user.index')->with(['content'=>$login_page])->render();
+
+		
     }
 
     function check(Request $request){

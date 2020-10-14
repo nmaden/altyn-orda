@@ -157,11 +157,11 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
                ->name('admin_routes_create_save');
 			   
 			  Route::get('update/{routes}', 'RoutesController@update')
-			   ->middleware('can:update,routes')
+			   //->middleware('can:update,routes')
                ->name('admin_routes_update');
 			   
 			   Route::post('update/{routes}', 'RoutesController@saveUpdate')
-			   ->middleware('can:update,routes')
+			  // ->middleware('can:update,routes')
                ->name('admin_routes_update_save');
 			   
 			   Route::get('delete/{routes}', 'RoutesController@delete')
@@ -346,6 +346,36 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	  });
 		
 	    
+        Route::group(['prefix' => 'contentmanager','namespace'=>'Manager'], function () {
+            Route::get('/', 'ContentManagerController@index')
+                ->middleware('can:list,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_content_manager');
+
+            Route::get('create', 'ContentManagerController@create')
+                ->middleware('can:create,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_content_manager_create');
+
+            Route::post('create', 'ContentManagerController@saveCreate')
+                ->middleware('can:create,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_content_manager_create_save');
+
+            Route::get('update/{contentmanager}', 'ContentManagerController@update')
+                ->middleware('can:update,contentmanager')
+                ->name('admin_content_manager_update');
+            
+            Route::post('update-ang/{contentmanager}', 'ContentManagerController@saveUpdate')
+                ->middleware('can:update,contentmanager')
+                ->name('admin_content_manager_update_save');
+
+            Route::get('delete/{contentmanager}', 'ContentManagerController@delete')
+                ->middleware('can:delete,contentmanager')
+                ->name('admin_content_manager_delete');
+
+            Route::get('view/{contentmanager}', 'ContentManagerController@show')
+                ->middleware('can:view,contentmanager')
+                ->name('admin_content_manager_show');
+        });
+
 	    Route::group(['prefix' => 'coords', 'namespace' => 'routes'], function () {
           Route::get('/', 'CoordController@index')
              ->name('admin_coords');

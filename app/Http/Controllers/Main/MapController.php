@@ -29,6 +29,7 @@ class MapController extends SiteController
 public function routes(Request $request){
 	   $filter = FilterLib::get();
 	   $city = $filter['city'];
+	   
 	   $sights_lib= $filter['sights'];
 	   $routes_lib = $filter['routes'];
 	

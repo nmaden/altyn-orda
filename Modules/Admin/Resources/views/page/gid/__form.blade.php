@@ -1,7 +1,6 @@
 @php
 use Illuminate\Support\Facades\DB;
 
-
 $route = Route::currentRouteName();
 $ar = explode('_',$route);
 $page = false;
@@ -302,6 +301,8 @@ value="{{ $k }}"
 </div> 
 
 
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 <br><br>
 
 <div>
@@ -324,7 +325,7 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
-
+@endif
 
 
 

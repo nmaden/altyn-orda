@@ -74,6 +74,7 @@ type="text/javascript" charset="utf-8" >
                 
 				<div class="content">
                @if (count($errors) > 0)
+				   <!------
                  <div class="alert alert-danger" style='text-align:center'>
                     <ul>
                      @foreach ($errors->all() as $error)
@@ -81,6 +82,7 @@ type="text/javascript" charset="utf-8" >
                      @endforeach
                      </ul>
                  </div>
+				 ------------->
                @endif
 
                     @yield('content')

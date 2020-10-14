@@ -181,7 +181,9 @@ return [
 		Intervention\Image\ImageServiceProvider::class,
 	    Lavary\Menu\ServiceProvider::class,
         App\Providers\TranslitServiceProvider::class,
-       App\Providers\UrlZamenaServiceProvider::class
+        App\Providers\UrlZamenaServiceProvider::class,
+	   	App\Services\Role\RoleServiceProvider::class,
+
 
     ],
 
@@ -240,7 +242,9 @@ return [
 	    'Menu'=> Lavary\Menu\Facade::class,
         'Translit'=> App\Helper\Facades\Translit::class,
         'UrlReplace'=> App\Helper\Facades\UrlZamena::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+		'RoleService' => \App\Services\Role\RoleService::class,
+
     ],
 
 ];

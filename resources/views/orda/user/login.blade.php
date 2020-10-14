@@ -1,6 +1,6 @@
-@extends('layouts.app')
 
-@section('content')
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -48,7 +48,7 @@
                                     авторизация
                                 </button>
 								
-						
+						<p><a href ="{{route('registration')}}">регистрация</a></p>
 							
                             </div>
                         </div>
@@ -58,5 +58,5 @@
         </div>
     </div>
 </div>
-@endsection
+
 

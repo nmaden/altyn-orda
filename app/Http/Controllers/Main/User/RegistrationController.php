@@ -17,9 +17,11 @@ function index (Request $request){
 		
         $ar = array();
         $ar['title'] = trans('front_main.title.registration');
-        $theme = Session::get('mobilSwitch');
+        $login_page = view('orda'.'.user.registration')->with(['ar'=>$ar])->render();
+        return view('orda'.'.user.index')->with(['content'=>$login_page])->render();
+		
 
-        return view('orda'.'.user.registration', $ar);
+        //return view('orda'.'.user.registration', $ar);
     }
 
     function save(Request $request){

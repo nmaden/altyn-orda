@@ -5,6 +5,8 @@ use Modules\Entity\Services\ChangeModelService;
 use Route;
 use Cache;
 use Modules\Entity\Model\Social\Social;
+use Auth;
+use RoleService;
 
 trait ChangeModel {
     protected static function boot(){
@@ -60,10 +62,13 @@ trait ChangeModel {
 
         static::deleted(function ($el) {
 
-            if($el->relTrans())
-             {
-			  $el->relTrans()->delete();
-             }
+            if($el->relTrans()){$el->relTrans()->delete();}
+			
+			if(RoleService::getRole(Auth::user()->type_id) !='ADMIN'){
+				$el->relUsers()->delete();
+			}
+
+			
 			return true;
 		
            //ChangeModelService::createDeleteNote($el);

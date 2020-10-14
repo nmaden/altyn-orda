@@ -14,7 +14,7 @@ $ar=explode('_',$route);
 					</a>
 					  <div class="media-body">
                         <span class="media-heading text-semibold">
-						Логин:&nbsp&nbsp <?php echo e(Auth::user()->login); ?></span>
+						Логин:&nbsp&nbsp <?php echo e(Auth::user()->name); ?></span>
                         <div class="text-size-mini text-muted">
                             <!----<?php echo e(Auth::user()->type_name); ?>---->
                         </div>
@@ -35,8 +35,14 @@ $ar=explode('_',$route);
                 <ul class="navigation navigation-main navigation-accordion">
  
 
-              
-<?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Calendar\Calendar::class)): ?>
+ 
+<?php
+//dd(RoleService::getRole(Auth::user()->type_id));
+?>
+
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
       <li>
        <a   style="background: <?php echo e(in_array('gallery',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
@@ -65,12 +71,12 @@ $ar=explode('_',$route);
 	   
 	</li>
  </ul>
- 
-	   
-	   
-	   </li>
-	   
-<?php endif; ?>
+   </li>
+<?php endif; ?>	   
+
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
+RoleService::getRole(Auth::user()->type_id) =='GID'): ?>
 
 <li>
        <a   style="background: <?php echo e(in_array('gid',$ar) ? '#ccc' : ''); ?>" href="#">
@@ -82,7 +88,9 @@ $ar=explode('_',$route);
 	 <ul class="hidden-ul">
 	  <li>
 	 
-	
+	<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
 	  <li  style="">
          <a href="<?php echo e(route('admin_gid_update',1)); ?>">
          <span>
@@ -91,6 +99,7 @@ $ar=explode('_',$route);
 		</a>
 	</li>
 	
+	<?php endif; ?>
 
 	<li  style="">
        <a href="<?php echo e(route('admin_gid')); ?>">
@@ -101,14 +110,24 @@ $ar=explode('_',$route);
  </ul>
  </li>
 	   
-	  
-	   
-<?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Sights\Sights::class)): ?>
-	   
-	   
-	   
-	   
+<?php endif; ?>	 
+
+
 <li>
+ <a href="<?php echo e(route('admin_index')); ?>"><i class="icon-home4"></i> 
+ <span>Личные данные
+</span>
+</a></li>
+
+ 
+	
+	   
+	   
+	   
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
+	 <li>
        <a   style="background: <?php echo e(in_array('sights',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
 	   <span>Достопримечательности
@@ -145,7 +164,8 @@ $ar=explode('_',$route);
               
 
 
-<?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Home\Home::class)): ?>
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
 	   	                     
 <li>
   <a href="#" style="background: <?php echo e(in_array('home',$ar) ? '#ccc' : ''); ?>" class="has-ul"><i class="icon-database-menu"></i><span>
@@ -172,9 +192,34 @@ $ar=explode('_',$route);
 
 <?php endif; ?>
 
+<?php if(RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
+<li>
+  <a href="#" style="background: <?php echo e(in_array('home',$ar) ? '#ccc' : ''); ?>" class="has-ul"><i class="icon-database-menu"></i><span>
+	Пользователи
+</span>
+</a>
+	<ul class="hidden-ul">
+	  <li>
+	  <li  style="">
+        <a href="<?php echo e(route('admin_content_manager')); ?>"><span>
+		  Контент менеджер
+		</span></a>
+	</li>
+	<li  style="">
+       <a href="<?php echo e(route('admin_home')); ?>"><span>
+		  Модератор
+		</span>
+		</a>
+	</li>
+ </ul>
+</li>
+</li>
+<?php endif; ?>	   
 	   
 	   
-	   
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
 
 	    <li  style="background: <?php echo e(in_array('social',$ar) ? '#ccc' : ''); ?>">
 	   <a href="<?php echo e(route('admin_social')); ?>">
@@ -182,11 +227,12 @@ $ar=explode('_',$route);
 	   <span>социальные кнопки
 	   </span></a>
 	   </li>
-
+<?php endif; ?>
 	   
-	   <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Slider\Slider::class)): ?>
-
-	    <li  style="background: <?php echo e(in_array('slider',$ar) ? '#ccc' : ''); ?>">
+	   
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+      <li  style="background: <?php echo e(in_array('slider',$ar) ? '#ccc' : ''); ?>">
 	   <a href="<?php echo e(route('admin_slider')); ?>">
 	   <i class="icon-city"></i>
 	   <span>Слайдер
@@ -195,7 +241,10 @@ $ar=explode('_',$route);
 	   <?php endif; ?>
 	    
 	   
-	   
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
+RoleService::getRole(Auth::user()->type_id) =='GID'): ?>
+
 <li>
        <a   style="background: <?php echo e(in_array('routes',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
@@ -205,8 +254,10 @@ $ar=explode('_',$route);
 	   
 	 <ul class="hidden-ul">
 	  <li>
-	 
-	
+
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
 	  <li  style="">
          <a href="<?php echo e(route('admin_routes_update',1)); ?>">
          <span>
@@ -215,7 +266,7 @@ $ar=explode('_',$route);
 		</a>
 		
 	</li>
-	
+<?php endif; ?>	
 
 	<li  style="">
       <a href="<?php echo e(route('admin_routes')); ?>">
@@ -227,8 +278,11 @@ $ar=explode('_',$route);
 	 </li>
  </ul>
  </li>
-	
-	   	   <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Menu\Menu::class)): ?>
+<?php endif; ?>
+
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
 
 	    <li  style="background: <?php echo e(in_array('menu',$ar) ? '#ccc' : ''); ?>">
 	   <a href="<?php echo e(route('admin_menu')); ?>">
@@ -239,7 +293,9 @@ $ar=explode('_',$route);
 	   
 	   <?php endif; ?>
 	   
-	                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\About\About::class)): ?>
+	 <?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
     
                     <li class="">
                        <a href="#" style="background: <?php echo e(in_array('about',$ar) || 
@@ -266,7 +322,9 @@ $ar=explode('_',$route);
                     </li>
                </li>
              <?php endif; ?>
-	   <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\Figure\Figure::class)): ?>
+	   <?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
 	   <li>
        <a   style="background: <?php echo e(in_array('figure',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
@@ -276,7 +334,7 @@ $ar=explode('_',$route);
 	   
 	 <ul class="hidden-ul">
 	  <li>
-	 
+	
 	
 	  <li  style="">
          <a href="<?php echo e(route('admin_figure_update',1)); ?>">
@@ -299,7 +357,9 @@ $ar=explode('_',$route);
 			 <?php endif; ?>
 
 
-                  <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('list', Modules\Entity\Model\LibCity\LibCity::class)): ?>
+                  <?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN'): ?>
+
 
                     <li class="">
                         <a href="#" class="has-ul"><i class="icon-database-menu"></i><span><?php echo app('translator')->get('sidebar.library'); ?></span></a>

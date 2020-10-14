@@ -9,7 +9,9 @@
 	//dd($model->title);
 	@endphp
 	<div class="col-md-12">
-	@can('list', Modules\Entity\Model\Gid\Gid::class)
+	@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+
 
 	<form id='form'>
 	<input type="text" 
@@ -22,7 +24,8 @@
 	 >
      </form>
 	 	 <a href="{{route($route_path)}}"><button>Сбросить фильтр</button></a>
-		 @endcan
+		 @endif
+		 
 <div class='clearfix'></div>
 	 <br>
 		<div class="panel panel-flat">
@@ -40,12 +43,12 @@
 							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
-					@can('list', Modules\Entity\Model\Gid\Gid::class)
-
-						<th>
+					@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+                    RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+					   <th>
 							<a href="{{ route($route_path.'_create') }}" class="btn btn-sm  bg-success">@lang('main.add')</a>
 						</th>
-						@endcan
+						@endif
 					</tr>
 				</thead>
 					<tbody>
