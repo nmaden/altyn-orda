@@ -37,7 +37,7 @@ class SocialController extends Controller {
 		//size:512|
         return \Validator::make($data, [
 		 //'name' => 'sometimes|required|nullable',
-         'photo' => 'nullable|sometimes|file|mimes:jpeg,png|dimensions:min_width=30,max_width=40'
+         'photo' => 'nullable|sometimes|file|mimes:jpeg,png,svg|dimensions:min_width=30,max_width=40'
         ]);
     }
 

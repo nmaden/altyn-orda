@@ -81,21 +81,6 @@
     ul.clildren-menu a {
         display: block;
     }
-    header .header__menu {
-        /* display: none; */
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        top: 110px;
-        background-color: #0e4f32;
-        background-image: url(../img/header__bg.svg);
-        background-position: left bottom;
-        background-repeat: repeat-x;
-        background-size: 200%;
-        padding: 20px;
-        transform: translateX(100%);
-        transition: all 0.5s ease;
-    }
     .header__burger{
         display: block;
     }
@@ -286,6 +271,17 @@
     .gid__title--block {
         align-items: center;
     }
+    .header__menu--li ul.menu a {
+        font-size: 14px;
+    }
+    
+    .header__menu--row {
+        height: 110px;
+    }
+    
+    .header__menu--container {
+        background-size: 40%;
+    }
 }
 @media screen and (max-width: 992px) {
     .banner__linck--map {
@@ -376,6 +372,45 @@
         top: auto;
         left: 0;
         right: 0;
+    }
+
+    .header__menu--container {
+        top: 0 !important;
+        right: 0;
+        left: auto;
+        width: 320px;
+        background: #fff;
+        transform: translateX(120%);
+    }
+
+    .header__menu--container .header__menu--li ul.menu {
+        flex-direction: column;
+    }
+
+    .header__menu--row {
+        height: 100vh;
+        align-items: flex-start;
+        padding-top: 80px;
+        padding-left: 20px;
+    }
+
+    .header__menu--container .header__menu--li ul.menu li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .header__menu--close.header__menu--click {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .header__menu--container .burger--right {
+        margin-left: 0;
+    }
+
+    .header__menu--li ul.menu a {
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 768px) {
@@ -479,6 +514,11 @@
         display: inline-block;
         margin-bottom: 20px;
     }
+
+    .header__social {
+        display: none;
+    }
+
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
@@ -618,6 +658,13 @@
         height: 300px;
     }
     
+    .burger--left {
+        display: none;
+    }
+    
+    .header__menu--burger {
+        margin-left: 0px;
+    }
     .route__item--btn a {
         padding: 10px 10px;
         font-size: 14px;
