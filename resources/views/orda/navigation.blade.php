@@ -52,7 +52,7 @@
                      @endif
                     </div>
                     <div class="header__user">
-                        <a href="/">
+                        <a href="{{route('login')}}">
                             <img src="/img/icon-user.svg" alt="">
                         </a>
                     </div>

@@ -53,7 +53,7 @@
                      <?php endif; ?>
                     </div>
                     <div class="header__user">
-                        <a href="/">
+                        <a href="<?php echo e(route('login')); ?>">
                             <img src="/img/icon-user.svg" alt="">
                         </a>
                     </div>
