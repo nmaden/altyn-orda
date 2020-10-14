@@ -301,8 +301,8 @@ value="{{ $k }}"
 </div> 
 
 
-@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+@if(RoleService::getRole(Auth::user()->type_id) !='GID')
+
 <br><br>
 
 <div>

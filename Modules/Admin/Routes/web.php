@@ -375,6 +375,36 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
                 ->middleware('can:view,contentmanager')
                 ->name('admin_content_manager_show');
         });
+	    
+        Route::group(['prefix' => 'moderator','namespace'=>'Manager'], function () {
+            Route::get('/', 'ModeratorController@index')
+                //->middleware('can:list,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_moderator');
+
+            Route::get('create', 'ModeratorController@create')
+                //->middleware('can:create,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_moderator_create');
+
+            Route::post('create', 'ModeratorController@saveCreate')
+                //->middleware('can:create,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_moderator_create_save');
+
+            Route::get('update/{moderator}', 'ModeratorController@update')
+                //->middleware('can:update,contentmanager')
+                ->name('admin_moderator_update');
+            
+            Route::post('update-ang/{moderator}', 'ModeratorController@saveUpdate')
+                //->middleware('can:update,contentmanager')
+                ->name('admin_moderator_update_save');
+
+            Route::get('delete/{moderator}', 'ModeratorController@delete')
+                //->middleware('can:delete,contentmanager')
+                ->name('admin_moderator_delete');
+
+            Route::get('view/{moderator}', 'ModeratorController@show')
+                //->middleware('can:view,contentmanager')
+                ->name('admin_moderator_show');
+        });
 
 	    Route::group(['prefix' => 'coords', 'namespace' => 'routes'], function () {
           Route::get('/', 'CoordController@index')

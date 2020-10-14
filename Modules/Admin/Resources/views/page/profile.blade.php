@@ -5,14 +5,14 @@
 
 <h3>Личные данные</h3>
 <hr/>
-@if(isset($info->relUsers->email))
-<p style="font-size:20px"><b>email:</b> {{ $info->relUsers->email }}</p>
+@if(isset($info->email))
+<p style="font-size:20px"><b>email:</b> {{ $info->email }}</p>
 @endif
-@if(isset($info->relUsers->login))
-<p style="font-size:20px"><b>login:</b> {{ $info->relUsers->login }}</p>
+@if(isset($info->login))
+<p style="font-size:20px"><b>login:</b> {{ $info->login }}</p>
 @endif
 @if(isset($info->relUsers->name))
-<p style="font-size:20px"><b>ФИО:</b> {{ $info->relUsers->name }}</p>
+<p style="font-size:20px"><b>ФИО:</b> {{ $info->name }}</p>
 @endif
 
 

@@ -15,6 +15,7 @@ use Modules\Entity\Model\Social\Social;
 use Modules\Entity\Model\Menu\Menu;
 use Modules\Entity\Model\Routes\Routes;
 use Modules\Entity\Model\Gid\Gid;
+use Modules\Entity\Model\ContentManager\ContentManager;
 
 
 use Modules\Entity\Model\LibCity\LibCity;
@@ -46,8 +47,9 @@ class AuthServiceProvider extends ServiceProvider
 		Menu::class => ContentPolicy::class,
 		Routes::class => ContentPolicy::class,
 		Gid::class => ContentPolicy::class,
+		ContentManager::class => ContentPolicy::class,
 
-		
+
 		LibCity::class => MainPolicy::class,
 		LibLanguage::class => MainPolicy::class,
 		LibCat::class => MainPolicy::class,

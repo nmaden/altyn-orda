@@ -12,6 +12,7 @@ class ContentPolicy {
 
 
     private function mainCheck($user){
+
 		return RoleService::getRole($user->type_id);
     }
    
@@ -39,7 +40,7 @@ class ContentPolicy {
             return false;
 		  }
 		  
-            return false;
+           
 
         return true;
     }
@@ -57,6 +58,7 @@ class ContentPolicy {
     
 
     public function delete($user){
+		
        if (!in_array($user->type_id, [SysUserType::ADMIN]))
             return false;
 

@@ -41,8 +41,8 @@ $ar=explode('_',$route);
 @endphp
 
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
-
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
       <li>
        <a   style="background: {{in_array('gallery',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
@@ -76,7 +76,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
 RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
-RoleService::getRole(Auth::user()->type_id) =='GID')
+RoleService::getRole(Auth::user()->type_id) =='GID' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
 <li>
        <a   style="background: {{in_array('gid',$ar) ? '#ccc' : '' }}" href="#">
@@ -89,7 +91,9 @@ RoleService::getRole(Auth::user()->type_id) =='GID')
 	  <li>
 	 
 	@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
 	  <li  style="">
          <a href="{{ route('admin_gid_update',1) }}">
@@ -125,7 +129,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 	   
 	   
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
 	 <li>
        <a   style="background: {{in_array('sights',$ar) ? '#ccc' : '' }}" href="#">
@@ -165,7 +171,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 
 
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 	   	                     
 <li>
   <a href="#" style="background: {{in_array('home',$ar) ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
@@ -207,7 +215,7 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 		</span></a>
 	</li>
 	<li  style="">
-       <a href="{{ route('admin_home') }}"><span>
+       <a href="{{ route('admin_moderator') }}"><span>
 		  Модератор
 		</span>
 		</a>
@@ -219,7 +227,8 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 	   
 	   
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 
 	    <li  style="background: {{in_array('social',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_social') }}">
@@ -231,7 +240,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 	   
 	   
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
       <li  style="background: {{in_array('slider',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_slider') }}">
 	   <i class="icon-city"></i>
@@ -243,7 +254,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 	   
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
 RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
-RoleService::getRole(Auth::user()->type_id) =='GID')
+RoleService::getRole(Auth::user()->type_id) =='GID' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
 <li>
        <a   style="background: {{in_array('routes',$ar) ? '#ccc' : '' }}" href="#">
@@ -256,7 +269,9 @@ RoleService::getRole(Auth::user()->type_id) =='GID')
 	  <li>
 
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
 	  <li  style="">
          <a href="{{ route('admin_routes_update',1) }}">
@@ -281,7 +296,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 @endif
 
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
 
 	    <li  style="background: {{in_array('menu',$ar) ? '#ccc' : '' }}">
@@ -294,7 +311,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 	   @endif
 	   
 	 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
     
                     <li class="">
@@ -323,7 +342,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
                </li>
              @endif
 	   @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
 	   <li>
        <a   style="background: {{in_array('figure',$ar) ? '#ccc' : '' }}" href="#">
@@ -358,7 +379,9 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 
 
                   @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 
 
                     <li class="">

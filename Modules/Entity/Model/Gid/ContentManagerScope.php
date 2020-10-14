@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Entity\Model\SysUserType\SysUserType;
 use Auth;
+use RoleService;
+
 class ContentManagerScope implements Scope{
     public function apply(Builder $builder, Model $model){
 				if (!Auth::guest()) {
 
 	 $user = Auth::user()->id;
-       if($user != SysUserType::ADMIN){
+       if(RoleService::getRole(Auth::user()->type_id) =='GID'){
 		   $builder->where('user_id', $user);
   
 	   }

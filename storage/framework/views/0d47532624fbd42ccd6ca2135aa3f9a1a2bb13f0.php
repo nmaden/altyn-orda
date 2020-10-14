@@ -74,6 +74,7 @@ type="text/javascript" charset="utf-8" >
                 
 				<div class="content">
                <?php if(count($errors) > 0): ?>
+				   <!------
                  <div class="alert alert-danger" style='text-align:center'>
                     <ul>
                      <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -81,6 +82,7 @@ type="text/javascript" charset="utf-8" >
                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                      </ul>
                  </div>
+				 ------------->
                <?php endif; ?>
 
                     <?php echo $__env->yieldContent('content'); ?>

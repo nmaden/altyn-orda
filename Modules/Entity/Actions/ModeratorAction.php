@@ -9,7 +9,7 @@ use Hash;
 use App\User;
 use Modules\Entity\Model\SysUserType\SysUserType;
 
-class ContentManagerAction {
+class ModeratorAction {
     private $model = false;
     private $request = false;
 
@@ -35,7 +35,7 @@ class ContentManagerAction {
         else
             unset($ar['password']);
 
-        $ar['type_id'] = SysUserType::MANAGER;
+        $ar['type_id'] = SysUserType::MODERATOR;
 
         $this->model->fill($ar);
         $this->model->save();

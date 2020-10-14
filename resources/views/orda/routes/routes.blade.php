@@ -41,6 +41,7 @@
 								  @lang('front_main.filter.all_category')
 
 								  </option>
+								  
                                   @foreach($categories as $key=>$category)
                                   
                                     @if(isset($_GET['category_id']))

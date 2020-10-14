@@ -61,10 +61,11 @@ trait ChangeModel {
         });
 
         static::deleted(function ($el) {
-
+           
             if($el->relTrans()){$el->relTrans()->delete();}
 			
 			if(RoleService::getRole(Auth::user()->type_id) !='ADMIN'){
+			
 				$el->relUsers()->delete();
 			}
 
