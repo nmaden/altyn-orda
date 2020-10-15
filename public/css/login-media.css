@@ -45,7 +45,9 @@
     .register__body--absol {
         width: 320px;
     }
-        
+    h1.register__body--title {
+        font-size: 25px;
+    }
     .register__body--form {
         padding: 40px 20px;
     }
