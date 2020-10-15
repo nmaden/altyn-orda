@@ -15,12 +15,12 @@
     
     <link rel="stylesheet" href="/css/style.css?v=3.5.3">
     <link rel="stylesheet" href="/css/media.css?v=3.5.3">
-    
+
     <link rel="stylesheet" href="/css/login-style.css?v=3.5.3">
     <link rel="stylesheet" href="/css/login-media.css?v=3.5.3">
 
 </head>
-<body>
+<body class="register--page">
     <div class="register__page">
 
         <div class="register__page--header">
