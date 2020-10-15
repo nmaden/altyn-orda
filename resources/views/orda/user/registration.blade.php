@@ -1,68 +1,74 @@
 
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-		
-		
-
 @if(session('error'))
-       <div class="alert alert-danger" style='text-align:center'>
-{{session('error') }}
+    <div class="alert alert-danger" style='text-align:center'>
+        {{session('error') }}
     </div>
 @endif
-		
-		
-		
-		
-            <div class="panel panel-default">
-                <div class="panel-heading">Регистрация</div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('registration_save') }}">
-                        {{ csrf_field() }}
+<div class="register__page--body">
+    <div class="container">
 
-                        <div class="form-group{{ $errors->has('login') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Логин</label>
+        <div class="register__body--absol">
+            <h1 class="register__body--title">
+                Регистрация
+            </h1>
 
-							
-                            <div class="col-md-6">
-                                <input id="login" type="text" class="form-control" name="login" value="{{ old('login') }}" required autofocus>
+            <div class="register__body--tab">
+                <div class="register__tab--item register__tab--active" data-tab="tab-1">
+                    Гиды
+                </div>
+                <div class="register__tab--item"  data-tab="tab-2">
+                    Туроператор
+                </div>
+            </div>
+            <div class="register__body--form register__content--tab-1 register__content--active">
+                <form class="form-horizontal" method="POST" action="{{ route('registration_save') }}">
+                    {{ csrf_field() }}
+                    <div class="register__form--item-block">
 
+                        
+                        <div class="register__form--item">
+                            <div class="form__item--input">
+                                <input id="famaly" type="text" placeholder="Фамилия" class="form-control">
+                            </div>
+                        </div>
+                        <div class="register__form--item">
+                            <div class="form__item--input">
+                                <input id="name" type="text" placeholder="Имя" class="form-control">
+                            </div>
+                        </div>
+                        <div class="register__form--item">
+                            <div class="form__item--input">
+                                <input id="phone" type="text" placeholder="Номер телефона" class="form-control">
+                            </div>
+                        </div>
+
+
+
+                        <div class="register__form--item">
+                            <div class="form__item--input {{ $errors->has('login') ? ' has-error' : '' }}">
+                                <input id="login" type="text" placeholder="Login"  class="form-control" name="login" value="{{ old('login') }}" required>
                                 @if ($errors->has('login'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('login') }}</strong>
                                     </span>
                                 @endif
-								
                             </div>
-							
-							 
-							
                         </div>
-						
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
+                        <div class="register__form--item">
+                            <div class="form__item--input {{ $errors->has('email') ? ' has-error' : '' }}">
+                                <input id="email" type="email" placeholder="E-mail" class="form-control" name="email" value="{{ old('email') }}" required>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-								
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Пароль</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
+                        <div class="register__form--item">
+                            <div class="form__item--input {{ $errors->has('password') ? ' has-error' : '' }}">
+                                <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password" required>
+                                Пароль должен содержать хотя бы одну цифру и заглавную букву
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -70,30 +76,106 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Павторить Пароль</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                        <div class="register__form--item">
+                            <div class="form__item--input">
+                                <input id="password-confirm" type="password" class="form-control" placeholder="Повторите пароль" name="password_confirmation" required>
                             </div>
                         </div>
 
-                      <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    регистрация
-                                </button>
-								
-						
-							
+
+                    </div>
+                    
+                    <div class="register__form--submit">
+                        <div class="form__item--submit">
+                            <button type="submit" class="form__submit">
+                                Зарегистрироваться
+                            </button>
+                            <div class="form__item--submit-linck">
+                                <a href="{{route('login')}}" class="form__item--linck">
+                                    Вход
+                                </a>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="register__body--form register__content--tab-2">
+                <form class="form-horizontal" method="POST" action="{{ route('registration_save') }}">
+                    {{ csrf_field() }}
+                    <div class="register__form--item-block">
+
+                        
+                        <div class="register__form--item">
+                            <div class="form__item--input">
+                                <input id="famaly" type="text" placeholder="Название туроператора" class="form-control">
+                            </div>
+                        </div>
+                        <div class="register__form--item">
+                            <div class="form__item--input">
+                                <input id="phone" type="text" placeholder="Номер телефона" class="form-control">
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="register__form--item">
+                            <div class="form__item--input {{ $errors->has('login') ? ' has-error' : '' }}">
+                                <input id="login" type="text" placeholder="Login"  class="form-control" name="login" value="{{ old('login') }}" required>
+                                @if ($errors->has('login'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('login') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="register__form--item">
+                            <div class="form__item--input {{ $errors->has('email') ? ' has-error' : '' }}">
+                                <input id="email" type="email" placeholder="E-mail" class="form-control" name="email" value="{{ old('email') }}" required>
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="register__form--item">
+                            <div class="form__item--input {{ $errors->has('password') ? ' has-error' : '' }}">
+                                <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password" required>
+                                Пароль должен содержать хотя бы одну цифру и заглавную букву
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="register__form--item">
+                            <div class="form__item--input">
+                                <input id="password-confirm" type="password" class="form-control" placeholder="Повторите пароль" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    
+                    <div class="register__form--submit">
+                        <div class="form__item--submit">
+                            <button type="submit" class="form__submit">
+                                Зарегистрироваться
+                            </button>
+                            <div class="form__item--submit-linck">
+                                <a href="{{route('login')}}" class="form__item--linck">
+                                    Вход
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
+        
+
     </div>
 </div>
-
-
