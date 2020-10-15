@@ -159,7 +159,7 @@ span.register__ckeck--span {
 }
 
 .register__ckeck input[type="checkbox"] {
-    display: none;
+    /* display: none; */
 }
 
 .register__ckeck {
@@ -172,4 +172,7 @@ span.register__ckeck--span {
     color: #000;
 }
 
-span.register__ckeck--span:before {content: "";position: absolute;width: 16px;height: 17px;background: #b87f04;left: 1px;top: 1px;/* transform: translate(-50%, -50%); */}
+span.register__ckeck--span:before {content: "";position: absolute;width: 16px;height: 17px;background: #b87f04;left: 1px;top: 1px;opacity: 0;}
+.register__ckeck input[type="checkbox"]:checked + span.register__ckeck--span:before {
+    opacity: 1;
+}

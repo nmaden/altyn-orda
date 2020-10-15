@@ -89,7 +89,7 @@
                     
                     <label class="register__form--check">
                         <div class="register__ckeck">
-                            <input type="checkbox" checked required>
+                            <input type="checkbox"  required>
                             <span class="register__ckeck--span"></span>
                         </div>
                         <div class="register__ckeck--title">
@@ -173,7 +173,7 @@
 
                     <label class="register__form--check">
                         <div class="register__ckeck">
-                            <input type="checkbox" checked required>
+                            <input type="checkbox" required>
                             <span class="register__ckeck--span"></span>
                         </div>
                         <div class="register__ckeck--title">
