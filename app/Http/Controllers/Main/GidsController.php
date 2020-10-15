@@ -60,9 +60,7 @@ class GidsController extends SiteController
 		  $seo_title = $item_seo[0];
 		  
 	   }else{
-		   $model= Gid::where('id','=',1)->first();
-           $seo_desc=$model->seo_title;
-		   $seo_title = $model->seo_description;
+		   
 		}
       
 		        		
