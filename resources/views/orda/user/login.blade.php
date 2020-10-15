@@ -11,28 +11,30 @@
                 <div class="register__body--form">
                     <form class="form-horizontal" method="POST" action="{{ route('check_login') }}">
                         {{ csrf_field() }}
-
-                        <div class="register__form--item">
-                            <div class="form__item--input {{ $errors->has('email') ? ' has-error' : '' }}">
-                                <input id="email" type="email" placeholder="E-mail" class="form-control" name="email" value="{{ old('email') }}" required>
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="register__form--item-block">
+                            <div class="register__form--item">
+                                <div class="form__item--input {{ $errors->has('email') ? ' has-error' : '' }}">
+                                    <input id="email" type="email" placeholder="E-mail" class="form-control" name="email" value="{{ old('email') }}" required>
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="register__form--item">
+                                <div class="form__item--input {{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password" required>
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                        <div class="register__form--item">
-                            <div class="form__item--input {{ $errors->has('password') ? ' has-error' : '' }}">
-                                <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password" required>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="register__form--item">
+                        
+                        <div class="register__form--submit">
                             <div class="form__item--passtext">
                                 <a href="#" class="passtext">
                                     Забыли пароль?
