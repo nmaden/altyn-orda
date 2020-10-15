@@ -27,7 +27,9 @@
                                     <span class="numer__strong">
 									@if(isset($v->date))
 									{{$v->date}}
+								
 								@endif
+								
                                     </span>
                                     <span class="numer__litl">
                                         @lang('front_main.year')
@@ -84,6 +86,7 @@
         
     </div>
 	@endif
+	
 	<!----------------гиды и тупоператоры-------------------------->
 @if(!$home->gids->isEmpty())
     <div class="section__gid">

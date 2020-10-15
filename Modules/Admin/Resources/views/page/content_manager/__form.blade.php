@@ -16,7 +16,13 @@ if(in_array('show',$ar)){
 <div>  
 <label for="title"><b>email</b></label> 
 <input {{$page ? 'disabled': ''}} 
+@if(old('date')
+	type="text" value="{{old('date')}}" 
+
+	@else
 type="text" value="{{isset($model->email) ? $model->email: ''}}" 
+		
+@endif
 name='email' placeholder="" 
 class="form-control"/>
 @if ($errors->has('email'))

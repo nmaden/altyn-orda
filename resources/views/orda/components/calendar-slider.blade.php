@@ -24,9 +24,10 @@
                             </div>
                             <div class="calendar__item--info">
                                 <div class="calendar__item--data">
-								@if(isset($item->date))
-								{{$item->date}}
+								@if(isset($item->view_date))
+								{{$item->view_date}}
 								@endif
+								
                                 </div>
                                 <div class="calendar__item--title">
                                     <a href="/calendar-item.html">

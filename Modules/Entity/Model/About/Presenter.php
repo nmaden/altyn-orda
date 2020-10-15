@@ -13,7 +13,15 @@ trait Presenter {
 		return Sights::pluck('name', 'id')->toArray();
     }
 	
-	
+	function getPhotoUnserializeAttribute(){
+		if(@unserialize($this->editor)){
+			return unserialize($this->editor);
+		}else{
+			return $this->editor;
+		}
+	 
+	}
+
 	
 	function getArSightsAttribute(){
 	   return $this->sights()->pluck('sight_id')->toArray();

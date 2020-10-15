@@ -28,7 +28,9 @@
 									<?php if(isset($v->date)): ?>
 									<?php echo e($v->date); ?>
 
+								
 								<?php endif; ?>
+								
                                     </span>
                                     <span class="numer__litl">
                                         <?php echo app('translator')->get('front_main.year'); ?>
@@ -87,6 +89,7 @@
         
     </div>
 	<?php endif; ?>
+	
 	<!----------------гиды и тупоператоры-------------------------->
 <?php if(!$home->gids->isEmpty()): ?>
     <div class="section__gid">

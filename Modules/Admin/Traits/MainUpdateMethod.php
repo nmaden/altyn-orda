@@ -29,7 +29,8 @@ trait MainUpdateMethod  {
     }
 
     public function saveUpdate(Request $request, ModelParent $item) {
-		
+		    
+
 		
        $validator = $this->validator($request->all(),$item);
         if ($validator->fails()) { 
@@ -56,6 +57,7 @@ trait MainUpdateMethod  {
         }
         if($request->lang){
         return redirect()->route($this->route_path.'_update', $item->id.'?lang='.$request->lang)->with('success', trans('main.updated_model'));
+		
 		}else{
 		  return redirect()->route($this->route_path.'_update', $item)->with('success', trans('main.updated_model'));
 		}

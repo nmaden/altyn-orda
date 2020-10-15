@@ -18,14 +18,22 @@
 	
 	<link rel="stylesheet" href="/admin-asset/drobsone/css/style.css">
     <link rel="stylesheet" href="/admin-asset/drobsone/css/dropzone.css">
+  <link rel="stylesheet" href="/p/jquery-ui.css">
 
     @section('css_block')
     @show
     
+	<!-----
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/loaders/pace.min.js"></script>
-	<script type="text/javascript" src="/admin-asset/assets/js/core/libraries/jquery.min.js"></script>
+	------>
+	
+	<!--<script type="text/javascript" src="/admin-asset/assets/js/core/libraries/jquery.min.js"></script>-->
+	<script type="text/javascript" src="/admin-asset/jquery.js"></script>
+
+	
+	
 	<script type="text/javascript" src="/admin-asset/assets/js/core/libraries/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/admin-asset/assets/js/plugins/loaders/blockui.min.js"></script>
+	<!---<script type="text/javascript" src="/admin-asset/assets/js/plugins/loaders/blockui.min.js"></script>--->
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/forms/selects/select2.min.js"></script>
 	
 
@@ -35,17 +43,28 @@
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/editors/wysihtml5/locales/bootstrap-wysihtml5.ua-UA.js"></script>
 	<script type="text/javascript" src="/admin-asset/assets/js/pages/editor_wysihtml5.js"></script>
 	
+	
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/forms/styling/uniform.min.js"></script>
 	
+	<!------
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
+	
+	
+	<!----
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
+	----->
+	
+	<!-------
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/notifications/pnotify.min.js"></script>
+	---------------->
     
 	<script type="text/javascript" src="/admin-asset/assets/js/core/app.js"></script>
+	<!------
 	<script type="text/javascript" src="/admin-asset/assets/js/plugins/ui/ripple.min.js"></script>
+	-------->
 	<script type="text/javascript" src="/vendor/sweetalert.min.js"></script>
-	<script type="text/javascript" src="/vendor/footable.min.js"></script>
+	<!---<script type="text/javascript" src="/vendor/footable.min.js"></script>--->
 	
 	<!------
 	<script type="text/javascript" src="/admin-asset/custom/js/main.js"></script>

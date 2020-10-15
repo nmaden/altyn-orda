@@ -639,6 +639,8 @@ Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
 Route::group(['namespace' => 'Edit'], function () {
 Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
 Route::any('figures',['uses' => 'CkeditorController@figures'])->name('figures');
+Route::any('aboutseditor',['uses' => 'CkeditorController@about'])->name('aboutseditor');
+
 
 Route::any('drobsone-send-routes',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send-routes');
 Route::any('slider-remove-routes',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove-routes');

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
 use Cache;
+use Carbon\Carbon;
+
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -41,9 +43,20 @@ class CalendarUpdateAction {
          $ar['social'] = serialize($this->request->social);
        }
        
+	   
+	   if($this->request->date){
+		   
+		   if(strlen($this->request->date) ==4){
+			   $carbon =  Carbon::createFromFormat('Y-m-d', $this->request->date.'-11-30');
+               $ar['date'] = $carbon->toDateString();		   
+               
+		   }
+	   }
+	   
+	   
 	   if($this->request->general){
 		   
-	    if($this->request->seo_description && $this->request->seo_title){
+	    if($this->request->seo_description || $this->request->seo_title){
 		   if($this->request->lang){
 			 
 			 Cache::forever('seo-calendar-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно

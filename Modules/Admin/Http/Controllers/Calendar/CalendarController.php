@@ -29,9 +29,18 @@ class CalendarController extends Controller {
         protected function validator(array $data)
     {
 		//nullable
+		$regex = '/([\d]+-[\d]{1,2}-[\d]{1,2})/u';
+
+		if(strlen($data['date']) == 4){
+			$regex = '/([\d]{4})/u';
+
+		}
+		
         return \Validator::make($data, [
+		//2020-11-5
 		 //'name' => 'sometimes|required|nullable',
-         
+         'date' => 'string|regex:'.$regex,
+
         ]);
 		
     }

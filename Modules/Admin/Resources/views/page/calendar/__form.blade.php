@@ -30,10 +30,17 @@ $categories = DB::table('lib_categories')->get();
   <label for="title"><b>Дата</b></label> 
      <!----*------></span>
                 <input 
-					class="form-control" 
-					type="date" name="date" 
+					class="form-control"
+					id="datepicker"
+					type="text" name="date" 
+					max="3"
 					{{$page ? 'disabled': ''}}
-					value="{{isset($model->date) ? $model->date : ''}}">
+					value="{{isset($model->view_date) ? $model->view_date : ''}}">
+					@if ($errors->has('date'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('date') }}</strong>
+   </span>
+@endif
                 </div>
 
 <br><br>
@@ -170,4 +177,6 @@ $('.select2').select2({
     minimumResultsForSearch: Infinity,
     width: '100%'
 })
+
+ 
 		</script>

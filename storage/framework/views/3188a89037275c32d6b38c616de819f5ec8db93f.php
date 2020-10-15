@@ -25,10 +25,11 @@
                             </div>
                             <div class="calendar__item--info">
                                 <div class="calendar__item--data">
-								<?php if(isset($item->date)): ?>
-								<?php echo e($item->date); ?>
+								<?php if(isset($item->view_date)): ?>
+								<?php echo e($item->view_date); ?>
 
 								<?php endif; ?>
+								
                                 </div>
                                 <div class="calendar__item--title">
                                     <a href="/calendar-item.html">

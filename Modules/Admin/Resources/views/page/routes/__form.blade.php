@@ -58,15 +58,22 @@ class="form-control"/>
  <div class='preview'></div>
 </div>
 @endif
-<div> 
-
 
 <br><br> 
+
+
+<div> 
 <label for="title"><b>Название</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
 name='name' placeholder="{{$page ? '': 'Заголовок(текст)'}} " 
 class="form-control"/>
+@if ($errors->has('name'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>
+   </span>
+@endif
+
 </div>
 
 <br><br>

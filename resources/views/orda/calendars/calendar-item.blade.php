@@ -43,8 +43,8 @@
 
                 <div class="calendar__list--item">
                     <strong>@lang('front_main.calendar.date'):</strong> 
-					@if(isset($calendar->date))
-					{{$calendar->date}}
+					@if(isset($calendar->view_date))
+					{{$calendar->view_date}}
 				    @endif
                 </div>
 				@if(isset($calendar->relCity->name))
@@ -130,7 +130,7 @@
                                     <div class="calendar__item--data">
 									@if(isset($calendar->photo))
 
-									{{$v->date}}
+									{{$v->view_date}}
 									@endif
                                     </div>
 									

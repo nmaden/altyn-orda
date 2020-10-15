@@ -5,6 +5,8 @@ use Modules\Entity\Services\ChangeModelService;
 use Route;
 use Cache;
 use Modules\Entity\Model\Social\Social;
+use Modules\Entity\Model\Gid\Gid;
+
 use Auth;
 use RoleService;
 
@@ -24,6 +26,11 @@ trait ChangeModel {
 
 
 	});
+	    Gid::deleted(function (Gid $gid) {$gid->relUsers()->delete();});
+
+
+	
+	
     Social::created(function (Social $social) {
 		
 		if(Cache::has('social')){
@@ -64,10 +71,6 @@ trait ChangeModel {
            
             if($el->relTrans()){$el->relTrans()->delete();}
 			
-			if(RoleService::getRole(Auth::user()->type_id) !='ADMIN'){
-			
-				$el->relUsers()->delete();
-			}
 
 			
 			return true;

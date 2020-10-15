@@ -41,7 +41,36 @@ class DefaultUpdateAction {
 		}
           $ar['edited_user_id'] = $this->request->user()->id;
 		  
-	   if($this->request->general){if($this->request->seo_description && $this->request->seo_title){
+		  
+		  
+		if($this->request->description){
+		preg_match_all('/\/store\/editor\/[\d]+\/[\d]+\/[\d+]+\/[\d\w]+.[\w]+/i',$this->request->description,$array2);
+		if(is_array($this->model->photo_unserialize)){
+			$baza = $this->model->photo_unserialize;
+			$diff = array_diff($baza,$array2[0]);
+			$diff2 = array_diff($array2[0],$baza);
+
+			$intersect = array_intersect($baza,$array2[0]);
+            if(is_array($diff) && !empty($diff)){
+			 foreach($diff as $item){
+			   Storage::delete($item);
+              }
+			 }
+			 $image = array_merge($intersect,$diff2);
+			if(!empty($intersect)){
+				$ar['photo'] = serialize($image);
+			}
+		  }else{
+			  if(!empty($array2)){
+			  $ar['photo'] = serialize($array2[0]);
+			  }
+		  }
+	    }
+
+		  
+		  
+		  
+	   if($this->request->general){if($this->request->seo_description || $this->request->seo_title){
 		   if($this->request->lang){Cache::forever('seo-figure-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
           }else{Cache::forever('seo-figure-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
 		   }}}

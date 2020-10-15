@@ -68,10 +68,24 @@ trait Presenter {
 	function getSeoDescriptionAttribute($v){
 		return $this->getTransField('seo_description', $v);
     }
-	
+	   function getViewDateAttribute($v){
+		 if($this->date){
+			 		
+          $carbon =  Carbon::createFromFormat('Y-m-d', $this->date);
+		  if($carbon->toDateString() == $carbon->year.'-11-30'){
+			
+            return $carbon->year;
+            }
+		   }
+		   
+		       return $this->date;;
+		   }
+		   
    function getCaAttribute($v){
 	   if(!$this->date){return false;}
+
 	   $carbon =  Carbon::createFromFormat('Y-m-d', $this->date); 
+
       if($this->blizkie){switch($this->blizkie){
 		   case 2:{$model = $this::where('date', '>=',$carbon->toDateString())->where('date', '<=',$carbon->addMonth(1)->toDateString())->get();break;}
 		   case 1:{$model = $this::where('date', '>=',$carbon->toDateString())->where('date', '<=',$carbon->addWeek(1)->toDateString())->get();break;}

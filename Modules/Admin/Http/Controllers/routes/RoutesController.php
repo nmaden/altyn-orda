@@ -30,7 +30,7 @@ class RoutesController extends Controller {
     {
 		//nullable
         return \Validator::make($data, [
-		 //'name' => 'sometimes|required|string',
+		 'name' => 'sometimes|required|string',
          //'vosrast' => 'sometimes|nullable|numeric',
 	     //'opyt' => 'sometimes|numeric',
 	     //'imya' => 'sometimes|string',
