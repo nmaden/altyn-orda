@@ -74,13 +74,22 @@ h1.register__body--title {
     font-weight: bold;
     font-size: 24px;
     color: #0E4B30;
+    text-decoration: none;
 }
 
 .form__item--passtext a {
     font-size: 14px;
+    text-decoration: none;
     color: #B77F04;
 }
 
 .form__item--passtext {
     margin-bottom: 15px;
+}
+.register__form--item-block .register__form--item:last-child {
+    margin-bottom: 0;
+}
+
+.register__form--submit {
+    margin-top: 5px;
 }
