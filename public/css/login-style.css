@@ -140,3 +140,36 @@ h1.register__body--title {
 .password-textinfo{
     font-size: 14px;
 }
+
+
+.register__form--check {
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+}
+
+span.register__ckeck--span {
+    border: 1px solid #C6C6C6;
+    box-sizing: border-box;
+    width: 21px;
+    height: 20px;
+    display: block;
+    min-width: 21px;
+    position: relative;
+}
+
+.register__ckeck input[type="checkbox"] {
+    display: none;
+}
+
+.register__ckeck {
+    margin-right: 15px;
+}
+
+.register__ckeck--title {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #000;
+}
+
+span.register__ckeck--span:before {content: "";position: absolute;width: 16px;height: 17px;background: #b87f04;left: 1px;top: 1px;/* transform: translate(-50%, -50%); */}
