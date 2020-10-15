@@ -159,7 +159,7 @@ span.register__ckeck--span {
 }
 
 .register__ckeck input[type="checkbox"] {
-    /* display: none; */
+    display: none;
 }
 
 .register__ckeck {
