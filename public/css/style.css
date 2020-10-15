@@ -421,7 +421,7 @@ ul.children__block > li {
 
 .ul.children__block li a {}
 
-.children__block li a {
+.header__menu--li ul.menu .children__block li a {
     font-size: 14px !important;
     color: #878787;
 }
