@@ -1,43 +1,43 @@
     <a href="/page-map" class="modal__fixed">
         <img src="/img/Vector.svg" alt="">
     </a>
-    
+
     <div class="footer__partners">
         <div class="container">
             <div class="footer__partners--row">
 
                 <div class="footer__partners--item">
                     <div class="footer__partners--img">
-                        <a href="/">
-                            <img src="/img/gerb_sm1.png" alt="">
+                        <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk">
+                            <img width="80px" src="/logo/logo1.jpeg" alt="">
                         </a>
                     </div>
                     <div class="footer__partners--text">
-                        <a href="/">
+                        <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk">
                             Министерство культуры и спорта Республики Казахстан
                         </a>
                     </div>
                 </div>
                 <div class="footer__partners--item">
                     <div class="footer__partners--img">
-                        <a href="/">
+                        <a href="https://qaztourism.kz/ru">
                             <img src="/img/gerb_sm2.png" alt="">
                         </a>
                     </div>
                     <div class="footer__partners--text">
-                        <a href="/">
+                        <a href="https://qaztourism.kz/ru">
                             АО «Национальная компания «Kazakh Tourism»
                         </a>
                     </div>
                 </div>
                 <div class="footer__partners--item">
                     <div class="footer__partners--img">
-                        <a href="/">
+                        <a href="https://kazakhstan.travel">
                             <img src="/img/gerb_sm3.png" alt="">
                         </a>
                     </div>
                     <div class="footer__partners--text">
-                        <a href="/">
+                        <a href="https://kazakhstan.travel">
                             Вдохновит вас на путешествие в Казахстан
                         </a>
                     </div>

@@ -1,5 +1,4 @@
 <div style='float:right;position:relative;right:20px'>
-<a href=""><img width="40px" src="/logo/logo1.jpeg"></a>&nbsp&nbsp
 
 @if(is_array($social))
 	
