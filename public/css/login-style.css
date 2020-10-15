@@ -4,6 +4,9 @@ body.register--page {
     position: relative;
     padding-bottom: 50px;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body.register--page:before {content: "";position: absolute;bottom: 0;width: 100%;left: 0;height: 40px;background: url(../img/header__bg.svg);background-repeat: repeat-x;background-position: bottom;background-size: contain;}
@@ -11,10 +14,18 @@ body.register--page:before {content: "";position: absolute;bottom: 0;width: 100%
 .register__page--header {
     position: absolute;
     width: 100%;
-    display: none;
+    top: 50px;
+    left: 0;
 }
 
-.register__page--body {
+.register__header--row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register__header--logo img {
+    max-width: 100px;
 }
 
 .register__body--absol {
@@ -74,13 +85,22 @@ h1.register__body--title {
     font-weight: bold;
     font-size: 24px;
     color: #0E4B30;
+    text-decoration: none;
 }
 
 .form__item--passtext a {
     font-size: 14px;
+    text-decoration: none;
     color: #B77F04;
 }
 
 .form__item--passtext {
     margin-bottom: 15px;
+}
+.register__form--item-block .register__form--item:last-child {
+    margin-bottom: 0;
+}
+
+.register__form--submit {
+    margin-top: 5px;
 }
