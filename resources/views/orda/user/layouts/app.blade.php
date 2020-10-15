@@ -64,7 +64,7 @@
             $(this).addClass('register__tab--active');
             var jdata = $(this).data('tab');
             $('.register__content--tab-1, .register__content--tab-2').removeClass('register__content--active');
-            $('.register__content--'.jdata).addClass('register__content--active');
+            $('.register__content--' + jdata).addClass('register__content--active');
         });
     </script>  
 
