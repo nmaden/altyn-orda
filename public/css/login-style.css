@@ -172,7 +172,7 @@ span.register__ckeck--span {
     color: #000;
 }
 
-span.register__ckeck--span:before {content: "";position: absolute;width: 16px;height: 17px;background: #b87f04;left: 1px;top: 1px;opacity: 0;}
+span.register__ckeck--span:before {content: "";position: absolute;width: 10px;height: 10px;background: #b87f04;left: 50%;top: 50%;opacity: 0;transform: translate(-50%, -50%);}
 .register__ckeck input[type="checkbox"]:checked + span.register__ckeck--span:before {
     opacity: 1;
 }
