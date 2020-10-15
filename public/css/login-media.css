@@ -28,8 +28,9 @@
     
     .register__page--header {
         position: relative;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        top: 0;
     }
     
     .register__page {
@@ -60,8 +61,6 @@
     .form__item--submit-linck a {
         font-size: 20px;
     }
-
-    .form__item--input input {}
 
     .register__form--item {
         margin-bottom: 10px;
