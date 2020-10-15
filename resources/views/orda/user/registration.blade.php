@@ -85,6 +85,16 @@
 
                     </div>
                     
+                    <div class="register__form--check">
+                        <div class="register__ckeck">
+                            <input type="checkbox" checked required>
+                            <span class="register__ckeck--span"></span>
+                        </div>
+                        <div class="register__ckeck--title">
+                            Я ознакомился и согласен с условиями пользовательского соглашения и соглашения об использовании и обработки персональных данных
+                        </div>
+                    </div>
+                    
                     <div class="register__form--submit">
                         <div class="form__item--submit">
                             <button type="submit" class="form__submit">
@@ -142,7 +152,9 @@
                         <div class="register__form--item">
                             <div class="form__item--input {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password" required>
-                                Пароль должен содержать хотя бы одну цифру и заглавную букву
+                                <p class="password-textinfo">
+                                    Пароль должен содержать хотя бы одну цифру и заглавную букву
+                                </p>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -155,8 +167,16 @@
                                 <input id="password-confirm" type="password" class="form-control" placeholder="Повторите пароль" name="password_confirmation" required>
                             </div>
                         </div>
+                    </div>
 
-
+                    <div class="register__form--check">
+                        <div class="register__ckeck">
+                            <input type="checkbox" checked required>
+                            <span class="register__ckeck--span"></span>
+                        </div>
+                        <div class="register__ckeck--title">
+                            Я ознакомился и согласен с условиями пользовательского соглашения и соглашения об использовании и обработки персональных данных
+                        </div>
                     </div>
                     
                     <div class="register__form--submit">
