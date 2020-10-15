@@ -55,7 +55,8 @@
 }
 @media screen and (max-width: 1200px) {
     .children__block {
-        display: none;
+        /* display: none; */
+        padding-left: 10px !important;
     }
         
     ul.clildren-menu {
@@ -679,6 +680,27 @@
     .gid__about-price--block {
         font-size: 20px;
     }
+
+    .header__lang {
+        margin-left: 10px;
+    }
+    
+    .header__user {
+        margin-left: 10px;
+    }
+    
+    .burger--right {
+        margin-left: 0px;
+    }
+    
+    .header__menu {
+        margin-left: 10px;
+    }
+    
+    .header__logo img {
+        max-width: 110px;
+    }
+    
 }
 @media screen and (max-width: 320px) {
 

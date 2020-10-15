@@ -112,19 +112,7 @@ header:before {content: "";position: absolute;bottom: 0;width: 100%;left: 0;heig
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-.children__block {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s ease;
-}
-.children__block--active{
-    opacity: 1;
-    visibility:visible;
-}
+
 .header__menu--block {
     background: #FFFFFF;
     border-radius: 30px;
@@ -367,6 +355,7 @@ ul.lang__menu > li:hover ul.lang__menu--children {
     /* background-image: url(../img/line__bg.svg); */
     background-position: bottom center;
     background-repeat-y: no-repeat;
+    padding-bottom: 30px;
 }
 .header__menu--container:before {content: "";position: absolute;width: 100%;bottom: 0;background-image: url(../img/line__bg.svg);height: 30px;background-size: contain;background-repeat-y: no-repeat;}
 .header__menu--active .header__menu--container {transform: translateY(0%);}
@@ -374,16 +363,19 @@ ul.lang__menu > li:hover ul.lang__menu--children {
     cursor: pointer;
 }
 .header__menu--row {
-    height: 130px;
+    /* height: 130px; */
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 5px;
 }
 .header__menu--li ul.menu {
     display: flex;
     margin: 0;
     padding: 0;
     list-style: none;
+    justify-content: space-between;
 }
 
 .header__menu--li ul.menu a {
@@ -391,6 +383,7 @@ ul.lang__menu > li:hover ul.lang__menu--children {
     color: #151515;
     transition: all 0.5s ease;
     text-decoration: none;
+    color: #000000;
 }
 a.header__serch--click {
     cursor: pointer;
@@ -410,6 +403,31 @@ a.header__serch--click {
 
 .header__menu--close .burger--right span {
     background: #151515;
+}
+ul.children__block {
+    padding: 0;
+    list-style: none;
+    margin-top: 10px;
+}
+
+ul.children__block > li {
+    margin-left: 0 !important;
+}
+
+.header__menu--li {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.ul.children__block li a {}
+
+.header__menu--li ul.menu .children__block li a {
+    font-size: 14px !important;
+    color: #878787;
+}
+
+.children__block li {
+    margin: 2px 0;
 }
 
 
@@ -2392,6 +2410,7 @@ a.modal__fixed {
 a.modal__fixed img {
     width: 100%;
 }
+
 .header__user {
     margin-left: 20px;
 }
