@@ -28,8 +28,9 @@
     
     .register__page--header {
         position: relative;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        top: 0;
     }
     
     .register__page {
