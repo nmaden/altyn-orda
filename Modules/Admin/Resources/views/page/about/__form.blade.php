@@ -29,8 +29,9 @@ class="form-control"/>
  value="" 
  name='description' 
   rows="16" 
+  id="editor"
  cols="4" 
- class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+ class="form-control {{$page ? '' : ''}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
  </div>
@@ -74,3 +75,11 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
+<script>
+	
+  CKEDITOR.replace('editor', {
+  filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  disallowedContent: 'a[href]',
+  height: 300, });
+	
+</script>

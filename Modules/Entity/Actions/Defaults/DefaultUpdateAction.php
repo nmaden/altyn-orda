@@ -56,8 +56,13 @@ class DefaultUpdateAction {
 			   Storage::delete($item);
               }
 			 }
+			 $image = $diff2;
+			 if($intersect){
 			 $image = array_merge($intersect,$diff2);
-			if(!empty($intersect)){
+			 }
+			 		
+             
+			if(!empty($intersect) || !empty($image)){
 				$ar['photo'] = serialize($image);
 			}
 		  }else{

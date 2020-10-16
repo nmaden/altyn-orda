@@ -26,19 +26,28 @@ class DefaultUpdateAction {
 		$ar['user_id'] = $this->request->user()->id;
         $ar['edited_user_id'] = $this->request->user()->id;
 
-	    if($this->request->description){
+		  
+		if($this->request->description){
 		preg_match_all('/\/store\/editor\/[\d]+\/[\d]+\/[\d+]+\/[\d\w]+.[\w]+/i',$this->request->description,$array2);
 		if(is_array($this->model->photo_unserialize)){
 			$baza = $this->model->photo_unserialize;
 			$diff = array_diff($baza,$array2[0]);
+			$diff2 = array_diff($array2[0],$baza);
+
 			$intersect = array_intersect($baza,$array2[0]);
             if(is_array($diff) && !empty($diff)){
 			 foreach($diff as $item){
 			   Storage::delete($item);
               }
 			 }
-			if(!empty($intersect)){
-				$ar['photo'] = serialize($intersect);
+			 $image = $diff2;
+			 if($intersect){
+			 $image = array_merge($intersect,$diff2);
+			 }
+			 		
+             
+			if(!empty($intersect) || !empty($image)){
+				$ar['photo'] = serialize($image);
 			}
 		  }else{
 			  if(!empty($array2)){

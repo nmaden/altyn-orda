@@ -9,6 +9,7 @@ use Storage;
 use Illuminate\Routing\Controller;
 use Modules\Entity\Model\Tabs\Tabs;
 use Modules\Entity\Model\Figure\Figure;
+use Modules\Entity\Model\About\About;
 
 class CkeditorController extends Controller
 {
@@ -97,6 +98,10 @@ class CkeditorController extends Controller
 			$this->table = Figure::where('id',$this->id)->first();
 			break;
 		}
+		case 'abouts':{
+			$this->table = About::where('id',$this->id)->first();
+			break;
+		}
 	 }
 	 }
  }
@@ -116,6 +121,16 @@ public function figures(Request $request){
 	 $action = 'update';
 	 $str = 'figure';
 	 $table = 'figures';
+	 $this->photo= 'editor';
+	 $this->collector($this->files,$action,$str,$table);
+}
+public function about(Request $request){
+	
+	 $this->files = $request->file('upload');
+	 $this->papka_save = 'editor';
+	 $action = 'update';
+	 $str = 'about';
+	 $table = 'abouts';
 	 $this->photo= 'editor';
 	 $this->collector($this->files,$action,$str,$table);
 }
