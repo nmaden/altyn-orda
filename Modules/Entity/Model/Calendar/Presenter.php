@@ -83,8 +83,8 @@ trait Presenter {
 		   
    function getCaAttribute($v){
 	   if(!$this->date){return false;}
-
 	   $carbon =  Carbon::createFromFormat('Y-m-d', $this->date); 
+      
 
       if($this->blizkie){switch($this->blizkie){
 		   case 2:{$model = $this::where('date', '>=',$carbon->toDateString())->where('date', '<=',$carbon->addMonth(1)->toDateString())->get();break;}

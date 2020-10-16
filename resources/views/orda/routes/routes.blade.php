@@ -1,6 +1,4 @@
-
-
-    <div class="about__desc page__description">
+<div class="about__desc page__description">
         <div class="container">
 
             <div class="bread-line">

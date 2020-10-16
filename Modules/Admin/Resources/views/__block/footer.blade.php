@@ -8,7 +8,7 @@
 <script>
   $( "#datepicker" ).datepicker({
 	  	inline: true,
-		dateFormat: "y-mm-d",
+		dateFormat: "yy-mm-d",
 
 	  
   });
