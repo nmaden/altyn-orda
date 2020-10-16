@@ -4,7 +4,7 @@
 						<th >{{ $model->getLabel('id') }}</th>
 						<th >{{ $model->getLabel('photo') }}</th>
 						<th >{{ $model->getLabel('name') }}</th>
-						<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
+							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
 					

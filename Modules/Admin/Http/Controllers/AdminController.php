@@ -10,7 +10,6 @@ use Modules\Entity\Model\Calendar\Calendar;
 use Modules\Entity\Model\SysLang\SysLang;
 use App\User;
 use Auth;
-use Route;
 class AdminController extends Controller
 {
     public function index() {
@@ -24,10 +23,7 @@ class AdminController extends Controller
     }
 	
 	
-	public function filter(Request $request){
-		return 100;
-	}
-
+	
 	  public function filter(Request $request){
 		
 		  if($request->q){
@@ -51,9 +47,10 @@ class AdminController extends Controller
 		  
 		  $result = $model::filter($request)->latest()->paginate(24);
 		  
-		 $syslang = new SysLang();
+		  $syslang = new SysLang();
 		 if(count($result) > 0){
-        $view = view('admin::page.components.search.index')->with(['items'=>$result,
+        //$result = DB::table('galleries')->where("name","LIKE","%$q%")->get();
+		 $view = view('admin::page.components.search.index')->with(['items'=>$result,
 		 'model'=>$model,'sys_lang'=>$syslang,'route_path'=>$route_path,
 		 'request'=>$request,'name'=>$name])->render();
 		 return response($view)->header('Content-type','text/html');

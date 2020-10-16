@@ -1,3 +1,8 @@
+@php
+$route1 = Route::currentRouteName();
+$ar1 = explode('_',$route1);
+//dd($ar1);
+@endphp
 
     <header>
         <div class="container">
@@ -8,10 +13,15 @@
                     </a>
                 </div>
                 <div class="header__right">
-                    
+                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                   @if(in_array($ar1[0],['calendars','sights','routes','gids','figures']))
                     <div class="header__serch">
-                        <form role="search" method="get" id="searchform" class="searchform" action="" style="right: -10px; width: 0px;">
-                            <input type="text" value="" placeholder="Поиск" name="s" id="autosearch" >
+                        <form role="search" 
+						method="get" id="searchform" class="searchform" 
+						action="{{route($ar1[0])}}" style="right: -10px; width: 0px;">
+                            <input type="text" value="{{isset($request->s) ? $request->s : ''}}" placeholder="Поиск" name="s" id="autosearch" >
+							<!--<input type="hidden" name="_token" value="{{ csrf_token() }}">--->
+
                             <button type="submit">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#0e4f32"></path>
@@ -26,7 +36,7 @@
                             </svg>
                         </a>
                     </div>
-
+                  @endif
                     <!-- 1-->
                     <div class="header__lang">
                         <ul class="lang__menu">

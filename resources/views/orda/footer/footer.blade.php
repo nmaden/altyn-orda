@@ -134,16 +134,20 @@ var json_model= JSON.parse(decodeURIComponent(json));
 			
 
 			
-			
+		$('#search').on('click',function(e){
+			e.preventDefault();
+		})
 
 $('#autosearch').on('keyup',function(){
-	console.log(1452289);
+	if(!route){
+	  route =false;
+	}
 	//alert($('meta[name="csrf-token"]').attr('content'))
   var query = $(this).val();
   if(query != ''){
      $.ajax({
-	      url:'/filter',
-		  data:{'q':query},
+	      url:'/calendars',
+		  data:{'q':query,'route':route},
 		  headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 		  type:'POST',
 		  datatype:'JSON',
