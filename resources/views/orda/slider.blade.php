@@ -56,6 +56,26 @@
             <video width="100%" height="100%" loop="" muted="" id="jsvideo" autoplay="">
                 <source src="/img/video/home_banner.mp4" type="video/mp4">
             </video>
+
+            <div class="banner__item--container">
+                <div class="container">
+                    <div class="banner__item--info">
+                        <div class="banner__item--title">
+                            750 - летие Золотой орды
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="banner__linck--map">
+                <div class="container">
+                    <div class="modal__map">
+                        <a href="/page-map" class="modal__map--item">
+							@lang('front_main.title.map')
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         
