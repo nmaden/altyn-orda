@@ -58,7 +58,9 @@
         /* display: none; */
         padding-left: 10px !important;
     }
-        
+    .bg__video__intro {
+        height: 500px;
+    }
     ul.clildren-menu {
         display: block;
         list-style: none;
@@ -188,7 +190,9 @@
     .banner__item--img img {
         height: 400px;
     }
-    
+    .bg__video__intro {
+        height: 500px;
+    }
     .banner__slider--pag {
         bottom: 50px;
     }
@@ -417,7 +421,9 @@
 @media screen and (max-width: 768px) {
     
     .about__line--slider {overflow: hidden;}
-
+    .bg__video__intro {
+        height: 350px;
+    }
     .banner__item--title {
         font-size: 40px;
     }
@@ -525,7 +531,12 @@
     .header__logo img {
         max-width: 150px;
     }
-    
+    .bg__video__intro {
+        height: 250px;
+    }
+    .bg__video__intro video {
+        max-width: 150%;
+    }
     .banner__item--title {
         font-size: 30px;
     }

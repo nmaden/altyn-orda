@@ -595,12 +595,13 @@ a.modal__map--item:hover:before {
     height: 100%;
     min-width: 100%;
     min-height: 100%;
-    max-width: 100%;
     width: auto;
     height: auto;
     z-index: -2;
     position: relative;
-    left: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 /*------------------------------------*/
