@@ -9,7 +9,7 @@ class Gid extends ModelParent {
 	
 	
     protected $fillable = [ 'photo','vosrast','opyt','name','description','currency','user_id',
-	'city_id','spec_id','phone','imya','price','oplata_cposob','seo_title','seo_description'];
+	'city_id','spec_id','phone','imya','price','oplata_cposob','seo_title','seo_description','gid_title'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

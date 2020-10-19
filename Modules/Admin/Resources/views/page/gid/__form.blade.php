@@ -110,6 +110,28 @@ value="{{old('opyt')}}"
 
 </div>
 
+
+
+<br><br>
+<div>  
+<label for="title"><b>Заголовок на детальной</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+@if(old('gid_title'))
+	value="{{old('gid_title')}}" 
+@else
+	value="{{isset($model->gid_title) ? $model->gid_title : ''}}" 
+@endif
+name='gid_title' placeholder="Туроператор или Гид" class="form-control"></input>
+@if ($errors->has('gid_title'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('gid_title') }}</strong>
+   </span>
+@endif
+</div>
+
+
+
+<!---------------------------------------------------
 <br><br>
 <div>  
 <label for="title"><b>Денежная еденица</b></label> 
@@ -126,7 +148,7 @@ name='currency' placeholder="тг" class="form-control"></input>
    </span>
 @endif
 </div>
-
+--------------------------------------------------------------->
 
 <br><br>
 <div>  
@@ -144,6 +166,9 @@ name='price' placeholder="Цифра" class="form-control"></input>
    </span>
 @endif
 </div>
+
+
+
 <br><br>
 <div>  
 <label for="title"><b>Телефон</b></label> 

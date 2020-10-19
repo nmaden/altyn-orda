@@ -78,33 +78,34 @@
 						
                         <div class="col-lg-9">
                             
+							@if(isset($item->gid_title))
                             <div class="gid__about--title">
-                                	@lang('front_main.gid.about')
+							{{$item->gid_title}}
 
                             </div>
-
+                            @endif
+                        <!--------------возраст----------------->
                             <div class="gid__about--list">
-
-                                <div class="gid__about--item ">
-                                    <strong>								  
-									@lang('front_main.gid.vosrast')
-                                   :</strong> 
-									 @if(isset($item->vosrast))
+						@if(isset($item->vosrast))
+                           <div class="gid__about--item ">
+                              <strong>								  
+								@lang('front_main.gid.vosrast')
+                              :</strong> 
 						{{$item->vosrast}}
-					@else 
-						не указано
-					     @endif
-                                </div>
-                                <div class="gid__about--item">
-                                    <strong>
-									@lang('front_main.gid.opyt')
-									:</strong> 
-									 @if(isset($item->opyt))
-						{{$item->opyt}}
-					@else не указано
-					     @endif
-                                </div> 
-                           
+                            </div>
+						@endif
+
+				      <!--------------опыт работы----------------->
+					  	@if(isset($item->opyt))
+
+                         <div class="gid__about--item">
+                            <strong>
+							   @lang('front_main.gid.opyt')
+							:</strong> 
+						        {{$item->opyt}}
+                           </div> 
+                         @endif
+
                             </div>
                      @if(isset($item->description))
                             <div class="gid__about--desc">
