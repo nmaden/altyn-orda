@@ -138,7 +138,7 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
 <script>
 	
   CKEDITOR.replace('editor', {
-  filebrowserUploadUrl: "{{route('figures')}}",
+  filebrowserUploadUrl: "{{route('figureseditor')}}",
   disallowedContent: 'a[href]',
   height: 300, });
 	

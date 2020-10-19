@@ -11,15 +11,15 @@ class ModelFilter{
         $this->query = $query;
         $this->request = $request;
     }
-    function search($request){
+    function search($request,$name='name'){
 		$lang = app()->getLocale();
 			 if($lang != 'ru'){
 				 
                $this->query->whereHas('relTrans', function($q) use ($request){
-                    $q->where('name', 'like', '%'.$request->s.'%');;
+                    $q->where($name, 'like', '%'.$request->s.'%');;
                 });
 			 }else{
-	         $this->query->where('name', 'like', '%'.$request->s.'%');
+	         $this->query->where($name, 'like', '%'.$request->s.'%');
 			 }
 			 
 	}

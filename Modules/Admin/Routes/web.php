@@ -638,7 +638,7 @@ Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
 });
 Route::group(['namespace' => 'Edit'], function () {
 Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
-Route::any('figures',['uses' => 'CkeditorController@figures'])->name('figures');
+Route::any('figureseditor',['uses' => 'CkeditorController@figures'])->name('figureseditor');
 Route::any('aboutseditor',['uses' => 'CkeditorController@about'])->name('aboutseditor');
 
 

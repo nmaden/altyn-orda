@@ -1,8 +1,3 @@
-@php
-$route1 = Route::currentRouteName();
-$ar1 = explode('_',$route1);
-//dd($ar1);
-@endphp
 
     <header>
         <div class="container">
@@ -14,11 +9,11 @@ $ar1 = explode('_',$route1);
                 </div>
                 <div class="header__right">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                   @if(in_array($ar1[0],['calendars','sights','routes','gids','figures']))
+                   @if(PageService::page_calc(['calendars','sights','routes','gids','figures']))
                     <div class="header__serch">
                         <form role="search" 
 						method="get" id="searchform" class="searchform" 
-						action="{{route($ar1[0])}}" style="right: -10px; width: 0px;">
+						action="{{route(PageService::page_name())}}" style="right: -10px; width: 0px;">
                             <input type="text" value="{{isset($request->s) ? $request->s : ''}}" placeholder="Поиск" name="s" id="autosearch" >
 							<!--<input type="hidden" name="_token" value="{{ csrf_token() }}">--->
 

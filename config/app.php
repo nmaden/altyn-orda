@@ -183,6 +183,7 @@ return [
         App\Providers\TranslitServiceProvider::class,
         App\Providers\UrlZamenaServiceProvider::class,
 	   	App\Services\Role\RoleServiceProvider::class,
+	   	App\Services\Page\PageServiceProvider::class,
 
 
     ],
@@ -244,6 +245,8 @@ return [
         'UrlReplace'=> App\Helper\Facades\UrlZamena::class,
         'Image' => Intervention\Image\Facades\Image::class,
 		'RoleService' => \App\Services\Role\RoleService::class,
+		'PageService' => \App\Services\Page\PageService::class,
+
 
     ],
 
