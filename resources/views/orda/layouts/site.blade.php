@@ -35,13 +35,13 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	
-	<link rel="stylesheet" href="/css/swiper-bundle.min.css?v=3.5.3?v=3.5.3">
+	<link rel="stylesheet" href="/css/swiper-bundle.min.css?v=3.5.4">
 
-    <link rel="stylesheet" href="/css/nouislider.min.css?v=3.5.3?v=3.5.3">
+    <link rel="stylesheet" href="/css/nouislider.min.css?v=3.5.4">
 
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css?v=3.5.3" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css?v=3.5.3">
-    <link rel="stylesheet" href="/css/media.css?v=3.5.3">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css?v=3.5.4" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css?v=3.5.4">
+    <link rel="stylesheet" href="/css/media.css?v=3.5.4">
 	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=3.5.2" />
 	<!-- Yandex.Metrika counter -->
