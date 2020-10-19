@@ -84,7 +84,7 @@ class CalendarsController extends SiteController
 			'protocol' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://",
 			'items' => $items, 'categories'=>$categories,'cities'=>$cities, 'sort_calendars'=>$sort_calendar, 'gid' => $gids, 'request' => $request])->render();
 		
-		
+		$this->request= $request;
 		$content = $sights_page;
 		$this->vars['content'] = $content;
 		$this->keywords = '';

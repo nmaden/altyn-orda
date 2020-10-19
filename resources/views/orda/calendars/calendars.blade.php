@@ -176,10 +176,15 @@
         </div>
     </div>
     <input id="root_adress" type="hidden" value="{{$protocol.''.$_SERVER['HTTP_HOST']}}" name="root_adress"></input>
+@php
+$route = Route::currentRouteName();
+$ar = explode('_',$route);
+
+@endphp
 
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 <script>
-
+var route = "{{$ar[0]}}";
 function send_to_search(param) {
 
       

@@ -119,6 +119,8 @@ var json_model= JSON.parse(decodeURIComponent(json));
 
 
 <script>
+
+
         $( document ).ready(function() {
             $('.lang__menu .lang__menu--children li a').on('click',function(e){
 				
@@ -128,7 +130,55 @@ var json_model= JSON.parse(decodeURIComponent(json));
 				
                 //$(this).parent().parent().submit();
             });
+			
+			
+
+			
+		$('#search').on('click',function(e){
+			e.preventDefault();
+		})
+
+$('#autosearch').on('keyup',function(){
+	if(!route){
+	  route =false;
+	}
+	//alert($('meta[name="csrf-token"]').attr('content'))
+  var query = $(this).val();
+  if(query != ''){
+     $.ajax({
+	      url:'/calendars',
+		  data:{'q':query,'route':route},
+		  headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		  type:'POST',
+		  datatype:'JSON',
+		  success: function(html) {
+			  alert(html);
+			  console.log(html);
+			  if(html =='ok'){
+				  
+			  }else{
+			  $('.wrapper-ajax').html(html);
+			  }
+					
+		},
+
+		});
+		   
+	   }
+   })
+	
+			
+			
+			
+			
+			
         });
+		
+		
+		
+		
+		
+		
     </script>
 	
 </body>

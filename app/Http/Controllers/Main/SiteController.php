@@ -22,7 +22,7 @@ class SiteController extends Controller
     protected $keywords;
 	protected $meta_desc;
 	protected $title;
-    
+    public $request;
     protected $temlate;
     
     protected $vars = array();
@@ -51,7 +51,8 @@ class SiteController extends Controller
 		$this->vars['meta_title']=$this->meta_title;
         }
 		
-		
+				$this->vars['request']=$this->request;
+
         return view($this->template)->with($this->vars);
 	}
 	

@@ -58,7 +58,8 @@ class FiguresController extends SiteController
 		
 		$this->meta_desc = $seo_desc;
 		$this->meta_title = $seo_title;
-		
+		$this->request= $request;
+
 
 		return $this->renderOutput();
 

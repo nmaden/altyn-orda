@@ -20,9 +20,13 @@ Route::any('drobsone',['uses' => 'DrobsoneController@index'])->name('drobsone');
 //Route::any('drobsone-send2',['uses' => 'DrobsoneController@send'])->name('drobsone-send2');
 
 
+
+
+
 //'prefix' => LocalizationService::locale(),
 Route::group(['prefix' => LocalizationService::locale(),'namespace' => 'Main','middleware' => 'setLocale'], function () {
-	
+	Route::post('filter', 'FilterController@filter')->name('filter');
+
 Route::resource('/articles','Admin\ArticlesController');
 Route::any('/show',['uses' => 'Admin\ArticlesController@articlesadd'])->name('show');
 
@@ -51,7 +55,7 @@ Route::get('routes-map',['uses' => 'MapController@routes'])->name('routes-map');
 //o-nas
 Route::get('/about/figures-item/{figure}',['uses' => 'FiguresController@item'])->name('figures-item');
 Route::get('about',['uses' => 'AboutController@index'])->name('about');
-Route::get('about/figures',['uses' => 'FiguresController@index'])->name('about/figures');
+Route::get('about/figures',['uses' => 'FiguresController@index'])->name('figures');
 
 
 
