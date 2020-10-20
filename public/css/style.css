@@ -2472,3 +2472,10 @@ a.modal__fixed img {
     visibility: visible;
     transform: translateX(-50%);
 }
+.ui-widget.ui-widget-content {
+    text-align: center;
+    border: 0;
+    background: rgba(97,97,97,.9);
+    color: #fff;
+}
+
