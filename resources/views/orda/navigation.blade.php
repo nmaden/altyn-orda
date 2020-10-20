@@ -51,7 +51,7 @@
 					@if(is_array($social))
                       @foreach($social as $v)
                         <div class="header__social--item " >
-                            <a href="{{$v['name']}}" class="tooltip__item" title="текст">>
+                            <a href="{{$v['name']}}" class="tooltip__item" title="текст">
                                 <img src="{{URL::asset($v['photo'])}}" alt="">
                             </a>
                         </div>
@@ -59,7 +59,7 @@
                      @endif
                     </div>
                     <div class="header__user " >
-                        <a href="{{route('login')}}" class="tooltip__item" title="текст">>
+                        <a href="{{route('login')}}" class="tooltip__item" title="текст">
                             <img src="/img/icon-user.svg" alt="">
                         </a>
                     </div>
