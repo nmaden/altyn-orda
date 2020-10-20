@@ -88,21 +88,21 @@ $(".header__serch--click").click(function(e){
     if(window.innerWidth >= 769){ 
         e.preventDefault();
         var searchform = $(this).parents('.header__serch').find(".searchform");
-        if(window.innerWidth >= 992){
+        if(window.innerWidth >= 1200){
             searchform.animate({
                 'right': '0'
             }, 100)
             .animate({
-                'width': '650px',
+                'width': '550px',
                 'right': '-10px'
             }, 500);
         }
-        if(window.innerWidth < 992){
+        if(window.innerWidth < 1200){
             searchform.animate({
                 'right': '0'
             }, 100)
             .animate({
-                'width': '400px',
+                'width': '200px',
                 'right': '-10px'
             }, 500);
         }
