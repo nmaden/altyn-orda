@@ -102,7 +102,7 @@ $(".header__serch--click").click(function(e){
                 'right': '0'
             }, 100)
             .animate({
-                'width': '200px',
+                'width': '300px',
                 'right': '-10px'
             }, 500);
         }

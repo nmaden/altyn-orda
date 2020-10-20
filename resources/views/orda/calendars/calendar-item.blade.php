@@ -6,20 +6,20 @@
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
                        <a href="/">
-						@lang('front_main.bread.home')
+						    @lang('front_main.bread.home')
                         </a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="/">
-						@lang('front_main.calendar.title')
+						    @lang('front_main.calendar.title')
                         </a>
                     </li>
                     <li>
-					@if(isset($calendar->name))
-                        <span>
-						{{$calendar->name}}
-						</span>
-					@endif
+                        @if(isset($calendar->name))
+                            <span>
+                            {{$calendar->name}}
+                            </span>
+                        @endif
                     </li>
                 </ul>
             </div>
@@ -27,8 +27,7 @@
             <div class="section__title--desc">
 			@if(isset($calendar->name))
                 <h1 class="section__title">
-				
-				{{$calendar->name}}
+				    {{$calendar->name}}
                 </h1>
 				@endif
             </div>
@@ -44,7 +43,7 @@
                 <div class="calendar__list--item">
                     <strong>@lang('front_main.calendar.date'):</strong> 
 					@if(isset($calendar->view_date))
-					{{$calendar->view_date}}
+					    {{$calendar->view_date}}
 				    @endif
                 </div>
 				@if(isset($calendar->relCity->name))
@@ -58,7 +57,7 @@
                
                 <div class="calendar__list--item">
                     <strong>@lang('front_main.calendar.sokial'):</strong>
-                      <div class="ya-share2" data-services="{{$calendar->social_share}}" data-limit="3"></div>
+                    <div class="ya-share2" data-services="{{$calendar->social_share}}" data-limit="3"></div>
                 </div>
              
             </div>

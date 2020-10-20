@@ -96,7 +96,7 @@
 <!-------------->		
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="/js/swiper-bundle.min.js"></script>
-<script src="/js/script.js?v=0.0.1"></script>
+<script src="/js/script.js?v=0.0.2"></script>
 
 
 @php
