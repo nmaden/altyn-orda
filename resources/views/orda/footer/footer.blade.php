@@ -80,8 +80,8 @@
     $( function() {
         $( '.tooltip__item' ).tooltip({
             position: {
-                my: "center top-20",
-                at: "center bottom",
+                my: "center bottom-20",
+                at: "center top",
             },
         });
     });
