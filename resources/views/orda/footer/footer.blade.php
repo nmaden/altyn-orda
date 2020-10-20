@@ -8,10 +8,9 @@
 
                 <div class="footer__partners--item">
                     <div class="footer__partners--img tooltip__item">
-                        <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk">
+                        <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk"  title="Министерство культуры и спорта Республики Казахстан">
                             <img width="80px" src="/logo/logo1.jpeg" alt="">
                         </a>
-                        <span class="tooltip__content">Министерство культуры и спорта Республики Казахстан</span>
                     </div>
                     <div class="footer__partners--text">
                         <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk">
@@ -21,23 +20,21 @@
                 </div>
                 <div class="footer__partners--item">
                     <div class="footer__partners--img tooltip__item">
-                        <a href="https://qaztourism.kz/ru">
+                        <a href="https://qaztourism.kz/ru" title="АО «Национальная компания «Kazakh Tourism»">
                             <img src="/img/gerb_sm2.png" alt="">
                         </a>
-                        <span class="tooltip__content">АО «Национальная компания «Kazakh Tourism»</span>
                     </div>
                     <div class="footer__partners--text">
-                        <a href="https://qaztourism.kz/ru">
+                        <a href="https://qaztourism.kz/ru" >
                             АО «Национальная компания «Kazakh Tourism»
                         </a>
                     </div>
                 </div>
                 <div class="footer__partners--item">
                     <div class="footer__partners--img tooltip__item">
-                        <a href="https://kazakhstan.travel">
+                        <a href="https://kazakhstan.travel" title="Вдохновит вас на путешествие в Казахстан">
                             <img src="/img/gerb_sm3.png" alt="">
                         </a>
-                        <span class="tooltip__content">Вдохновит вас на путешествие в Казахстан</span>
                     </div>
                     <div class="footer__partners--text">
                         <a href="https://kazakhstan.travel">
@@ -77,7 +74,12 @@
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+        $( document ).tooltip();
+    });
+</script>
 <!-------------->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"
         integrity="sha512-igVQ7hyQVijOUlfg3OmcTZLwYJIBXU63xL9RC12xBHNpmGJAktDnzl9Iw0J4yrSaQtDxTTVlwhY730vphoVqJQ=="
