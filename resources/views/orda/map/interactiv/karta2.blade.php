@@ -51,7 +51,7 @@
                 });
                 map_m.geoObjects.add(myRectangle);
 
-                $('.inter__map--preloader').addclass("inter__map-act");
+                $('.inter__map--preloader').addСlass("inter__map-act");
             });
             function mapinterSights(mas_object, map_m, objectManager) {
 
