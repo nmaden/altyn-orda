@@ -29,18 +29,47 @@
                         
                         <div class="register__form--item">
                             <div class="form__item--input">
-                                <input id="famaly" type="text" placeholder="Фамилия" class="form-control">
+                                <input id="famaly" type="text" 
+								placeholder="Фамилия" 
+								name="family"
+								class="form-control">
                             </div>
+							@if ($errors->has('family'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('family') }}</strong>
+                                    </span>
+                                @endif
+								
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input">
-                                <input id="name" type="text" placeholder="Имя" class="form-control">
+                                <input id="name" 
+								type="text" 
+								name="name"
+								placeholder="Имя" 
+								class="form-control">
                             </div>
+							@if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+								
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input">
-                                <input id="phone" type="text" placeholder="Номер телефона" class="form-control">
+                                <input id="phone" 
+								type="text" 
+								name="phone"
+								placeholder="Номер телефона" 
+								class="form-control">
                             </div>
+							@if ($errors->has('phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+								
                         </div>
 
 
@@ -76,6 +105,7 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
+								
                             </div>
                         </div>
                         <div class="register__form--item">
@@ -89,12 +119,21 @@
                     
                     <label class="register__form--check">
                         <div class="register__ckeck">
-                            <input type="checkbox"  required>
+                            <input type="checkbox" 
+                            name="confirm"							
+							required
+							>
                             <span class="register__ckeck--span"></span>
                         </div>
                         <div class="register__ckeck--title">
                             Я ознакомился и согласен с условиями пользовательского соглашения и соглашения об использовании и обработки персональных данных
                         </div>
+						@if ($errors->has('confirm'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('confirm') }}</strong>
+                                    </span>
+                                @endif
+								
                     </label>
 
                     <div class="register__form--submit">
@@ -120,13 +159,31 @@
                         
                         <div class="register__form--item">
                             <div class="form__item--input">
-                                <input id="famaly" type="text" placeholder="Название туроператора" class="form-control">
+                                <input id="famaly" 
+								name='family'
+								type="text" placeholder="Название туроператора" class="form-control">
                             </div>
+							@if ($errors->has('family'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('family') }}</strong>
+                                    </span>
+                                @endif
+								
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input">
-                                <input id="phone" type="text" placeholder="Номер телефона" class="form-control">
+                                <input id="phone" 
+								type="text" 
+								name="phone"
+								placeholder="Номер телефона" 
+								class="form-control">
                             </div>
+							@if ($errors->has('phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+								
                         </div>
 
 
@@ -173,12 +230,20 @@
 
                     <label class="register__form--check">
                         <div class="register__ckeck">
-                            <input type="checkbox" required>
+                            <input type="checkbox" 
+							name='confirm'
+							required>
                             <span class="register__ckeck--span"></span>
                         </div>
                         <div class="register__ckeck--title">
                             Я ознакомился и согласен с условиями пользовательского соглашения и соглашения об использовании и обработки персональных данных
                         </div>
+						@if ($errors->has('confirm'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('confirm') }}</strong>
+                                    </span>
+                                @endif
+								
                     </label>
                     
                     <div class="register__form--submit">

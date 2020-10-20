@@ -61,7 +61,10 @@
                 <div class="container">
                     <div class="banner__item--info">
                         <div class="banner__item--title">
-                            750 - летие Золотой орды
+						@if($slider->name)
+                           {{$slider->name}}
+					   @endif
+
                         </div>
                     </div>
                 </div>

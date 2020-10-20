@@ -50,14 +50,16 @@
                     <div class="header__social">
 					
 					<?php if(is_array($social)): ?>
-	                  <?php $__currentLoopData = $social; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                       <a href="<?php echo e($v['name']); ?>">
-                        <img src="<?php echo e(URL::asset($v['photo'])); ?>" alt="">
-                       </a>
+                      <?php $__currentLoopData = $social; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="header__social--item tooltip__item" title="текст">
+                            <a href="<?php echo e($v['name']); ?>">
+                                <img src="<?php echo e(URL::asset($v['photo'])); ?>" alt="">
+                            </a>
+                        </div>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                      <?php endif; ?>
                     </div>
-                    <div class="header__user">
+                    <div class="header__user tooltip__item" title="текст">
                         <a href="<?php echo e(route('login')); ?>">
                             <img src="/img/icon-user.svg" alt="">
                         </a>
