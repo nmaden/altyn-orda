@@ -7,10 +7,11 @@
             <div class="footer__partners--row">
 
                 <div class="footer__partners--item">
-                    <div class="footer__partners--img">
+                    <div class="footer__partners--img tooltip__item">
                         <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk">
                             <img width="80px" src="/logo/logo1.jpeg" alt="">
                         </a>
+                        <span class="tooltip__content">Министерство культуры и спорта Республики Казахстан</span>
                     </div>
                     <div class="footer__partners--text">
                         <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk">
@@ -19,10 +20,11 @@
                     </div>
                 </div>
                 <div class="footer__partners--item">
-                    <div class="footer__partners--img">
+                    <div class="footer__partners--img tooltip__item">
                         <a href="https://qaztourism.kz/ru">
                             <img src="/img/gerb_sm2.png" alt="">
                         </a>
+                        <span class="tooltip__content">АО «Национальная компания «Kazakh Tourism»</span>
                     </div>
                     <div class="footer__partners--text">
                         <a href="https://qaztourism.kz/ru">
@@ -31,10 +33,11 @@
                     </div>
                 </div>
                 <div class="footer__partners--item">
-                    <div class="footer__partners--img">
+                    <div class="footer__partners--img tooltip__item">
                         <a href="https://kazakhstan.travel">
                             <img src="/img/gerb_sm3.png" alt="">
                         </a>
+                        <span class="tooltip__content">Вдохновит вас на путешествие в Казахстан</span>
                     </div>
                     <div class="footer__partners--text">
                         <a href="https://kazakhstan.travel">
