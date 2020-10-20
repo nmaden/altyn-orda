@@ -49,17 +49,21 @@
                     <div class="header__social">
 					
 					@if(is_array($social))
-	                  @foreach($social as $v)
-                       <a href="{{$v['name']}}">
-                        <img src="{{URL::asset($v['photo'])}}" alt="">
-                       </a>
+                      @foreach($social as $v)
+                        <div class="header__social--item tooltip__item">
+                            <a href="{{$v['name']}}">
+                                <img src="{{URL::asset($v['photo'])}}" alt="">
+                            </a>
+                            <span class="tooltip__content">текст</span>
+                        </div>
                       @endforeach
                      @endif
                     </div>
-                    <div class="header__user">
+                    <div class="header__user tooltip__item">
                         <a href="{{route('login')}}">
                             <img src="/img/icon-user.svg" alt="">
                         </a>
+                        <span class="tooltip__content">текст</span>
                     </div>
                     <div class="header__menu">
                         <div class="header__menu--burger header__menu--click">
