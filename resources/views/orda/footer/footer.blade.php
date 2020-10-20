@@ -7,8 +7,8 @@
             <div class="footer__partners--row">
 
                 <div class="footer__partners--item">
-                    <div class="footer__partners--img tooltip__item">
-                        <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk"  title="Министерство культуры и спорта Республики Казахстан">
+                    <div class="footer__partners--img tooltip__item" title="Министерство культуры и спорта Республики Казахстан">
+                        <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk">
                             <img width="80px" src="/logo/logo1.jpeg" alt="">
                         </a>
                     </div>
@@ -19,8 +19,8 @@
                     </div>
                 </div>
                 <div class="footer__partners--item">
-                    <div class="footer__partners--img tooltip__item">
-                        <a href="https://qaztourism.kz/ru" title="АО «Национальная компания «Kazakh Tourism»">
+                    <div class="footer__partners--img tooltip__item" title="АО «Национальная компания «Kazakh Tourism»">
+                        <a href="https://qaztourism.kz/ru">
                             <img src="/img/gerb_sm2.png" alt="">
                         </a>
                     </div>
@@ -31,8 +31,8 @@
                     </div>
                 </div>
                 <div class="footer__partners--item">
-                    <div class="footer__partners--img tooltip__item">
-                        <a href="https://kazakhstan.travel" title="Вдохновит вас на путешествие в Казахстан">
+                    <div class="footer__partners--img tooltip__item" title="Вдохновит вас на путешествие в Казахстан">
+                        <a href="https://kazakhstan.travel">
                             <img src="/img/gerb_sm3.png" alt="">
                         </a>
                     </div>
@@ -77,7 +77,12 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
     $( function() {
-        $( document ).tooltip();
+        $( '.tooltip__item' ).tooltip({
+            position: {
+                my: "center top-20",
+                at: "center bottom",
+            },
+        });
     });
 </script>
 <!-------------->
