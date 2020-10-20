@@ -244,6 +244,7 @@
                             <div id="maps"></div>
                         </div>
                     @else
+                    
                         <div id="inter__map"></div>
 
                     @endif	

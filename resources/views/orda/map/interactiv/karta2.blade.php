@@ -3,7 +3,7 @@
    
     window.onload = function () {
         setTimeout(function () {
-
+            console.log('1');
             var map_m = new ymaps.Map('inter__map', {
                 center: [48.21007904239703, 59.48365294121707],
                 zoom: 4,
@@ -49,10 +49,6 @@
                 borderRadius: 0
             });
             map_m.geoObjects.add(myRectangle);
-
-
-
-
 
             function mapinterSights(mas_object, map_m, objectManager) {
 
