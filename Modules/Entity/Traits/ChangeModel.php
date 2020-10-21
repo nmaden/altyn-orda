@@ -6,6 +6,8 @@ use Route;
 use Cache;
 use Modules\Entity\Model\Social\Social;
 use Modules\Entity\Model\Gid\Gid;
+//use Modules\Entity\Model\ContentManager\ContentManager;
+//use Modules\Entity\Model\Moderator\Moderator;
 
 use Auth;
 use RoleService;
@@ -14,9 +16,7 @@ trait ChangeModel {
     protected static function boot(){
 		
     Social::updating(function (Social $social) {
-
-
-		if(Cache::has('social')){
+      if(Cache::has('social')){
 		$cache = Cache::get('social');
 		$cache[$social->id] = $social->toArray();
         Cache::forever('social',$cache);
@@ -26,12 +26,9 @@ trait ChangeModel {
 
 
 	});
-	    Gid::deleted(function (Gid $gid) {$gid->relUsers()->delete();});
 
 
-	
-	
-    Social::created(function (Social $social) {
+	Social::created(function (Social $social) {
 		
 		if(Cache::has('social')){
 		$cache = Cache::get('social');
@@ -53,7 +50,10 @@ trait ChangeModel {
 		
 
 	});
-
+	Gid::deleted(function (Gid $gid) {$gid->relUsers()->delete();});
+	
+	//ContentManager::deleted(function (ContentManager $manager) {$ContentManager->relUsers()->delete();});
+	//ContentManager::deleted(function (Moderator $moderator) {$moderator->relUsers()->delete();});
 
         static::updating(function ($el) {
 	

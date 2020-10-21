@@ -26,16 +26,18 @@
                     {{ csrf_field() }}
                     <div class="register__form--item-block">
 
-                        
+                      
+   
                         <div class="register__form--item">
                             <div class="form__item--input">
-                                <input id="famaly" type="text" 
+                                <input id="famaly" type="text"
+                                value="{{old('family') ? old('family') : ''}}"								
 								placeholder="Фамилия" 
 								name="family"
 								class="form-control">
                             </div>
 							@if ($errors->has('family'))
-                                    <span class="help-block">
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('family') }}</strong>
                                     </span>
                                 @endif
@@ -46,11 +48,12 @@
                                 <input id="name" 
 								type="text" 
 								name="name"
-								placeholder="Имя" 
+								value="{{old('name') ? old('name') : ''}}"								
+                                placeholder="Имя" 
 								class="form-control">
                             </div>
 							@if ($errors->has('name'))
-                                    <span class="help-block">
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
@@ -62,10 +65,11 @@
 								type="text" 
 								name="phone"
 								placeholder="Номер телефона" 
+								value="{{old('phone') ? old('phone') : ''}}"
 								class="form-control">
                             </div>
 							@if ($errors->has('phone'))
-                                    <span class="help-block">
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
@@ -76,9 +80,13 @@
 
                         <div class="register__form--item">
                             <div class="form__item--input {{ $errors->has('login') ? ' has-error' : '' }}">
-                                <input id="login" type="text" placeholder="Login"  class="form-control" name="login" value="{{ old('login') }}" required>
+                                <input id="login" 
+								type="text" placeholder="Login"  
+								class="form-control" 
+								name="login" 
+								value="{{old('login') ? old('login') : ''}}">
                                 @if ($errors->has('login'))
-                                    <span class="help-block">
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('login') }}</strong>
                                     </span>
                                 @endif
@@ -86,9 +94,10 @@
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input {{ $errors->has('email') ? ' has-error' : '' }}">
-                                <input id="email" type="email" placeholder="E-mail" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" placeholder="E-mail" class="form-control" name="email"
+								value="{{old('email') ? old('email') : ''}}">
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
@@ -96,21 +105,22 @@
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input {{ $errors->has('password') ? ' has-error' : '' }}">
-                                <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password" required>
+                                <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password">
                                 <p class="password-textinfo">
-                                    Пароль должен содержать хотя бы одну цифру и заглавную букву
-                                </p>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
+									@if ($errors->has('password'))
+                                    <span style='color:red;font-size:12px;font-style:italic;display:block'>
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
+									
                                 @endif
 								
+                                </p>
+                                
                             </div>
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input">
-                                <input id="password-confirm" type="password" class="form-control" placeholder="Повторите пароль" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" placeholder="Повторите пароль" name="password_confirmation">
                             </div>
                         </div>
 
@@ -121,21 +131,21 @@
                         <div class="register__ckeck">
                             <input type="checkbox" 
                             name="confirm"							
-							required
+							
 							>
                             <span class="register__ckeck--span"></span>
                         </div>
                         <div class="register__ckeck--title">
                             Я ознакомился и согласен с условиями пользовательского соглашения и соглашения об использовании и обработки персональных данных
                         </div>
-						@if ($errors->has('confirm'))
-                                    <span class="help-block">
+						
+                    </label>
+                             @if ($errors->has('confirm'))
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('confirm') }}</strong>
                                     </span>
                                 @endif
 								
-                    </label>
-
                     <div class="register__form--submit">
                         <div class="form__item--submit">
                             <button type="submit" class="form__submit">
@@ -160,12 +170,14 @@
                         <div class="register__form--item">
                             <div class="form__item--input">
                                 <input id="famaly" 
-								name='family'
-								type="text" placeholder="Название туроператора" class="form-control">
+								name='name'
+								type="text" placeholder="Название туроператора" 
+								class="form-control"
+								value="{{old('name') ? old('name') : ''}}">
                             </div>
-							@if ($errors->has('family'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('family') }}</strong>
+							@if ($errors->has('name'))
+                                    <span style='color:red;font-size:12px;font-style:italic'>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
 								
@@ -176,10 +188,12 @@
 								type="text" 
 								name="phone"
 								placeholder="Номер телефона" 
-								class="form-control">
+								class="form-control"
+								value="{{old('phone') ? old('phone') : ''}}"
+								>
                             </div>
 							@if ($errors->has('phone'))
-                                    <span class="help-block">
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
@@ -190,9 +204,12 @@
                         
                         <div class="register__form--item">
                             <div class="form__item--input {{ $errors->has('login') ? ' has-error' : '' }}">
-                                <input id="login" type="text" placeholder="Login"  class="form-control" name="login" value="{{ old('login') }}" required>
+                                <input id="login" 
+								type="text" placeholder="Login"  
+								class="form-control" name="login" 
+								value="{{old('login') ? old('login') : ''}}">
                                 @if ($errors->has('login'))
-                                    <span class="help-block">
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('login') }}</strong>
                                     </span>
                                 @endif
@@ -200,9 +217,11 @@
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input {{ $errors->has('email') ? ' has-error' : '' }}">
-                                <input id="email" type="email" placeholder="E-mail" class="form-control" name="email" value="{{ old('email') }}" required>
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+                                <input id="email" type="email" placeholder="E-mail" 
+								class="form-control" name="email" 
+								value="{{old('email') ? old('email') : ''}}">
+                                @if($errors->has('email'))
+                                    <span style='color:red;font-size:12px;font-style:italic'>
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
@@ -210,20 +229,19 @@
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input {{ $errors->has('password') ? ' has-error' : '' }}">
-                                <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password" required>
+                                <input id="password" type="password" placeholder="Пароль (мин 6 символов)" class="form-control" name="password">
                                 <p class="password-textinfo">
-                                    Пароль должен содержать хотя бы одну цифру и заглавную букву
-                                </p>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
+                                   <span style='color:red;font-size:12px;font-style:italic;display:block'>
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
+									
+                                </p>
+                                
                             </div>
                         </div>
                         <div class="register__form--item">
                             <div class="form__item--input">
-                                <input id="password-confirm" type="password" class="form-control" placeholder="Повторите пароль" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" placeholder="Повторите пароль" name="password_confirmation" >
                             </div>
                         </div>
                     </div>
@@ -232,20 +250,21 @@
                         <div class="register__ckeck">
                             <input type="checkbox" 
 							name='confirm'
-							required>
+							>
                             <span class="register__ckeck--span"></span>
                         </div>
                         <div class="register__ckeck--title">
                             Я ознакомился и согласен с условиями пользовательского соглашения и соглашения об использовании и обработки персональных данных
                         </div>
-						@if ($errors->has('confirm'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('confirm') }}</strong>
-                                    </span>
-                                @endif
-								
+						
                     </label>
-                    
+                    @if ($errors->has('confirm'))
+                        <span class="" style='color:red;font-size:12px;font-style:italic'>
+                            <strong>{{ $errors->first('confirm') }}</strong>
+                         </span>
+                      @endif
+				  <input type='hidden' name='tyr_operator' value="tyr_operator">
+	
                     <div class="register__form--submit">
                         <div class="form__item--submit">
                             <button type="submit" class="form__submit">

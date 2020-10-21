@@ -56,7 +56,7 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
  </div>
 
 
-@if(RoleService::getRole(Auth::user()->type_id) !='GID')
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
 
 <br><br>
 

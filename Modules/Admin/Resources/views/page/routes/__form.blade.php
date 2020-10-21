@@ -237,7 +237,8 @@ name='coord[]' placeholder="координаты" class="form-control"/>
         </select>
 		</div>
 
-@if(RoleService::getRole(Auth::user()->type_id) !='GID')
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
+
 
 <br><br>
 

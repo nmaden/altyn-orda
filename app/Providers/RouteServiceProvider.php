@@ -54,6 +54,7 @@ class RouteServiceProvider extends ServiceProvider
           Route::model('moderator', \Modules\Entity\Model\ContentManager\ContentManager::class);
           Route::model('contentmanager', \Modules\Entity\Model\ContentManager\ContentManager::class);
           Route::model('moderator', \Modules\Entity\Model\Moderator\Moderator::class);
+          Route::model('users', \Modules\Entity\Model\Allusers\Allusers::class);
 
 
     }

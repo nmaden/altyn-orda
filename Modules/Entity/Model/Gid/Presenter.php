@@ -77,6 +77,9 @@ trait Presenter {
 	function getSeoDescriptionAttribute($v){
 		return $this->getTransField('seo_description', $v);
     }
+	function getFamilyAttribute($v){
+		return $this->getTransField('family', $v);
+    }
 	
 }
 

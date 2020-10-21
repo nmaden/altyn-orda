@@ -26,8 +26,7 @@ class ContentPolicy {
     }
 
     public function view($user, $item){
-        if (!$this->mainCheck($user))
-            return false;
+       
 
         return true;
     }
@@ -59,8 +58,11 @@ class ContentPolicy {
 
     public function delete($user){
 		
-       if (!in_array($user->type_id, [SysUserType::ADMIN]))
+       if ($this->mainCheck($user) == 'GID'){
             return false;
+		  }
+		  
+		
 
         return true;
     }

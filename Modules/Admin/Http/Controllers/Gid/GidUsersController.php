@@ -10,11 +10,11 @@ use Modules\Admin\Traits\MainCrudMethod;
 use Modules\Entity\Actions\gid\CalendarUpdateAction as ModelCreateAction;
 use Modules\Entity\Actions\gid\CalendarUpdateAction as ModelUpdateAction;
 use Modules\Entity\Actions\MainSaveAction as ModelSaveLangAction;
-use Modules\Entity\Actions\Calendar\CalendarDeleteAction as ModelDeleteAction;
+use Modules\Entity\Actions\MainDeleteAction as ModelDeleteAction;
 
-use Modules\Entity\Model\Gid\Gid as Model;
+use Modules\Entity\Model\Gid\users\GidUsers as Model;
 
-class GidController extends Controller {
+class GidUsersController extends Controller {
     use MainCrudMethod;
 	protected $informers = true;
     protected $view_path = 'admin::page.gid';

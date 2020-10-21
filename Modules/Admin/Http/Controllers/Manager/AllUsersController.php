@@ -5,24 +5,26 @@ namespace Modules\Admin\Http\Controllers\Manager;
 use Illuminate\Http\Request;
 
 use Illuminate\Routing\Controller;
-
 use Modules\Admin\Traits\MainCrudMethod;
 
-use Modules\Entity\Actions\ModeratorAction as ModelCreateAction;
-use Modules\Entity\Actions\ModeratorAction as ModelUpdateAction;
+use Modules\Entity\Actions\AllUsersAction as ModelCreateAction;
+use Modules\Entity\Actions\AllUsersAction as ModelUpdateAction;
 use Modules\Entity\Actions\MainDeleteAction as ModelDeleteAction;
 
-use Modules\Entity\Model\Moderator\Moderator as Model;
+use Modules\Entity\Model\Allusers\Allusers as Model;
 
-class ModeratorController extends Controller {
+class AllUsersController extends Controller {
     use MainCrudMethod;
-    protected $view_path = 'admin::page.moderator';
-    protected $route_path = 'admin_moderator';
-    protected $title_path = 'title.moderator';
+    protected $view_path = 'admin::page.users';
+    protected $route_path = 'admin_users';
+    protected $title_path = 'title.users';
     protected $def_model = Model::class;
     protected $action_create = ModelCreateAction::class;
     protected $action_update = ModelUpdateAction::class;
     protected $action_delete = ModelDeleteAction::class;
+	
+	
+	
 	 protected function validator(array $data,$model=false)
     {
 		
@@ -46,4 +48,9 @@ class ModeratorController extends Controller {
           ],$messages);
     }
 
+	
+	
+	
+	
+    
 }

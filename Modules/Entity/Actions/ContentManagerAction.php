@@ -12,6 +12,7 @@ use Modules\Entity\Model\SysUserType\SysUserType;
 class ContentManagerAction {
     private $model = false;
     private $request = false;
+    public $type = false;
 
     function __construct(Model $model, Request $request){
         $this->model = $model; 
@@ -21,7 +22,11 @@ class ContentManagerAction {
     function run(){
         $ar = $this->request->all();
         $ar['edited_user_id'] = $this->request->user()->id;
+		$ar['type_id'] = SysUserType::MANAGER;
+        if($this->request->type_id){
+		$ar['type_id'] = $this->request->type_id;
 
+		}
 
         
         
@@ -35,7 +40,7 @@ class ContentManagerAction {
         else
             unset($ar['password']);
 
-        $ar['type_id'] = SysUserType::MANAGER;
+     
 
         $this->model->fill($ar);
         $this->model->save();

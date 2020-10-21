@@ -16,8 +16,8 @@ if(in_array('show',$ar)){
 <div>  
 <label for="title"><b>email</b></label> 
 <input {{$page ? 'disabled': ''}} 
-@if(old('date')
-	type="text" value="{{old('date')}}" 
+@if(old('email'))
+	type="text" value="{{old('email')}}" 
 
 	@else
 type="text" value="{{isset($model->email) ? $model->email: ''}}" 
@@ -37,7 +37,13 @@ class="form-control"/>
 <div>  
 <label for="title"><b>ФИО</b></label> 
 <input {{$page ? 'disabled': ''}} 
+@if(old('name'))
+	type="text" value="{{old('name')}}" 
+
+	@else
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
+
+@endif
 name='name' placeholder="" 
 required
 class="form-control"/>
@@ -48,6 +54,34 @@ class="form-control"/>
 @endif
 
 </div>
+
+<br><br>
+<div>  
+<label for="title"><b>ЛОГИН</b></label> 
+<input {{$page ? 'disabled': ''}} 
+@if(old('login'))
+	type="text" value="{{old('login')}}" 
+
+	@else
+type="text" value="{{isset($model->login) ? $model->login: ''}}" 
+
+@endif
+name='login' placeholder="" 
+required
+class="form-control"/>
+@if ($errors->has('login'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('login') }}</strong>
+   </span>
+@endif
+
+</div>
+
+
+
+
+
+
 <br><br>
 <div>  
 <label for="title"><b>Пароль:</b></label> 

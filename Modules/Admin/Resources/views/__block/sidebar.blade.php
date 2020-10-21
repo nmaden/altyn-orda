@@ -77,7 +77,10 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
 RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
 RoleService::getRole(Auth::user()->type_id) =='GID' ||
-RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR' ||
+RoleService::getRole(Auth::user()->type_id) =='TYROPERATOR')
+
+
 
 
 <li>
@@ -214,12 +217,19 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 		  Контент менеджер
 		</span></a>
 	</li>
+	
 	<li  style="">
        <a href="{{ route('admin_moderator') }}"><span>
 		  Модератор
 		</span>
 		</a>
 	</li>
+	  <li  style="">
+        <a href="{{ route('admin_users') }}"><span>
+		  все пользователи
+		</span></a>
+	</li>
+	
  </ul>
 </li>
 </li>
@@ -255,7 +265,9 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
 RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
 RoleService::getRole(Auth::user()->type_id) =='GID' ||
-RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR' ||
+RoleService::getRole(Auth::user()->type_id) =='TYROPERATOR')
+
 
 
 <li>

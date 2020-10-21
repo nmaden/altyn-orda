@@ -21,6 +21,7 @@ class ModeratorAction {
     function run(){
         $ar = $this->request->all();
         $ar['edited_user_id'] = $this->request->user()->id;
+		$ar['type_id'] = SysUserType::MODERATOR;
 
 
         
@@ -35,7 +36,7 @@ class ModeratorAction {
         else
             unset($ar['password']);
 
-        $ar['type_id'] = SysUserType::MODERATOR;
+       
 
         $this->model->fill($ar);
         $this->model->save();

@@ -21,58 +21,32 @@ class RegistrationAction {
 
     function run(){
         $ar = $this->request->all();
+		
+	    
         $ar['edited_user_id'] = 1;
 	
-
-/*
-	$data = $request->all();
-
-    $validator = $this->validator($request->all());
-    if ($validator->fails()) { 
-		       return \Response::json(['content'=>$validator->errors()]);exit();
-
-
-	   //return redirect()->route('register')->withErrors($validator)->withInput();
-    };
-	
-	    $body    = 'Вы зарегестрировались на сайте '.Lang::get('messages.online').Lang::get('messages.sitename').'</br>'.'Вам необходимо активировать акаунт по ссылке '.'<a href="'.$link.'">'.$link.'</a>';
-
-	$key = $this->activateKey($data['email']);
-		$user = $this->create($data,$key);
-    $this->mail($data,$body);
-
-
-*/	
-
-
-   
-
-/*
-        if (User::where('email', $this->request->email)->where('id', '<>',  $this->model->id)->count() > 0){
-			throw new \Exception(Lang::get('model.users.email_exist'));
-		}
-		        if (!$this->request->password && !$this->model->password){
-			throw new \Exception(Lang::get('model.users.need_password'));
-		}
-
-*/
-
         if ($this->request->password){
-						
-
-            $ar['password'] = Hash::make($this->request->password);
+			$ar['password'] = Hash::make($this->request->password);
 		}
         else{
             unset($ar['password']);
 		}
 
-
-        $ar['type_id'] = 2;
+        if(isset($this->request->tyr_operator)){$ar['type_id'] = 6;}
+		else{
+			$ar['type_id'] = 2;
+		    
+		}
         $this->model->fill($ar);
         $this->model->save();
 
+/*
         $data = new Gid();
         $data->user_id = $this->model->id;
+		$data->family = $this->request->family;
+		$data->imya = $this->request->name;
+		$data->phone = $this->request->phone;
+*/
         //$data->edited_user_id = 2;
         $data->save();
 		

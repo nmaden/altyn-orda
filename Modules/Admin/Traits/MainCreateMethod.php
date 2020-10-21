@@ -21,6 +21,11 @@ trait MainCreateMethod  {
 
     public function saveCreate(Request $request) {
 		
+		   $validator = $this->validator($request->all());
+        if ($validator->fails()) { 
+        return redirect()->back()->withErrors($validator)->withInput();
+        };
+	
 		
 	//dd($request->all());
 	/*

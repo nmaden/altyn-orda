@@ -58,6 +58,48 @@ name='currency' placeholder="тг" class="form-control"></input>
 
 <br><br>
 ---------------------->
+
+
+
+
+
+
+<br><br>
+
+@if($model->relUsers->type_id == 2)
+	
+<div>  
+<label for="title"><b>Фамилия</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+@if(old('family'))
+	value="{{old('family')}}" 
+@else
+	value="{{isset($model->family) ? $model->family : ''}}" 
+@endif
+name='family' placeholder="Фамилия(текст)" class="form-control"></input>
+@if ($errors->has('family'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('family') }}</strong>
+   </span>
+@endif
+</div>
+
+@endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br><br>
 <div>  
 <label for="title"><b>Заголовок на детальной</b></label> 
@@ -116,8 +158,7 @@ class="{{$page ? 'form-control' : 'wysihtml5 wysihtml5-default form-control'}} "
 </div>
 
 
-@if(RoleService::getRole(Auth::user()->type_id) !='GID')
-
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
 <br><br>
 
 <div>

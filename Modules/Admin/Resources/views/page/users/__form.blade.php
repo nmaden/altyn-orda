@@ -16,7 +16,13 @@ if(in_array('show',$ar)){
 <div>  
 <label for="title"><b>email</b></label> 
 <input {{$page ? 'disabled': ''}} 
+@if(old('email'))
+	type="text" value="{{old('email')}}" 
+
+	@else
 type="text" value="{{isset($model->email) ? $model->email: ''}}" 
+		
+@endif
 name='email' placeholder="" 
 class="form-control"/>
 @if ($errors->has('email'))
@@ -31,7 +37,13 @@ class="form-control"/>
 <div>  
 <label for="title"><b>ФИО</b></label> 
 <input {{$page ? 'disabled': ''}} 
+@if(old('name'))
+	type="text" value="{{old('name')}}" 
+
+	@else
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
+
+@endif
 name='name' placeholder="" 
 required
 class="form-control"/>
@@ -42,6 +54,7 @@ class="form-control"/>
 @endif
 
 </div>
+
 
 <br><br>
 <div>  
@@ -64,6 +77,24 @@ class="form-control"/>
 @endif
 
 </div>
+
+<br><br>
+ <div> 
+    Поменять роль
+			<select {{$page ? 'disabled': ''}} name="type_id" class="form-control select2">
+			<option value=""></option>
+				
+	
+            @foreach (RoleService::listRole() as $k => $v)
+                <option value="{{ $k }}" {{ $model->type_id == $k ? 'selected' : '' }}>{{ $v }}</option>
+            @endforeach
+
+        </select>
+		</div>
+		
+
+
+
 
 <br><br>
 <div>  

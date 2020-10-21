@@ -25,31 +25,6 @@ $categories = DB::table('lib_gid_speacialisations')->get();
 <br><br>
 
 
-<!-------------------------------
-<div>
-<div id="drobzone-photo">
-@if(is_array($model->photo_unserialize))
-
-@foreach($model->photo_unserialize as $k=>$item)
-<div class='rm'>
-<input type="hidden" name="gallery[]" value="{{$item}}"/>
-
- уже загружено <a href="{{URL::asset($item)}}" target="_blank">
-просмотреть</a>&nbsp&nbsp
-<a href="{{$item}}" id="{{$model->id}}" target="_blank" class='slider_remove'>
-удалить</a>
- </br>
- </div>
-@endforeach
-@endif
-</div>
-@if(in_array('update',$ar))
-<div id="file" data-path = "gid" name='file' class="upload"></div>
- <div class='preview'></div>
-
-@endif
-</div> 
--------------------->
 
 <div>  
  
@@ -70,6 +45,47 @@ name='imya' placeholder="Имя(текст)" class="form-control"></input>
 
 <br><br>
 
+
+
+<div>  
+<label for="title"><b>Телефон</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+@if(old('phone'))
+	value="{{old('phone')}}" 
+@else
+	value="{{isset($model->phone) ? $model->phone : ''}}" 
+@endif
+name='phone' placeholder="Телефон(текст)" class="form-control"></input>
+@if ($errors->has('phone'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('pnone') }}</strong>
+   </span>
+@endif
+</div>
+
+<br><br>
+
+@if($model->relUsers->type_id == 2)
+	
+<div>  
+<label for="title"><b>Фамилия</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+@if(old('family'))
+	value="{{old('family')}}" 
+@else
+	value="{{isset($model->family) ? $model->family : ''}}" 
+@endif
+name='family' placeholder="Фамилия(текст)" class="form-control"></input>
+@if ($errors->has('family'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('family') }}</strong>
+   </span>
+@endif
+</div>
+
+@endif
+
+<br><br>
 
 <div>  
 <label for="title"><b>Возраст</b></label> 
@@ -131,65 +147,31 @@ name='gid_title' placeholder="Туроператор или Гид" class="form-
 
 
 
-<!---------------------------------------------------
-<br><br>
-<div>  
-<label for="title"><b>Денежная еденица</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" 
-@if(old('phone'))
-	value="{{old('currency')}}" 
-@else
-	value="{{isset($model->currency) ? $model->currency : ''}}" 
-@endif
-name='currency' placeholder="тг" class="form-control"></input>
-@if ($errors->has('opyt'))
-  <span class="help-block">
-     <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
-   </span>
-@endif
-</div>
---------------------------------------------------------------->
 
 <br><br>
 <div>  
 <label for="title"><b>Стоимость</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
-@if(old('phone'))
+@if(old('price'))
 	value="{{old('price')}}" 
 @else
 	value="{{isset($model->price) ? $model->price : ''}}" 
 @endif
 name='price' placeholder="Цифра" class="form-control"></input>
-@if ($errors->has('opyt'))
+@if ($errors->has('price'))
   <span class="help-block">
-     <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
+     <strong style='color:#a94442'>{{ $errors->first('price') }}</strong>
    </span>
 @endif
 </div>
 
 
 
-<br><br>
-<div>  
-<label for="title"><b>Телефон</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" 
-@if(old('phone'))
-	value="{{old('phone')}}" 
-@else
-	value="{{isset($model->phone) ? $model->phone : ''}}" 
-@endif
-name='phone' placeholder="Телефон(текст)" class="form-control"></input>
-@if ($errors->has('opyt'))
-  <span class="help-block">
-     <strong style='color:#a94442'>{{ $errors->first('opyt') }}</strong>
-   </span>
-@endif
-</div>
 
 <br><br>
 
 <div>  
- <label for="title"><b>Тип гида</b></label> 
+ <label for="title"><b>Тип гида(в хлебных крошках на детальной)</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
 
 @if(isset(Session::get('old')['name']))
@@ -203,6 +185,7 @@ name='name' placeholder="{{$page ? '': 'Туристический гид(тек
      <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>
    </span>
 @endif
+
 </div>
 
 
@@ -230,6 +213,12 @@ value=1
 </option>
 
 </select>
+@if ($errors->has('oplata'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('oplata') }}</strong>
+   </span>
+@endif
+
 </div> 
 
 
@@ -250,26 +239,7 @@ class="{{$page ? 'form-control' : 'wysihtml5 wysihtml5-default form-control'}} "
 </textarea>
 </div>
 <br><br>
-<div>   
-		<label for="title"><b>Выберите специализацию</b></label> 
-		 
-	
-			<select {{$page ? 'disabled': ''}} name="spec_id" id="spec_id" class="form-control select2">
-			<option value="">@lang('model.disabled')</option>
-			
-		
-			@if(count($categories) > 0)
-					
-            @foreach ($categories as $k => $v)
-                <option value="{{ $k }}" {{ $model->spec_id == $k ? 'selected' : '' }}>{{ $v->name }}</option>
-						@endforeach
-						
-			@else
-				ничего нет
-			@endif
-        </select>
-</div>
-<br><br>
+
 
 <div>
 <label for="text"><b>Языки: выбрать один или несколько </b></label> 
@@ -306,6 +276,7 @@ value="{{ $k }}"
 			@endif
         </select>
 		</div>
+		
 <br><br>
 <div>
 <label for="text"><b>Галерея фото</b></label> 
@@ -326,7 +297,7 @@ value="{{ $k }}"
 </div> 
 
 
-@if(RoleService::getRole(Auth::user()->type_id) !='GID')
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
 
 <br><br>
 
