@@ -135,7 +135,7 @@ var size = keys.length;
             map_m.behaviors.disable('scrollZoom');
             // Добавляем мультимаршрут на карту.
             map_m.geoObjects.add(multiRoute);
-
+            $('.inter__map--preloader').addClass("inter__map-act");
         }
 
   
