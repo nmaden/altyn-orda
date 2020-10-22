@@ -6,7 +6,7 @@ use Modules\Entity\Traits\CheckTrans;
 
 class Tabs extends ModelParent {
     protected $table = 'tabs';
-	protected $fillable = [ 'photo','name','description','user_id','about_page_id','date','color','publish'];
+	protected $fillable = [ 'photo','name','description','user_id','about_page_id','date','color','publish','edited_user_id'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -17,7 +17,9 @@ class Tabs extends ModelParent {
 	 function sights(){
         return $this->belongsToMany('Modules\Entity\Model\Sights\Sights','Modules\Entity\Model\Home\SightsLib','home_id','sight_id');
     }
-	
+	 function relEditedUser(){
+        return $this->belongsTo('App\User', 'edited_user_id');
+    } 
 	
 	 function relInforms(){
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');

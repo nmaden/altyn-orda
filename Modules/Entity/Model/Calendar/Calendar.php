@@ -9,7 +9,7 @@ class Calendar extends ModelParent {
 	
 	
     protected $fillable = [ 'photo','name','text','user_id','city_id','category_id','date','social',
-	'seo_description','seo_title','general','blizkie','publish'
+	'seo_description','seo_title','general','blizkie','publish','edited_user_id'
 	];
 	
     protected $filter_class = Filter::class; 
@@ -39,12 +39,9 @@ class Calendar extends ModelParent {
 	  function getElIdAttribute(){
         return $this->id;
     }
-/*
- function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Gallery\TransGallery', 'el_id');
-    }
-*/
-   
+ function relEditedUser(){
+        return $this->belongsTo('App\User', 'edited_user_id');
+    } 
 
   
     

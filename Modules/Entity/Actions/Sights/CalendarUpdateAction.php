@@ -25,6 +25,9 @@ class CalendarUpdateAction {
      
         $ar = $this->request->all();
 		$ar['user_id'] = $this->request->user()->id;
+		$ar['edited_user_id'] = $this->request->user()->id;
+
+		
 		if($this->request->latitude && $this->request->longitude){
 			$ar['coord']= $this->request->latitude.','.$this->request->longitude;
 		}

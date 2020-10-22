@@ -15,11 +15,11 @@
 				<thead>
 					<tr>
 						<th >{{ $model->getLabel('id') }}</th>
-						<th >{{ $model->getLabel('photo') }}</th>
-						<th >{{ $model->getLabel('name') }}</th>
+						<th >фото</th>
+						<th >название</th>
 						<th>публикация</th>
-						<!---<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>--->
-						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
+						<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
+						
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
 					
 						<th>
@@ -33,7 +33,7 @@
 							<td>{{ $i->id }}</td>
 							<td>
 							@if($i->photo)
-								загружено <a href="{{URL::asset($i->photo)}}" target="_blank">просмотреть</a>
+								<a href="{{URL::asset($i->photo)}}" target="_blank">просмотреть</a>
 							@else
 								не загружено
 							@endif
@@ -45,9 +45,23 @@
 							<td>{{ $i->namefigure }}</td>
 							<td style="color:{{$i->publish == 2 ? 'green' :'red'}}">{{ $i->publish_index }}</td>
 
-							<!----<td>{{ $i->edited_user_name }}</td>---->
-							
-							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
+						
+							 <td>
+			@if(isset($i->relEditedUser->name))
+			{{$i->relEditedUser->name}}
+		    @else
+			 @if(isset($i->relEditedUser->email))
+				 	{{$i->relEditedUser->email}}
+				@if(isset($i->relEditedUser->family))
+					&nbsp&nbsp({{$i->relEditedUser->family}})
+				@endif
+			 @else
+				не определено
+
+              @endif
+			@endif
+			</td>
+						
 							<td>{{ $i->updated_cool }}</td>
 						<th>
 								<div class="btn-group">

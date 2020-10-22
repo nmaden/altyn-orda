@@ -26,7 +26,8 @@ class DefaultUpdateAction {
         $ar = $this->request->all();
 		
         $ar['user_id'] = $this->request->user()->id;
-    
+        	$ar['edited_user_id'] = $this->request->user()->id;
+
 	 	 	if ($this->request->has('photo')){
 			
 			if(is_file(public_path($this->model->photo))){
@@ -38,7 +39,7 @@ class DefaultUpdateAction {
             unset($ar['photo']);
 		}
   
-          $ar['edited_user_id'] = $this->request->user()->id;
+        
 		  
 		  
 		  

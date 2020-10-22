@@ -33,6 +33,8 @@
 						<th >{{ $model->getLabel('id') }}</th>
 						<th >{{ $model->getLabel('photo') }}</th>
 						<th >название</th>
+						<th >кто изменил</th>
+
 						<th >публикация</th>
 
 						<th >дата</th>
@@ -50,17 +52,28 @@
 							<td>{{ $i->id }}</td>
 							<td>
 							@if($i->photo)
-								загружено <a href="{{URL::asset($i->photo)}}" target="_blank">просмотреть</a>
+							<a href="{{URL::asset($i->photo)}}" target="_blank">просмотреть</a>
 							@else
 								не загружено
 							@endif
-	
-							
-							
-							
-							</td>
-							<td>{{ $i->name }}</td>
-							<td style="color:{{$i->publish == 2 ? 'green' :'red'}}">{{ $i->publish_index }}</td>
+	                     </td>
+			<td>{{ mb_substr($i->name,0,60) }}</td>
+			<td>
+			@if(isset($i->relEditedUser->name))
+			{{$i->relEditedUser->name}}
+		    @else
+			 @if(isset($i->relEditedUser->email))
+				 	{{$i->relEditedUser->email}}
+				@if(isset($i->relEditedUser->family))
+					&nbsp&nbsp({{$i->relEditedUser->family}})
+				@endif
+			 @else
+				не определено
+
+              @endif
+			@endif
+			</td>
+			<td style="color:{{$i->publish == 2 ? 'green' :'red'}}">{{ $i->publish_index }}</td>
 
 
 							<td>{{ $i->date }}</td>
