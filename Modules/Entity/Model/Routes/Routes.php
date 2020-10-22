@@ -12,7 +12,12 @@ class Routes extends ModelParent {
 	'subtitle','category_id','props_3','price','groups','personally_price','seo_title','seo_description','publish','edited_user_id'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
-    
+	
+     protected static function boot() {
+        parent::boot();
+        static::addGlobalScope(new ContentManagerScope);
+    }
+   
     function relCity(){
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }

@@ -36,7 +36,6 @@ function index (Request $request){
 		
 		
         $action = new RegistrationAction(new User(), $request);
-		//dd($request->all());
 		//echo 500;exit();
         //dd($request->all());
 

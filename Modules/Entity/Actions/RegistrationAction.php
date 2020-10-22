@@ -22,8 +22,7 @@ class RegistrationAction {
     function run(){
         $ar = $this->request->all();
 		
-	    
-        $ar['edited_user_id'] = 1;
+        //$ar['edited_user_id'] = 1;
 	
         if ($this->request->password){
 			$ar['password'] = Hash::make($this->request->password);
@@ -46,9 +45,10 @@ class RegistrationAction {
 		$data->family = $this->request->family;
 		$data->imya = $this->request->name;
 		$data->phone = $this->request->phone;
-*/
+
         //$data->edited_user_id = 2;
-        $data->save();
+		$data->save();
+        */
 		
         
     }

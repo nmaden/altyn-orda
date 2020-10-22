@@ -1,5 +1,5 @@
 <?php
-namespace Modules\Entity\Model\Gid;
+namespace Modules\Entity\Model\Routes;
 
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Model;
