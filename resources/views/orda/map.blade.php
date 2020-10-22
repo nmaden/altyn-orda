@@ -241,11 +241,45 @@
                         </div>
 
                         <div class="route__line--maps">
-                            <div id="maps"></div>
+                            <div class="inter__map--preloader">
+                                <div id="maps"></div>
+                                <div class="sk-fading-circle inter__map_preloader">
+                                    <div class="sk-circle sk-circle-1"></div>
+                                    <div class="sk-circle sk-circle-2"></div>
+                                    <div class="sk-circle sk-circle-3"></div>
+                                    <div class="sk-circle sk-circle-4"></div>
+                                    <div class="sk-circle sk-circle-5"></div>
+                                    <div class="sk-circle sk-circle-6"></div>
+                                    <div class="sk-circle sk-circle-7"></div>
+                                    <div class="sk-circle sk-circle-8"></div>
+                                    <div class="sk-circle sk-circle-9"></div>
+                                    <div class="sk-circle sk-circle-10"></div>
+                                    <div class="sk-circle sk-circle-11"></div>
+                                    <div class="sk-circle sk-circle-12"></div>
+                                </div>
+                            </div>
                         </div>
                     @else
                     
-                        <div id="inter__map"></div>
+                        
+                        <div class="inter__map--preloader">
+                            <div id="inter__map"></div>
+                            <div class="sk-fading-circle inter__map_preloader">
+                                <div class="sk-circle sk-circle-1"></div>
+                                <div class="sk-circle sk-circle-2"></div>
+                                <div class="sk-circle sk-circle-3"></div>
+                                <div class="sk-circle sk-circle-4"></div>
+                                <div class="sk-circle sk-circle-5"></div>
+                                <div class="sk-circle sk-circle-6"></div>
+                                <div class="sk-circle sk-circle-7"></div>
+                                <div class="sk-circle sk-circle-8"></div>
+                                <div class="sk-circle sk-circle-9"></div>
+                                <div class="sk-circle sk-circle-10"></div>
+                                <div class="sk-circle sk-circle-11"></div>
+                                <div class="sk-circle sk-circle-12"></div>
+                            </div>
+                
+                        </div>
 
                     @endif	
 

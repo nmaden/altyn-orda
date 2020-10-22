@@ -54,22 +54,23 @@
 
         <div class="bg__video__intro">
             <video width="100%" height="100%" preload="auto" muted playsinline autoplay="autoplay" loop="loop" id="jsvideo">
-                <source src="/img/video/home_banner.mp4" type="video/mp4">
+                <source src="/img/video/render.mp4" type="video/mp4"><!--/img/video/home_banner.mp4-->
             </video>
 
             <div class="banner__item--container">
                 <div class="container">
                     <div class="banner__item--info">
                         <div class="banner__item--title">
-						@if($slider->name)
-                           {{$slider->name}}
-					   @endif
-
+                            @if($slider->name)
+                                {{$slider->name}}<br>
+                                {{$slider->description}}
+                             @endif
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!--
             <div class="banner__linck--map">
                 <div class="container">
                     <div class="modal__map">
@@ -79,6 +80,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
 
         

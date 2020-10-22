@@ -589,7 +589,15 @@ a.modal__map--item:hover:before {
     overflow: hidden;
     width: 100% !important;
 }
-
+.bg__video__intro:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0 0 0 / 0.20);
+}
 .bg__video__intro video {
     width: 100%;
     height: 100%;
@@ -1539,7 +1547,9 @@ li.breadcrumb-item {
     width: 100%;
     height: 500px;
 }
-
+.section__page__map--block .inter__map--preloader {
+    height: 100%;
+}
 .section__page__map--block img {
     width: 100%;
     height: 100%;
@@ -2036,6 +2046,9 @@ div#maps {
 .route__line--maps {
     height: 600px;
 }
+.route__line--maps .inter__map--preloader{
+    height: 100%;
+}
 .route__miker--block {
     position: relative;
 }
@@ -2417,24 +2430,61 @@ footer .header__right {
     color: #000;
 }
 
-a.modal__fixed {
+.modal__fixed {
     position: fixed;
     right: 20px;
     bottom: 20px;
     z-index: 10;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+.modal__fixed span {
+    position: absolute;
+    right: 100%;
+    white-space: nowrap;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+    padding: 15px;
+    padding-right: 0px;
+    border-radius: 30px 0 0 30px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: -6;
+    transform: translateX(40px);
+    width: 0px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.modal__fixed:hover span {
+    width: 250px;
+}
+.modal__fixed img {
+    width: 100%;
+}
+a.modal__fixed--linck {
+    position: absolute;
+    font-size: 0;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal__fixed--img {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     background-color: #ffffff;
     border-radius: 100%;
     padding: 5px;
-    width: 70px;
-    display: flex;
-    align-items: center;
 }
-
-a.modal__fixed img {
-    width: 100%;
-}
-
 .header__user {
     margin-left: 20px;
 }
