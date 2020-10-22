@@ -1,5 +1,8 @@
     <a href="/page-map" class="modal__fixed">
         <img src="/img/Vector.svg" alt="">
+        <span>
+            @lang('front_main.title.map')
+        </span>
     </a>
 
     <div class="footer__partners">
