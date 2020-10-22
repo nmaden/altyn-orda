@@ -1,9 +1,11 @@
-    <a href="/page-map" class="modal__fixed">
+    <div class="modal__fixed">
         <img src="/img/Vector.svg" alt="">
         <span>
             @lang('front_main.title.map')
         </span>
-    </a>
+        <a href="/page-map" class="modal__fixed">Подробнее</a>
+    </div>
+        
 
     <div class="footer__partners">
         <div class="container">
