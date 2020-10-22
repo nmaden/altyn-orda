@@ -32,10 +32,10 @@ function index (Request $request){
     };
 	
 	    
-		$key = $this->activateKey($request->email);
+	//$key = $this->activateKey($request->email);
 		
 		
-		
+		/*
 	$host=	$request->root();
 	$link = $host.'/activate/' .$key;
     $body    = 'Вы зарегестрировались на сайте '.''.'</br>'.'Вам необходимо активировать акаунт по ссылке '.'<a href="'.$link.'">'.$link.'</a>';
@@ -45,7 +45,7 @@ function index (Request $request){
 		
 		dd('ok');
 		
-		
+		*/
 		
 		
         $action = new RegistrationAction(new User(), $request);
