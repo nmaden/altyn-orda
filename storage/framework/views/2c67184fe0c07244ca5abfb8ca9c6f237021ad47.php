@@ -3,7 +3,7 @@
 <div class="section__about">
             <div class="container">
 
-                <a href="/about.html" class="section__title--block">
+                <a href="<?php echo e(route('about')); ?>" class="section__title--block">
                     <div class="section__title">
 					    <?php echo app('translator')->get('front_main.title.about'); ?>
 
@@ -23,7 +23,10 @@
                         <div class="swiper-slide about__line--item about__line--<?php echo e(isset($v->color) ? $v->color : 'orange'); ?>">
                             <div class="about__line--circle"></div>
                             <div class="about__line--absol">
+							                <a href="<?php echo e(route('about')); ?>">
+
                                 <div class="about__line--numer">
+
                                     <span class="numer__strong">
 									<?php if(isset($v->date)): ?>
 									<?php echo e($v->date); ?>
@@ -37,13 +40,18 @@
 
                                     </span>
                                 </div>
+								</a>
+								
                                 <div class="about__line--info">
+								                <a href="<?php echo e(route('about')); ?>">
+
                                     <div class="about__line--title">
 									<?php if(isset($v->name)): ?>
 									<?php echo e($v->name); ?>
 
 									<?php endif; ?>
                                     </div>
+									</a>
                                     <div class="about__line--text">
                                       <?php if(isset($v->description)): ?>
 										  <?php echo $v->description; ?>
@@ -51,6 +59,7 @@
 									  <?php endif; ?>
                                     </div>
                                 </div>
+								
                             </div>
                         </div>
 				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

@@ -3,7 +3,7 @@
 <div class="section__about">
             <div class="container">
 
-                <a href="/about.html" class="section__title--block">
+                <a href="{{route('about')}}" class="section__title--block">
                     <div class="section__title">
 					    @lang('front_main.title.about')
 
@@ -23,7 +23,10 @@
                         <div class="swiper-slide about__line--item about__line--{{isset($v->color) ? $v->color : 'orange'}}">
                             <div class="about__line--circle"></div>
                             <div class="about__line--absol">
+							                <a href="{{route('about')}}">
+
                                 <div class="about__line--numer">
+
                                     <span class="numer__strong">
 									@if(isset($v->date))
 									{{$v->date}}
@@ -36,18 +39,24 @@
 
                                     </span>
                                 </div>
+								</a>
+								
                                 <div class="about__line--info">
+								                <a href="{{route('about')}}">
+
                                     <div class="about__line--title">
 									@if(isset($v->name))
 									{{$v->name}}
 									@endif
                                     </div>
+									</a>
                                     <div class="about__line--text">
                                       @if(isset($v->description))
 										  {!! $v->description !!}
 									  @endif
                                     </div>
                                 </div>
+								
                             </div>
                         </div>
 				@endforeach
