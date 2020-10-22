@@ -41,7 +41,15 @@ class="form-control"/>
 
 
 
+<div>  
+<label for="title"><b>ссылка на 3D</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" value="{{isset($model->href_tyr) ? $model->href_tyr: ''}}" 
+name='href_tyr' placeholder="ссылка на 3D" 
+class="form-control"/>
+</div>
 
+<br><br>
 
 <div>  
 <label for="title"><b>Название</b></label> 
