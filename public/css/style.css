@@ -1547,7 +1547,9 @@ li.breadcrumb-item {
     width: 100%;
     height: 500px;
 }
-
+.section__page__map--block .inter__map--preloader {
+    height: 100%;
+}
 .section__page__map--block img {
     width: 100%;
     height: 100%;
@@ -2043,6 +2045,9 @@ div#maps {
 }
 .route__line--maps {
     height: 600px;
+}
+.route__line--maps .inter__map--preloader{
+    height: 100%;
 }
 .route__miker--block {
     position: relative;
