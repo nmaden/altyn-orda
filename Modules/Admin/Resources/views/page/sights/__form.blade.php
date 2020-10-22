@@ -24,6 +24,25 @@ class="form-control"/>
 
 <br><br>
 
+
+
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
+
+			
+        </select>
+		</div>
+		
+<br><br>
+
+
+
+
+
 <div>  
 <label for="title"><b>Название</b></label> 
 <input {{$page ? 'disabled': ''}} 

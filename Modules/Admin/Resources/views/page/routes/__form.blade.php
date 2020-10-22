@@ -53,14 +53,33 @@ class="form-control"/>
 @endforeach
 @endif
 </div>
+
+
+
+
+
 @if(in_array('update',$ar))
 <div id="file" data-path = "routes"  name='file' class="upload"></div>
  <div class='preview'></div>
 </div>
 @endif
 
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
+
 <br><br> 
 
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
+
+			
+        </select>
+		</div>
+@endif
+<br><br>
 
 <div> 
 <label for="title"><b>Название</b></label> 

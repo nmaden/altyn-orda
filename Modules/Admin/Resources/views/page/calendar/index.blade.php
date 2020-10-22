@@ -33,6 +33,8 @@
 						<th >{{ $model->getLabel('id') }}</th>
 						<th >{{ $model->getLabel('photo') }}</th>
 						<th >название</th>
+						<th >публикация</th>
+
 						<th >дата</th>
 
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
@@ -58,6 +60,9 @@
 							
 							</td>
 							<td>{{ $i->name }}</td>
+							<td style="color:{{$i->publish == 2 ? 'green' :'red'}}">{{ $i->publish_index }}</td>
+
+
 							<td>{{ $i->date }}</td>
 
 							<td>{{ $i->updated_cool }}</td>

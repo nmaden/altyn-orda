@@ -26,7 +26,10 @@ trait Presenter {
 	 
 	}
 	
-
+function getPublishIndexAttribute($v){
+	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
+    }
+	
 function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 }

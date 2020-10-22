@@ -55,9 +55,27 @@ value='{{isset($model->name) ? $model->name : ''}}' name='name' placeholder="з�
    </span>
 @endif
 </div>
-
-
 <br><br>
+
+
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
+
+			
+        </select>
+		</div>
+		
+<br><br>
+
+
+
+
+
+
 
 <div>
  <label for="text"><b>Текст</b></label> 

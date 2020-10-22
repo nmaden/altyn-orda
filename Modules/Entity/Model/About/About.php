@@ -12,7 +12,7 @@ class About extends ModelParent {
     
     
 	 function relTabs(){
-        return $this->hasMany('Modules\Entity\Model\Tabs\Tabs','about_page_id');
+        return $this->hasMany('Modules\Entity\Model\Tabs\Tabs','about_page_id')->where('publish','=', 2);
     }
 	
 	function getTransTableNameAttribute(){

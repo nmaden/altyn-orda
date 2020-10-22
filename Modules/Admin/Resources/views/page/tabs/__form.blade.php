@@ -9,6 +9,22 @@ if(in_array('show',$ar)){
 
 @endphp
 
+
+<br><br>
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
+
+			
+        </select>
+		</div>
+		
+
+
+
 <br><br>
 
 <div style='padding:10px 5px;'> 
@@ -26,6 +42,10 @@ if(in_array('show',$ar)){
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
 </div>
+
+<br><br>
+
+
 
 
 

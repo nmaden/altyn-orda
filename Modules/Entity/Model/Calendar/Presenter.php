@@ -65,6 +65,10 @@ trait Presenter {
 		return $this->getTransField('seo_title', $v);
     }
 	
+	function getPublishIndexAttribute($v){
+	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
+    }
+	
 	function getSeoDescriptionAttribute($v){
 		return $this->getTransField('seo_description', $v);
     }

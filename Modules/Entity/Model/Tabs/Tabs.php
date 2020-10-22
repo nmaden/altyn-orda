@@ -6,7 +6,7 @@ use Modules\Entity\Traits\CheckTrans;
 
 class Tabs extends ModelParent {
     protected $table = 'tabs';
-	protected $fillable = [ 'photo','name','description','user_id','about_page_id','date','color'];
+	protected $fillable = [ 'photo','name','description','user_id','about_page_id','date','color','publish'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     

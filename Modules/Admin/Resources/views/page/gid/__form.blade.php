@@ -22,12 +22,23 @@ $categories = DB::table('lib_gid_speacialisations')->get();
  @endif
 </div>
 
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
 <br><br>
 
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
 
-
+			
+        </select>
+		</div>
+@endif		
 <div>  
- 
+<br><br>
+
 <label for="title"><b>Имя</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
  @if(old('imya'))
@@ -65,6 +76,7 @@ name='phone' placeholder="Телефон(текст)" class="form-control"></inp
 
 <br><br>
 
+@if(isset($model->relUsers->type_id))
 @if($model->relUsers->type_id == 2)
 	
 <div>  
@@ -84,7 +96,7 @@ name='family' placeholder="Фамилия(текст)" class="form-control"></in
 </div>
 
 @endif
-
+@endif
 <br><br>
 
 <div>  

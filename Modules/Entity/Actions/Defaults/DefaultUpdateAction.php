@@ -27,11 +27,9 @@ class DefaultUpdateAction {
 		
         $ar['user_id'] = $this->request->user()->id;
     
-	 	if ($this->request->has('photo')){
+	 	 	if ($this->request->has('photo')){
 			
-			
-		   
-		    if(is_file(public_path($this->model->photo))){
+			if(is_file(public_path($this->model->photo))){
 	          Storage::delete($this->model->photo);
             }
             $ar['photo'] = UploadPhoto::upload($this->request->photo,$this->model->photo);
@@ -39,6 +37,7 @@ class DefaultUpdateAction {
         else {
             unset($ar['photo']);
 		}
+  
           $ar['edited_user_id'] = $this->request->user()->id;
 		  
 		  
@@ -63,11 +62,11 @@ class DefaultUpdateAction {
 			 		
              
 			if(!empty($intersect) || !empty($image)){
-				$ar['photo'] = serialize($image);
+				$ar['editor'] = serialize($image);
 			}
 		  }else{
 			  if(!empty($array2)){
-			  $ar['photo'] = serialize($array2[0]);
+			  $ar['editor'] = serialize($array2[0]);
 			  }
 		  }
 	    }

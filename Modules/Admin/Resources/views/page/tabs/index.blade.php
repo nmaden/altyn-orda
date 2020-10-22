@@ -17,7 +17,8 @@
 						<th >{{ $model->getLabel('id') }}</th>
 					
 						<th >{{ $model->getLabel('name') }}</th>
-							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
+						<th>публикация</th>
+						<!--<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>--->
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
 					
@@ -34,6 +35,8 @@
 							<td>{{ $i->name }}</td>
 							
 							
+							<td style="color:{{$i->publish == 2 ? 'green' :'red'}}">{{ $i->publish_index }}</td>
+
 							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 							<td>{{ $i->updated_cool }}</td>
 						<th>

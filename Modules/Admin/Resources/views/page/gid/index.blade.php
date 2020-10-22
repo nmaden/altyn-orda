@@ -42,8 +42,8 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 						<th >Имя гида</th>
 						<th >email</th>
 						<th>login</th>
-
-							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
+                        <th>публикация</th>
+					<!---<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>--->
 						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
 					@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
@@ -72,8 +72,10 @@ RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 							<td>{{ $i->imya }}</td>
 							<td>{{ $i->relUsers->email }}</td>
 							<td>{{ $i->relUsers->login }}</td>
+							<td style="color:{{$i->publish == 2 ? 'green' :'red'}}">{{ $i->publish_index }}</td>
 
-							<td>{{ $i->edited_user_name }}</td>
+
+							<!---<td>{{ $i->edited_user_name }}</td>--->
 							
 							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
 							<td>{{ $i->updated_cool }}</td>
