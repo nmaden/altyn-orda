@@ -9,7 +9,7 @@ use Modules\Entity\Actions\RegistrationAction;
 use App\User;
 use Session;
 use Illuminate\Support\Facades\Validator;
-
+use Mail;
 class RegistrationController extends Controller {
 	
 function index (Request $request){
@@ -31,7 +31,20 @@ function index (Request $request){
        return redirect()->back()->withErrors($validator)->withInput();
     };
 	
-	
+	    
+		$key = $this->activateKey($request->email);
+		
+		
+		
+	$host=	$request->root();
+	$link = $host.'/activate/' .$key;
+    $body    = 'Вы зарегестрировались на сайте '.''.'</br>'.'Вам необходимо активировать акаунт по ссылке '.'<a href="'.$link.'">'.$link.'</a>';
+	$data = $request->all();
+	$this->mail($data,$body);
+		
+		
+		dd('ok');
+		
 		
 		
 		
@@ -49,6 +62,23 @@ function index (Request $request){
 
         return redirect()->route('login')->with('success', trans('front_main.message.success_registration'));
     }
+	
+	
+	
+		protected function activateKey($login){
+	   	 return md5($login . "|" . uniqid(time()));
+	   }
+	
+	
+   protected function mail($data,$body){
+		   $result = Mail::send('orda.email.email',['data'=>$data,'body'=>$body], function($message) use ($data) {
+			   
+				$mail_admin = 'm4iler.mailer@yandex.kz';
+				$message->from('m4iler.mailer@yandex.kz', 'Пипин короткий');
+				$message->to('2tanak@mail.ru','Mr. Admin')->subject('Царевна помпадур');
+			});
+			return true;
+			}
 	
 	protected function validator(array $data)
     {

@@ -74,20 +74,9 @@ class RegistrationAction {
     }
 	
 	
-	protected function mail($data,$body){
-	$result = Mail::send('site.email',['data'=>$data,'body'=>$body], function($message) use ($data) {
-	  $mail_admin = env('MAIL_ADMIN');
-	  $message->from($mail_admin, Lang::get('messages.online'));
-	  $message->to($data['email'],'Mr. Admin')->subject(Lang::get('messages.activate').Lang::get('messages.sitename'));
-	});
-	return true;
-	}
-	   
+	  
 	
-	protected function activateKey($login){
-	   	 return md5($login . "|" . uniqid(time()));
-	   }
-	   
+
 
 
 }
