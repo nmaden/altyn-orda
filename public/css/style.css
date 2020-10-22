@@ -2422,10 +2422,6 @@ footer .header__right {
     right: 20px;
     bottom: 20px;
     z-index: 10;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    background-color: #ffffff;
-    border-radius: 100%;
-    padding: 5px;
     width: 70px;
     display: flex;
     align-items: center;
@@ -2460,7 +2456,22 @@ footer .header__right {
 .modal__fixed img {
     width: 100%;
 }
+a.modal__fixed--linck {
+    position: absolute;
+    font-size: 0;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 
+.modal__fixed--img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    border-radius: 100%;
+    padding: 5px;
+}
 .header__user {
     margin-left: 20px;
 }
