@@ -100,7 +100,7 @@
 @if(isset($gid))
     <div class="section__gid">
         <div class="container">
-           @include('orda.components.slider-gid',$gid)
+           @include('orda.gid.components.slider',$gid)
      </div>
     </div>
 @endif

@@ -1,13 +1,3 @@
-          <div class="section__title--block">
-                <div class="section__title">
-                   @lang('front_main.title.gid')
-
-                </div>
-            </div>
-			
-		  
-		  <div class="gid__slider">
-                <div class="row swiper-wrapper">
               @foreach($gid as $item)
                     <div class="col-lg-4 swiper-slide">
                         <div class="gid__item">
@@ -21,11 +11,13 @@
                                     </a>
                                 </div>
                                 <div class="gid__item--info">
+								<a href="{{route('gids-item',$item)}}">
                                     <div class="gid__item--toptext">
 									@if(isset($item->name))
 									{{$item->name}}
 								    @endif
                                     </div>
+									</a>
                                     <div class="gid__item--title">
                                         <a href="{{route('gids-item',$item)}}">
                                             @if(isset($item->imya))
@@ -35,7 +27,7 @@
                                     </div>
                                     <div class="gid__item--lang">
                                @if($item->getArLangId >= 0)
-							      @include('orda.components.item-lang',$item)
+							      @include('orda.gid.components.item-lang',$item)
 								@endif
 										
                                     </div>
@@ -43,6 +35,7 @@
 
                             </div>
                             <div class="gid__item--body">
+							<a href="{{route('gids-item',$item)}}">
                                 <div class="gid__item--price">
             @if(isset($item->price))
 			@lang('front_main.price') {{$item->price}}
@@ -52,11 +45,12 @@
 					тнг		 
 				@endif
 				
-			@include('orda.components.sposob-oplaty',$item)
+			@include('orda.gid.components.sposob-oplaty',$item)
              @endif
 			 
 									
                                 </div>
+								</a>
                             </div>
                             <div class="gid__item--bottom">
                                 <div class="gid__bottom--item">
@@ -64,14 +58,17 @@
                                         <img src="/img/map-icon.svg" alt="">
                                     </div>
 									@if(isset($item->relCity->name))
+										<a href="{{route('gids-item',$item)}}">
                                     <div class="gid__bottom--text">
                                         
 									{{$item->relCity->name}}
 								   
                                     </div>
+									</a>
 									 @endif
                                 </div>
                                 <div class="gid__bottom--item">
+								
                                     <div class="gid__bottom--img">
                                         <img src="/img/phone-icon.svg" alt="">
                                     </div>
@@ -91,12 +88,3 @@
                     </div>
 					
 @endforeach
-
-                </div>
-            </div>
-			   <div class="calendar__all">
-                <a href="{{route('gids')}}" class="calendar__all--linck">
-				@lang('front_main.button_view')
-                </a>
-            </div>
-

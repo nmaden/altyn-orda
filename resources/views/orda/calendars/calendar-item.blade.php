@@ -114,9 +114,11 @@
                         <div class="swiper-slide">
                             <div class="calendar__item">
 								@if(isset($v->relCity->name))
+									<a href="{{route('calendars-item',$v)}}">
                                 <div class="calendar__item--cat">
 								{{$v->relCity->name}}
                                 </div>
+								</a>
 								@endif
                                 <div class="calendar__item--img">
 								@if(isset($calendar->photo))
@@ -126,13 +128,16 @@
 					           @endif
 					        </div>
                                 <div class="calendar__item--info">
+								@if(isset($calendar->photo))
+									 <a href="{{route('calendars-item',$v)}}">
                                     <div class="calendar__item--data">
-									@if(isset($calendar->photo))
+									
 
 									{{$v->view_date}}
-									@endif
+								
                                     </div>
-									
+										</a>
+									@endif
                                     <div class="calendar__item--title">
                                         <a href="/calendar-item.html">
 										{!! mb_substr($v->name,0,65) !!}

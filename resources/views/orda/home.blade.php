@@ -98,7 +98,7 @@
              @lang('front_main.title.Calendar_events')
        </div>
       </div>
-		@include('orda.components.calendar-slider')
+		@include('orda.calendars.components.slider')
         </div>
 		
         
@@ -112,7 +112,7 @@
 		   @php
 		   $gid = $home->gids;
 		   @endphp
-           @include('orda.components.slider-gid')
+           @include('orda.gid.components.slider')
      </div>
     </div>
 @endif

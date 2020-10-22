@@ -101,7 +101,7 @@
              <?php echo app('translator')->get('front_main.title.Calendar_events'); ?>
        </div>
       </div>
-		<?php echo $__env->make('orda.components.calendar-slider', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+		<?php echo $__env->make('orda.calendars.components.slider', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
 		
         
@@ -115,7 +115,7 @@
 		   <?php
 		   $gid = $home->gids;
 		   ?>
-           <?php echo $__env->make('orda.components.slider-gid', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+           <?php echo $__env->make('orda.gid.components.slider', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
      </div>
     </div>
 <?php endif; ?>

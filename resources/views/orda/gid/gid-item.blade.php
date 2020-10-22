@@ -126,7 +126,7 @@
                                 <div class="gid__aboutlang--desc">
 				
 					@if($item->getLangAr() >= 0)
-					@include('orda.components.item-lang',$item)
+					@include('orda.gid.components.item-lang',$item)
                     @endif
 								
                                 </div>
@@ -138,7 +138,7 @@
                              </div>
                           <div class="gid__aboutprice--desc">
                             {{$item->price}} тг 
-					       @include('orda.components.sposob-oplaty',$item)
+					       @include('orda.gid.components.sposob-oplaty',$item)
                           </div>
                          </div>
                         @endif 
