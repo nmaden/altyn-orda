@@ -101,7 +101,7 @@ protected function validator(array $data)
 
            // 'login' => 'required|string|max:255|unique:users',
 		   'phone' => 'required|sometimes',
-           'confirm' => 'required|sometimes',
+           'confirm' => 'required',
            'family' => 'sometimes|required|string|max:255',
 		   'name' => 'required|sometimes|string|max:255',
            'login' => 'required|string|max:255|unique:users|regex:/(([a-zA-Z0-9-\s]+))/u',

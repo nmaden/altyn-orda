@@ -37,7 +37,7 @@ class RegistrationAction {
        $key = $this->activateKey($this->request->email);
        $host =	$this->request->root();
 	   $link = $host.'/activate/' .$key;
-       $body    = 'Вы зарегестрировались на сайте '.''.'</br>'.'Вам необходимо активировать акаунт по ссылке '.'<a href="'.$link.'">'.$link.'</a>';
+       $body    = 'Вы зарегестрировались на сайте '.$host.'</br>'.'Вам необходимо активировать акаунт по ссылке '.'<a href="'.$link.'">'.$link.'</a>';
 	   $data = $this->request->all();
 	   $this->mail($data,$body,$host);
 
