@@ -82,6 +82,15 @@ Route::get('/home',['uses' => 'Admin\ArticlesController@index'])->name('home');
         Route::post('registration', 'RegistrationController@save')->name('registration_save');
 		Route::any('logout', 'LoginController@logout')->name('admin_logout');
         Route::get('activate/{hash}', ['uses' => 'RegistrationController@activate'])->name('activate');
+		
+		
+		
+ Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
+Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('showResetForm');
+		
+		
      
     });
 
