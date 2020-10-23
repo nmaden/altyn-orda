@@ -65,13 +65,13 @@ function index (Request $request){
 		   if($user->activator == 'no_active'){
 			   $user->activator='active';
 			   $user->save();
-			   return redirect('/login')->with('success', Lang::get('message.success_activate'));
+			   return redirect('/login')->with('success', Lang::get('messages.success_activate'));
 		   }else{
 			   if($user->activator == 'active'){
-				   	return redirect('/login')->with('error', Lang::get('message.old_activate'));
+				   	return redirect('/login')->with('error', Lang::get('messages.old_activate'));
 
 			   }
-			   return redirect('/login')->with('error', 'Извините, не удалось активировать аккаунт! Обратитесь к администратору сайта!');
+			   return redirect('/login')->with('error', Lang::get('messages.no_activate'));
 		   }
 	   }
 	  }

@@ -22,7 +22,7 @@ class ModeratorAction {
         $ar = $this->request->all();
         $ar['edited_user_id'] = $this->request->user()->id;
 		$ar['type_id'] = SysUserType::MODERATOR;
-
+        $ar['activator'] = 'active';
 
         
         

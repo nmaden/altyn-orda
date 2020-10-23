@@ -22,6 +22,7 @@ class AllUsersAction {
     function run(){
         $ar = $this->request->all();
         $ar['edited_user_id'] = $this->request->user()->id;
+		$ar['activator'] = 'active';
 		//$ar['type_id'] = SysUserType::USERS;
         if($this->request->type_id){
 		$ar['type_id'] = $this->request->type_id;

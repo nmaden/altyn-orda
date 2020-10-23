@@ -23,6 +23,7 @@ class ContentManagerAction {
         $ar = $this->request->all();
         $ar['edited_user_id'] = $this->request->user()->id;
 		$ar['type_id'] = SysUserType::MANAGER;
+		$ar['activator'] = 'active';
         if($this->request->type_id){
 		$ar['type_id'] = $this->request->type_id;
 

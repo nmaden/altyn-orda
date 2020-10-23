@@ -77,7 +77,7 @@ class RegistrationAction {
 			   
 				$mail_admin = env('MAIL_ADMIN');
 				$message->from($mail_admin, Lang::get('messages.online'));
-				$message->to($data['email'],'Mr. Admin')->subject(Lang::get('messages.activate').' '.$host);
+				$message->to($data['email'],'Mr. Admin')->subject(Lang::get('messages.activate'));
 			});
 			return true;
 			}
