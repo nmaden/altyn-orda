@@ -1,9 +1,5 @@
 
-@if(session('error'))
-    <div class="alert alert-danger" style='text-align:center'>
-        {{session('error') }}
-    </div>
-@endif
+
 
 <div class="register__page--body">
     <div class="container">

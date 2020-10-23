@@ -11,6 +11,7 @@ use Modules\Entity\Model\Routes\Routes;
 use Modules\Entity\Model\Tabs\Tabs;
 use Modules\Entity\Model\Figure\Figure;
 use Modules\Entity\Model\Gid\Gid;
+ use Intervention\Image\Facades\Image as ImageInt;
 
 class Drobsone2Controller extends Controller
 {
@@ -102,12 +103,33 @@ public $table_switch;
   
   if(isset($this->id)){
 	  
-	$this->save_baze();//base
 	
-	 $this->files->storeAs('/store/'.$this->papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $this->file_name);//store
-					 
+	
+	
+	 $file = $this->files;
+	
+     $ext = $file->getClientOriginalExtension();
+	 if(in_array($ext,['jpg','jpeg','png'])){
+		$this->save_baze();//base
 
-   }
+	 $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
+	 $img = ImageInt::make($file->getRealPath());
+	 $height = $img->height();
+     $width = $img->width();
+	 if($width > 500){
+	 $resizedImage =  $img->resize(500, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+		 $resizedImage->response($ext);
+		$file_path= $this->url;
+        Storage::put($file_path,  $resizedImage);
+		
+	 }else{
+		 $this->files->storeAs('/store/'.$this->papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $this->file_name);//store
+	 }
+  }
+	
+	}
   
 }
    public function respons(){

@@ -41,7 +41,7 @@ class GidController extends Controller {
         return \Validator::make($data, [
 		 'name' => 'sometimes|nullable|string',
          'vosrast' => 'sometimes|nullable|numeric',
-		 'photo' => 'nullable|sometimes|file|mimes:jpeg,png,svg|dimensions:min_width=30,max_width=1000',
+		 'photo' => 'nullable|sometimes|file|mimes:jpeg,png,svg',
 		 'family' => 'sometimes|nullable|string',
          'opyt' => 'sometimes|nullable|string',
 		 'gid_title'=>'sometimes|nullable|string',

@@ -32,6 +32,11 @@ class="form-control"/>
 @else
 Фото не загружено
 @endif
+@if ($errors->has('photo'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('photo') }}</strong>
+   </span>
+@endif
 </div>
 
 <br><br>
@@ -106,6 +111,11 @@ name='subtitle'
 class="form-control"
 placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 />
+@if ($errors->has('subtitle'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('subtitle') }}</strong>
+   </span>
+@endif
 </div>
 <br><br>
 
@@ -121,7 +131,7 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 			@if(count($categories) > 0)
 					
             @foreach ($categories as $k => $v)
-                <option value="{{ $k }}" {{ $model->category_id == $k-1 ? 'selected' : '' }}>{{ $v->name }}</option>
+                <option value="{{ $v->id }}" {{ $model->category_id == $k-1 ? 'selected' : '' }}>{{ $v->name }}</option>
 						@endforeach
 						
 			@else
@@ -145,6 +155,11 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 <div> 
 <label for="title"><b>Стоимость группа</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->price) ? $model->price : ''}}' name='price' placeholder="цифра" class="form-control"/>
+@if ($errors->has('price'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('price') }}</strong>
+   </span>
+@endif
 </div>
 
 <br><br>
@@ -152,6 +167,11 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 <label for="title"><b>Стоимость индивидуально</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->personally_price) ? 
 $model->personally_price : ''}}' name='personally_price' placeholder="цифра" class="form-control"/>
+@if ($errors->has('personally_price'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('personally_price') }}</strong>
+   </span>
+@endif
 </div>
 
 <br><br>
@@ -178,6 +198,11 @@ value="2"
 </option>
            
 </select>
+@if ($errors->has('groups'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('groups') }}</strong>
+   </span>
+@endif
 </div> 
 </div>
 <br><br>

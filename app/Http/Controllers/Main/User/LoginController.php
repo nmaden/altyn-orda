@@ -10,7 +10,8 @@ use Hash;
 use Auth;
 use Modules\Entity\Model\SysUserType\SysUserType;
 use Session;
-
+use Lang;
+use Carbon\Carbon;
 class LoginController extends Controller {
     function index (Request $request){
 		
@@ -27,9 +28,23 @@ class LoginController extends Controller {
         if (!$user){
             return back()->with('error', trans('front_main.message.wrong_access'));
 		}
-        if (!Hash::check($request->password, $user->password))
+        if (!Hash::check($request->password, $user->password)){
             return back()->with('error', trans('front_main.message.wrong_access'));
+		}
+		
+	   $created_at= $user->created_at;
+	   $time_created_at= strtotime($created_at);//когда создали в секундах
+	   $date = Carbon::now()->timestamp;//текущее время
+	   $dni = 86400 *1;//секунд в одном дне
+	   $time= $date-$dni;//прошло секунд
+       if($time < $time_created_at){//если прошло более одного дня
+	    
+       if($user->activator == 'no_active'){
+		    return back()->with('error', Lang::get('messages.wrong_activate'));
 
+	   }
+	   }
+	   
         Auth::loginUsingId($user->id, true);
         		
 

@@ -81,7 +81,7 @@ Route::get('/home',['uses' => 'Admin\ArticlesController@index'])->name('home');
         Route::get('registration/{phone?}', 'RegistrationController@index')->name('registration');
         Route::post('registration', 'RegistrationController@save')->name('registration_save');
 		Route::any('logout', 'LoginController@logout')->name('admin_logout');
-
+        Route::get('activate/{hash}', ['uses' => 'Auth\RegisterController@activate'])->name('activate');
      
     });
 

@@ -7,6 +7,7 @@ use App\Services\UploadPhoto;
 use Storage;
 use Route;
 use Cache;
+use Intervention\Image\Facades\Image as ImageInt;
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -25,11 +26,23 @@ class CalendarUpdateAction {
     }
 
     private function saveMain(){
+		
+		
+		
+		
+
+	
+	
+	
+	
+	
 	
         $ar = $this->request->all();
 		$ar['user_id'] = $this->request->user()->id;
       	$ar['edited_user_id'] = $this->request->user()->id;
-
+		if($this->request->props_3){
+        $ar['props_3'] = strip_tags($ar['props_3']);
+		}
 	 	if ($this->request->has('photo')){
 			
 			if(is_file(public_path($this->model->photo))){

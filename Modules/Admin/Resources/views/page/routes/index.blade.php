@@ -34,7 +34,7 @@
 							<td>{{ $i->id }}</td>
 							<td>
 							@if($i->photo)
-								загружено <a href="{{URL::asset($i->photo)}}" target="_blank">просмотреть</a>
+								<a href="{{URL::asset($i->photo)}}" target="_blank">просмотреть</a>
 							@else
 								не загружено
 							@endif

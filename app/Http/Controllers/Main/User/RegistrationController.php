@@ -9,6 +9,9 @@ use Modules\Entity\Actions\RegistrationAction;
 use App\User;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Lang;
+use Carbon\Carbon;
+
 use Mail;
 class RegistrationController extends Controller {
 	
@@ -24,63 +27,56 @@ function index (Request $request){
         //return view('orda'.'.user.registration', $ar);
     }
 
-    function save(Request $request){
+  function save(Request $request){
 		
   $validator = $this->validator($request->all());
   if ($validator->fails()) { 
        return redirect()->back()->withErrors($validator)->withInput();
     };
 	
-	    
-	//$key = $this->activateKey($request->email);
-		
-		
-		/*
-	$host=	$request->root();
-	$link = $host.'/activate/' .$key;
-    $body    = 'Вы зарегестрировались на сайте '.''.'</br>'.'Вам необходимо активировать акаунт по ссылке '.'<a href="'.$link.'">'.$link.'</a>';
-	$data = $request->all();
-	$this->mail($data,$body);
-		
-		
-		dd('ok');
-		
-		*/
-		
-		
-        $action = new RegistrationAction(new User(), $request);
-		//echo 500;exit();
-        //dd($request->all());
+	
 
-        try {
+    $action = new RegistrationAction(new User(), $request);
+	try {
             $action->run();
         } catch (\Exception $e) {
             return redirect()->route('registration')->with('error', $e->getMessage());
         }
 		
-		
+	
 
-        return redirect()->route('login')->with('success', trans('front_main.message.success_registration'));
+        return redirect()->route('login')->with('success', trans('messages.success_registration'));
     }
 	
 	
-	
-		protected function activateKey($login){
-	   	 return md5($login . "|" . uniqid(time()));
+	   public function activate($hash){
+		
+   	   $hash = strip_tags($hash);
+	   $user = User::where('activate_key', '=', $hash)->first();
+	   $user->activator;
+	   $created_at= $user->created_at;
+	   $time_created_at= strtotime($created_at);//когда создали в секундах
+	   $date = Carbon::now()->timestamp;//текущее время
+	   $dni = 86400 *1;//секунд в одном дне
+	   $time= $date-$dni;//прошло секунд
+       if($time > $time_created_at){//если прошло более одного дня
+		   return redirect('/login')->with('error', 'Активация просрочена');
+	   }else{
+		   if($user->activator == 'no_active'){
+			   $user->activator='active';
+			   $user->save();
+			   return redirect('/login')->with('success', Lang::get('message.success_activate'));
+		   }else{
+			   if($user->activator == 'active'){
+				   	return redirect('/login')->with('error', Lang::get('message.old_activate'));
+
+			   }
+			   return redirect('/login')->with('error', 'Извините, не удалось активировать аккаунт! Обратитесь к администратору сайта!');
+		   }
 	   }
-	
-	
-   protected function mail($data,$body){
-		   $result = Mail::send('orda.email.email',['data'=>$data,'body'=>$body], function($message) use ($data) {
-			   
-				$mail_admin = 'm4iler.mailer@yandex.kz';
-				$message->from('m4iler.mailer@yandex.kz', 'Пипин короткий');
-				$message->to('2tanak@mail.ru','Mr. Admin')->subject('Царевна помпадур');
-			});
-			return true;
-			}
-	
-	protected function validator(array $data)
+	  }
+   
+protected function validator(array $data)
     {
 	$messages = [
 'name.required' => 'Имя обязателное поле',

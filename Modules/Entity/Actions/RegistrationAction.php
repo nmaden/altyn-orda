@@ -9,19 +9,21 @@ use App\User;
 use Modules\Entity\Model\SysUserType\SysUserType;
 use Modules\Entity\Model\Gid\Gid;
 use Lang;
-
+use Mail;
 class RegistrationAction {
     private $model = false;
     private $request = false;
-
+ 
+	
     function __construct(Model $model, Request $request){
         $this->model = $model; 
-        $this->request = $request; 
+        $this->request = $request;
+        		
     }
 
     function run(){
         $ar = $this->request->all();
-		
+	
         //$ar['edited_user_id'] = 1;
 	
         if ($this->request->password){
@@ -31,12 +33,23 @@ class RegistrationAction {
             unset($ar['password']);
 		}
 
+
+       $key = $this->activateKey($this->request->email);
+       $host =	$this->request->root();
+	   $link = $host.'/activate/' .$key;
+       $body    = 'Вы зарегестрировались на сайте '.''.'</br>'.'Вам необходимо активировать акаунт по ссылке '.'<a href="'.$link.'">'.$link.'</a>';
+	   $data = $this->request->all();
+	   $this->mail($data,$body,$host);
+
+
         if(isset($this->request->tyr_operator)){$ar['type_id'] = 6;}
 		else{
 			$ar['type_id'] = 2;
 		    
 		}
-        $this->model->fill($ar);
+		
+		$ar['activate_key'] = $key;
+		$this->model->fill($ar);
         $this->model->save();
 
 /*
@@ -54,6 +67,21 @@ class RegistrationAction {
     }
 	
 	
+	
+		protected function activateKey($login){
+	   	 return md5($login . "|" . uniqid(time()));
+	   }
+	
+	  protected function mail($data,$body,$host){
+		   $result = Mail::send('orda.email.email',['data'=>$data,'body'=>$body], function($message) use ($data,$host) {
+			   
+				$mail_admin = env('MAIL_ADMIN');
+				$message->from($mail_admin, Lang::get('messages.online'));
+				$message->to($data['email'],'Mr. Admin')->subject(Lang::get('messages.activate').' '.$host);
+			});
+			return true;
+			}
+  
 	protected function create(array $data,$key)
     {
         return User::create([
