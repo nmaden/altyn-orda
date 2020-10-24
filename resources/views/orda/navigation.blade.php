@@ -59,7 +59,7 @@
                      @endif
                     </div>
                     <div class="header__user tooltip__item" title="текст">
-                        <a href="{{route('login')}}">
+                        <a href="{{route('vhod')}}">
                             <img src="/img/icon-user.svg" alt="">
                         </a>
                     </div>

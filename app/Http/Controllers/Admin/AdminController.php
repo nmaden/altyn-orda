@@ -41,7 +41,7 @@ class AdminController extends \App\Http\Controllers\Controller
 	}
 	
 	public function renderOutput() {
-		//echo 'renderOutput';exit();
+		
 		$this->vars['title']= $this->title;
 		
 		
@@ -49,6 +49,9 @@ class AdminController extends \App\Http\Controllers\Controller
 			$this->vars['content']= $this->content;
 			
 		}
+		
+		//$footer = '.admin.footer')->render();
+		//$this->vars = array_add($this->vars,'footer',$footer);
 		
 		return view($this->template)->with($this->vars);
 		

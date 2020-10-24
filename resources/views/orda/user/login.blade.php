@@ -36,7 +36,7 @@
                         
                         <div class="register__form--submit">
                             <div class="form__item--passtext">
-                                <a href="#" class="passtext">
+                                <a href="{{route('password.request')}}" class="passtext">
                                     Забыли пароль?
                                 </a>
                             </div>

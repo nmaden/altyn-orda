@@ -60,7 +60,7 @@
                      <?php endif; ?>
                     </div>
                     <div class="header__user tooltip__item" title="текст">
-                        <a href="<?php echo e(route('login')); ?>">
+                        <a href="<?php echo e(route('vhod')); ?>">
                             <img src="/img/icon-user.svg" alt="">
                         </a>
                     </div>

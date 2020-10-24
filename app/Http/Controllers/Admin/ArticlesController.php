@@ -6,49 +6,60 @@ use Illuminate\Http\Request;
 //use Corp\Http\Requests\ArticleRequest;
 
 use App\Http\Requests;
-//use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 use App\Repositories\ArticlesRepository;
 
-//use Gate;
+use Gate;
 
+//use Corp\Category;
 use App\Article;
-use App\User;
-
 use Event;
-use Auth;
-
-//use App\Events\onAddArticleEvent;
+use App\Events\onAddArticleEvent;
 
 class ArticlesController extends AdminController
 {
     
      public function __construct(ArticlesRepository $a_rep) {
-	 $this->a_rep = $a_rep;
-	 $this->template = 'index';
+	
+	
+		/*
+		if(Gate::denies('VIEW_ADMIN_ARTICLES')) {
+			abort(403);
+		}
+		*/
+		$this->a_rep = $a_rep;
+		
+		$this->template = 'index';
+		//$this->template = config('settings.theme').'.admin.articles';
+		
 	}
     
-    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-		
-		$this->title = 'Блог';
+    	   
+        $this->title = 'Блог';
 		$this->keywords = 'String';
 		$this->meta_desc = 'String';
-
 		$articles = $this->getArticles();
-		$content = view('admin.articles.show')->with(['articles'=>$articles])->render();
-		
-
-		$this->vars['content']= $content;
-		return $this->renderOutput(); 
+		//dd($articles);
+		$articles = $this->getArticles($cat_alias=false);
+			$content = view('admin.articles.show')->with(['articles'=>$articles])->render();
+			$this->vars['content']= $content;
+			//$this->vars = array_add($this->vars,'content', $content);
+			return $this->renderOutput(); 
 			
+		        //return view($this->template)->with($this->vars);
 			 
 
 	}
 	 public function articlesadd(Article $article){
-		 		
-
+		 //echo 'show';exit();
 		 $content = view('admin.articles.add')->with(['module'=>$article])->render();
 		 $this->vars['content']= $content;
 		 return $this->renderOutput(); 
@@ -75,7 +86,6 @@ class ArticlesController extends AdminController
      */
     public function create()
     {
-		echo 'create';exit();
 		if(Gate::denies('save', new \Corp\Article)) {
 			abort(403);
 		}
@@ -109,10 +119,18 @@ class ArticlesController extends AdminController
     public function store(Request $request,Article $article)
     {
 	   
-      	
+      	if(Gate::denies('add',$article)) {
+				
+			return redirect()->back()->with(['message'=>'У Вас нет прав']);
+		}
+    	
 		$result = $this->a_rep->addArticle($request);
+		 Event::fire('onAddArticleEvent',[$result,$request->user]);
+		if(is_array($result) && !empty($result['error'])) {
+			return back()->with($result);
+		}
 		
-		return redirect('/home')->with($result);
+		return redirect('/admin')->with($result);
     }
 
     /**
@@ -134,8 +152,7 @@ class ArticlesController extends AdminController
      */
     public function edit(Article $article)
     {
-			  
-
+		
 		  $content = view('admin.articles.edit')->with(['module'=>$article])->render();
 	      $this->vars['content']= $content;
 		
@@ -172,20 +189,23 @@ class ArticlesController extends AdminController
 
        public function update(Request $request,Article $article)
     {
-       if (Auth::guest()){
-		   echo 500;exit();
-	   }
-	  
-		    $result = $this->a_rep->update($request,$article);
-		    //if(Gate::allows('update',$article))
-			$article->title = $request->title;
-	    	//$article->img = request->img;
-	    	$article->text = $request->text;
-	    	$user = Auth::user();
-            $res = $user->articles()->save($article);
-	        return redirect()->back()->with('message','Материал обновлен');
+		$result = $this->a_rep->update($request,$article);
 		
-         }
+			if(Gate::allows('update',$article)) {
+			$article->name = $data['name'];
+	    	$article->img = $data['img'];
+	    	$article->text = $data['text'];
+	    	
+	    	$res = $user->articles()->save($article);
+	        
+	       
+			return redirect()->back()->with('message','Материал обновлен');
+		}
+		
+		return redirect()->route('articles.edit', $article)->with(['message'=>'Успешно обновлен']);
+
+		
+	}
 
     /**
      * Update the specified resource in storage.
@@ -214,7 +234,7 @@ class ArticlesController extends AdminController
 			return back()->with($result);
 		}
 		
-		return redirect('/home')->with($result);
+		return redirect('/admin')->with($result);
         
         
     }

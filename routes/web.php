@@ -19,6 +19,7 @@ Route::post('efinder2',['uses' => 'CkeditorController@index2'])->name('efinder2'
 Route::any('drobsone',['uses' => 'DrobsoneController@index'])->name('drobsone');
 //Route::any('drobsone-send2',['uses' => 'DrobsoneController@send'])->name('drobsone-send2');
 
+Auth::routes();
 
 
 
@@ -75,7 +76,7 @@ Route::get('/home',['uses' => 'Admin\ArticlesController@index'])->name('home');
 
     
     Route::group(['namespace' => 'User'], function () {
-	    Route::get('login/{phone?}', 'LoginController@index')->name('login');
+	    Route::get('vhod/{phone?}', 'LoginController@index')->name('vhod');
 	    Route::post('check/{phone?}', 'LoginController@check')->name('check_login');
 
         Route::get('registration/{phone?}', 'RegistrationController@index')->name('registration');
@@ -85,10 +86,10 @@ Route::get('/home',['uses' => 'Admin\ArticlesController@index'])->name('home');
 		
 		
 		
- Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
-Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('showResetForm');
+ //Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+//Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+//Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
+//Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('showResetForm');
 		
 		
      

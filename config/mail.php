@@ -75,7 +75,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'mailsendnews@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'name' => env('MAIL_FROM_NAME', 'Золотая орда'),
     ],
 
     /*
