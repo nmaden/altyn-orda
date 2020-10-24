@@ -29,7 +29,7 @@ class LoginController extends Controller {
             return back()->with('error', trans('front_main.message.wrong_access'));
 		}
         if (!Hash::check($request->password, $user->password)){
-            return back()->with('error', trans('front_main.message.wrong_access'));
+            return back()->with('error', trans('messages.wrong_access'));
 		}
 		
 	   $created_at= $user->created_at;
