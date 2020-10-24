@@ -16,6 +16,7 @@ trait ChangeModel {
     protected static function boot(){
 		
     Social::updating(function (Social $social) {
+		
       if(Cache::has('social')){
 		$cache = Cache::get('social');
 		$cache[$social->id] = $social->toArray();
@@ -29,7 +30,6 @@ trait ChangeModel {
 
 
 	Social::created(function (Social $social) {
-		
 		if(Cache::has('social')){
 		$cache = Cache::get('social');
 		$cache[$social->id] = $social->toArray();

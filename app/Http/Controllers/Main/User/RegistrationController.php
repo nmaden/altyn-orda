@@ -45,7 +45,7 @@ function index (Request $request){
 		
 	
 
-        return redirect()->route('login')->with('success', trans('messages.success_registration'));
+        return redirect()->route('vhod')->with('success', trans('messages.success_registration'));
     }
 	
 	
@@ -60,18 +60,18 @@ function index (Request $request){
 	   $dni = 86400 *1;//секунд в одном дне
 	   $time= $date-$dni;//прошло секунд
        if($time > $time_created_at){//если прошло более одного дня
-		   return redirect('/login')->with('error', 'Активация просрочена');
+		   return redirect('/vhod')->with('error', 'Активация просрочена');
 	   }else{
 		   if($user->activator == 'no_active'){
 			   $user->activator='active';
 			   $user->save();
-			   return redirect('/login')->with('success', Lang::get('messages.success_activate'));
+			   return redirect('/vhod')->with('success', Lang::get('messages.success_activate'));
 		   }else{
 			   if($user->activator == 'active'){
-				   	return redirect('/login')->with('error', Lang::get('messages.old_activate'));
+				   	return redirect('/vhod')->with('error', Lang::get('messages.old_activate'));
 
 			   }
-			   return redirect('/login')->with('error', Lang::get('messages.no_activate'));
+			   return redirect('/vhod')->with('error', Lang::get('messages.no_activate'));
 		   }
 	   }
 	  }
