@@ -41,7 +41,7 @@ class AllUsersController extends Controller {
 	 
         return \Validator::make($data, [
 		   	//'name' => 'string|max:255|unique:users|regex:/(([a-zA-Z0-9-\s]+))/u',
-            'login'=>'required|max:255|unique:users,email,'.$prefix,
+            'login'=>'required|max:255|unique:users,login,'.$prefix,
 		    'name' => 'required|string|max:255|',
             'email' => 'required|string|email|max:255|unique:users,email,'.$prefix,
 			'password' => 'min:6|regex:/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/u|'.$required,

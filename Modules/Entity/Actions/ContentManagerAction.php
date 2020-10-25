@@ -20,6 +20,7 @@ class ContentManagerAction {
     }
 
     function run(){
+		
         $ar = $this->request->all();
         $ar['edited_user_id'] = $this->request->user()->id;
 		$ar['type_id'] = SysUserType::MANAGER;
@@ -29,7 +30,6 @@ class ContentManagerAction {
 
 		}
 
-        
         
         if ($this->request->has('photo'))
             $ar['photo'] = UploadPhoto::upload($this->request->photo);
@@ -41,6 +41,7 @@ class ContentManagerAction {
         else
             unset($ar['password']);
 
+     
      
 
         $this->model->fill($ar);

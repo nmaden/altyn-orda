@@ -6,7 +6,7 @@ use Modules\Entity\Model\SysUserType\SysUserType;
 
 class ContentManager extends ModelParent {
     protected $table = 'users';
-    protected $fillable = [ 'email', 'password', 'type_id', 'name', 'position', 'photo', 'edited_user_id'];
+    protected $fillable = [ 'email', 'login','activator','password', 'type_id', 'name', 'position', 'photo', 'edited_user_id'];
     protected $filter_class = Filter::class; 
     use Presenter;
 	

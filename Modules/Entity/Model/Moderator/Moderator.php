@@ -5,7 +5,7 @@ use Modules\Entity\ModelParent;
 
 class Moderator extends ModelParent {
     protected $table = 'users';
-    protected $fillable = [ 'email', 'password', 'type_id', 'name', 'position', 'photo', 'edited_user_id'];
+    protected $fillable = [ 'email', 'password', 'login','activator', 'type_id', 'name', 'position', 'photo', 'edited_user_id'];
     protected $filter_class = Filter::class; 
     use Presenter;
 
