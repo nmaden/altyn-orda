@@ -94,20 +94,13 @@
         function myEnded(e) {
             var jsvideo = document.getElementById("jsvideo");
             console.log(jsvideo.style.height);
-            if (document.body.offsetHeight > window.innerHeight) {
-                alert("Скролл есть");
-            } else {
-                alert("Скролла нет");
-            }
+            console.log(document.body.offsetHeight);
+            console.log(window.innerHeight);
         }
         function myPlaying(e){
             var jsvideo = document.getElementById("jsvideo");
         }
-        //console.log(document.body.offsetHeight);
-        //console.log(window.innerHeight);
-        if (document.body.offsetHeight > window.innerHeight) {
-            alert("Скролл есть");
-        } else {
-            alert("Скролла нет");
-        }
+        console.log(document.body.offsetHeight);
+        console.log(window.innerHeight);
+        
     </script>
