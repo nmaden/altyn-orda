@@ -39,7 +39,7 @@ trait MainUpdateMethod  {
 	   
 	   
         if ($validator->fails()) { 
-		dd(150);
+	
         return redirect()->back()->withErrors($validator)->withInput();
         };
 	

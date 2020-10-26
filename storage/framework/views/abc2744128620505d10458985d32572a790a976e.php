@@ -55,8 +55,8 @@
         </div>-->
 
         <div class="bg__video__intro">
-            <video width="100%" height="100%" preload="auto" muted playsinline autoplay="autoplay" loop="loop" id="jsvideo">
-                <source src="/img/video/render.mp4" type="video/mp4"><!--/img/video/home_banner.mp4-->
+            <video width="100%" height="100%" preload="auto" muted autoplay="autoplay" playsinline id="jsvideo"> <!--  loop="loop"  -->
+                <source src="/img/video/blue.mp4" type="video/mp4"><!--/img/video/home_banner.mp4-->
             </video>
 
             <div class="banner__item--container">
@@ -89,5 +89,18 @@
         
     </div>
     <script>
-        document.getElementById("jsvideo").play();
+        var jsvideo = document.getElementById("jsvideo");
+        jsvideo.play();
+
+        jsvideo.addEventListener('ended',function(){
+            var jsvideo = document.getElementsByClassName("section__banner")[0];
+            if(jsvideo.offsetHeight > document.documentElement.scrollTop){//jsvideo.offsetHeight > document.body.scrollTop || 
+                smoothScrollTo(document.getElementById('sectionAbout').offsetTop-130)
+            }
+        },false);
+        jsvideo.addEventListener('playing',function(){
+            setTimeout(function(){
+                var jsvideo = document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
+            }, 3000);
+        },false);
     </script><?php /**PATH /home/vagrant/code/orda/resources/views/orda/slider.blade.php ENDPATH**/ ?>
