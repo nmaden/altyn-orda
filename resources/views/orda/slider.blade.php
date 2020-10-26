@@ -92,7 +92,7 @@
         jsvideo.addEventListener('ended',function(){
             var jsvideo = document.getElementsByClassName("section__banner")[0];
             if(jsvideo.offsetHeight > document.body.scrollTop || jsvideo.offsetHeight > document.documentElement.scrollTop){
-                smoothScrollTo(document.getElementById('sectionAbout').offsetTop)
+                smoothScrollTo(document.getElementById('sectionAbout').offsetTop-130)
             }
             console.log(jsvideo.offsetHeight);
             console.log(document.body.offsetHeight);
