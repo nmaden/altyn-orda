@@ -30,7 +30,7 @@ trait MainUpdateMethod  {
     }
 
     public function saveUpdate(Request $request, ModelParent $item) {
-		    
+		  
 
 		  try {$validator = $this->validator($request->all(),$item);} 
 		   catch (\Exception $e) {
@@ -39,6 +39,7 @@ trait MainUpdateMethod  {
 	   
 	   
         if ($validator->fails()) { 
+		dd(150);
         return redirect()->back()->withErrors($validator)->withInput();
         };
 	

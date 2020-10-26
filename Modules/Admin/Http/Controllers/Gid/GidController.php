@@ -48,14 +48,7 @@ class GidController extends Controller {
 		 'price'=>'sometimes|nullable|numeric',
 		 'imya'=>'sometimes|required|nullable|string',
 		 'oplata'=>'sometimes|string|nullable|in:день,час',
-         'lang_id.1'=>'array|sometimes|nullable',
-         'lang_id.2'=>'array|sometimes|nullable',
-         'lang_id.3'=>'array|sometimes|nullable',
-         'lang_id.4'=>'array|sometimes|nullable',
-         'lang_id.5'=>'array|sometimes|nullable',
-         'lang_id.6'=>'array|sometimes|nullable',
-         'lang_id.7'=>'array|sometimes|nullable',
-		  
+         
 
 	     
         ],$messages);

@@ -32,7 +32,7 @@ class CalendarUpdateAction {
 
 	 	if ($this->request->has('photo')){
 			
-			
+			dd($this->request->all());
 		   
 		    if(is_file(public_path($this->model->photo))){
 	          Storage::delete($this->model->photo);
