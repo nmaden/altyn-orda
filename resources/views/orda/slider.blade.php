@@ -89,18 +89,23 @@
         var jsvideo = document.getElementById("jsvideo");
         jsvideo.play();
 
-        jsvideo.addEventListener('ended',myEnded,false);
-        jsvideo.addEventListener('playing',myPlaying,false);
-        function myEnded(e) {
-            var jsvideo = document.getElementById("jsvideo");
-            console.log(jsvideo.style.height);
+        jsvideo.addEventListener('ended',function(){
+            var jsvideo = document.getElementsByClassName("section__banner")[0];
+            if(jsvideo.offsetHeight > document.body.scrollTop || jsvideo.offsetHeight > document.documentElement.scrollTop){
+                smoothScrollTo(document.getElementById('sectionAbout').offsetTop)
+            }
+            console.log(jsvideo.offsetHeight);
             console.log(document.body.offsetHeight);
-            console.log(window.innerHeight);
-        }
-        function myPlaying(e){
-            var jsvideo = document.getElementById("jsvideo");
-        }
-        console.log(document.body.offsetHeight);
-        console.log(window.innerHeight);
+
+            console.log(document.body.scrollTop);
+            console.log(document.documentElement.scrollTop);
+        },false);
+
+        jsvideo.addEventListener('playing',function(){
+            setTimeout(function(){
+                var jsvideo = document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
+            }, 3000);
+        },false);
+   
         
     </script>

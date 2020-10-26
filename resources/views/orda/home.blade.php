@@ -1,6 +1,6 @@
 
 <div class="section__home--bg">
-<div class="section__about">
+<div class="section__about" id="section__banner--playing">
             <div class="container">
 
                 <a href="{{route('about')}}" class="section__title--block">
