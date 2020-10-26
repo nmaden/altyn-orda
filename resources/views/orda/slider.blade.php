@@ -87,13 +87,27 @@
     </div>
     <script>
         var jsvideo = document.getElementById("jsvideo");
-        jsvideo.addEventListener('ended',myHandler,false);
         jsvideo.play();
-        function myHandler(e) {
-            
+
+        jsvideo.addEventListener('ended',myEnded,false);
+        jsvideo.addEventListener('playing',myPlaying,false);
+        function myEnded(e) {
+            var jsvideo = document.getElementById("jsvideo");
             console.log(jsvideo.style.height);
-            console.log(document.body.offsetHeight);
-            console.log(window.innerHeight);
+            if (document.body.offsetHeight > window.innerHeight) {
+                alert("Скролл есть");
+            } else {
+                alert("Скролла нет");
+            }
         }
-        
+        function myPlaying(e){
+            var jsvideo = document.getElementById("jsvideo");
+        }
+        //console.log(document.body.offsetHeight);
+        //console.log(window.innerHeight);
+        if (document.body.offsetHeight > window.innerHeight) {
+            alert("Скролл есть");
+        } else {
+            alert("Скролла нет");
+        }
     </script>
