@@ -53,7 +53,7 @@
         </div>-->
 
         <div class="bg__video__intro">
-            <video width="100%" height="100%" preload="auto" muted playsinline id="jsvideo"> <!-- autoplay="autoplay" loop="loop"  -->
+            <video width="100%" height="100%" preload="auto" muted autoplay="autoplay" playsinline id="jsvideo"> <!--  loop="loop"  -->
                 <source src="/img/video/render.mp4" type="video/mp4"><!--/img/video/home_banner.mp4-->
             </video>
 
@@ -90,7 +90,10 @@
         jsvideo.addEventListener('ended',myHandler,false);
         jsvideo.play();
         function myHandler(e) {
-            console.log('10');
+            
+            console.log(jsvideo.style.height);
+            console.log(document.body.offsetHeight);
+            console.log(window.innerHeight);
         }
         
     </script>
