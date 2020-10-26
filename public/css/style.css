@@ -596,7 +596,10 @@ a.modal__map--item:hover:before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgb(0 0 0 / 0.20);
+    /*background: rgb(0 0 0 / 0.20);*/
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(14, 79, 50, 0.4)), to(rgba(0, 0, 0, 0)));
+    background: -o-linear-gradient(top, rgb(14 79 50 / 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(180deg, rgb(14 79 50 / 0.4) 0%, rgba(0, 0, 0, 0) 100%);
 }
 .bg__video__intro video {
     width: 100%;
