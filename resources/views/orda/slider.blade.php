@@ -53,7 +53,7 @@
         </div>-->
 
         <div class="bg__video__intro">
-            <video width="100%" height="100%" preload="auto" muted playsinline loop="loop" id="jsvideo"> <!-- autoplay="autoplay"  -->
+            <video width="100%" height="100%" preload="auto" muted playsinline id="jsvideo"> <!-- autoplay="autoplay" loop="loop"  -->
                 <source src="/img/video/render.mp4" type="video/mp4"><!--/img/video/home_banner.mp4-->
             </video>
 
