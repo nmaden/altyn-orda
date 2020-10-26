@@ -94,16 +94,10 @@
             if(jsvideo.offsetHeight > document.documentElement.scrollTop){//jsvideo.offsetHeight > document.body.scrollTop || 
                 smoothScrollTo(document.getElementById('sectionAbout').offsetTop-130)
             }
-            console.log(jsvideo.offsetHeight);
-            console.log(document.body.scrollTop);
-            console.log(document.documentElement.scrollTop);
         },false);
-
         jsvideo.addEventListener('playing',function(){
             setTimeout(function(){
                 var jsvideo = document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
             }, 3000);
         },false);
-   
-        
     </script>
