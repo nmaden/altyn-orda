@@ -310,7 +310,7 @@
     .about__line--absol .about__line--numer {
         margin: 0 auto;
         margin-top: 0 !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 0px !important;
     }
 
     .about__line--item .about__line--absol {
@@ -431,6 +431,15 @@
 
     .about__page--line .about__line {
         padding: 50px 0;
+    }
+
+    .footer__partners--row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer__partners--item {
+        margin: 10px 0;
     }
 }
 @media screen and (max-width: 768px) {
@@ -726,7 +735,9 @@
     .header__logo img {
         max-width: 110px;
     }
-    
+    .footer__partners--text a {
+        font-size: 14px;
+    }
 }
 @media screen and (max-width: 320px) {
 
