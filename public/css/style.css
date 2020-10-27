@@ -2672,11 +2672,11 @@ a.modal__fixed--linck {
 .inter__map_preloader:before {content: "";position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
 
 .inter__map--preloader:before {content: "";position: absolute;top: 0;left: 0;right: 0;bottom: 0;background: #fff;z-index: 1;transition: all 0.5s ease;visibility: visible;}
-
+/*
 .inter__map--preloader.inter__map-act:before {
     opacity: 0;
     visibility: hidden;
-}
+}*/
 
 .inter__map-act .inter__map_preloader {
     opacity: 0;
