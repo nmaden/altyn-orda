@@ -11,9 +11,9 @@ class UploadPhoto {
 
      $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
 	
-     // $file_path = $file->storeAs('/store/test/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
+     $file_path = $file->storeAs('/store/test/'.date('Y').'/'.date('m').'/'.date('d'), $file_name);
 	 
-		
+		/*
 	//$file= $this->request->photo;
 	$ext = $file->getClientOriginalExtension();
 	 $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
@@ -26,6 +26,7 @@ class UploadPhoto {
 	 $resizedImage->response($ext);
 		$file_path= '/store/test404/'.date('Y').'/'.date('m').'/'.date('d').'/'.$file_name;
         Storage::put($file_path,  $resizedImage);
+		*/
 	return $file_path;
 		
 		

@@ -66,11 +66,7 @@
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                      <?php endif; ?>
                     </div>
-                    <div class="header__user tooltip__item" title="текст">
-                        <a href="<?php echo e(route('vhod')); ?>">
-                            <img src="/img/icon-user.svg" alt="">
-                        </a>
-                    </div>
+                    
                     <div class="header__menu">
                         <div class="header__menu--burger header__menu--click">
                             <div class="burger--left">
