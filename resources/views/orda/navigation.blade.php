@@ -47,22 +47,25 @@
                       </ul>
                   </div>
                     <div class="header__social">
-					
+					@php
+					//dd($social)
+					@endphp
 					@if(is_array($social))
                       @foreach($social as $v)
-                        <div class="header__social--item tooltip__item" title="текст">
-                            <a href="{{$v['name']}}">
-                                <img src="{{URL::asset($v['photo'])}}" alt="">
+
+                        
+						@if(isset($v[app()->getLocale()]))
+					   <div class="header__social--item tooltip__item" title="{{$v[app()->getLocale()]['hint']}}">
+                            <a href="{{ $v[app()->getLocale()]['name'] }}">
+                                <img src="{{ URL::asset($v[app()->getLocale()]['photo']) }}" alt="">
                             </a>
-                        </div>
+						</div>
+
+						@endif
                       @endforeach
                      @endif
                     </div>
-                    <div class="header__user tooltip__item" title="текст">
-                        <a href="{{route('vhod')}}">
-                            <img src="/img/icon-user.svg" alt="">
-                        </a>
-                    </div>
+                    
                     <div class="header__menu">
                         <div class="header__menu--burger header__menu--click">
                             <div class="burger--left">

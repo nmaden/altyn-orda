@@ -64,7 +64,6 @@
                 </div>
                 <div class="header__right">
                     <div class="footer__social">
-                        @include('orda'.'.footer.logotips',['items'=>$menu->roots(),'social'=>$social])
                         
                     </div>
 					

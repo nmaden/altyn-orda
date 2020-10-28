@@ -36,7 +36,12 @@ class DefaultUpdateAction {
             $ar['photo'] = UploadPhoto::upload($this->request->photo,$this->model->photo);
 	   }
         else {
-            unset($ar['photo']);
+			
+			if(isset($ar['foto'])){
+              $ar['photo']= $ar['foto'];
+			}else{
+				 unset($ar['photo']);
+			}
 		}
   
         

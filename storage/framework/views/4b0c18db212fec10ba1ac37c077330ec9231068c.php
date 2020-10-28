@@ -48,14 +48,21 @@
                       </ul>
                   </div>
                     <div class="header__social">
-					
+					<?php
+					//dd($social)
+					?>
 					<?php if(is_array($social)): ?>
                       <?php $__currentLoopData = $social; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="header__social--item tooltip__item" title="текст">
-                            <a href="<?php echo e($v['name']); ?>">
-                                <img src="<?php echo e(URL::asset($v['photo'])); ?>" alt="">
+
+                        
+						<?php if(isset($v[app()->getLocale()])): ?>
+					   <div class="header__social--item tooltip__item" title="<?php echo e($v[app()->getLocale()]['hint']); ?>">
+                            <a href="<?php echo e($v[app()->getLocale()]['name']); ?>">
+                                <img src="<?php echo e(URL::asset($v[app()->getLocale()]['photo'])); ?>" alt="">
                             </a>
-                        </div>
+						</div>
+
+						<?php endif; ?>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                      <?php endif; ?>
                     </div>

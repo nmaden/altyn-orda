@@ -5,21 +5,24 @@ use Modules\Entity\Services\ChangeModelService;
 use Route;
 use Cache;
 use Modules\Entity\Model\Social\Social;
+use Modules\Entity\Model\Social\TransSocial;
 use Modules\Entity\Model\Gid\Gid;
 //use Modules\Entity\Model\ContentManager\ContentManager;
 //use Modules\Entity\Model\Moderator\Moderator;
+use Illuminate\Support\Facades\Request;
 
 use Auth;
 use RoleService;
-
+use App\Helper\CurrentLang;
 trait ChangeModel {
     protected static function boot(){
 		
     Social::updating(function (Social $social) {
-		
-      if(Cache::has('social')){
+		if(Cache::has('social')){
 		$cache = Cache::get('social');
-		$cache[$social->id] = $social->toArray();
+		$lang = CurrentLang::url();
+
+		$cache[$social->id][$lang] = $social->toArray();
         Cache::forever('social',$cache);
        }else{
         Cache::forever('social',[$social->id=>$social->toArray()]);
@@ -27,6 +30,17 @@ trait ChangeModel {
 
 
 	});
+    TransSocial::updated(function (TransSocial $social) {
+		
+		$lang = CurrentLang::url();
+		if(Cache::has('social')){
+		$cache = Cache::get('social');
+		$cache[$social->el_id][$lang]=$social->toArray();
+        Cache::forever('social',$cache);
+       }else{
+        Cache::forever('social',[$social->id=>$social->toArray()]);
+        }
+    });
 
 
 	Social::created(function (Social $social) {
