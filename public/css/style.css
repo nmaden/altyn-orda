@@ -475,11 +475,11 @@ ul.children__block > li {
 .section__banner--playing .banner__item--container {
     opacity: 0;
 }
-
+/*
 .section__banner--playing .bg__video__intro:before {
     opacity: 0;
 }
-
+*/
 .banner__slider--pag {
     position: absolute;
     bottom: 100px;
