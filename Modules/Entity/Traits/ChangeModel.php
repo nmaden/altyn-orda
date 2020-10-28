@@ -44,9 +44,10 @@ trait ChangeModel {
 
 
 	Social::created(function (Social $social) {
+		$lang = CurrentLang::url();
 		if(Cache::has('social')){
 		$cache = Cache::get('social');
-		$cache[$social->id] = $social->toArray();
+		$cache[$social->id][$lang] = $social->toArray();
         Cache::forever('social',$cache);
        }else{
         Cache::forever('social',[$social->id=>$social->toArray()]);
@@ -54,6 +55,9 @@ trait ChangeModel {
 			//dd(Cache::get('social'));
 
 	});
+	
+	
+	
     Social::deleted(function (Social $social) {
 		
 		if(Cache::has('social')){

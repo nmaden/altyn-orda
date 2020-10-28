@@ -36,7 +36,7 @@ if(in_array('show',$ar)){
 </div>
 ----------------------------------->
 <div>
-{{$model->photo}}
+
 <label for="photo"><b>Фото</b></label>
  <input {{$page ? 'disabled': ''}} 
 type="file" 
