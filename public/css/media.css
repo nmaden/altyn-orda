@@ -137,15 +137,20 @@
     .menu--active .header__menu {
         transform: translateX(0);
     }
-
+    
+    body.home-page.header--fixed header,
     header {
         padding-bottom: 30px;
+    }
+    .home-page header {
+        padding-bottom: 20px;
     }
 
     header:before {
         height: 30px;
         background-size: contain;
     }
+    
 
     body {
         padding-top: 105px;
