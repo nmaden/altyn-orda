@@ -1096,6 +1096,9 @@ a.calendar__all--linck {
 .gid__slider {
     overflow: hidden;
 }
+.gid__slider .calendar__arrow--block {
+    margin-top: 30px;
+}
 .gid__item--img {
     width: 120px;
     min-width: 120px;

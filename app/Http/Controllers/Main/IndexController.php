@@ -102,7 +102,7 @@ class IndexController extends SiteController
 
 
 	protected function getTabs() {
-		$gids= $this->gid_rep->get('*',3);
+		$gids= $this->gid_rep->get('*',10);
 		return $gids;
     	
     }
