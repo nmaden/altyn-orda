@@ -141,7 +141,16 @@ body.home-page {
 body.home-page header:before {
     opacity: 0;
 }
-
+body.home-page.header--fixed header{
+    padding: 20px 0 50px 0;
+    -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    background-color: #0e4f32;
+    position: fixed;
+}
+body.home-page.header--fixed header:before {
+    opacity: 1;
+}
 
 /*-----------------------------*/
 

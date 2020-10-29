@@ -1,4 +1,10 @@
-
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 200) {
+        $("body").addClass('header--fixed');
+    } else {
+        $("body").removeClass('header--fixed');
+    }
+});
 
 var banner = new Swiper('.banner__slider', {
     autoplay: {
