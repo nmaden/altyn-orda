@@ -1,5 +1,5 @@
 @foreach($gid as $item)
-    <div class="col-lg-4 swiper-slide">
+    <div class="swiper-slide">
         <div class="gid__item">
             <div class="gid__item--top">
 
@@ -86,7 +86,7 @@
 					
 @endforeach
 @foreach($gid as $item)
-    <div class="col-lg-4 swiper-slide">
+    <div class="swiper-slide">
         <div class="gid__item">
             <div class="gid__item--top">
 
