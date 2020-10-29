@@ -848,9 +848,6 @@ span.numer__litl {
 .section__map--mark {
     width: 26px;
     height: 26px;
-    /* background-color: #b77f04; */
-    /* border: 5px solid #fff; */
-    /* border-radius: 100%; */
     cursor: pointer;
 }
 .section__map--info {
@@ -863,10 +860,13 @@ span.numer__litl {
     overflow: hidden;
     left: 50%;
     -webkit-transform: translateX(-50%) translateY(-15px);
-        -ms-transform: translateX(-50%) translateY(-15px);
-            transform: translateX(-50%) translateY(-15px);
-    -webkit-filter: drop-shadow(0px 0px 50px rgba(0, 0, 0, 0.79));
-            filter: drop-shadow(0px 0px 50px rgba(0, 0, 0, 0.79));
+    -ms-transform: translateX(-50%) translateY(-15px);
+    transform: translateX(-50%) translateY(-15px);
+
+    -webkit-box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.79);
+    -moz-box-shadow:0px 0px 50px rgba(0, 0, 0, 0.79);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.79);
+
     background: #fff;
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
