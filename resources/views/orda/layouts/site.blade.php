@@ -29,9 +29,19 @@
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="{{isset($meta_desc) ? $meta_desc : ''}}"/>
-	    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>{{isset($meta_title) ? $meta_title : 'Золототая орда'}}</title>
+    <title>{{isset($meta_title) ? $meta_title : 'Золототая орда'}}</title>
+    
+    <!-- OpenGraph -->
+    <meta property="og:url" content="{{url()->current()}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{isset($meta_title) ? $meta_title : 'Золототая орда'}}">
+    <!-- <meta property="og:image" content=""/>-->
+    <meta property="og:description" content="{{isset($meta_desc) ? $meta_desc : ''}}">
+    <meta property="og:site_name" content="Золототая орда">
+    <meta property="og:locale" name="og:locale" content="ru_RU"/>
+
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	
