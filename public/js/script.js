@@ -51,14 +51,46 @@ var swiper = new Swiper('.calendar__slider', {
         },
     }
 });
-if(window.innerWidth <= 992){
-    var gid = new Swiper('.gid__slider', {
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
+var gid = new Swiper('.gid__slider', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: '.gid__arrow-next',
+        prevEl: '.gid__arrow-prev',
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            centeredSlides: false,
         },
-    });
-
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            centeredSlides: false,
+        },
+        991: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            centeredSlides: false,
+        },
+        992: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            centeredSlides: false,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+        
+    }
+});
+if(window.innerWidth <= 992){
     var swiper = new Swiper('.about__line--slider', {
         slidesPerView: 3,
         spaceBetween: 40,
