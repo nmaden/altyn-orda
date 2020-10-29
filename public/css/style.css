@@ -1093,7 +1093,9 @@ a.calendar__all--linck {
         -ms-flex-pack: end;
             justify-content: flex-end;
 }
-
+.gid__slider {
+    overflow: hidden;
+}
 .gid__item--img {
     width: 120px;
     min-width: 120px;

@@ -5,7 +5,7 @@
         </div>
     </div> 
     <div class="gid__slider">
-        <div class="row swiper-wrapper">
+        <div class="swiper-wrapper"> <!-- row -->
             @include('orda.gid.components.slider-foreach')
         </div>
         <div class="calendar__arrow--block">
