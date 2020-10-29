@@ -121,6 +121,31 @@ header:before {content: "";position: absolute;bottom: 0;width: 100%;left: 0;heig
     padding: 35px 35px;
 }
 
+
+/*-----------------------------*/
+body.home-page {
+    padding-top: 0;
+}
+.home-page header {
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    padding: 20px 0 20px 0;
+    transition: all 0.5s ease;
+}
+body.home-page header:before {
+    opacity: 0;
+}
+
+
+/*-----------------------------*/
+
+
 .children__item {
     background: #0E4F32;
     border-radius: 30px;
