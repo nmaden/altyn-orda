@@ -73,7 +73,7 @@
     </script>
 
 	</head>
-
+    <!-- home -->
     <body class="{{ Route::currentRouteName() == 'home' ? 'home-page' : ''}}">
     @yield('navigation')
  
