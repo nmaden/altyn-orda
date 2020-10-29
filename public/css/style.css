@@ -1098,11 +1098,12 @@ a.calendar__all--linck {
     width: 120px;
     min-width: 120px;
     height: 120px;
-    border: 3px solid #0e4f32;
+    /* border: 3px solid #0e4f32; */
     border-radius: 100%;
     overflow: hidden;
     margin-right: 30px;
 }
+.gid__item--img:before {content: "";position: absolute;top: 0;left: 0;right: 0;bottom: 0;border: 3px solid #0e4f32;border-radius: 100%;width: 100%;}
 
 .gid__item--top {
     display: -webkit-box;
