@@ -154,6 +154,18 @@ body.home-page.header--fixed header:before {
     opacity: 1;
 }
 
+.home-page img.header--gold {
+    display: none;
+}
+.home-page  img.header--white.d-none {
+    display: block !important;
+}
+body.home-page.header--fixed img.header--white.d-none {
+    display: none !important;
+}
+body.home-page.header--fixed img.header--gold {
+    display: block;
+}
 /*-----------------------------*/
 
 
