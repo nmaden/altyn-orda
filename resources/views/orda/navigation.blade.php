@@ -4,8 +4,7 @@
             <div class="header__row">
                 <div class="header__logo">
                     <a href="/{{app()->getLocale()}}">
-                        <img src="/img/logo.svg" class="header--gold" alt="">
-                        <img src="/img/logo-white.svg" class="header--white d-none" alt="">
+                        <img src="/img/logo.svg" alt="">
                     </a>
                 </div>
                 <div class="header__right">
