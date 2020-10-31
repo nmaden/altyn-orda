@@ -29,9 +29,19 @@
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="<?php echo e(isset($meta_desc) ? $meta_desc : ''); ?>"/>
-	    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-	<title><?php echo e(isset($meta_title) ? $meta_title : 'Золототая орда'); ?></title>
+    <title><?php echo e(isset($meta_title) ? $meta_title : 'Золототая орда'); ?></title>
+    
+    <!-- OpenGraph -->
+    <meta property="og:url" content="<?php echo e(url()->current()); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<?php echo e(isset($meta_title) ? $meta_title : 'Золототая орда'); ?>">
+    <!-- <meta property="og:image" content=""/>-->
+    <meta property="og:description" content="<?php echo e(isset($meta_desc) ? $meta_desc : ''); ?>">
+    <meta property="og:site_name" content="Золототая орда">
+    <meta property="og:locale" name="og:locale" content="ru_RU"/>
+
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	
@@ -40,8 +50,8 @@
     <link rel="stylesheet" href="/css/nouislider.min.css?v=3.5.4">
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css?v=3.5.4" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css?v=3.5.5">
-    <link rel="stylesheet" href="/css/media.css?v=3.5.5">
+    <link rel="stylesheet" href="/css/style.css?v=3.5.7">
+    <link rel="stylesheet" href="/css/media.css?v=3.5.7">
 	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=3.5.2" />
 
@@ -73,8 +83,8 @@
     </script>
 
 	</head>
-
-    <body class="home-page">
+    <!-- home -->
+    <body class="<?php echo e(Route::currentRouteName() == 'home' ? 'home-page' : ''); ?>">
     <?php echo $__env->yieldContent('navigation'); ?>
  
     <?php echo $__env->yieldContent('slider'); ?>
