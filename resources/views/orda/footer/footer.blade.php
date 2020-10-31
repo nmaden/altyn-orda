@@ -16,7 +16,7 @@
                 <div class="footer__partners--item">
                     <div class="footer__partners--img tooltip__item" title="Министерство культуры и спорта Республики Казахстан">
                         <a href="https://www.gov.kz/memleket/entities/mcs?lang=kk">
-                            <img width="80px" src="/logo/logo1.jpeg" alt="">
+                            <img width="80px" src="/logo/logo1.png" alt="">
                         </a>
                     </div>
                     <div class="footer__partners--text">
@@ -69,6 +69,9 @@
 					
                     <div class="header__menu">
                     
+					   @include('orda'.'.footer.logotips')
+<div class='clearfix'></div>
+
                         @include('orda'.'.footer.navigatitem',['items'=>$menu->roots()])
 
                     </div>

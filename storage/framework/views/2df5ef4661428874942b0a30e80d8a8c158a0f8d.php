@@ -1,5 +1,5 @@
 <?php
-header("Cache-Control: no-store, no-cache, must-revalidate");
+//header("Cache-Control: no-store, no-cache, must-revalidate");
 //$cssVersion="3.5.0";
 ?>
 <!DOCTYPE html>
@@ -74,7 +74,7 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 
 	</head>
 
-    <body>
+    <body class="home-page">
     <?php echo $__env->yieldContent('navigation'); ?>
  
     <?php echo $__env->yieldContent('slider'); ?>

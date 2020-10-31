@@ -40,7 +40,7 @@ class RoutesController extends SiteController
 	public function index(Request $request)
 	{
 
-		$items = Routes::filter($request)->latest()->paginate(9);
+	   $items = Routes::filter($request)->latest()->paginate(9);
 		
        $seo_desc=false;
 	   $seo_title=false;
@@ -55,12 +55,9 @@ class RoutesController extends SiteController
 		  $seo_desc= $item_seo[1];
 		  $seo_title = $item_seo[0];
 		  
-	   }else{
-		   $model= Routes::where('id','=',1)->first();
-           $seo_desc=$model->seo_title;
-		   $seo_title = $model->seo_description;
-		}
-      
+	   }
+	   
+	  
 
 		$cities = LibCity::query()->get();
 		$categories = DB::table('routes_categories')->get();
