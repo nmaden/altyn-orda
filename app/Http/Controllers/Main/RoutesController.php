@@ -37,42 +37,20 @@ class RoutesController extends SiteController
 
 
 
-	public function index(Request $request)
+	public function index(Request $request,Routes $model)
 	{
 
-	   $items = Routes::filter($request)->latest()->paginate(9);
-		
-       $seo_desc=false;
-	   $seo_title=false;
-	   $lang = app()->getLocale();
-	   
-	   if(!isset($lang)){
-		   $lang ='ru';
-	   }
-	   if(Cache::has('seo-routes-'.$lang)){
-
-		 $item_seo = Cache::get('seo-routes-'.$lang);
-		  $seo_desc= $item_seo[1];
-		  $seo_title = $item_seo[0];
-		  
-	   }
-	   
-	  
-
-		$cities = LibCity::query()->get();
-		$categories = DB::table('routes_categories')->get();
-
-		
-
-		$gids = $this->getTabs();
+	   $items = $model::filter($request)->latest()->paginate(9);
+	   if(isset($model)){$this->getSeo($model,'routes');}
+       $cities = LibCity::query()->get();
+	   $categories = DB::table('routes_categories')->get();
+       $gids = $this->getTabs();
 		$sights_page = view('orda' . '.routes.routes')->with(['items' => $items, 'cities' => $cities, 'categories' => $categories, 'gid' => $gids, 'request' => $request])->render();
 
 
 		$content = $sights_page;
 		$this->vars['content'] = $content;
-		$this->keywords = '';
-        $this->meta_desc = $seo_desc;
-		$this->meta_title = $seo_title;
+		
 		$this->request= $request;
 
 		return $this->renderOutput();

@@ -36,5 +36,10 @@ trait Presenter {
 	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
     }
 	
+	function getSeo(){
+		dd(13);
+    }
+	
+	
 }
 

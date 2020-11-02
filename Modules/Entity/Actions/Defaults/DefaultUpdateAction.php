@@ -81,8 +81,11 @@ class DefaultUpdateAction {
 		  
 		  
 	   if($this->request->general){if($this->request->seo_description || $this->request->seo_title){
-		   if($this->request->lang){Cache::forever('seo-figure-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
-          }else{Cache::forever('seo-figure-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+		   $title= strip_tags($this->request->seo_title);
+		   $desc= strip_tags($this->request->seo_description);
+
+		   if($this->request->lang){Cache::forever('seo-figure-'.$this->request->lang,[$title,$desc]);
+          }else{Cache::forever('seo-figure-ru',[$title,$desc]);//сохранение безвременно
 		   }}}
 	   
 	   

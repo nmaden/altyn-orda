@@ -26,18 +26,9 @@ class CalendarUpdateAction {
     }
 
     private function saveMain(){
-		
-		
-		
-		
+					
 
-	
-	
-	
-	
-	
-	
-        $ar = $this->request->all();
+		$ar = $this->request->all();
 		$ar['user_id'] = $this->request->user()->id;
       	$ar['edited_user_id'] = $this->request->user()->id;
 		if($this->request->props_3){
@@ -61,16 +52,17 @@ class CalendarUpdateAction {
 			$ar['groups'] = serialize($this->request->groups);
 			
 		}
-			   if($this->request->general){
+		
+		if($this->request->general){
 
 		if($this->request->seo_description && $this->request->seo_title){
+		   $title= strip_tags($this->request->seo_title);
+		   $desc= strip_tags($this->request->seo_description);
+		   
 		   if($this->request->lang){
-			 
-			 Cache::forever('seo-routes-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
-
-		   }else{
-			   
-		     Cache::forever('seo-routes-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+			 Cache::forever('seo-routes-'.$this->request->lang,[$title,$desc]);//сохранение безвременно
+          }else{
+			 Cache::forever('seo-routes-ru',[$title,$desc]);//сохранение безвременно
 		   }
 	   }
 			   }

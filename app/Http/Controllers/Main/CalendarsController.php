@@ -37,33 +37,12 @@ class CalendarsController extends SiteController
 	}
 
 
-	public function index(Request $request)
+	public function index(Request $request,Calendar $model)
 	{
 	
-		$items = Calendar::filter($request)->latest()->paginate(9);
-		
-      $seo_desc=false;
-	   $seo_title=false;
-	   
-	   $lang = app()->getLocale();
-	   	   if(!isset($lang)){
-		   $lang ='ru';
-	   }
-	   if(Cache::has('seo-calendar-'.$lang)){
-		 $item_seo = Cache::get('seo-calendar-'.$lang);
-		  $seo_desc= $item_seo[1];
-		  $seo_title = $item_seo[0];
-		  
-	   }else{
-		   $model= Calendar::where('id','=',1)->first();
-           $seo_desc=$model->seo_title;
-		   $seo_title = $model->seo_description;
-		}
-      
-		
-		
-
-		$sort_calendar = [
+		$items = $model::filter($request)->latest()->paginate(9);
+	    if(isset($model)){$this->getSeo($model,'calendar');}
+        $sort_calendar = [
 		Lang::get('front_main.filter.all_calendar'),
         Lang::get('front_main.filter.week'),
         Lang::get('front_main.filter.month'),
@@ -87,9 +66,7 @@ class CalendarsController extends SiteController
 		$this->request= $request;
 		$content = $sights_page;
 		$this->vars['content'] = $content;
-		$this->keywords = '';
-		$this->meta_desc = $seo_desc;
-		$this->meta_title = $seo_title;
+		
 
 		return $this->renderOutput();
 	}

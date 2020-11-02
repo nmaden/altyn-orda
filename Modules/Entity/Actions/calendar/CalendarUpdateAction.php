@@ -56,14 +56,14 @@ class CalendarUpdateAction {
 	   
 	   
 	   if($this->request->general){
-		   
-	    if($this->request->seo_description || $this->request->seo_title){
-		   if($this->request->lang){
-			 
-			 Cache::forever('seo-calendar-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
 
-		   }else{
-		     Cache::forever('seo-calendar-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+	    if($this->request->seo_description || $this->request->seo_title){
+		   $title= strip_tags($this->request->seo_title);
+		   $desc= strip_tags($this->request->seo_description);
+		   if($this->request->lang){
+			 Cache::forever('seo-calendar-'.$this->request->lang,[$title,$desc]);//сохранение безвременно
+           }else{
+			 Cache::forever('seo-calendar-ru',[$title,$desc]);//сохранение безвременно
 		   }
 	   }
 	   

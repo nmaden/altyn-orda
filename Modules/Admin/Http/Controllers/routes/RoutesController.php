@@ -28,10 +28,11 @@ class RoutesController extends Controller {
 
 	 protected function validator($data,$model=false)
     {
-		
+		if(isset($data['category_id'])){
 		if(!in_array($data['category_id'],$model->getCat()) && $data['category_id']){
-			        throw new Exception('не верное значение категории ');
+			throw new Exception('не верное значение категории ');
 					
+		}
 		}
 		if(isset($data['groups'][0])){
 		foreach($data['groups'] as $k=>$item){
@@ -45,16 +46,17 @@ class RoutesController extends Controller {
 		}
 		
  $messages = [
-      'personally_price.numeric'=>'Поле стоимость числовой тип поля'
-	  
+      'personally_price.numeric'=>'Поле стоимость числовой тип поля',
+	  	  'name.required'=>'Поле Title не заполнен'
+
      ];
 		
         return \Validator::make($data, [
-		 'name' => 'sometimes|required|string',
+
 		 //'photo' => 'nullable|sometimes|file|mimes:jpeg,png,svg|dimensions:min_width=30,max_width=1000',
 		 'photo' => 'nullable|sometimes|file|mimes:jpeg,png,svg',
-         'name' => 'required|string|max:255',
-	     'subtitle' => 'required|string|max:255',
+         'name' => 'sometimes|required|string|max:255',
+	     'subtitle' => 'sometimes|required|string|max:255',
 	     'personally_price' => 'sometimes|nullable|numeric',
 	     'price' => 'sometimes|nullable|numeric',
 		 

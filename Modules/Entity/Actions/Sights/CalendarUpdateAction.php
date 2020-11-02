@@ -45,13 +45,12 @@ class CalendarUpdateAction {
 		if($this->request->general){
 
        if($this->request->seo_description && $this->request->seo_title){
+		   $title= strip_tags($this->request->seo_title);
+		   $desc= strip_tags($this->request->seo_description);
 		   if($this->request->lang){
-			 
-			 Cache::forever('seo-sights-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
-
-		   }else{
-			   
-		     Cache::forever('seo-sights-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+			 Cache::forever('seo-sights-'.$this->request->lang,[$title,$desc]);
+           }else{
+			  Cache::forever('seo-sights-ru',[$title,$desc]);
 		   }
 	   }
 		}

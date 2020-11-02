@@ -31,53 +31,19 @@ class GidsController extends SiteController
 	}
     
     
-    public function index(Request $request)
+    public function index(Request $request,Gid $model)
     {
-		
-		
-		
-        //$sliderItems = $this->getSliders();
-		
-        $gid = Gid::filter($request)->with(['langGid','sights'])->latest()->paginate(9);
-
-       
+	   $gid = $model::filter($request)->with(['langGid','sights'])->latest()->paginate(9);
         $cities = LibCity::query()->get();
         $languages = Language::query()->get();
 		$categories = LibSpeac::query()->get();
 
-        
-       $seo_desc=false;
-	   $seo_title=false;
-	   	   
-       
-	   $lang = app()->getLocale();
-	   	   if(!isset($lang)){
-		   $lang ='ru';
-	   }
-	   if(Cache::has('seo-gid-'.$lang)){
-		 $item_seo = Cache::get('seo-gid-'.$lang);
-		  $seo_desc= $item_seo[1];
-		  $seo_title = $item_seo[0];
-		  
-	   }else{
-		   
-		}
-      
-		        		
-
-		$home_page = view('orda'.'.gid.gids')->with(['gid'=>$gid,'languages'=>$languages,
+        if(isset($model)){$this->getSeo($model,'gid');}
+         $home_page = view('orda'.'.gid.gids')->with(['gid'=>$gid,'languages'=>$languages,
 		'cities'=>$cities,'categories'=>$categories,'request'=> $request])->render();
-		
-		
-		
-        $content=$home_page;
-        $this->vars['content']= $content;
-        $this->keywords = '';
-		$this->meta_desc = $seo_desc;
-		$this->meta_title = $seo_title;
-		$this->request= $request;
-
-		return $this->renderOutput();
+		 $content=$home_page;
+         $this->vars['content']= $content;
+         return $this->renderOutput();
 		
     }
 	function item(Request $request, Gid $gid){
