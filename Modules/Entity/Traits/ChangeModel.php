@@ -18,6 +18,8 @@ trait ChangeModel {
     protected static function boot(){
 		
     Social::updating(function (Social $social) {
+				$lang = CurrentLang::url();
+
 		if(Cache::has('social')){
 		$cache = Cache::get('social');
 		$lang = CurrentLang::url();
@@ -25,7 +27,8 @@ trait ChangeModel {
 		$cache[$social->id][$lang] = $social->toArray();
         Cache::forever('social',$cache);
        }else{
-        Cache::forever('social',[$social->id=>$social->toArray()]);
+           Cache::forever('social',[$social->id=>[$lang=>$social->toArray()]]);
+
         }
 
 
@@ -38,7 +41,8 @@ trait ChangeModel {
 		$cache[$social->el_id][$lang]=$social->toArray();
         Cache::forever('social',$cache);
        }else{
-        Cache::forever('social',[$social->id=>$social->toArray()]);
+                   Cache::forever('social',[$social->id=>[$lang=>$social->toArray()]]);
+
         }
     });
 
@@ -50,7 +54,8 @@ trait ChangeModel {
 		$cache[$social->id][$lang] = $social->toArray();
         Cache::forever('social',$cache);
        }else{
-        Cache::forever('social',[$social->id=>$social->toArray()]);
+                   Cache::forever('social',[$social->id=>[$lang=>$social->toArray()]]);
+
         }
 			//dd(Cache::get('social'));
 

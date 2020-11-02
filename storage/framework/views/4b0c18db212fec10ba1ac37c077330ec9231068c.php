@@ -53,7 +53,7 @@
 					?>
 					<?php if(is_array($social)): ?>
                       <?php $__currentLoopData = $social; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
+                      
                         
 						<?php if(isset($v[app()->getLocale()])): ?>
 					   <div class="header__social--item tooltip__item" title="<?php echo e($v[app()->getLocale()]['hint']); ?>">
@@ -61,7 +61,13 @@
                                 <img src="<?php echo e(URL::asset($v[app()->getLocale()]['photo'])); ?>" alt="">
                             </a>
 						</div>
-
+                        <?php else: ?>
+							 <div class="header__social--item tooltip__item" title="<?php echo e($v['ru']['hint']); ?>">
+                            <a href="<?php echo e($v['ru']['name']); ?>">
+                                <img src="<?php echo e(URL::asset($v['ru']['photo'])); ?>" alt="">
+                            </a>
+						</div>
+						
 						<?php endif; ?>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                      <?php endif; ?>

@@ -16,6 +16,8 @@ class CurrentLang {
 			return 'ru';
 		}
 		}
+	    $lang= \App::getLocale();
+        if($lang){return $lang;}
 		return session('current_lang');
 		
 		

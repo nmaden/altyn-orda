@@ -52,7 +52,7 @@
 					@endphp
 					@if(is_array($social))
                       @foreach($social as $v)
-
+                      
                         
 						@if(isset($v[app()->getLocale()]))
 					   <div class="header__social--item tooltip__item" title="{{$v[app()->getLocale()]['hint']}}">
@@ -60,7 +60,13 @@
                                 <img src="{{ URL::asset($v[app()->getLocale()]['photo']) }}" alt="">
                             </a>
 						</div>
-
+                        @else
+							 <div class="header__social--item tooltip__item" title="{{$v['ru']['hint']}}">
+                            <a href="{{ $v['ru']['name'] }}">
+                                <img src="{{ URL::asset($v['ru']['photo']) }}" alt="">
+                            </a>
+						</div>
+						
 						@endif
                       @endforeach
                      @endif

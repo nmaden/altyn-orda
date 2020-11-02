@@ -111,6 +111,7 @@ class AppServiceProvider extends ServiceProvider
 		View::composer('orda.navigation', function ($view) {
 			$social = false;
 			if(Cache::has('social')){
+			
 
 			$social = Cache::get('social');
             }
