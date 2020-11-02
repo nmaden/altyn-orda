@@ -6,7 +6,7 @@
     </div> 
     <div class="gid__slider">
         <div class="swiper-wrapper"> <!-- row -->
-            @include('orda.gid.components.slider-foreach')
+            @include('orda.gid.components.slider-foreach',['page'=>'slider'])
         </div>
         <div class="calendar__arrow--block">
             <div class="gid__arrow-prev" tabindex="0" role="button" aria-label="Previous slide">

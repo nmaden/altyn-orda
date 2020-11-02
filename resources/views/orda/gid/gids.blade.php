@@ -145,7 +145,7 @@
 
                 <div class="sights__block gid__block">
                     <div class="row">
-				    @include('orda.gid.components.slider-foreach')
+				    @include('orda.gid.components.slider-foreach',['page'=>'page_gids'])
                     </div>
 
                 </div>

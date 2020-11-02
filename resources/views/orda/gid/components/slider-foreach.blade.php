@@ -1,7 +1,17 @@
 @foreach($gid as $item)
 
+@if($page =='slider')
     <div class="swiper-slide">
+@else
+	                        <div class="col-lg-4 col-md-6">
+
+	@endif
+	
+
         <div class="gid__item">
+	
+			
+		
             <div class="gid__item--top">
 
                 <div class="gid__item--img">
@@ -83,6 +93,8 @@
                 </div>
             </div>
         </div>
+		
+
     </div>
-					
+			
 @endforeach
