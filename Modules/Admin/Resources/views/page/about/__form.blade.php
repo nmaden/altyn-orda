@@ -41,8 +41,9 @@ class="form-control"/>
 @if(in_array('update',$ar))
 <div id="file" data-path = "about"  name='file' class="upload"></div>
  <div class='preview'></div>
-</div>
+
 @endif
+
 <br><br>
 <div style='padding:10px 5px;'> 
 <label for="text"><b>Текст</b></label> 
