@@ -50,8 +50,8 @@ class DefaultUpdateAction {
 		  
 		if($this->request->description){
 		preg_match_all('/\/store\/editor\/[\d]+\/[\d]+\/[\d+]+\/[\d\w]+.[\w]+/i',$this->request->description,$array2);
-		if(is_array($this->model->photo_unserialize)){
-			$baza = $this->model->photo_unserialize;
+		if(is_array($this->model->editor_unserialize)){
+			$baza = $this->model->editor_unserialize;
 			$diff = array_diff($baza,$array2[0]);
 			$diff2 = array_diff($array2[0],$baza);
 

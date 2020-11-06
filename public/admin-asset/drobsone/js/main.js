@@ -28,6 +28,7 @@ $('body').on('click','.slider_remove',function(e){
 
 
     var myDropzone = new Dropzone("div#file", {
+		
         url: "/drobsone-send"+"-"+page,
         maxFiles: 20,
         //maxFilesize: 2,

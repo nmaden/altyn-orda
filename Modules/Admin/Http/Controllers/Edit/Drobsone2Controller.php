@@ -11,6 +11,8 @@ use Modules\Entity\Model\Routes\Routes;
 use Modules\Entity\Model\Tabs\Tabs;
 use Modules\Entity\Model\Figure\Figure;
 use Modules\Entity\Model\Gid\Gid;
+use Modules\Entity\Model\About\About;
+
  use Intervention\Image\Facades\Image as ImageInt;
 
 class Drobsone2Controller extends Controller
@@ -88,6 +90,12 @@ public $table_switch;
         case 'gid':{
 			$this->table = Gid::where('id',$this->id)->first();
 			break;}
+		case 'about':{
+			$this->table = About::where('id',$this->id)->first();
+			break;}
+			
+			
+			
 	 }}}
  public function save_baze(){
 	$img = [];
@@ -169,6 +177,7 @@ public $table_switch;
 		$this->table();
 		$this->help_remove($request->path);
 	}
+	
 /*--------------------gid-------------------------------*/
 
  
@@ -189,6 +198,30 @@ public $table_switch;
 		$this->table_switch ='gid';
 		$this->action = 'update';
 	    $this->str = 'gid';
+		$this->photo = 'gallery';
+		
+		$this->page();
+		$this->table();
+		$this->help_remove($request->path);
+	}
+	//abouts
+	 public function sendabout(Request $request)
+    {
+	 $this->files = $request->file('file');
+     $this->papka_save = 'drobzone';
+	 $this->photo='gallery';
+	 $this->action = 'update';
+	 $this->str = 'about';
+	 $this->table_switch = 'about';
+	 $this->collector();
+  	 return $this->respons();
+    }
+	
+	//удаление
+	public function sliderabout(Request $request){
+		$this->table_switch ='about';
+		$this->action = 'update';
+	    $this->str = 'about';
 		$this->photo = 'gallery';
 		
 		$this->page();

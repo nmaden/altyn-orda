@@ -20,7 +20,9 @@ class VerifyCsrfToken extends Middleware
 		'drobsone-remove',
 		'slider-remove-routes',
         'drobsone-send-gid',
-        'slider-remove-gid'
+        'slider-remove-gid',
+		'drobsone-send-about',
+		'slider-remove-about'
 		
     ];
 }

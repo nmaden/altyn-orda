@@ -680,6 +680,9 @@ Route::any('aboutseditor',['uses' => 'CkeditorController@about'])->name('aboutse
 
 Route::any('drobsone-send-routes',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send-routes');
 Route::any('slider-remove-routes',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove-routes');
+//about
+Route::any('drobsone-send-about',['uses' => 'Drobsone2Controller@sendabout'])->name('drobsone-send-about');
+Route::any('slider-remove-about',['uses' => 'Drobsone2Controller@sliderabout'])->name('slider-remove-about');
 //gid
 Route::any('drobsone-send-gid',['uses' => 'Drobsone2Controller@sendgids'])->name('drobsone-send-gid');
 Route::any('slider-remove-gid',['uses' => 'Drobsone2Controller@slidergids'])->name('slider-remove-gid');
