@@ -150,16 +150,18 @@ var json_model= JSON.parse(decodeURIComponent(json));
 </script>
 
 @endif
-<!------интерактивная 1 routes------>
+<!------вывод маршрутов------>
+<!------вывод карты на странице маршруты и на странице интерактивная карта------>
+
 @if($route === 'routes-map' || $route === 'routes-item')
 	  @include('orda.map.interactiv.karta1')
   @endif
 
 
-<!------интерактивная 2 sights------>
+<!------вывод достопримечательностей на главной и на странице интерактивная карта------>
 @if($route == 'home' || $route =='sights-map' || $route =='map')
-	@include('orda.map.interactiv.karta2')
-	@include('orda.map.interactiv.sights')
+	@include('orda.map.interactiv.karta2')<!--первая часть zoom, center--->
+	@include('orda.map.interactiv.sights')<!--вторая часть координаты часть zoom, center--->
 
 @endif
 
