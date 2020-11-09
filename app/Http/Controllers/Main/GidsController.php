@@ -33,12 +33,16 @@ class GidsController extends SiteController
     
     public function index(Request $request,Gid $model)
     {
-	   $gid = $model::filter($request)->with(['langGid','sights'])->latest()->paginate(9);
+
+
+	    $gid = $model::filter($request)->with(['langGid','sights'])->latest()->paginate(9);
         $cities = LibCity::query()->get();
         $languages = Language::query()->get();
 		$categories = LibSpeac::query()->get();
 
         if(isset($model)){$this->getSeo($model,'gid');}
+
+
          $home_page = view('orda'.'.gid.gids')->with(['gid'=>$gid,'languages'=>$languages,
 		'cities'=>$cities,'categories'=>$categories,'request'=> $request])->render();
 		 $content=$home_page;

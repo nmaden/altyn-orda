@@ -13,7 +13,11 @@ class Filter extends ModelFilter {
       
 		if ($this->request->regions && $this->request->regions !='0'){ 
             $this->query->where('city_id', $request->regions);
-		}
+        }
+
+        if ($this->request->has('city_id') && $this->request->city_id)
+            $this->query->where('city_id', $request->city_id);
+    
 		 
 		 elseif ($this->request->sights && $this->request->sights !='0'){ 
             $this->query->where('id', $request->sights);

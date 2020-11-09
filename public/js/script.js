@@ -262,46 +262,154 @@ $(".about__line--numer.tub__click").click(function(){
 
 
 
-var $navRange = $('.js-range');
- 
-$navRange.each(function () {
-  var min = parseInt($(this).data('minValue') || 0),
-      max = parseInt($(this).data('maxValue') || 1000),
-      currentMin = parseInt($(this).data('currentMinValue') || 0),
-      currentMax = parseInt($(this).data('currentMaxValue') || 0),
-      $inputMin = $(this).find('.range-widget-min'),
-      $inputMax = $(this).find('.range-widget-max'),
-      $slider = $(this).find('.range-widget__slider');
+
+$(document).ready(function(){
+
+    var url = new URL(window.location["href"]);
+    var search_min = url.searchParams.get("search_min");
+    var search_max = url.searchParams.get("search_max");
+
+    var prices = [];
+    if(search_min) {
+       
+        prices.push(parseInt(search_min));
+        prices.push(parseInt(search_max));
+        $('#range').text(search_min+'тг.'+' - ' + search_max+'тг.');
+        
+
+    }
+    else {
+        $('#range').text(2000+'тг.'+' - ' + 9000+'тг.');
+        
+        prices.push(2000);
+        prices.push(9000);
+    }
+
+    $( "#slider" ).slider({
+       range: true,
+       min: 1000,
+       max: 10000,
+       step: 100,
+       values: prices,
+       slide: function( event, ui ) {
+  
+         // Get values
+         var min = ui.values[0];
+         var max = ui.values[1];
+
+        var p1 =  document.getElementById("search_min");
+        var p2 = document.getElementById("search_max");
 
 
-  if($inputMin.length && $inputMax.length && $slider.length) {
-    var inputs = [$inputMin[0], $inputMax[0]],
-        keypressSlider = $slider[0];
+        p1.value = min;
+        p2.value = max;
+        
+        
+        
+        setTimeout(
+            function() {
+                filter_price_testtt("search_min","search_max");
+                $('#range').text(p1.value+'тг.'+' - ' + p2.value+'тг.');        
+            }, 1000);
 
-    noUiSlider.create(keypressSlider, {
-        start: [currentMin, currentMax],
-        connect: true,
-        step: 10,
-        direction: 'ltr',
-        tooltips: true,
-        range: {
-            'min': min,
-            'max': max
-        },
-        format: wNumb({
-            decimals: 0,
-            suffix: ' тг.'
-        })
-
-
-    });
-
-    keypressSlider.noUiSlider.on('update', function( values, handle ) {
-      inputs[handle].value = parseInt(values[handle]);
-    });
-  }
-
+       
+       }
+     });
 });
+
+// var $navRange = $('.js-range');
+ 
+// let search = this;
+// $navRange.each(function () {
+//   var min = parseInt($(this).data('minValue') || 0),
+//       max = parseInt($(this).data('maxValue') || 1000),
+//       currentMin = parseInt($(this).data('currentMinValue') || 0),
+//       currentMax = parseInt($(this).data('currentMaxValue') || 0),
+//       $inputMin = $(this).find('.range-widget-min'),
+//       $inputMax = $(this).find('.range-widget-max'),
+//       $slider = $(this).find('.range-widget__slider');
+
+
+  
+
+//   if($inputMin.length && $inputMax.length && $slider.length) {
+//     var inputs = [$inputMin[0], $inputMax[0]],
+    
+//     keypressSlider = $slider[0];
+
+    
+  
+//     noUiSlider.create(keypressSlider, {
+//         start: [currentMin, currentMax],
+//         connect: true,
+//         step: 10,
+//         direction: 'ltr',
+//         tooltips: true,
+//         range: {
+//             'min': min,
+//             'max': max
+//         },
+//         format: wNumb({
+//             decimals: 0,
+//             suffix: ' тг.'
+//         })
+
+
+//     });
+
+    
+//     var p1 =  document.getElementById("search_min");
+//     var p2 = document.getElementById("search_max");
+
+
+//     $slider[0].noUiSlider.on('update', function( values, handle ) {
+
+     
+//       p1.value = inputs[0].value;
+
+//       p2.value = inputs[1].value;
+   
+
+//       inputs[handle].value = parseInt(values[handle]);
+      
+//       filter_price_testtt("search_min","search_max");
+//     });
+    
+    
+//   }
+
+// });
+
+
+
+function filter_price_testtt(min,max) {
+    let value1 = document.getElementById(min).value;
+    let value2 = document.getElementById(max).value;
+    
+    console.log(value1);
+    
+    
+    
+    var url = new URL(window.location["href"]);
+    var search_params = url.searchParams;
+    
+    search_params.set(min, value1);
+    search_params.set(max, value2);
+    
+    var new_url = url.toString();
+    
+    
+    console.log(new_url);
+    
+  
+    console.log("therer");
+    
+    window.location.replace(new_url);
+    
+
+    
+    
+}
 
 $(document).ready(function() {
 
@@ -340,6 +448,50 @@ $(document).on('click', "#inter__map .section__map--item", function(){
     $(this).toggleClass("section__map--active");
 });
 
+
+
+   
+
+
+function send_to_search(param) {
+
+
+    let value = document.querySelector("#"+param).value;
+  
+   
+    var url = new URL(window.location["href"]);
+
+    var search_params = url.searchParams;
+
+  
+    if(value=="all_lang") {
+        
+        search_params.delete(param);
+       
+    }
+    else if(value=="all_city") {
+        
+        search_params.delete(param);
+       
+    }
+    else if( value=="all_category") {
+        search_params.delete(param);
+        
+    }
+    else {
+        search_params.set(param, value);
+    }
+    
+
+  
+    url.search = search_params.toString();
+
+    var new_url = url.toString();
+  
+    window.location.replace(new_url);
+
+  
+}
 
 /*
 document.cancelFullScreen = document.cancelFullScreen || document.webkitCancelFullScreen ||      document.mozCancelFullScreen;
