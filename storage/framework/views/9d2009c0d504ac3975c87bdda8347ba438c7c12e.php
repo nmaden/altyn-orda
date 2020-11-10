@@ -388,11 +388,9 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
 	
 			 
 			 <?php endif; ?>
-
-
-                  <?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
-RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
-RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
+    <?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+    RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+    RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
 
 
 
@@ -410,9 +408,11 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
 							 </li>
 							 
 							 <li>
-                             <a href="<?php echo e(route('admin_lib_cat')); ?>"><span>Категории</span></a>
+                             <a href="<?php echo e(route('admin_lib_cat')); ?>"><span>Категории(мероприятия)</span></a>
 							 </li>
-							 
+							 							 <li>
+                             <a href="<?php echo e(route('admin_lib_catroutes')); ?>"><span>Категории(маршруты)</span></a>
+							 </li>
 							 <li>
                              <a href="<?php echo e(route('admin_lib_speac')); ?>"><span>Специализация </span></a>
 							 </li>

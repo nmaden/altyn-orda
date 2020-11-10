@@ -22,6 +22,7 @@ use Modules\Entity\Model\Moderator\Moderator;
 use Modules\Entity\Model\LibCity\LibCity;
 use Modules\Entity\Model\LibLanguage\LibLanguage;
 use Modules\Entity\Model\Cat\LibCat;
+use Modules\Entity\Model\Catroutes\Catroutes;
 
 
 use Modules\Entity\Policies\ContentPolicy;
@@ -55,6 +56,7 @@ class AuthServiceProvider extends ServiceProvider
 		LibCity::class => MainPolicy::class,
 		LibLanguage::class => MainPolicy::class,
 		LibCat::class => MainPolicy::class,
+		Catroutes::class => MainPolicy::class,
 
 
 

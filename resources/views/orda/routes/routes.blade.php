@@ -31,25 +31,25 @@
                         <div class="filter__item">
                             <div class="filter--select">
                                 <select name="category_id" id="category_id" class="slct-0 js--select js--select-0" onchange="send_to_search('category_id')">
-                                  <option selected disabled>								  
-								  @lang('front_main.filter.category')
+                                  <option selected disabled>										  @lang('front_main.filter.all_category')
+						  
 
                                   </option>
                                   <option value="all_category">
-								  @lang('front_main.filter.all_category')
+								  @lang('front_main.filter.category')
 
 								  </option>
 								  
                                   @foreach($categories as $key=>$category)
                                   
-                                    @if(isset($_GET['category_id']))
-                                        @if($_GET["category_id"]==$key)
-                                            <option value="{{$key}}" selected>{{$category->name}}</option>
+                                 @if(isset($_GET['category_id']))
+                                 @if($_GET["category_id"]==$category->id)
+                                            <option value="{{$category->id}}" selected>{{$category->name}}</option>
                                         @else
-                                            <option value="{{$key}}">{{$category->name}}</option>
+                                       <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endif
                                     @else
-                                        <option value="{{$key}}">{{$category->name}}</option>
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endif
 
 

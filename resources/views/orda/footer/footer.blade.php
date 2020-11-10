@@ -87,6 +87,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
     $( function() {
+		
         $( '.tooltip__item' ).tooltip({
             position: {
                 my: "center bottom-20",
@@ -200,7 +201,7 @@ $('#autosearch').on('keyup',function(){
 		  type:'POST',
 		  datatype:'JSON',
 		  success: function(html) {
-			  alert(html);
+			  
 			  console.log(html);
 			  if(html =='ok'){
 				  

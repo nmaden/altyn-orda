@@ -45,6 +45,7 @@ class ContentPolicy {
     }
 
     public function update($user, $item){
+		
 		  if ($this->mainCheck($user) == 'GID'){
             return false;
 		  }

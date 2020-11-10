@@ -37,10 +37,9 @@
                                 <select name="city_id" id="city_id" class="slct-0 js--select js--select-0" 
 								  onchange="filter()"
 								>
+								<option value="all_city">
                           @lang('front_main.filter.all_region')
-        
-        
-                                  </option>
+                               </option>
 
                                   @foreach($cities as $key=>$city)
                                   

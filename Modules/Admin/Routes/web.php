@@ -668,6 +668,37 @@ Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
         });
       });
 	  
+    Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {Route::group(['prefix' => 'cat_routes'], function () {
+            Route::get('/', 'CatRoutesController@index')
+                ->middleware('can:list,Modules\Entity\Model\Cat\LibCat')
+                ->name('admin_lib_catroutes');
+
+            Route::get('create', 'CatRoutesController@create')
+                ->middleware('can:create,Modules\Entity\Model\Cat\LibCat')
+                ->name('admin_lib_catroutes_create');
+
+            Route::post('create', 'CatRoutesController@saveCreate')
+                ->middleware('can:create,Modules\Entity\Model\Cat\LibCat')
+                ->name('admin_lib_catroutes_create_save');
+
+            Route::get('update/{catroutes}', 'CatRoutesController@update')
+                ->middleware('can:update,catroutes')
+                ->name('admin_lib_catroutes_update');
+
+            Route::post('update/{catroutes}', 'CatRoutesController@saveUpdate')
+                ->middleware('can:update,catroutes')
+                ->name('admin_lib_catroutes_update_save');
+
+            Route::get('delete/{catroutes}', 'CatRoutesController@delete')
+               ->middleware('can:delete,catroutes')
+               ->name('admin_lib_catroutes_delete');
+
+            Route::get('view/{catroutes}', 'CatRoutesController@show')
+               ->middleware('can:view,catroutes')
+               ->name('admin_lib_catroutes_show');
+        });
+      });
+	  
 	  
 	  
 	  

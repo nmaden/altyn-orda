@@ -65,12 +65,9 @@ class SiteController extends Controller
 		     $item_seo = Cache::get('seo-'.$param.'-'.$lang);
 		     $this->meta_desc= $item_seo[1];
 		     $this->meta_title = $item_seo[0];
-			 	
-
-		    }else{
+		  }else{
 			  $general= $model::where('id','=',1)->first();
-			 
-
+			   Cache::forever('seo-'.$param.'-'.$lang,[$general->seo_title,$general->seo_description]);
 			  $this->meta_desc=$general->seo_description;
 		      $this->meta_title = $general->seo_title;
 		    }

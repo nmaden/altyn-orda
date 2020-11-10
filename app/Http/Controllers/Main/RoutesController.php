@@ -5,15 +5,12 @@ namespace App\Http\Controllers\Main;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
 use Config;
 use Modules\Entity\Model\Routes\Routes;
-
 use App\Repositories\GidsPepository;
-
-
 use Modules\Entity\Model\Categories\Categories;
 use Modules\Entity\Model\LibCity\LibCity;
+use Modules\Entity\Model\Catroutes\Catroutes;
 use Illuminate\Support\Facades\DB;
 use Cache;
 
@@ -43,17 +40,13 @@ class RoutesController extends SiteController
 	   $items = $model::filter($request)->latest()->paginate(9);
 	   if(isset($model)){$this->getSeo($model,'routes');}
        $cities = LibCity::query()->get();
-	   $categories = DB::table('routes_categories')->get();
+	   $categories = Catroutes::query()->get();
        $gids = $this->getTabs();
 		$sights_page = view('orda' . '.routes.routes')->with(['items' => $items, 'cities' => $cities, 'categories' => $categories, 'gid' => $gids, 'request' => $request])->render();
-
-
-		$content = $sights_page;
+        $content = $sights_page;
 		$this->vars['content'] = $content;
-		
 		$this->request= $request;
-
-		return $this->renderOutput();
+        return $this->renderOutput();
 
     }
 	public function item(Request $request,Routes $routes)

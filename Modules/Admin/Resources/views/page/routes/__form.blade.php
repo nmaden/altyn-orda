@@ -16,7 +16,7 @@ if(in_array('show',$ar)){
 }
 
 
-$categories = DB::table('routes_categories')->get();
+$categories = DB::table('lib_routes_categories')->get();
 @endphp
 
 <div>
