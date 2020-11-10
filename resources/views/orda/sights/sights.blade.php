@@ -26,6 +26,7 @@
             </div>
 
             <div class="section__filter">
+
 				<form action="" method='get' style='width:100%'>
 
                 <div class="row">
@@ -36,14 +37,11 @@
                                 <select name="city_id" id="city_id" class="slct-0 js--select js--select-0" 
 								  onchange="filter()"
 								>
-                                  <option selected disabled>
-                                      @lang('front_main.filter.regions')
+                          @lang('front_main.filter.all_region')
+        
         
                                   </option>
-                                
-                                  <option  value="all_city">
-                                   @lang('front_main.filter.all_region')
-                                 </option>
+
                                   @foreach($cities as $key=>$city)
                                   
                                   @if(isset($_GET['city_id']))
@@ -62,6 +60,7 @@
                         </div>
                     </div>
                 </div>
+
 				</form>
             </div>
             

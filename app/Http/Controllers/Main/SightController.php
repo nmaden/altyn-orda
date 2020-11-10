@@ -30,6 +30,7 @@ class SightController extends SiteController
     
     public function index(Request $request,Sights $model )
     {
+			$cities = LibCity::query()->get();
 		
 	  $cities = LibCity::query()->get();
 	  $items = $model::filter($request)->latest()->paginate(9);
