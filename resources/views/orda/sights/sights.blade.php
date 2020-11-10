@@ -25,6 +25,48 @@
                 </h1>
             </div>
 
+            <div class="section__filter">
+				<form action="" method='get' style='width:100%'>
+
+                <div class="row">
+				
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="filter__item">
+                            <div class="filter--select">
+                                <select name="city_id" id="city_id" class="slct-0 js--select js--select-0" 
+								  onchange="filter()"
+								>
+                                  <option selected disabled>
+                                      @lang('front_main.filter.regions')
+        
+                                  </option>
+                                
+                                  <option  value="all_city">
+                                   @lang('front_main.filter.all_region')
+                                 </option>
+                                  @foreach($cities as $key=>$city)
+                                  
+                                  @if(isset($_GET['city_id']))
+                                    @if($_GET["city_id"]==$city->id)
+                                        <option value="{{$city->id}}" selected>{{$city->name}}</option>
+                                    @else
+                                        <option value="{{$city->id}}">{{$city->name}}</option>
+                                    @endif
+                                  @else
+                                    <option value="{{$city->id}}">{{$city->name}}</option>
+                                  @endif
+                                  
+                                  @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				</form>
+            </div>
+            
+          
+
             <div class="page__description--text">
 
                 <div class="sights__block">
@@ -112,4 +154,18 @@
      </div>
     </div>
 @endif
+<script>
+function filter() {
+var lang = "{{$lang}}";
+	
+console.log(lang);
+ $('form').attr('action','/'+lang+'/sights');
+
+  $('form').submit();
+  
+  }
+      
+
+</script>
+
 

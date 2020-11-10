@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Config;
 use Modules\Entity\Model\Sights\Sights;
 
+use Modules\Entity\Model\LibCity\LibCity;
 use App\Repositories\GidsPepository;
 
 
@@ -18,7 +19,7 @@ class SightController extends SiteController
     
     public function __construct(GidsPepository $gid_rep) {
     	
-		parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
+		//parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
     	 
 		$this->gid_rep = $gid_rep;
         $this->template = 'orda'.'.index';
@@ -30,10 +31,11 @@ class SightController extends SiteController
     public function index(Request $request,Sights $model )
     {
 		
+	  $cities = LibCity::query()->get();
 	  $items = $model::filter($request)->latest()->paginate(9);
 	  if(isset($model)){$this->getSeo($model,'sights');}
       $gids = $this->getTabs();
-      $sights_page = view('orda'.'.sights.sights')->with(['items'=>$items,'gid'=>$gids,'request'=>$request])->render();
+      $sights_page = view('orda'.'.sights.sights')->with(['items'=>$items,'gid'=>$gids,'cities'=>$cities,'request'=>$request])->render();
 	    $content=$sights_page;
         $this->vars['content']= $content;
         $this->request= $request;

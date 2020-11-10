@@ -9,14 +9,15 @@ class Filter extends ModelFilter {
 		
         $request  = $this->request;
 		 
-		 		 
-      
-		if ($this->request->regions && $this->request->regions !='0'){ 
+      if ($this->request->regions && $this->request->regions !='0'){ 
             $this->query->where('city_id', $request->regions);
 		}
 		 
 		 elseif ($this->request->sights && $this->request->sights !='0'){ 
             $this->query->where('id', $request->sights);
+		}
+		 elseif ($this->request->city_id && $this->request->city_id !='all_city'){ 
+            $this->query->where('city_id', $request->city_id);
 		}
 		 
 		 elseif($request->s){

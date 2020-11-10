@@ -291,12 +291,7 @@
         </div>
     </div>
 	
-@php
-if(isset($home)){
-$php_json = $home->getArMapPoint();
-}
-//dd($php_json);
-@endphp
+
 <script>var json = "{{$php_json}}";</script>
 @if($route == 'routes-map')
 <script>
@@ -338,20 +333,12 @@ console.log(json);
 @endif
 
 <script>
-
-     //history.pushState('', '', '/page-map');
 function filter(param) {
-	
-  $('form').attr('action','sights-map');
-  if(param == 'routes'){
-	  //alert($(this).val()
-  $('form').attr('action','routes-map');
-       //history.pushState('', '', '/routes-map?routes=');
-
-   }
+ $('form').attr('action','sights-map');
+ if(param == 'routes'){
+	 $('form').attr('action','routes-map');
+  }
   $('form').submit();}
-      
-
 </script>
 
 
