@@ -88,24 +88,6 @@
         {{ Route::currentRouteName() == 'home' ? 'home-page' : ''}}
         {{ Route::currentRouteName() == 'legenda' ? 'legenda-page' : ''}}
         {{ Route::currentRouteName() == 'legenda-item' ? 'legenda-page' : ''}}
-        {{
-            @switch(Route::currentRouteName())
-                @case('home')
-                        'home-page'
-                    @break
-
-                @case('legenda')
-                        'legenda-page'
-                    @break
-
-                @case('legenda-item')
-                        'legenda-page'
-                    @break
-
-                @default
-                    ''
-            @endswitch
-        }}
     ">
     @yield('navigation')
  
