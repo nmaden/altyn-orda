@@ -14,7 +14,7 @@ $ar=explode('_',$route);
 					</a>
 					  <div class="media-body">
                         <span class="media-heading text-semibold">
-						Логин:&nbsp&nbsp {{ Auth::user()->login }}</span>
+						Логин:&nbsp&nbsp {{ Auth::user()->name }}</span>
                         <div class="text-size-mini text-muted">
                             <!----{{ Auth::user()->type_name }}---->
                         </div>
@@ -35,8 +35,14 @@ $ar=explode('_',$route);
                 <ul class="navigation navigation-main navigation-accordion">
  
 
-              
-@can('list', Modules\Entity\Model\Calendar\Calendar::class)
+ 
+@php
+//dd(RoleService::getRole(Auth::user()->type_id));
+@endphp
+
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
       <li>
        <a   style="background: {{in_array('gallery',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
@@ -65,12 +71,17 @@ $ar=explode('_',$route);
 	   
 	</li>
  </ul>
- 
-	   
-	   
-	   </li>
-	   
-@endcan
+   </li>
+@endif	   
+
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
+RoleService::getRole(Auth::user()->type_id) =='GID' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR' ||
+RoleService::getRole(Auth::user()->type_id) =='TYROPERATOR')
+
+
+
 
 <li>
        <a   style="background: {{in_array('gid',$ar) ? '#ccc' : '' }}" href="#">
@@ -82,7 +93,11 @@ $ar=explode('_',$route);
 	 <ul class="hidden-ul">
 	  <li>
 	 
-	
+	@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
+
 	  <li  style="">
          <a href="{{ route('admin_gid_update',1) }}">
          <span>
@@ -91,6 +106,7 @@ $ar=explode('_',$route);
 		</a>
 	</li>
 	
+	@endif
 
 	<li  style="">
        <a href="{{ route('admin_gid') }}">
@@ -101,14 +117,26 @@ $ar=explode('_',$route);
  </ul>
  </li>
 	   
-	  
-	   
-@can('list', Modules\Entity\Model\Sights\Sights::class)
-	   
-	   
-	   
-	   
+@endif	 
+
+
 <li>
+ <a href="{{ route('admin_index') }}"><i class="icon-home4"></i> 
+ <span>Личные данные
+</span>
+</a></li>
+
+ 
+	
+	   
+	   
+	   
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
+
+	 <li>
        <a   style="background: {{in_array('sights',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Достопримечательности
@@ -139,13 +167,16 @@ $ar=explode('_',$route);
  </ul>
  </li>
 	 
-@endcan
+@endif
 	   
 	   	                     
               
 
 
-@can('list', Modules\Entity\Model\Home\Home::class)
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
 	   	                     
 <li>
   <a href="#" style="background: {{in_array('home',$ar) ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
@@ -170,11 +201,44 @@ $ar=explode('_',$route);
 </li>
 
 
-@endcan
+@endif
 
+@if(RoleService::getRole(Auth::user()->type_id) =='ADMIN')
+
+<li>
+  <a href="#" style="background: {{in_array('home',$ar) ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
+	Пользователи
+</span>
+</a>
+	<ul class="hidden-ul">
+	  <li>
+	  <li  style="">
+        <a href="{{ route('admin_content_manager') }}"><span>
+		  Контент менеджер
+		</span></a>
+	</li>
+	
+	<li  style="">
+       <a href="{{ route('admin_moderator') }}"><span>
+		  Модератор
+		</span>
+		</a>
+	</li>
+	  <li  style="">
+        <a href="{{ route('admin_users') }}"><span>
+		  все пользователи
+		</span></a>
+	</li>
+	
+ </ul>
+</li>
+</li>
+@endif	   
 	   
 	   
-	   
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 
 	    <li  style="background: {{in_array('social',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_social') }}">
@@ -182,21 +246,36 @@ $ar=explode('_',$route);
 	   <span>социальные кнопки
 	   </span></a>
 	   </li>
-
+@endif
 	   
-	   @can('list', Modules\Entity\Model\Slider\Slider::class)
+	   
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 
-	    <li  style="background: {{in_array('slider',$ar) ? '#ccc' : '' }}">
+      <li  style="background: {{in_array('slider',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_slider') }}">
 	   <i class="icon-city"></i>
 	   <span>Слайдер
 	   </span></a>
 	   </li>
-	   @endcan
+	   @endif
 	    
 	   
+<<<<<<< HEAD
 	   
        <li>
+=======
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
+RoleService::getRole(Auth::user()->type_id) =='GID' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR' ||
+RoleService::getRole(Auth::user()->type_id) =='TYROPERATOR')
+
+
+
+<li>
+>>>>>>> master
        <a   style="background: {{in_array('routes',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Маршруты
@@ -205,14 +284,19 @@ $ar=explode('_',$route);
 	   
 	 <ul class="hidden-ul">
 	  <li>
-	 
-	
+
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
+
 	  <li  style="">
          <a href="{{ route('admin_routes_update',1) }}">
          <span>
 		  Общие элементы страницы
 		</span>
 		</a>
+<<<<<<< HEAD
 	  </li>
 	  <li  style="">
          <a href="{{ route('admin_coords') }}">
@@ -221,6 +305,12 @@ $ar=explode('_',$route);
 		</span>
 		</a>
 	  </li>
+=======
+		
+	</li>
+@endif	
+
+>>>>>>> master
 	<li  style="">
       <a href="{{ route('admin_routes') }}">
 	  
@@ -231,8 +321,13 @@ $ar=explode('_',$route);
 	 </li>
  </ul>
  </li>
-	
-	   	   @can('list', Modules\Entity\Model\Menu\Menu::class)
+@endif
+
+@if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
+
 
 	    <li  style="background: {{in_array('menu',$ar) ? '#ccc' : '' }}">
 	   <a href="{{ route('admin_menu') }}">
@@ -241,9 +336,13 @@ $ar=explode('_',$route);
 	   </span></a>
 	   </li>
 	   
-	   @endcan
+	   @endif
 	   
-	                 @can('list', Modules\Entity\Model\About\About::class)
+	 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
+
     
                     <li class="">
                        <a href="#" style="background: {{in_array('about',$ar) || 
@@ -269,8 +368,12 @@ $ar=explode('_',$route);
                         </ul>
                     </li>
                </li>
-             @endcan
-	   @can('list', Modules\Entity\Model\Figure\Figure::class)
+             @endif
+	   @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
+
+
 	   <li>
        <a   style="background: {{in_array('figure',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
@@ -280,7 +383,7 @@ $ar=explode('_',$route);
 	   
 	 <ul class="hidden-ul">
 	  <li>
-	 
+	
 	
 	  <li  style="">
          <a href="{{ route('admin_figure_update',1) }}">
@@ -300,10 +403,12 @@ $ar=explode('_',$route);
  </li>
 	
 			 
-			 @endcan
+			 @endif
+    @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+    RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+    RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 
 
-                  @can('list', Modules\Entity\Model\LibCity\LibCity::class)
 
                     <li class="">
                         <a href="#" class="has-ul"><i class="icon-database-menu"></i><span>@lang('sidebar.library')</span></a>
@@ -319,9 +424,11 @@ $ar=explode('_',$route);
 							 </li>
 							 
 							 <li>
-                             <a href="{{ route('admin_lib_cat') }}"><span>Категории</span></a>
+                             <a href="{{ route('admin_lib_cat') }}"><span>Категории(мероприятия)</span></a>
 							 </li>
-							 
+							 							 <li>
+                             <a href="{{ route('admin_lib_catroutes') }}"><span>Категории(маршруты)</span></a>
+							 </li>
 							 <li>
                              <a href="{{ route('admin_lib_speac') }}"><span>Специализация </span></a>
 							 </li>
@@ -329,7 +436,7 @@ $ar=explode('_',$route);
 							 
                         </ul>
                     </li>
-            @endcan
+            @endif
 
                  
                 </ul>

@@ -20,6 +20,29 @@ class="form-control"/>
 Фото не загружено
 @endif
 </div>
+<br><br>
+<div id="drobzone-photo">
+@if(is_array($model->photo_unserialize))
+
+@foreach($model->photo_unserialize as $k=>$item)
+<div class='rm'>
+<input type="hidden" name="gallery[]" value="{{$item}}"/>
+
+ уже загружено <a href="{{URL::asset($item)}}" target="_blank">
+просмотреть</a>&nbsp&nbsp
+<a href="{{$item}}" id="{{$model->id}}" target="_blank" class='slider_remove'>
+удалить</a>
+ </br>
+ </div>
+@endforeach
+@endif
+</div>
+
+@if(in_array('update',$ar))
+<div id="file" data-path = "about"  name='file' class="upload"></div>
+ <div class='preview'></div>
+
+@endif
 
 <br><br>
 <div style='padding:10px 5px;'> 
@@ -29,8 +52,9 @@ class="form-control"/>
  value="" 
  name='description' 
   rows="16" 
+  id="editor"
  cols="4" 
- class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+ class="form-control {{$page ? '' : ''}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
  </div>
@@ -74,3 +98,11 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
+<script>
+	
+  CKEDITOR.replace('editor', {
+  filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  disallowedContent: 'a[href]',
+  height: 300, });
+	
+</script>

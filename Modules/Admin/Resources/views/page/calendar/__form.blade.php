@@ -30,10 +30,17 @@ $categories = DB::table('lib_categories')->get();
   <label for="title"><b>Дата</b></label> 
      <!----*------></span>
                 <input 
-					class="form-control" 
-					type="date" name="date" 
+					class="form-control"
+					id="datepicker"
+					type="text" name="date" 
+					max="3"
 					{{$page ? 'disabled': ''}}
-					value="{{isset($model->date) ? $model->date : ''}}">
+					value="{{isset($model->view_date) ? $model->view_date : ''}}">
+					@if ($errors->has('date'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('date') }}</strong>
+   </span>
+@endif
                 </div>
 
 <br><br>
@@ -48,9 +55,27 @@ value='{{isset($model->name) ? $model->name : ''}}' name='name' placeholder="з�
    </span>
 @endif
 </div>
-
-
 <br><br>
+
+
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
+
+			
+        </select>
+		</div>
+		
+<br><br>
+
+
+
+
+
+
 
 <div>
  <label for="text"><b>Текст</b></label> 
@@ -170,4 +195,6 @@ $('.select2').select2({
     minimumResultsForSearch: Infinity,
     width: '100%'
 })
+
+ 
 		</script>

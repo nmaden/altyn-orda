@@ -18,7 +18,9 @@
 			
 
 	keys.forEach(key => {
-		var name=json_model[key].name;
+		var name1=json_model[key].name;
+	   name = name1.replace(/\+/g, ' ');
+
 		var coord=json_model[key].coord;
 		var index = coord.indexOf(',');
         var coord_a_1 = coord.substr(0,index);
@@ -29,7 +31,7 @@
 	    sights.push(new Ad(
 		key,
 		[coord_a_1,coord_a_2],
-		json_model[key].name,
+		name,
 		photo,
 		'/sights-item/'+json_model[key].id
 		

@@ -45,7 +45,7 @@ $array1[1]=	'<img alt="" src="/store/test/2020/09/13/16000189409.jpg" style="hei
     }
 	
 	
-public function uploads(Request $request){
+public function uploads99999(Request $request){
 $file = $request->file('upload');
 $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
 $papka_save = 'editor';

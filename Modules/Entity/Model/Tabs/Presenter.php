@@ -26,7 +26,10 @@ trait Presenter {
 	function getArSightsAttribute(){
 	   return $this->sights()->pluck('sight_id')->toArray();
      }
-	 
+	 function getPublishIndexAttribute($v){
+	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
+    }
+	
 	
 	function getAddress2Attribute($v){
 	   

@@ -16,19 +16,11 @@ class AdminAuth {
     public function handle($request, Closure $next){
         //\App\Helper\CurrentLang::set('ru');
 
-        if ($this->auth->guest() || !in_array($this->auth->user()->type_id, [SysUserType::ADMIN, SysUserType::GID])){
+        if ($this->auth->guest() || !in_array($this->auth->user()->type_id, [SysUserType::ADMIN, SysUserType::GID,SysUserType::MANAGER,SysUserType::MODERATOR,SysUserType::TYROPERATOR])){
             Auth::logout();
-            
-			
-			
-
             return redirect()->route('login')->with('error', 'Введите email и пароль, для доступа в кабинет');
         }
-	//session_start();
-		//dd(Session::get('success'));
-		
-       //$request->session()->flash('success', 'Task was successful!');
-	   //$request->session()->reflash();
+	
         return $next($request);
     }
 }

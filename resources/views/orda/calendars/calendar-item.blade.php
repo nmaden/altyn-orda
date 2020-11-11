@@ -6,20 +6,20 @@
                 <ul class="bread-crambs">
                     <li class="breadcrumb-item">
                        <a href="/">
-						@lang('front_main.bread.home')
+						    @lang('front_main.bread.home')
                         </a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="/">
-						@lang('front_main.calendar.title')
+						    @lang('front_main.calendar.title')
                         </a>
                     </li>
                     <li>
-					@if(isset($calendar->name))
-                        <span>
-						{{$calendar->name}}
-						</span>
-					@endif
+                        @if(isset($calendar->name))
+                            <span>
+                            {{$calendar->name}}
+                            </span>
+                        @endif
                     </li>
                 </ul>
             </div>
@@ -27,8 +27,7 @@
             <div class="section__title--desc">
 			@if(isset($calendar->name))
                 <h1 class="section__title">
-				
-				{{$calendar->name}}
+				    {{$calendar->name}}
                 </h1>
 				@endif
             </div>
@@ -43,8 +42,8 @@
 
                 <div class="calendar__list--item">
                     <strong>@lang('front_main.calendar.date'):</strong> 
-					@if(isset($calendar->date))
-					{{$calendar->date}}
+					@if(isset($calendar->view_date))
+					    {{$calendar->view_date}}
 				    @endif
                 </div>
 				@if(isset($calendar->relCity->name))
@@ -58,7 +57,7 @@
                
                 <div class="calendar__list--item">
                     <strong>@lang('front_main.calendar.sokial'):</strong>
-                      <div class="ya-share2" data-services="{{$calendar->social_share}}" data-limit="3"></div>
+                    <div class="ya-share2" data-services="{{$calendar->social_share}}" data-limit="3"></div>
                 </div>
              
             </div>
@@ -115,9 +114,11 @@
                         <div class="swiper-slide">
                             <div class="calendar__item">
 								@if(isset($v->relCity->name))
+									<a href="{{route('calendars-item',$v)}}">
                                 <div class="calendar__item--cat">
 								{{$v->relCity->name}}
                                 </div>
+								</a>
 								@endif
                                 <div class="calendar__item--img">
 								@if(isset($calendar->photo))
@@ -127,13 +128,16 @@
 					           @endif
 					        </div>
                                 <div class="calendar__item--info">
+								@if(isset($calendar->photo))
+									 <a href="{{route('calendars-item',$v)}}">
                                     <div class="calendar__item--data">
-									@if(isset($calendar->photo))
-
-									{{$v->date}}
-									@endif
-                                    </div>
 									
+
+									{{$v->view_date}}
+								
+                                    </div>
+										</a>
+									@endif
                                     <div class="calendar__item--title">
                                         <a href="/calendar-item.html">
 										{!! mb_substr($v->name,0,65) !!}

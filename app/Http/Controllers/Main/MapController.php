@@ -30,6 +30,7 @@ public function routes(Request $request){
 	
 	   $filter = FilterLib::get();
 	   $city = $filter['city'];
+	   
 	   $sights_lib= $filter['sights'];
 	   $routes_lib = $filter['routes'];
 	
@@ -46,13 +47,15 @@ public function routes(Request $request){
 	      $coords = $routes_f[0]->coords;
 		  
 		  if(isset($coords->id)){
-			  		  if($coords->auto){$this->auto = $coords->auto;}
-
+			 if($coords->auto){$this->auto = $coords->auto;}
+             
           $count = count($coords->coordinate);
-		
+		  
            if($count > 0 ){
 			  $php_json = urlencode(json_encode($coords->coordinate));
 			  $name_json = urlencode(json_encode($coords->coordinate_name));
+			  
+			  
            }
 		  }
           }

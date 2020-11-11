@@ -11,6 +11,9 @@ use Modules\Entity\Model\Routes\Routes;
 use Modules\Entity\Model\Tabs\Tabs;
 use Modules\Entity\Model\Figure\Figure;
 use Modules\Entity\Model\Gid\Gid;
+use Modules\Entity\Model\About\About;
+
+ use Intervention\Image\Facades\Image as ImageInt;
 
 class Drobsone2Controller extends Controller
 {
@@ -87,6 +90,12 @@ public $table_switch;
         case 'gid':{
 			$this->table = Gid::where('id',$this->id)->first();
 			break;}
+		case 'about':{
+			$this->table = About::where('id',$this->id)->first();
+			break;}
+			
+			
+			
 	 }}}
  public function save_baze(){
 	$img = [];
@@ -102,12 +111,33 @@ public $table_switch;
   
   if(isset($this->id)){
 	  
-	$this->save_baze();//base
 	
-	 $this->files->storeAs('/store/'.$this->papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $this->file_name);//store
-					 
+	
+	
+	 $file = $this->files;
+	
+     $ext = $file->getClientOriginalExtension();
+	 if(in_array($ext,['jpg','jpeg','png'])){
+		$this->save_baze();//base
 
-   }
+	 $file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
+	 $img = ImageInt::make($file->getRealPath());
+	 $height = $img->height();
+     $width = $img->width();
+	 if($width > 500){
+	 $resizedImage =  $img->resize(500, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+		 $resizedImage->response($ext);
+		$file_path= $this->url;
+        Storage::put($file_path,  $resizedImage);
+		
+	 }else{
+		 $this->files->storeAs('/store/'.$this->papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $this->file_name);//store
+	 }
+  }
+	
+	}
   
 }
    public function respons(){
@@ -147,6 +177,7 @@ public $table_switch;
 		$this->table();
 		$this->help_remove($request->path);
 	}
+	
 /*--------------------gid-------------------------------*/
 
  
@@ -167,6 +198,30 @@ public $table_switch;
 		$this->table_switch ='gid';
 		$this->action = 'update';
 	    $this->str = 'gid';
+		$this->photo = 'gallery';
+		
+		$this->page();
+		$this->table();
+		$this->help_remove($request->path);
+	}
+	//abouts
+	 public function sendabout(Request $request)
+    {
+	 $this->files = $request->file('file');
+     $this->papka_save = 'drobzone';
+	 $this->photo='gallery';
+	 $this->action = 'update';
+	 $this->str = 'about';
+	 $this->table_switch = 'about';
+	 $this->collector();
+  	 return $this->respons();
+    }
+	
+	//удаление
+	public function sliderabout(Request $request){
+		$this->table_switch ='about';
+		$this->action = 'update';
+	    $this->str = 'about';
 		$this->photo = 'gallery';
 		
 		$this->page();

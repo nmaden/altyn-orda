@@ -16,9 +16,10 @@
 					<tr>
 						<th >{{ $model->getLabel('id') }}</th>
 					
-						<th >{{ $model->getLabel('name') }}</th>
-							<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
-						<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
+						<th >название</th>
+						<th>публикация</th>
+						<th data-breakpoints="all">{{ $model->getLabel('edited_user_id') }}</th>
+				
 						<th data-breakpoints="all">{{ $model->getLabel('updated_at') }}</th>
 					
 						<th>
@@ -34,7 +35,23 @@
 							<td>{{ $i->name }}</td>
 							
 							
-							<th data-breakpoints="all">{{ $model->getLabel('created_at') }}</th>
+							<td style="color:{{$i->publish == 2 ? 'green' :'red'}}">{{ $i->publish_index }}</td>
+
+			<td>
+			@if(isset($i->relEditedUser->name))
+			{{$i->relEditedUser->name}}
+		    @else
+			 @if(isset($i->relEditedUser->email))
+				 	{{$i->relEditedUser->email}}
+				@if(isset($i->relEditedUser->family))
+					&nbsp&nbsp({{$i->relEditedUser->family}})
+				@endif
+			 @else
+				не определено
+
+              @endif
+			@endif
+			</td>
 							<td>{{ $i->updated_cool }}</td>
 						<th>
 								<div class="btn-group">

@@ -3,22 +3,15 @@
 var json_model_mame = JSON.parse(decodeURIComponent(name_json));
 	
      var ar =[];
-	 //console.log(json_model[0][0]);
-        keys.forEach(key=>{
-			
-	    var coord=json_model[key];
+	    keys.forEach(key=>{
+		var coord=json_model[key];
 		var index = coord.indexOf(',');
         var coord_a_1 = coord.substr(0,index);
-			
-
-        var coord_a_2 = coord.substr(index+1);
-				coord_a_2 = coord_a_2.replace(/\+/g, ' ');
-
-		ar.push(new Array(coord_a_1,coord_a_2)); 
-
-  
-		})
-		//console.log(ar[0][0]);
+		var coord_a_2 = coord.substr(index+1);
+        coord_a_2 = coord_a_2.replace(/\+/g, ' ');
+        ar.push(new Array(coord_a_1,coord_a_2)); 
+       })
+	
         window.onload = function () {
             setTimeout(function () { getYaMap(); }, 3000);
         }
@@ -35,7 +28,7 @@ var json_model_mame = JSON.parse(decodeURIComponent(name_json));
             }, {
                 boundsAutoApply: true,
 
-                wayPointStartIconLayout: "default#image",
+                 wayPointStartIconLayout: "default#image",
                 wayPointStartIconImageHref: "",
                 wayPointIconLayout: "default#image",
                 wayPointIconImageHref: "",
@@ -103,17 +96,14 @@ var json_model_mame = JSON.parse(decodeURIComponent(name_json));
             zoomControl = new ymaps.control.ZoomControl({ options: { layout: ZoomLayout } });
             map_m.controls.add(zoomControl);
 
-var size = keys.length;
-
- 
-
+           var size = keys.length;
            keys.forEach(key=>{
 			   
 	    var coord=json_model[key];
 		var index = coord.indexOf(',');
         var coord_a_1 = coord.substr(0,index);
         var coord_a_2 = coord.substr(index+1);
-				var coord_name = json_model_mame[key];
+		var coord_name = json_model_mame[key];
 		coord_name = coord_name.replace(/\+/g, ' ');
 
 		//coord_name = coord_name.replace(/\+/g, ' ');
@@ -143,7 +133,7 @@ var size = keys.length;
             map_m.behaviors.disable('scrollZoom');
             // Добавляем мультимаршрут на карту.
             map_m.geoObjects.add(multiRoute);
-
+            $('.inter__map--preloader').addClass("inter__map-act");
         }
 
   

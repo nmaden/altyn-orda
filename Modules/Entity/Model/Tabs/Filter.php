@@ -2,6 +2,7 @@
 namespace Modules\Entity\Model\Tabs;
 
 use Modules\Entity\Services\ModelFilter;
+use Illuminate\Support\Facades\Request;
 
 class Filter extends ModelFilter {
     public function filter(){
@@ -117,8 +118,18 @@ class Filter extends ModelFilter {
                     ->orderBy('university.rank_word', 'desc');
         }
         else {
-			
+		$url_get = Request::url();
+        $admin = strpos($url_get, "admin");
+		if($admin){
             $this->query->latest();
+
+        }else{
+			$this->query->where(['publish'=>2]);
+
+
+		}
+
+
 		}
 
     }

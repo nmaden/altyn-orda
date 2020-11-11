@@ -40,6 +40,23 @@ class="form-control"/>
 </div>
 @endif
 
+
+<br><br>
+
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
+
+			
+        </select>
+		</div>
+		
+
+
+
 @if($lang == 'ru' || $lang != 'ru')
 <br><br>
 <div>  
@@ -138,7 +155,7 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
 <script>
 	
   CKEDITOR.replace('editor', {
-  filebrowserUploadUrl: "{{route('figures')}}",
+  filebrowserUploadUrl: "{{route('figureseditor')}}",
   disallowedContent: 'a[href]',
   height: 300, });
 	

@@ -7,6 +7,7 @@ use App\Services\UploadPhoto;
 use Storage;
 use Route;
 use Cache;
+use Intervention\Image\Facades\Image as ImageInt;
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -25,10 +26,14 @@ class CalendarUpdateAction {
     }
 
     private function saveMain(){
-	
-        $ar = $this->request->all();
+					
+
+		$ar = $this->request->all();
 		$ar['user_id'] = $this->request->user()->id;
-  
+      	$ar['edited_user_id'] = $this->request->user()->id;
+		if($this->request->props_3){
+        $ar['props_3'] = strip_tags($ar['props_3']);
+		}
 	 	if ($this->request->has('photo')){
 			
 			if(is_file(public_path($this->model->photo))){
@@ -47,16 +52,17 @@ class CalendarUpdateAction {
 			$ar['groups'] = serialize($this->request->groups);
 			
 		}
-			   if($this->request->general){
+		
+		if($this->request->general){
 
 		if($this->request->seo_description && $this->request->seo_title){
+		   $title= strip_tags($this->request->seo_title);
+		   $desc= strip_tags($this->request->seo_description);
+		   
 		   if($this->request->lang){
-			 
-			 Cache::forever('seo-routes-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
-
-		   }else{
-			   
-		     Cache::forever('seo-routes-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+			 Cache::forever('seo-routes-'.$this->request->lang,[$title,$desc]);//сохранение безвременно
+          }else{
+			 Cache::forever('seo-routes-ru',[$title,$desc]);//сохранение безвременно
 		   }
 	   }
 			   }

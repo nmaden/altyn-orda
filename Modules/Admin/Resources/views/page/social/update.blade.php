@@ -23,10 +23,12 @@
             </div>
         </div>
 		@endsection
+		
 		@section('left_lang')
         <div class="col-md-2">  
-            
+            @include('admin::left_lang',$sys_lang)
 		</div>
 		@endsection
+		
     </div>
 	

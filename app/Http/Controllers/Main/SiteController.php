@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Main;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use Cache;
 
 
 
@@ -22,7 +22,11 @@ class SiteController extends Controller
     protected $keywords;
 	protected $meta_desc;
 	protected $title;
+
     	protected $auto = 2;
+
+
+    public $request;
 
     protected $temlate;
     
@@ -57,11 +61,27 @@ class SiteController extends Controller
 		$this->vars['meta_title']=$this->meta_title;
         }
 		
-		
+				$this->vars['request']=$this->request;
+
         return view($this->template)->with($this->vars);
 	}
 	
-
+        public function getSeo($model,$param){
+		  $seo_desc=false;
+	      $seo_title=false;
+	      $lang = app()->getLocale();
+		  if(!isset($lang)){$lang ='ru';}
+		    if(Cache::has('seo-'.$param.'-'.$lang)){
+		     $item_seo = Cache::get('seo-'.$param.'-'.$lang);
+		     $this->meta_desc= $item_seo[1];
+		     $this->meta_title = $item_seo[0];
+		  }else{
+			  $general= $model::where('id','=',1)->first();
+			   Cache::forever('seo-'.$param.'-'.$lang,[$general->seo_title,$general->seo_description]);
+			  $this->meta_desc=$general->seo_description;
+		      $this->meta_title = $general->seo_title;
+		    }
+		  }
     
     
 }

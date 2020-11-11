@@ -165,7 +165,7 @@
                     </div>
 					
                     @if($route == 'routes-map')
-                        <div class="route__line--block" style='display:none'>
+                        <div class="route__line--block" style=''>
                             <div class="route__line">
 
                                 <div class="route__line--li">
@@ -241,10 +241,45 @@
                         </div>
 
                         <div class="route__line--maps">
-                            <div id="maps"></div>
+                            <div class="inter__map--preloader">
+                                <div id="maps"></div>
+                                <div class="sk-fading-circle inter__map_preloader">
+                                    <div class="sk-circle sk-circle-1"></div>
+                                    <div class="sk-circle sk-circle-2"></div>
+                                    <div class="sk-circle sk-circle-3"></div>
+                                    <div class="sk-circle sk-circle-4"></div>
+                                    <div class="sk-circle sk-circle-5"></div>
+                                    <div class="sk-circle sk-circle-6"></div>
+                                    <div class="sk-circle sk-circle-7"></div>
+                                    <div class="sk-circle sk-circle-8"></div>
+                                    <div class="sk-circle sk-circle-9"></div>
+                                    <div class="sk-circle sk-circle-10"></div>
+                                    <div class="sk-circle sk-circle-11"></div>
+                                    <div class="sk-circle sk-circle-12"></div>
+                                </div>
+                            </div>
                         </div>
                     @else
-                        <div id="inter__map"></div>
+                    
+                        
+                        <div class="inter__map--preloader">
+                            <div id="inter__map"></div>
+                            <div class="sk-fading-circle inter__map_preloader">
+                                <div class="sk-circle sk-circle-1"></div>
+                                <div class="sk-circle sk-circle-2"></div>
+                                <div class="sk-circle sk-circle-3"></div>
+                                <div class="sk-circle sk-circle-4"></div>
+                                <div class="sk-circle sk-circle-5"></div>
+                                <div class="sk-circle sk-circle-6"></div>
+                                <div class="sk-circle sk-circle-7"></div>
+                                <div class="sk-circle sk-circle-8"></div>
+                                <div class="sk-circle sk-circle-9"></div>
+                                <div class="sk-circle sk-circle-10"></div>
+                                <div class="sk-circle sk-circle-11"></div>
+                                <div class="sk-circle sk-circle-12"></div>
+                            </div>
+                
+                        </div>
 
                     @endif	
 
@@ -257,11 +292,14 @@
     </div>
 	
 
+
 @if(isset($name))
 	<script>
 	var name_json = "{{$name}}";
 </script>
 @endif
+
+
 
 <script>var json = "{{$php_json}}";</script>
 @if($route == 'routes-map')
@@ -304,20 +342,12 @@ console.log(json);
 @endif
 
 <script>
-
-     //history.pushState('', '', '/page-map');
 function filter(param) {
-	
-  $('form').attr('action','sights-map');
-  if(param == 'routes'){
-	  //alert($(this).val()
-  $('form').attr('action','routes-map');
-       //history.pushState('', '', '/routes-map?routes=');
-
-   }
+ $('form').attr('action','sights-map');
+ if(param == 'routes'){
+	 $('form').attr('action','routes-map');
+  }
   $('form').submit();}
-      
-
 </script>
 
 

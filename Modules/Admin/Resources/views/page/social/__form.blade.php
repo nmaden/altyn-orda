@@ -36,6 +36,7 @@ if(in_array('show',$ar)){
 </div>
 ----------------------------------->
 <div>
+
 <label for="photo"><b>Фото</b></label>
  <input {{$page ? 'disabled': ''}} 
 type="file" 
@@ -48,7 +49,7 @@ class="form-control"/>
 @else
 Фото не загружено
 @endif
-
+<input type="hidden" name="foto" value="{{isset($model->photo) ? $model->photo :''}}">
 @if ($errors->has('photo'))
    <span class="help-block">
       <strong style='color:#a94442'>{{ $errors->first('photo') }}</strong>
@@ -67,5 +68,12 @@ type="text" value="{{isset($model->name) ? $model->name: ''}}"
 name='name' placeholder="{{$page ? '': 'http://www.w3.org/2000/svg'}} " 
 class="form-control"/>		   
 </div>
-
+<br><br>
+<div>  
+ <label for="title"><b>всплывающая подсказка</b></label> 
+<input {{$page ? 'disabled': ''}} 
+type="text" value="{{isset($model->hint) ? $model->hint: ''}}" 
+name='hint' placeholder="всплывающая посказка " 
+class="form-control"/>		   
+</div>
 

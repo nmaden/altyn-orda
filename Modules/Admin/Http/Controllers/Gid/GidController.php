@@ -28,14 +28,30 @@ class GidController extends Controller {
 	
    protected function validator(array $data)
     {
+	 $messages = [
+      'photo.dimensions' => 'Максимальный размер изображения 1000px минимальный размер 30px ',
+	  'opyt.string'=>'Опыт должен быть строкой',
+	  'oplata.in'=>'неправильное значение',
+	  
+     ];
+	 
+	  
+		
 		//nullable
         return \Validator::make($data, [
-		 //'name' => 'sometimes|required|string',
-         //'vosrast' => 'sometimes|nullable|numeric',
-	     //'opyt' => 'sometimes|numeric',
-	     //'imya' => 'sometimes|string',
-	     //'price' => 'sometimes|nullable|numeric',
-        ]);
+		 'name' => 'sometimes|nullable|string',
+         'vosrast' => 'sometimes|nullable|numeric',
+		 'photo' => 'nullable|sometimes|file|mimes:jpeg,png,svg',
+		 'family' => 'sometimes|nullable|string',
+         'opyt' => 'sometimes|nullable|string',
+		 'gid_title'=>'sometimes|nullable|string',
+		 'price'=>'sometimes|nullable|numeric',
+		 'imya'=>'sometimes|required|nullable|string',
+		 'oplata'=>'sometimes|string|nullable|in:день,час',
+         
+
+	     
+        ],$messages);
     }
 	
 }

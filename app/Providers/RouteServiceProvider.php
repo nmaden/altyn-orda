@@ -51,6 +51,11 @@ class RouteServiceProvider extends ServiceProvider
 		  Route::model('cat', \Modules\Entity\Model\Cat\LibCat::class);
           Route::model('meta', \Modules\Entity\Model\Meta\Meta::class);
           Route::model('speac', \Modules\Entity\Model\Speac\LibSpeac::class);
+          Route::model('moderator', \Modules\Entity\Model\ContentManager\ContentManager::class);
+          Route::model('contentmanager', \Modules\Entity\Model\ContentManager\ContentManager::class);
+          Route::model('moderator', \Modules\Entity\Model\Moderator\Moderator::class);
+          Route::model('users', \Modules\Entity\Model\Allusers\Allusers::class);
+          Route::model('catroutes', \Modules\Entity\Model\Catroutes\Catroutes::class);
 
 
     }

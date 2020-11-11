@@ -24,6 +24,8 @@ use Modules\Entity\Model\Menu\Menu as Menus;
 class AppServiceProvider extends ServiceProvider
 {
 	public $menus;
+	public $locale;
+
     /**
      * Register any application services.
      *
@@ -56,12 +58,11 @@ class AppServiceProvider extends ServiceProvider
 		
     public function register()
     {
-
-				
-	   View::composer('orda.*', function ($view) {
+ View::composer('orda.*', function ($view) {
             $view->with('q_lang', new CurrentLang());
         });
-		
+				
+	   
 		   View::composer('admin::*', function($view){
              $view->with('q_lang', new CurrentLang());
 
@@ -85,10 +86,16 @@ class AppServiceProvider extends ServiceProvider
 	$reverse = array_flip(CurrentLang::getAr());
       if($locale && in_array($locale, $reverse)) {
         \App::setLocale($locale);
+		$this->locale=$locale;
      }else{
        \App::setLocale('ru');
-      }
+	   	$this->locale='ru';
 
+      }
+     View::composer('orda.*', function ($view) {
+            $view->with('lang', $this->locale);
+        });
+		
 
        $nav= Menus::get('*');
        $menu= $this->getmenu($nav);
@@ -108,6 +115,15 @@ class AppServiceProvider extends ServiceProvider
 			$view->with('social',$social);
         });
 		
+		View::composer('orda.navigation', function ($view) {
+			$social = false;
+			if(Cache::has('social')){
+			
+
+			$social = Cache::get('social');
+            }
+			$view->with('social',$social);
+        });
 		
 		
 	/*

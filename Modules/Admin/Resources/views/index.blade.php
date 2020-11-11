@@ -25,7 +25,5 @@
 @endsection
 
 @section('content')
-
-
-  
+{!! $content !!}
 @endsection

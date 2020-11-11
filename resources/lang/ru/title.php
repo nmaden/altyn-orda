@@ -43,6 +43,11 @@ return [
 	'lib_language_show'=>'Просмотр',
 	'lib_language_create'=>'Создание',
 	
+	'lib_catroutes_update'=>'Обновление',
+	'lib_catroutes'=>'Категории(маршруты)',
+	'lib_catroutes_show'=>'Просмотр',
+	'lib_catroutes_create'=>'Создание',
+	
 	'lib_speac_update'=>'Обновление',
 	'lib_speac'=>'Специализация',
 	'lib_speac_show'=>'Просмотр',

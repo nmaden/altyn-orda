@@ -23,27 +23,13 @@ trait Presenter {
 	function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 
-		/*
-		if(Cache::has('city')){
-			
-		$cache = Cache::get('city');
-		
-        return $cache;
-		}else{
-			
-		Cache::forever('city',LibCity::pluck('name', 'id')->toArray());
-		return LibCity::pluck('name', 'id')->toArray();
-		}
-		*/
     }
 	
 
 
-/*
-	 function getRequirementAr(){
-        return LibRequirement::pluck('name', 'id')->toArray();
+function getPublishIndexAttribute($v){
+	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
     }
-*/
 	
 	function getNameAttribute($v){
 		return $this->getTransField('name', $v);

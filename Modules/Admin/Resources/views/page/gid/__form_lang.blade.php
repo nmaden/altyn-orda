@@ -37,6 +37,8 @@ name='imya' placeholder="Имя(текс)" class="form-control"></input>
 @endif
 </div>
 
+
+<!-----------------------
 <br><br>
 <div>  
 <label for="title"><b>Денежная еденица</b></label> 
@@ -55,10 +57,67 @@ name='currency' placeholder="тг" class="form-control"></input>
 </div>
 
 <br><br>
+---------------------->
 
 
 
 
+
+
+<br><br>
+
+@if($model->relUsers->type_id == 2)
+	
+<div>  
+<label for="title"><b>Фамилия</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+@if(old('family'))
+	value="{{old('family')}}" 
+@else
+	value="{{isset($model->family) ? $model->family : ''}}" 
+@endif
+name='family' placeholder="Фамилия(текст)" class="form-control"></input>
+@if ($errors->has('family'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('family') }}</strong>
+   </span>
+@endif
+</div>
+
+@endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<div>  
+<label for="title"><b>Заголовок на детальной</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+@if(old('gid_title'))
+	value="{{old('gid_title')}}" 
+@else
+	value="{{isset($model->gid_title) ? $model->gid_title : ''}}" 
+@endif
+name='gid_title' placeholder="Туроператор или Гид" class="form-control"></input>
+@if ($errors->has('gid_title'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('gid_title') }}</strong>
+   </span>
+@endif
+</div>
+
+<br><br>
 
 
 <div>  
@@ -98,6 +157,8 @@ class="{{$page ? 'form-control' : 'wysihtml5 wysihtml5-default form-control'}} "
 </textarea>
 </div>
 
+
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
 <br><br>
 
 <div>
@@ -120,4 +181,4 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
-
+@endif

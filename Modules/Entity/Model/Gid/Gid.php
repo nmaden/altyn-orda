@@ -9,10 +9,20 @@ class Gid extends ModelParent {
 	
 	
     protected $fillable = [ 'photo','vosrast','opyt','name','description','currency','user_id',
-	'city_id','spec_id','phone','imya','price','oplata_cposob','seo_title','seo_description'];
+	'city_id','spec_id','phone','imya','price','oplata_cposob','seo_title','seo_description','gid_title','family','phone','publish','edited_user_id'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
+	
+	 protected static function boot() {
+        parent::boot();
+        static::addGlobalScope(new ContentManagerScope);
+    }
+   
+	 function relEditedUser(){
+        return $this->belongsTo('App\User', 'edited_user_id');
+    } 
+	
     function relCity(){
         return $this->belongsTo('Modules\Entity\Model\LibCity\LibCity', 'city_id');
     }
@@ -37,6 +47,9 @@ class Gid extends ModelParent {
     }
 	 function relInforms(){
         return $this->HasOne('Modules\Entity\Model\Informs\Informs', 'gid_id');
+    }
+	 function relUsers(){
+        return $this->HasOne('App\User', 'id','user_id');
     }
 	
 	

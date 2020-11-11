@@ -1,10 +1,13 @@
 <script>
 
 var json_model_mame= JSON.parse(decodeURIComponent(name_json));
+console.log('мы здесь');
+console.log(json_model);
+console.log(json_model_mame);
 
+console.log(keys);
 	
      var ar =[];
-	 //console.log(json_model[0][0]);
         keys.forEach(key=>{
 			
 	    var coord=json_model[key];
@@ -114,6 +117,8 @@ var geometry = ar,
             map_m.behaviors.disable('scrollZoom');
             // Добавляем мультимаршрут на карту.
             map_m.geoObjects.add(polyline);
+			$('.inter__map--preloader').addClass("inter__map-act");
+
 	       map_m.setBounds(map_m.geoObjects.getBounds(),{checkZoomRange:true, zoomMargin:9});
         }
 

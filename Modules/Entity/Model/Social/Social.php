@@ -6,7 +6,7 @@ use Modules\Entity\Traits\CheckTrans;
 
 class Social extends ModelParent {
     protected $table = 'social';
-	protected $fillable = ['photo','edited_user_id','name'];
+	protected $fillable = ['photo','edited_user_id','name','hint'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -22,10 +22,10 @@ class Social extends ModelParent {
 	  function getElIdAttribute(){
         return $this->id;
     }
- 
-  function relTrans(){
-        return false;
+   function relTrans(){
+        return $this->hasOne('Modules\Entity\Model\Social\TransSocial', 'el_id');
     }
+
 
   
 

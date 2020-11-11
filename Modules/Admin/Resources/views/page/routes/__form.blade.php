@@ -16,7 +16,7 @@ if(in_array('show',$ar)){
 }
 
 
-$categories = DB::table('routes_categories')->get();
+$categories = DB::table('lib_routes_categories')->get();
 @endphp
 
 <div>
@@ -31,6 +31,11 @@ class="form-control"/>
  уже загружено <a href="{{URL::asset($model->photo)}}" target="_blank">просмотреть</a>
 @else
 Фото не загружено
+@endif
+@if ($errors->has('photo'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('photo') }}</strong>
+   </span>
 @endif
 </div>
 
@@ -53,20 +58,46 @@ class="form-control"/>
 @endforeach
 @endif
 </div>
+
+
+
+
+
 @if(in_array('update',$ar))
 <div id="file" data-path = "routes"  name='file' class="upload"></div>
  <div class='preview'></div>
 </div>
 @endif
-<div> 
 
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
 
 <br><br> 
+
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
+
+			
+        </select>
+		</div>
+@endif
+<br><br>
+
+<div> 
 <label for="title"><b>Название</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" value="{{isset($model->name) ? $model->name: ''}}" 
 name='name' placeholder="{{$page ? '': 'Заголовок(текст)'}} " 
 class="form-control"/>
+@if ($errors->has('name'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>
+   </span>
+@endif
+
 </div>
 
 <br><br>
@@ -80,6 +111,11 @@ name='subtitle'
 class="form-control"
 placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 />
+@if ($errors->has('subtitle'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('subtitle') }}</strong>
+   </span>
+@endif
 </div>
 <br><br>
 
@@ -95,7 +131,7 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 			@if(count($categories) > 0)
 					
             @foreach ($categories as $k => $v)
-                <option value="{{ $k }}" {{ $model->category_id == $k-1 ? 'selected' : '' }}>{{ $v->name }}</option>
+                <option value="{{ $v->id }}" {{ $model->category_id == $k-1 ? 'selected' : '' }}>{{ $v->name }}</option>
 						@endforeach
 						
 			@else
@@ -119,6 +155,11 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 <div> 
 <label for="title"><b>Стоимость группа</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->price) ? $model->price : ''}}' name='price' placeholder="цифра" class="form-control"/>
+@if ($errors->has('price'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('price') }}</strong>
+   </span>
+@endif
 </div>
 
 <br><br>
@@ -126,6 +167,11 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 <label for="title"><b>Стоимость индивидуально</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->personally_price) ? 
 $model->personally_price : ''}}' name='personally_price' placeholder="цифра" class="form-control"/>
+@if ($errors->has('personally_price'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('personally_price') }}</strong>
+   </span>
+@endif
 </div>
 
 <br><br>
@@ -152,6 +198,11 @@ value="2"
 </option>
            
 </select>
+@if ($errors->has('groups'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('groups') }}</strong>
+   </span>
+@endif
 </div> 
 </div>
 <br><br>
@@ -230,6 +281,8 @@ name='coord[]' placeholder="координаты" class="form-control"/>
         </select>
 		</div>
 
+@if(RoleService::getRole(Auth::user()->type_id) !='GID'  || RoleService::getRole(Auth::user()->type_id) !='TYROPERATOR')
+
 
 <br><br>
 
@@ -253,7 +306,7 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
-
+@endif
 
 <script>
 $('.select2').select2({

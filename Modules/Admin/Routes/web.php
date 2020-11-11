@@ -157,11 +157,11 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
                ->name('admin_routes_create_save');
 			   
 			  Route::get('update/{routes}', 'RoutesController@update')
-			   ->middleware('can:update,routes')
+			   //->middleware('can:update,routes')
                ->name('admin_routes_update');
 			   
 			   Route::post('update/{routes}', 'RoutesController@saveUpdate')
-			   ->middleware('can:update,routes')
+			  // ->middleware('can:update,routes')
                ->name('admin_routes_update_save');
 			   
 			   Route::get('delete/{routes}', 'RoutesController@delete')
@@ -346,6 +346,102 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	  });
 		
 	    
+        Route::group(['prefix' => 'contentmanager','namespace'=>'Manager'], function () {
+            Route::get('/', 'ContentManagerController@index')
+                ->middleware('can:list,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_content_manager');
+
+            Route::get('create', 'ContentManagerController@create')
+                ->middleware('can:create,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_content_manager_create');
+				
+				/*
+            Route::get('role/{contentmanager}', 'ComunaMessageController@role')
+                ->middleware('can:update,contentmanager')
+                 ->name('admin_content_manager_role');
+				 */
+
+            Route::post('create', 'ContentManagerController@saveCreate')
+                ->middleware('can:create,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_content_manager_create_save');
+
+            Route::get('update/{contentmanager}', 'ContentManagerController@update')
+                ->middleware('can:update,contentmanager')
+                ->name('admin_content_manager_update');
+            
+            Route::post('update-ang/{contentmanager}', 'ContentManagerController@saveUpdate')
+                ->middleware('can:update,contentmanager')
+                ->name('admin_content_manager_update_save');
+
+            Route::get('delete/{contentmanager}', 'ContentManagerController@delete')
+                ->middleware('can:delete,contentmanager')
+                ->name('admin_content_manager_delete');
+
+            Route::get('view/{contentmanager}', 'ContentManagerController@show')
+                ->middleware('can:view,contentmanager')
+                ->name('admin_content_manager_show');
+        });
+	    
+        Route::group(['prefix' => 'moderator','namespace'=>'Manager'], function () {
+            Route::get('/', 'ModeratorController@index')
+                //->middleware('can:list,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_moderator');
+
+            Route::get('create', 'ModeratorController@create')
+                ->middleware('can:create,Modules\Entity\Model\Moderator\Moderator')
+                ->name('admin_moderator_create');
+
+            Route::post('create', 'ModeratorController@saveCreate')
+                ->middleware('can:create,Modules\Entity\Model\Moderator\Moderator')
+                ->name('admin_moderator_create_save');
+
+            Route::get('update/{moderator}', 'ModeratorController@update')
+                ->middleware('can:update,moderator')
+                ->name('admin_moderator_update');
+            
+            Route::post('update-ang/{moderator}', 'ModeratorController@saveUpdate')
+                ->middleware('can:update,moderator')
+                ->name('admin_moderator_update_save');
+
+            Route::get('delete/{moderator}', 'ModeratorController@delete')
+                ->middleware('can:delete,moderator')
+                ->name('admin_moderator_delete');
+
+            Route::get('view/{moderator}', 'ModeratorController@show')
+                ->middleware('can:view,moderator')
+                ->name('admin_moderator_show');
+        });
+	    
+        Route::group(['prefix' => 'users','namespace'=>'Manager'], function () {
+            Route::get('/', 'AllUsersController@index')
+                //->middleware('can:list,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_users');
+
+            Route::get('create', 'AllUsersController@create')
+                //->middleware('can:create,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_users_create');
+
+            Route::post('create', 'AllUsersController@saveCreate')
+                //->middleware('can:create,Modules\Entity\Model\ContentManager\ContentManager')
+                ->name('admin_users_create_save');
+
+            Route::get('update/{users}', 'AllUsersController@update')
+                //->middleware('can:update,contentmanager')
+                ->name('admin_users_update');
+            
+            Route::post('update-ang/{users}', 'AllUsersController@saveUpdate')
+                //->middleware('can:update,contentmanager')
+                ->name('admin_users_update_save');
+
+            Route::get('delete/{users}', 'AllUsersController@delete')
+                //->middleware('can:delete,contentmanager')
+                ->name('admin_users_delete');
+
+            Route::get('view/{users}', 'AllUsersController@show')
+                //->middleware('can:view,contentmanager')
+                ->name('admin_users_show');
+        });
+
 	    Route::group(['prefix' => 'coords', 'namespace' => 'routes'], function () {
           Route::get('/', 'CoordController@index')
              ->name('admin_coords');
@@ -572,16 +668,52 @@ Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {
         });
       });
 	  
+    Route::group(['prefix' => 'lib', 'namespace' => 'Lib'], function () {Route::group(['prefix' => 'cat_routes'], function () {
+            Route::get('/', 'CatRoutesController@index')
+                ->middleware('can:list,Modules\Entity\Model\Cat\LibCat')
+                ->name('admin_lib_catroutes');
+
+            Route::get('create', 'CatRoutesController@create')
+                ->middleware('can:create,Modules\Entity\Model\Cat\LibCat')
+                ->name('admin_lib_catroutes_create');
+
+            Route::post('create', 'CatRoutesController@saveCreate')
+                ->middleware('can:create,Modules\Entity\Model\Cat\LibCat')
+                ->name('admin_lib_catroutes_create_save');
+
+            Route::get('update/{catroutes}', 'CatRoutesController@update')
+                ->middleware('can:update,catroutes')
+                ->name('admin_lib_catroutes_update');
+
+            Route::post('update/{catroutes}', 'CatRoutesController@saveUpdate')
+                ->middleware('can:update,catroutes')
+                ->name('admin_lib_catroutes_update_save');
+
+            Route::get('delete/{catroutes}', 'CatRoutesController@delete')
+               ->middleware('can:delete,catroutes')
+               ->name('admin_lib_catroutes_delete');
+
+            Route::get('view/{catroutes}', 'CatRoutesController@show')
+               ->middleware('can:view,catroutes')
+               ->name('admin_lib_catroutes_show');
+        });
+      });
+	  
 	  
 	  
 	  
 });
 Route::group(['namespace' => 'Edit'], function () {
 Route::any('uploads2',['uses' => 'CkeditorController@uploads'])->name('uploads2');
-Route::any('figures',['uses' => 'CkeditorController@figures'])->name('figures');
+Route::any('figureseditor',['uses' => 'CkeditorController@figures'])->name('figureseditor');
+Route::any('aboutseditor',['uses' => 'CkeditorController@about'])->name('aboutseditor');
+
 
 Route::any('drobsone-send-routes',['uses' => 'Drobsone2Controller@send'])->name('drobsone-send-routes');
 Route::any('slider-remove-routes',['uses' => 'Drobsone2Controller@slider'])->name('slider-remove-routes');
+//about
+Route::any('drobsone-send-about',['uses' => 'Drobsone2Controller@sendabout'])->name('drobsone-send-about');
+Route::any('slider-remove-about',['uses' => 'Drobsone2Controller@sliderabout'])->name('slider-remove-about');
 //gid
 Route::any('drobsone-send-gid',['uses' => 'Drobsone2Controller@sendgids'])->name('drobsone-send-gid');
 Route::any('slider-remove-gid',['uses' => 'Drobsone2Controller@slidergids'])->name('slider-remove-gid');

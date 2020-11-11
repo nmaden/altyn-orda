@@ -12,6 +12,7 @@ use Modules\Entity\Model\SysUserType\SysUserType;
 class ContentManagerAction {
     private $model = false;
     private $request = false;
+    public $type = false;
 
     function __construct(Model $model, Request $request){
         $this->model = $model; 
@@ -19,15 +20,16 @@ class ContentManagerAction {
     }
 
     function run(){
+		
         $ar = $this->request->all();
         $ar['edited_user_id'] = $this->request->user()->id;
+		$ar['type_id'] = SysUserType::MANAGER;
+		$ar['activator'] = 'active';
+        if($this->request->type_id){
+		$ar['type_id'] = $this->request->type_id;
 
-        if (User::where('email', $this->request->email)->where('id', '<>',  $this->model->id)->count() > 0)
-            throw new \Exception(trans('model.users.email_exist'));
+		}
 
-        
-        if (!$this->request->password && !$this->model->password)
-            throw new \Exception(trans('model.users.need_password'));
         
         if ($this->request->has('photo'))
             $ar['photo'] = UploadPhoto::upload($this->request->photo);
@@ -39,7 +41,8 @@ class ContentManagerAction {
         else
             unset($ar['password']);
 
-        $ar['type_id'] = SysUserType::MODERATOR;
+     
+     
 
         $this->model->fill($ar);
         $this->model->save();

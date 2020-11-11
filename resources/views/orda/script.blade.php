@@ -30,6 +30,7 @@
             );
             map_m.geoObjects.add(polygonPlacemark_m);
             map_m.behaviors.disable('scrollZoom');
+            $('.inter__map--preloader').addClass("inter__map-act");
         }		
     
     </script>

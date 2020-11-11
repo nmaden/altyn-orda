@@ -125,16 +125,28 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-6">
-
-                        <div class="filter__slider">
-                            <div class="filter">
-                                <div data-current-min-value="2000" data-current-max-value="9000" data-min-value="1000" data-max-value="10000" class="range-widget js-range">
-                                <div class="range-widget__slider"></div>
-                                <input type="hidden" value="1000" name="arrFilter_P1_MIN" class="range-widget-min range-widget__input">
-                                <input type="hidden" value="10000" name="arrFilter_P1_MAX" class="range-widget-max range-widget__input">
+                        
+                        <div class="filter__main--slider">
+                            <div class="filter__slider">
+                                <div class="filter">
+                                  <p id='range'></p>
+                                    <div id="slider" class="range-widget__slider"></div>
+                                    <input type="hidden" id="search_min" value="2000">
+                                    <input type="hidden"  id="search_max" value="9000">
+    
+                                  {{-- <div data-current-min-value="2000" data-current-max-value="9000" data-min-value="1000" data-max-value="10000" class="range-widget js-range">
+                                 --}}
+                                        {{--
+                                    <div class="slider range-widget__slider"></div>
+                                    <input type="hidden" value="1000" name="arrFilter_P1_MIN" class="range-widget-min range-widget__input">
+                                    <input type="hidden" value="10000" name="arrFilter_P1_MAX" class="range-widget-max range-widget__input">
+                                    
+                                 
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
+                     
 
                     </div>
 
@@ -145,102 +157,7 @@
 
                 <div class="sights__block gid__block">
                     <div class="row">
-              @foreach($gid as $item)
-                   
-                    <div class="col-lg-4 swiper-slide">
-                        <div class="gid__item">
-                            <div class="gid__item--top">
-
-                                <div class="gid__item--img">
-                                   <a href="{{route('gids-item',$item)}}">
-                               @if(isset($item->photo))
-                                    <img src="{{URL::asset($item->photo)}}" alt="">
-								@endif
-                                    </a>
-                                </div>
-                                <div class="gid__item--info">
-                                    <div class="gid__item--toptext">
-									@if(isset($item->name))
-									{{$item->name}}
-								    @endif
-                                    </div>
-                                    <div class="gid__item--title">
-                                        <a href="{{route('gids-item',$item)}}">
-                                            @if(isset($item->imya))
-									{{$item->imya}}
-								    @endif
-                                        </a>
-                                    </div>
-                                    <div class="gid__item--lang">
-							
-                                  	
-							@if($item->getLangAr() >= 0)
-							    @include('orda.gid.components.item-lang',$item)
-							@endif
-								
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="gid__item--body">
-                                <div class="gid__item--price">
-								            @if(isset($item->price))
-
-                                   @lang('front_main.price') 
-       
-									
-									{{$item->price}}
-								    @if($item->currency)
-					              {{$item->currency}}
-				                 @else
-					               тг		 
-				                @endif
-							     @include('orda.components.sposob-oplaty',$item)
-                                 @endif
-									
-			           
-				
-				
-									
-									
-									
-
-                                </div>
-                            </div>
-                            <div class="gid__item--bottom">
-                                <div class="gid__bottom--item">
-                                    <div class="gid__bottom--img">
-                                        <img src="/img/map-icon.svg" alt="">
-                                    </div>
-									@if(isset($item->relCity->name))
-                                    <div class="gid__bottom--text">
-                                        
-									{{$item->relCity->name}}
-								   
-                                    </div>
-									 @endif
-                                </div>
-                                <div class="gid__bottom--item">
-                                    <div class="gid__bottom--img">
-                                        <img src="/img/phone-icon.svg" alt="">
-                                    </div>
-								 @if(isset($item->phone))
-									
-								  <div class="gid__bottom--text">
-                                        <a href="tel:{{$item->phone}}">
-										{{$item->phone}}
-										</a>
-                                    </div>
-								    @endif
-									
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-@endforeach
-
-
+				    @include('orda.gid.components.slider-foreach',['page'=>'page_gids'])
                     </div>
 
                 </div>
@@ -253,47 +170,67 @@
 
         </div>
     </div>
+
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+    
+<style>
+    .filter__slider--main {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .filter__slider {
+        width: 90%;
+        position: absolute;
+        top:0;
+    }
+    #range {
+    color: #737373;
+    font-size: 18px;
+       position: absolute;
+       top:-30px;
+       left: 80px;
+    }
+
+    .cur__price {
+        border: 2px;
+        width: 10px;
+        height: 20px;
+    }
+
+    .ui-widget.ui-widget-content {
+        z-index: 0 !important;
+    }
+    .ui-slider-handle {
+        background-color: blue !important;
+
+        width: 21px !important;
+        height: 32px !important;
+        top: -13px !important;
+
+        border-radius: 20px !important;
+        background-color: #B77F0B !important;
+    }
+    .ui-slider-range {
+        background-color: #0a8232 !important;
+    }
+    .range-widget__slider {
+        height: 7px !important;
+        background-color: #d8d8d8 !important;
+    }
+    #search_min {
+        display: none;
+    }
+    #search_max {
+        display: none;
+    }
+</style>
 <script>
 
-function send_to_search(param) {
-       
-        let value = document.querySelector("#"+param).value;
-      
-       
-        var url = new URL(window.location["href"]);
 
-        var search_params = url.searchParams;
-    
-      
-        if(value=="all_lang") {
-            
-            search_params.delete(param);
-           
-        }
-        else if(value=="all_city") {
-            
-            search_params.delete(param);
-           
-        }
-        else if( value=="all_category") {
-            search_params.delete(param);
-            
-        }
-        else {
-            search_params.set(param, value);
-        }
-        
-
-        url.search = search_params.toString();
-
-        var new_url = url.toString();
-       
-        console.log(new_url);
-        window.location.replace(new_url);
-    
-      
-    }
       
 
 </script>

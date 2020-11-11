@@ -29,7 +29,10 @@ trait Presenter {
 	 
 	}
 
-		
+	function getPublishIndexAttribute($v){
+	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
+    }
+	
 	 function getLangAr(){
 		return LibLanguage::pluck('name', 'id')->toArray();
 	}
@@ -69,9 +72,16 @@ trait Presenter {
 		
 		return $this->getTransField('seo_title', $v);
     }
+	function getGidTitleAttribute($v){
+		
+		return $this->getTransField('gid_title', $v);
+    }
 	
 	function getSeoDescriptionAttribute($v){
 		return $this->getTransField('seo_description', $v);
+    }
+	function getFamilyAttribute($v){
+		return $this->getTransField('family', $v);
     }
 	
 }

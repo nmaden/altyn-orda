@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Contracts\Auth\CanResetPassword;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'login','password', 'type_id', 'name', 'photo',
+        'email', 'login', 'password', 'type_id', 'photo','activate_key','activator','family','phone','name'
     ];
 
     /**

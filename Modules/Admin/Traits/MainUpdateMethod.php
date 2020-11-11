@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Modules\Entity\ModelParent;
 use Modules\Admin\Http\Requests\UniverRequest;
 use Illuminate\Support\Facades\Validator;
+use PageService;
 
 trait MainUpdateMethod  {
     public function update(Request $request, ModelParent $item) {
@@ -29,12 +30,18 @@ trait MainUpdateMethod  {
     }
 
     public function saveUpdate(Request $request, ModelParent $item) {
+
 		
 		
        $validator = $this->validator($request->all(),$item);
-        if ($validator->fails()) { 
-        return redirect()->back()->withErrors($validator)->withInput();
-        };
+
+		  try {$validator = $this->validator($request->all(),$item);} 
+		   catch (\Exception $e) {
+			return redirect()->back()->with('error', $e->getMessage());
+        }
+	   
+	   
+
 	
 
    
@@ -54,9 +61,18 @@ trait MainUpdateMethod  {
 			
             return redirect()->back()->with('error', $e->getMessage());
         }
+		
+		
+		if($this->route_path == 'admin_content_manager'){
+			 return redirect()->route($this->route_path)->with('success', trans('main.updated_model'));
+		}
+
         if($request->lang){
+
         return redirect()->route($this->route_path.'_update', $item->id.'?lang='.$request->lang)->with('success', trans('main.updated_model'));
+		
 		}else{
+			
 		  return redirect()->route($this->route_path.'_update', $item)->with('success', trans('main.updated_model'));
 		}
     }

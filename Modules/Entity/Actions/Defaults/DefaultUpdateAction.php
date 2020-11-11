@@ -26,24 +26,66 @@ class DefaultUpdateAction {
         $ar = $this->request->all();
 		
         $ar['user_id'] = $this->request->user()->id;
-    
-	 	if ($this->request->has('photo')){
+        	$ar['edited_user_id'] = $this->request->user()->id;
+
+	 	 	if ($this->request->has('photo')){
 			
-			
-		   
-		    if(is_file(public_path($this->model->photo))){
+			if(is_file(public_path($this->model->photo))){
 	          Storage::delete($this->model->photo);
             }
             $ar['photo'] = UploadPhoto::upload($this->request->photo,$this->model->photo);
 	   }
         else {
-            unset($ar['photo']);
+			
+			if(isset($ar['foto'])){
+              $ar['photo']= $ar['foto'];
+			}else{
+				 unset($ar['photo']);
+			}
 		}
-          $ar['edited_user_id'] = $this->request->user()->id;
+  
+        
 		  
-	   if($this->request->general){if($this->request->seo_description && $this->request->seo_title){
-		   if($this->request->lang){Cache::forever('seo-figure-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
-          }else{Cache::forever('seo-figure-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+		  
+		  
+		if($this->request->description){
+		preg_match_all('/\/store\/editor\/[\d]+\/[\d]+\/[\d+]+\/[\d\w]+.[\w]+/i',$this->request->description,$array2);
+		if(is_array($this->model->editor_unserialize)){
+			$baza = $this->model->editor_unserialize;
+			$diff = array_diff($baza,$array2[0]);
+			$diff2 = array_diff($array2[0],$baza);
+
+			$intersect = array_intersect($baza,$array2[0]);
+            if(is_array($diff) && !empty($diff)){
+			 foreach($diff as $item){
+			   Storage::delete($item);
+              }
+			 }
+			 $image = $diff2;
+			 if($intersect){
+			 $image = array_merge($intersect,$diff2);
+			 }
+			 		
+             
+			if(!empty($intersect) || !empty($image)){
+				$ar['editor'] = serialize($image);
+			}
+		  }else{
+			  if(!empty($array2)){
+			  $ar['editor'] = serialize($array2[0]);
+			  }
+		  }
+	    }
+
+		  
+		  
+		  
+	   if($this->request->general){if($this->request->seo_description || $this->request->seo_title){
+		   $title= strip_tags($this->request->seo_title);
+		   $desc= strip_tags($this->request->seo_description);
+
+		   if($this->request->lang){Cache::forever('seo-figure-'.$this->request->lang,[$title,$desc]);
+          }else{Cache::forever('seo-figure-ru',[$title,$desc]);//сохранение безвременно
 		   }}}
 	   
 	   

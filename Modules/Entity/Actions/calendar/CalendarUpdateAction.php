@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Services\UploadPhoto;
 use Storage;
 use Cache;
+use Carbon\Carbon;
+
 class CalendarUpdateAction {
     private $model = false;
     private $request = false;
@@ -25,6 +27,7 @@ class CalendarUpdateAction {
 
         $ar = $this->request->all();
 		$ar['user_id'] = $this->request->user()->id;
+		$ar['edited_user_id'] = $this->request->user()->id;
     
 	 	if ($this->request->has('photo')){
 			
@@ -41,15 +44,26 @@ class CalendarUpdateAction {
          $ar['social'] = serialize($this->request->social);
        }
        
-	   if($this->request->general){
+	   
+	   if($this->request->date){
 		   
-	    if($this->request->seo_description && $this->request->seo_title){
-		   if($this->request->lang){
-			 
-			 Cache::forever('seo-calendar-'.$this->request->lang,[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+		   if(strlen($this->request->date) ==4){
+			   $carbon =  Carbon::createFromFormat('Y-m-d', $this->request->date.'-11-30');
+               $ar['date'] = $carbon->toDateString();		   
+               
+		   }
+	   }
+	   
+	   
+	   if($this->request->general){
 
-		   }else{
-		     Cache::forever('seo-calendar-ru',[$this->request->seo_title,$this->request->seo_description]);//сохранение безвременно
+	    if($this->request->seo_description || $this->request->seo_title){
+		   $title= strip_tags($this->request->seo_title);
+		   $desc= strip_tags($this->request->seo_description);
+		   if($this->request->lang){
+			 Cache::forever('seo-calendar-'.$this->request->lang,[$title,$desc]);//сохранение безвременно
+           }else{
+			 Cache::forever('seo-calendar-ru',[$title,$desc]);//сохранение безвременно
 		   }
 	   }
 	   

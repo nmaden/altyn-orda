@@ -6,7 +6,7 @@ use Modules\Entity\Model\LibCity\LibCity;
 //use Modules\Entity\Model\LibRequirement\LibRequirement;
 use Lang;
 use Cache;
-
+use DB;
 trait Presenter {
 	
 	function getPhotoUnserializeAttribute(){
@@ -17,6 +17,12 @@ trait Presenter {
 		}
 	 
 	}
+	function getCat(){
+	$categories = DB::table('routes_categories')->get();
+	return $categories->pluck('id','name')->toArray();
+    }
+	
+	
 	function getGroupUnserializeAttribute(){
 		if(@unserialize($this->groups)){
 			return unserialize($this->groups);
@@ -26,7 +32,10 @@ trait Presenter {
 	 
 	}
 	
-
+function getPublishIndexAttribute($v){
+	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
+    }
+	
 function getCityAr(){
 		return LibCity::pluck('name', 'id')->toArray();
 }

@@ -28,10 +28,11 @@ class CalendarUpdateAction {
         $ar = $this->request->all();
 		
         $ar['user_id'] = $this->request->user()->id;
-    
+    	$ar['edited_user_id'] = $this->request->user()->id;
+
 	 	if ($this->request->has('photo')){
 			
-			
+			dd($this->request->all());
 		   
 		    if(is_file(public_path($this->model->photo))){
 	          Storage::delete($this->model->photo);

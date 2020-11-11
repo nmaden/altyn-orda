@@ -131,12 +131,66 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+		'confirm' => [
+        'required' => 'Не отмечена галочка соглашение',
+        ],
 		
-		'rank_unikum' => [
-		  'unique' => 'This value is already in the system',
+		'email' => [
+			'max' => 'Максимально допустимое количество символов - :max',
+			'required' => 'Email обязателеное поле',
+			'unique' => 'Такой email уже есть'
+
+		],
+		'password' => [
+			//'max' => 'Максимально допустимое количество символов - :max',
+			'min' => 'Поле :attribute не менее - :min',
+            'required' => ':attribute обязательное поле',
+			'regex'=>'Пароль должен содержать хотя бы одну цифру и заглавную букву',
+             'confirmed' => 'Пароли не совподают',
+
+		],
+		'login' => [
+			'max' => 'Максимально допустимое количество символов - :max',
+			'required' => ':attribute обязательное поле',
+			'unique' => 'Такой логин : в системе есть придумайте другой',
+			'regex' => 'Логин должен быть на латинице'
+
+		],
+		
+		'headers_title' => [
+		  'required' => ' Поле :attribute обязателен',
+		  'string'=>'Поле :attribute должно быть строкой',
 		
         ],
 		
+		'name' => [
+		  'required' => ' Поле :attribute обязателен',
+		  'string'=>'Поле :attribute должно быть строкой',
+		],
+		'vosrast' => [
+		  'numeric'=>'Поле :attribute должно быть числом'
+		],
+	    'price' => [
+		  'numeric'=>'Поле :attribute должна быть числом'
+		],
+		'opyt' => [
+		  'numeric'=>'Поле :attribute должно быть числом'
+		],
+	    'imya' => [
+		  'required' => ' Поле :attribute обязателено',
+		  'string'=>'Поле :attribute должно быть строкой',
+		  
+		],
+		'photo'=>[
+		  'dimensions'=>'Разрешеный диапозон ширины изображения от :min_widthpx до :max_widthpx'
+
+		],
+		'date'=>[
+		 'regex'=>'Не сохранено: неправильный формат'
+		],
+		'gid_title'=>[
+		 'string'=>'Заголовок должен быть строкой',
+		]
     ],
 
     /*
@@ -151,7 +205,15 @@ return [
     */
 
     'attributes' => [
-	'rank_unikum'=>'Unique rating',
+	'headers_title'=>'заголовок',
+	'name'=>'тип гида',
+	'vosrast'=>'возраст',
+	'opyt'=>'опыт',
+	'imya'=>'имя',
+	'price'=>'цена',
+	'login'=>'Логин',
+	'password'=>'Пароль'
+	
 	],
 
 

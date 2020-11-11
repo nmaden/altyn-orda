@@ -12,11 +12,13 @@ use Cache;
 trait Presenter {
 	function getRoutersAr(){
 		$routes = Routes::pluck('name', 'id')->toArray();
+		
 		if(count($routes) > 0){
 		return $routes;
 		}else{
 			false;
 		}
+		
     }
 	
 	

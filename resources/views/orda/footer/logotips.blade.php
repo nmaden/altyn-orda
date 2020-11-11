@@ -1,14 +1,24 @@
-<div style='float:right;position:relative;right:15px'>
-<a href=""><img width="80px" src="/logo/logo.png"></a>&nbsp&nbsp
-<a href=""><img width="80px" src="/logo/1.png"></a>
-@if($social)
-	
-@foreach($social as $v)
-&nbsp&nbsp
-<a href="{{$v['name']}}">
-	<img height="25px"  src="{{URL::asset($v['photo'])}}"/>
-</a>
-@endforeach
+<div class="header__social" style="float:right;margin-bottom:10px;">
+					
+					@if(is_array($social))
+                      @foreach($social as $v)
 
-@endif
-</div>
+                        
+						@if(isset($v[app()->getLocale()]))
+							@if($v[app()->getLocale()]['name'] =='vhod')
+								@php
+							continue;
+							    @endphp
+							@endif
+					   <div class="header__social--item tooltip__item" title="{{$v[app()->getLocale()]['hint']}}">
+                            <a href="{{ $v[app()->getLocale()]['name'] }}">
+								
+                                <img src="{{ URL::asset($v[app()->getLocale()]['photo']) }}" alt="">
+                            </a>
+						</div>
+
+						@endif
+                      @endforeach
+                     @endif
+                    </div>
+                    

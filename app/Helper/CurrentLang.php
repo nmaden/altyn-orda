@@ -16,6 +16,8 @@ class CurrentLang {
 			return 'ru';
 		}
 		}
+	    $lang= \App::getLocale();
+        if($lang){return $lang;}
 		return session('current_lang');
 		
 		
@@ -52,7 +54,7 @@ class CurrentLang {
             'en' => 'English', 
 			'ru' => 'Русский',
 			'kz' => 'Казахский', 
-			'fr' => 'Франсузкий',
+			'fr' => 'Французский',
 			'de' => 'Немецкий',
 			'de' => 'Немецкий',
 			'zh' => 'Китайский',
