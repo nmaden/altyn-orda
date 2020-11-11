@@ -84,7 +84,22 @@
 
 	</head>
     <!-- home -->
-    <body class="{{ Route::currentRouteName() == 'home' ? 'home-page' : ''}}">
+    <body class="{{ 
+        @switch(Route::currentRouteName())
+            @case('home')
+                'home-page'
+                @break
+            @case('legenda')
+                'legenda-page'
+                @break
+            @case('legenda-item')
+                'legenda-page'
+                @break
+            @default
+                ''
+        @endswitch
+    }}">
+
     @yield('navigation')
  
     @yield('slider')
