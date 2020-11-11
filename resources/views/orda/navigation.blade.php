@@ -54,10 +54,16 @@
                       @foreach($social as $v)
                       
                         
-						@if(isset($v[app()->getLocale()]))
-					   <div class="header__social--item tooltip__item" title="{{$v[app()->getLocale()]['hint']}}">
-                            <a href="{{ $v[app()->getLocale()]['name'] }}">
-                                <img src="{{ URL::asset($v[app()->getLocale()]['photo']) }}" alt="">
+	@if(isset($v[app()->getLocale()]))
+	<div class="header__social--item tooltip__item" title="{{$v[app()->getLocale()]['hint']}}">
+				   
+	@if($v[app()->getLocale()]['name'] == 'vhod')
+		<a href="{{route($v[app()->getLocale()]['name']) }}">				   
+    @else
+		<a href="{{ $v[app()->getLocale()]['name'] }}">				   
+    @endif
+				   
+<img src="{{ URL::asset($v[app()->getLocale()]['photo']) }}" alt="">
                             </a>
 						</div>
                         @else
