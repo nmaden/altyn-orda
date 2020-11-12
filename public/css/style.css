@@ -78,7 +78,8 @@ body.derevo-page{
     background-size: cover;
 }
 
-body.legenda-page .page__description {
+body.legenda-page .page__description,
+body.derevo-page .page__description {
     background: transparent;
 }
 body.derevo-page .footer__partners,
@@ -2814,4 +2815,16 @@ a.modal__fixed--linck {
     content: "";
     display: table;
     clear: both;
+}
+/*------------------------------------*/
+h1.section__title.derevo__title {
+    font-weight: bold;
+    font-size: 64px;
+    margin-bottom: 100px;
+    color: #FFFFFF;
+    text-shadow: 0px 5px 10px #65400A;
+}
+.derevo__title--block{
+    text-align: center;
+    justify-content: center;
 }

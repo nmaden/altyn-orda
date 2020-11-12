@@ -4,7 +4,7 @@
     <div class="about__desc page__description">
         <div class="container">
 
-            <div class="section__title--block">
+            <div class="section__title--block derevo__title--block">
                 <h1 class="section__title derevo__title">
                     Генеалогические дерево
                 </h1>
