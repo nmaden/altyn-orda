@@ -66,6 +66,10 @@ body *{
 }
 
 
+body.legenda-item,
+body.legenda{
+    background: url(../img/legenda_bg.jpg);
+}
 
 
 header {
