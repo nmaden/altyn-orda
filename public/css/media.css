@@ -501,6 +501,10 @@
     .footer__partners--item {
         margin: 10px 0;
     }
+
+    .derevo__level--img:after {
+        border: 10px solid #fff !important;
+    }
 }
 @media screen and (max-width: 768px) {
     
@@ -610,6 +614,24 @@
         display: none;
     }
 
+    
+        
+    h1.section__title.derevo__title {
+        font-size: 30px;
+    }
+
+    .derevo__level--item {
+        width: 175px !important;
+        height: 175px !important;
+        min-width: 175px !important;
+        margin: 10px 20px !important;
+    }
+
+    .derevo__level--big {
+        width: 220px !important;
+        height: 220px !important;
+        min-width: 220px !important;
+    }
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
@@ -825,6 +847,12 @@
         height: 250px;
     }
 
+    .derevo__level--item {
+        width: 130px !important;
+        height: 130px !important;
+        min-width: 130px !important;
+        margin: 10px 5px !important;
+    }
 }
 @media screen and (max-width: 320px) {
 
