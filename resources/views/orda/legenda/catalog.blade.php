@@ -35,7 +35,6 @@
                 </div>
 
 
-                {!! $items->appends($request->all())->links('paginate') !!}
 
 
 
