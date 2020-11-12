@@ -66,11 +66,12 @@ body *{
 }
 
 
-body.legenda-item,
-body.legenda{
+body.legenda-page{
     background: url(../img/legenda_bg.jpg);
 }
-
+body.legenda-page .page__description {
+    background: transparent;
+}
 
 header {
     -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
