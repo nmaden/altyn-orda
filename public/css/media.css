@@ -748,6 +748,14 @@
     header {
         padding-bottom: 20px;
     }
+
+    .sights__item.legenda__item {
+        height: 400px;
+    }
+    .legenda__item .sights__item--img img {
+        height: 100% !important;
+        object-fit: cover;
+    }
 }
 @media screen and (max-width: 320px) {
 

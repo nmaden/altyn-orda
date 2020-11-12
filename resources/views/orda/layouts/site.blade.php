@@ -84,9 +84,7 @@
 
 	</head>
     <!-- home -->
-    <body class="{{ Route::currentRouteName() == 'home' ? 'home-page' : ''}}
-        {{ Route::currentRouteName() == 'legenda' ? 'legenda-page' : ''}}
-        {{ Route::currentRouteName() == 'legenda-item' ? 'legenda-page' : ''}}">
+    <body class="{{ Route::currentRouteName() == 'home' ? 'home-page' : ''}}{{ Route::currentRouteName() == 'legenda' ? 'legenda-page' : ''}}{{ Route::currentRouteName() == 'legenda-item' ? 'legenda-page' : ''}}">
     @yield('navigation')
  
     @yield('slider')

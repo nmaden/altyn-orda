@@ -66,7 +66,17 @@ body *{
 }
 
 
-
+body.legenda-page{
+    background: url(../img/legenda_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body.legenda-page .page__description {
+    background: transparent;
+}
+body.legenda-page .footer__partners{
+    display: none;
+}
 
 header {
     -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -2741,4 +2751,36 @@ a.modal__fixed--linck {
 .inter__map-act .inter__map_preloader {
     opacity: 0;
     visibility: hidden;
+}
+
+/*------------legenda-------------*/
+.legenda__item {
+    height: 500px;
+}
+.page__legenda--img img {
+    border-radius: 30px;
+}
+
+.page__gallery--img.page__legenda--img {
+    height: 400px;
+}
+
+.legenda__right .legenda__item {
+    height: 360px;
+}
+
+.legenda__right .legenda__item .sights__item--img {
+    height: 265px;
+}
+
+.legenda__right .legenda__item::before {
+    height: 20px;
+}
+
+.legenda__right .legenda__item .sights__item--info {
+    padding: 20px 15px;
+}
+
+.legenda__right .legenda__item .sights__item--title a {
+    font-size: 16px;
 }
