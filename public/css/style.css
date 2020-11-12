@@ -2784,3 +2784,26 @@ a.modal__fixed--linck {
 .legenda__right .legenda__item .sights__item--title a {
     font-size: 16px;
 }
+.legenda__text--title {
+    border-bottom: 1px solid #0E4F32;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.legenda__text--title:first-letter {
+    color: #B87F04;
+    font-size: 76px;
+    float: left;
+    vertical-align: top;
+    line-height: 0.5;
+    margin-right: 10px
+}
+
+.legenda__text--title:after {
+    content: "";
+    display: table;
+    clear: both;
+}

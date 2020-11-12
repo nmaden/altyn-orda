@@ -756,6 +756,19 @@
         height: 100% !important;
         object-fit: cover;
     }
+    .legenda__text--title {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+    .legenda__text--title:first-letter {
+        font-size: 60px;
+    }
+    .legenda__right .legenda__item {
+        height: 360px;
+    }
+    .page__gallery--img.page__legenda--img {
+        height: 250px;
+    }
 }
 @media screen and (max-width: 320px) {
 
