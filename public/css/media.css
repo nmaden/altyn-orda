@@ -292,6 +292,8 @@
     .header__menu--container {
         background-size: 40%;
     }
+
+    .derevo__block--img img {position: relative;left: 50%;transform: translateX(-47%);}
 }
 @media screen and (max-width: 992px) {
     .banner__linck--map {
@@ -347,6 +349,59 @@
         padding: 20px 0;
     }
 
+
+    .derevo__block--tree {
+        display: flex;
+        flex-direction: column-reverse;
+        top: 0;
+        bottom: auto !important;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    h1.section__title.derevo__title {
+        font-size: 45px;
+        margin-bottom: 50px;
+    }
+
+    .derevo__level {
+        padding: 0 !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .derevo__level:before {
+        display: none;
+    }
+
+    .derevo__level--item:before {
+        display: none;
+    }
+
+    .derevo__level--item:after {
+        display: none;
+    }
+
+    .derevo__level--item {
+        margin: 0 !important;
+    }
+
+    .derevo__level--item {
+        width: 230px !important;
+        height: 230px !important;
+        min-width: 230px !important;
+        margin: 10px 20px !important;
+    }
+
+    .derevo__level.derevo__level--2 {
+        margin: 0;
+    }
+
+    .derevo__block--img {
+        display: none;
+    }
     /*-------------------*/
     .about__banner--title {
         font-size: 45px;
@@ -769,7 +824,7 @@
     .page__gallery--img.page__legenda--img {
         height: 250px;
     }
-    
+
 }
 @media screen and (max-width: 320px) {
 
