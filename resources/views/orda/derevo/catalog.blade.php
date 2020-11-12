@@ -19,7 +19,160 @@
 
                 <div class="derevo__block--tree">
 
-                    12
+                    <div class="derevo__level derevo__level--2">
+
+                        <div class="derevo__level--item derevo__level--item--mini">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        <div class="derevo__level--item derevo__level--item--mini">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        <div class="derevo__level--item derevo__level--item--mini">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        <div class="derevo__level--item derevo__level--item--mini">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        <div class="derevo__level--item derevo__level--item--mini">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        
+                    </div>
+
+                    <div class="derevo__level derevo__level--1">
+
+                        <div class="derevo__level--item">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        <div class="derevo__level--item">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        <div class="derevo__level--item">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        <div class="derevo__level--item">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+                        
+                    </div>
+
+                    <div class="derevo__level derevo__level--0">
+
+                        <div class="derevo__level--item derevo__level--big derevo__level--item-0">
+                            <div class="derevo__level--img">
+                                <img src="/img/chingis.jpg" alt="">
+                            </div>
+                            <div class="derevo__level--info">
+                                <div class="derevo__level--title">
+                                    Чингисхан
+                                </div>
+                                <div class="derevo__level--date">
+                                    1155 - 1227
+                                </div>
+                            </div>
+                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                        </div>
+
+                    </div>
 
                 </div>
 
