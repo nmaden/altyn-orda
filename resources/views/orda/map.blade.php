@@ -99,7 +99,7 @@
                                                 
                                                 @if(isset($sights_lib[0]))
                                                 @foreach($sights_lib as $k=>$item)
-                                                                                                                                @if(isset($ids->sights))
+                                                                                                                                           @if(isset($ids->sights))
 
                                                 <option {{$item->id == $ids->sights ? 'selected' : ''}} value="{{$item->id}}">
                                                 <a href="">{{$item->name}}</a>
@@ -165,80 +165,6 @@
                     </div>
 					
                     @if($route == 'routes-map')
-                        <div class="route__line--block" style=''>
-                            <div class="route__line">
-
-                                <div class="route__line--li">
-                                    <div class="route__line--item">
-                                        <div class="route__item--absol">
-                                            <div class="route__item--img">
-                                                <img src="/img/bus-1.svg" alt="">
-                                            </div>
-                                            <div class="route__item--km" id="route0">
-                                                0 км
-                                            </div>
-                                        </div>
-                                        <div class="route__item--btn">
-                                            <a>
-                                                По следам Золотой Орды
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="route__line--li">
-                                    <div class="route__line--item">
-                                        <div class="route__item--absol">
-                                            <div class="route__item--img">
-                                                <img src="/img/bus-1.svg" alt="">
-                                            </div>
-                                            <div class="route__item--km"  id="route1">
-                                                0 км
-                                            </div>
-                                        </div>
-                                        <div class="route__item--btn">
-                                            <a>
-                                                По следам Золотой Орды
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="route__line--li">
-                                    <div class="route__line--item">
-                                        <div class="route__item--absol">
-                                            <div class="route__item--img">
-                                                <img src="/img/bus-1.svg" alt="">
-                                            </div>
-                                            <div class="route__item--km" id="route2">
-                                                0 км
-                                            </div>
-                                        </div>
-                                        <div class="route__item--btn">
-                                            <a>
-                                                По следам Золотой Орды
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="route__line--li">
-                                    <div class="route__line--item route__line--active">
-                                        <div class="route__item--absol">
-                                            <div class="route__item--img">
-                                                <img src="/img/bus-4.svg" alt="">
-                                            </div>
-                                            <div class="route__item--km" id="route3">
-                                                0 км
-                                            </div>
-                                        </div>
-                                        <div class="route__item--btn">
-                                            <a>
-                                                Мавзолей Алаша хана
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
 
                         <div class="route__line--maps">
                             <div class="inter__map--preloader">
@@ -257,7 +183,7 @@
                                     <div class="sk-circle sk-circle-11"></div>
                                     <div class="sk-circle sk-circle-12"></div>
                                 </div>
-                            </div>
+                            
                         </div>
                     @else
                     

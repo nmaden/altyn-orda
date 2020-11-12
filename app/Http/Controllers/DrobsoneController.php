@@ -23,7 +23,7 @@ class DrobsoneController extends Controller
     }
 	 public function send(Request $request)
     {
-		return 100;
+		
 		$file = $request->file('file');
 		$file_name = time().rand(0,9).'.'.$file->getClientOriginalExtension();
 		$url = '/store/test/'.date('Y').'/'.date('m').'/'.date('d').'/'.$file_name;

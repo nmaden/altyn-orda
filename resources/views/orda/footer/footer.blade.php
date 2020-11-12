@@ -140,6 +140,7 @@
 
 @endphp
 
+<!------подключение яндекс карт ------>
 @if($route == 'home' || $route == 'routes-item' || $route == 'map' || $route =='filter-map' || $route == 'sights-map' || $route === 'routes-map')
 
 <script src="https://api-maps.yandex.ru/2.1/?apikey=e65e00dd-dbe3-4020-a0f5-272019ac69a9&lang=ru_RU" type="text/javascript">
@@ -147,24 +148,28 @@
 <script>	
 var json_model= JSON.parse(decodeURIComponent(json));
 var keys = Object.keys(json_model);
-
-
-//console.log(json_model);
 </script>
 
 @endif
 
-<!------ручная карта маршрутов------>
+<!------ручное определение карты  страница маршрутов и стр интерактивная карта------>
 @if($route === 'routes-map' && $auto == 1 || $route === 'routes-item' && $auto == 1)
-	
+
 	  @include('orda.map.interactiv.auto_routes')
 
 @endif
 
 
-<!-----автоматическая карта маршрута------->
-@if($route === 'routes-map' && $auto == 2 || $route === 'routes-item' && $auto == 2)
-	  @include('orda.map.interactiv.karta1')
+<!-----автоматическая карта маршрута cтр routes------->
+@if($route === 'routes-item' && $auto == 2)
+	
+	  @include('orda.map.routes.page-routes')
+  
+  @endif
+  
+<!-----автоматическая карта маршрута стр интерактивная карта------->
+@if($route === 'routes-map' && $auto == 2)
+	  @include('orda.map.routes.page-map')
   
   @endif
 

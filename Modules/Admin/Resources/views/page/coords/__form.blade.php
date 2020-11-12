@@ -9,10 +9,20 @@ if(in_array('show',$ar)){
 
 @endphp
 <style>
-#divs,#divs2{
-	margin-bottom:20px;
-	margin-top:20px;
+#rm{
+	cursor:pointer;
+	color:blue;
+		margin-bottom:10px;
+
 }
+.r{
+	margin-bottom:30px;
+}
+.r a{
+margin:0px;
+padding:0px;
+}
+
 </style>
 
 
@@ -37,6 +47,7 @@ name='coord[]' placeholder="координаты" class="form-control coords"
 @endforeach
 
 @endif
+
 </div>
 
 
@@ -56,9 +67,7 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
 @endforeach
 @endif
 
-<div class="input_fields_wrap2">
- 
-</div>
+
 </div>
 <br><br>
 
@@ -92,7 +101,54 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
 
 
 
+<br><br>
+&nbsp&nbsp
+<button class="add_field_button btn btn-success
+">Добавить координату</button>
+<div class='clearfix'></div>
 
+<div style='border:1px solid white;padding:0px 10px;' class='col-md-4'>
+@if($model->coordinate)
+@foreach($model->coordinate as $k=>$coord)
+<div class='r'> 
+<input {{$page ? 'disabled': ''}} type="text" 
+value='{{isset($coord) ? $coord : ''}}' 
+name='coord[]' placeholder="координаты" class="form-control coords"
+/>
+</div>
+@endforeach
+@endif
+<div class="input_fields_wrap"></div>
+</div>
+
+
+<div style='border:1px solid white;padding:0px 10px;' class='col-md-4'>
+@if($model->coordinate)
+@foreach($model->coordinate as $k=>$coord)
+<div class='r'> 
+<input  {{$page ? 'disabled': ''}} 
+type="text" value='{{isset($model->coordinate_name[$k]) ? $model->coordinate_name[$k] : ''}}' 
+name='coord_name[]' onchange="bb()" placeholder="координаты" class="form-control"/>
+</div>
+@endforeach
+@endif
+
+<div class="input_fields_wrap2"></div>
+</div>
+
+<div style='border:1px solid white;padding:0px 10px;' class='col-md-4'>
+@if($model->coordinate)
+@foreach($model->coordinate as $k=>$coord)
+<div class='r'> 
+<input  {{$page ? 'disabled': ''}} 
+type="text" value='{{isset($model->coordinate_name[$k]) ? $model->coordinate_name[$k] : ''}}' 
+name='coord_name[]' onchange="bb()" placeholder="координаты" class="form-control"/>
+</div>
+@endforeach
+@endif
+
+<div class="input_fields_wrap3"></div>
+</div>
 
 
 
@@ -101,7 +157,7 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
 
 
 <br></br>
-
+<div class='clearfix'></div>
  <div>   
  <label for="title"><b>ручное или автоматическое определение
 </b></label> 
@@ -150,10 +206,60 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
 
 		
  <script src="https://api-maps.yandex.ru/2.1/?apikey=e65e00dd-dbe3-4020-a0f5-272019ac69a9&lang=ru_RU"
-        type="text/javascript">
-	</script>
+ type="text/javascript">
+ </script>
 
 
+<script>	
+   $(document).ready(function() {
+    var max_fields = 10; //maximum input boxes allowed
+    var wrapper = $(".input_fields_wrap"); //Fields wrapper
+	var wrapper2 = $(".input_fields_wrap2"); //Fields wrapper
+	var wrapper3 = $(".input_fields_wrap3"); //Fields wrapper
+
+    var add_button = $(".add_field_button"); //Add button ID
+	//var add_button2 = $(".add_field_button2"); //Add button ID
+
+
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){
+		
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            //$("#rm").remove(); 
+
+               $(wrapper).append('<div id="divs"><input type="text" name="coord[]"  class="form-control"/><div class=" remove_field" id="rm">Remove</div>'); //add input box
+                
+				
+				//$(add_button2).trigger( "click" );
+				
+	$(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  class="form-control" placeholder="название координаты"/><div class="r"</div></div>'); //add input box
+				 
+				 $(wrapper3).append('<div id="divs3"><input type="text" name="coord_distance[]"  class="form-control" placeholder="введите растояние"/><div class="r"</div></div>'); //add input box
+               
+				
+        }
+    });
+	
+$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); 
+		$("#divs").remove(); x--;
+		$("#divs2").remove(); 
+       $("#divs3").remove();
+
+    })
+	
+
+ 
+
+
+
+    
+});
+	
+</script>
+ 
 <script type="text/javascript">
         // Как только будет загружен API и готов DOM, выполняем инициализацию
 	        
@@ -337,54 +443,3 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
         }
     </script>
 
-<script>	
-   $(document).ready(function() {
-	  
-	   
-	   
-	   
-	   
-    var max_fields = 10; //maximum input boxes allowed
-    var wrapper = $(".input_fields_wrap"); //Fields wrapper
-	var wrapper2 = $(".input_fields_wrap2"); //Fields wrapper
-
-    var add_button = $(".add_field_button"); //Add button ID
-	var add_button2 = $(".add_field_button2"); //Add button ID
-
-
-    var x = 1; //initlal text box count
-    $(add_button).click(function(e){
-		
-        e.preventDefault();
-        if(x < max_fields){ //max input box allowed
-            x++; //text box increment
-            $("#rm").remove(); 
-
-               $(wrapper).append('<div id="divs"><input type="text" name="coord[]"  class="form-control"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
-                
-				$(add_button2).trigger( "click" );
-				
-				 $(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  value="по стопам золотой орды" class="form-control" placeholder="название координаты"/></div>'); //add input box
-               
-				
-        }
-    });
-	
-$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); 
-		$("#divs").remove(); x--;
-		$("#divs2").remove(); x--;
-       
-
-    })
-	
-
- 
-
-
-
-    
-});
-	
-</script>
- 
