@@ -2757,3 +2757,30 @@ a.modal__fixed--linck {
 .legenda__item {
     height: 500px;
 }
+.page__legenda--img img {
+    border-radius: 30px;
+}
+
+.page__gallery--img.page__legenda--img {
+    height: 400px;
+}
+
+.legenda__right .legenda__item {
+    height: 360px;
+}
+
+.legenda__right .legenda__item .sights__item--img {
+    height: 265px;
+}
+
+.legenda__right .legenda__item::before {
+    height: 20px;
+}
+
+.legenda__right .legenda__item .sights__item--info {
+    padding: 20px 15px;
+}
+
+.legenda__right .legenda__item .sights__item--title a {
+    font-size: 16px;
+}
