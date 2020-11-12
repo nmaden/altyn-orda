@@ -33,8 +33,8 @@
             <div class="calendar__list--list">
 
                 <div class="calendar__list--item">
-                    <strong>@lang('front_main.calendar.sokial'):</strong>
-                    <div class="ya-share2" data-services="{{$calendar->social_share}}" data-limit="3"></div>
+                    <strong>Поделиться:</strong>
+                    <div class="ya-share2" data-limit="3"></div>
                 </div>
              
             </div>
