@@ -68,6 +68,8 @@ body *{
 
 body.legenda-page{
     background: url(../img/legenda_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 body.legenda-page .page__description {
     background: transparent;
@@ -2749,4 +2751,9 @@ a.modal__fixed--linck {
 .inter__map-act .inter__map_preloader {
     opacity: 0;
     visibility: hidden;
+}
+
+/*------------legenda-------------*/
+.legenda__item {
+    height: 500px;
 }
