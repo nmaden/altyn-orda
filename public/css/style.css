@@ -72,6 +72,9 @@ body.legenda-page{
 body.legenda-page .page__description {
     background: transparent;
 }
+body.legenda-page .footer__partners{
+    display: none;
+}
 
 header {
     -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
