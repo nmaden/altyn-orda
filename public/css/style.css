@@ -2956,4 +2956,16 @@ a.derevo__level--linck {
     border: 20px solid #fff;
 }
 
+.derevo__level--item:before {content: "";background: #FFFFFF;width: 5px;height: 30px;position: absolute;bottom: -15px;z-index: 0;left: 50%;transform: translateX(-50%);}
 
+.derevo__level {
+    position: relative;
+}
+
+.derevo__level--1:before {content: "";position: absolute;background: #FFFFFF;height: 5px;width: calc(100% - 190px);bottom: 0;z-index: 1;left: 50%;transform: translateX(-50%);}
+
+.derevo__level--big.derevo__level--item:before {
+    height: 98px;
+    bottom: auto;
+    top: -80px;
+}
