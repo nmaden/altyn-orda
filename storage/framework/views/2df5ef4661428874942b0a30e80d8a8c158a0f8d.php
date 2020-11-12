@@ -84,7 +84,11 @@
 
 	</head>
     <!-- home -->
-    <body class="<?php echo e(Route::currentRouteName() == 'home' ? 'home-page' : ''); ?>">
+    <body class="<?php echo e(Route::currentRouteName() == 'home' ? 'home-page' : ''); ?>
+
+        <?php echo e(Route::currentRouteName() == 'legenda' ? 'legenda-page' : ''); ?>
+
+        <?php echo e(Route::currentRouteName() == 'legenda-item' ? 'legenda-page' : ''); ?>">
     <?php echo $__env->yieldContent('navigation'); ?>
  
     <?php echo $__env->yieldContent('slider'); ?>
