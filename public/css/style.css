@@ -71,9 +71,17 @@ body.legenda-page{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+body.derevo-page{
+    background: url(../img/drevo_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 body.legenda-page .page__description {
     background: transparent;
 }
+body.derevo-page .footer__partners,
 body.legenda-page .footer__partners{
     display: none;
 }
