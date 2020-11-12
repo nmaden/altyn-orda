@@ -15,11 +15,9 @@
                         </a>
                     </li>
                     <li>
-                        @if(isset($calendar->name))
-                            <span>
-                                {{$calendar->name}}
-                            </span>
-                        @endif
+                        <span>
+                            «Гора Манырак - Блеяние овцы»
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -39,30 +37,38 @@
              
             </div>
 
+            <div class="row">
 
-            <div class="page__gallery page__img--main">
+                <div class="col-lg-9">
 
-                <div class="page__gallery--item">
-                    <div class="page__gallery--img">
-					
-                        @if(isset($calendar->photo))
-                            <img src="{{URL::asset($calendar->photo)}}" alt="">
-                        @endif
-					
+                    <div class="page__gallery page__img--main">
+
+                        <div class="page__gallery--item">
+                            <div class="page__gallery--img">
+                            
+                                <img src="/img/legenda_item.jpg" alt="">
+                            
+                            </div>
+                        </div>
+        
                     </div>
+        
+                    <div class="page__description--text">
+                        <div class="about__text">
+                            <p>У каждого слова своя история. Не напрасно и гора Манырак получила такое имя &ndash; &laquo;Блеяние овцы&raquo;</p>
+                            <p>Кочевал когда-то в этих местах на тучных пастбищах большой казахский род. Все случается в жизни: и радость, и горе, и хорошее, и плохое, но однажды казахов постигла такая беда, хуже которой не бывает. Нагрянули в степь враждебные племена, стали избивать мирных кочевников, разорять аулы, угонять стада. Собрались аксакалы на совет, задумались: где найти спасение? Одна дорога &ndash; в горы. Сложили юрты, навьючили верблюдов, собрали табуны и отары, двинулись в путь.</p>
+                            <p>Крут был подъем. По дороге выбилась из сил какая-то овца, стала отставать и падать на колени. Загудели голоса:</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3">
+                    3
                 </div>
 
             </div>
 
-            <div class="page__description--text">
-                <div class="about__text">
-                    <p>
-                        @if(isset($calendar->text))
-                            {!! $calendar->text !!}
-                        @endif
-                    </p>
-                </div>
-            </div>
+            
 
            
 
