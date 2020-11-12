@@ -44,10 +44,8 @@
                     <div class="page__gallery page__img--main">
 
                         <div class="page__gallery--item">
-                            <div class="page__gallery--img">
-                            
+                            <div class="page__gallery--img page__legenda--img">
                                 <img src="/img/legenda_item.jpg" alt="">
-                            
                             </div>
                         </div>
         
@@ -63,7 +61,54 @@
 
                 </div>
                 <div class="col-lg-3">
-                    3
+                    
+                    <div class="legenda__right">
+
+                        <div class="sights__item legenda__item">
+                            <div class="sights__item--img">
+                                <a href="#">
+                                    <img src="/img/karagandy-alash_1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="sights__item--info">
+                                <div class="sights__item--title">
+                                    <a href="#">
+                                        «Гора Манырак - Блеяние овцы»
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sights__item legenda__item">
+                            <div class="sights__item--img">
+                                <a href="#">
+                                    <img src="/img/karagandy-alash_1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="sights__item--info">
+                                <div class="sights__item--title">
+                                    <a href="#">
+                                        «Гора Манырак - Блеяние овцы»
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sights__item legenda__item">
+                            <div class="sights__item--img">
+                                <a href="#">
+                                    <img src="/img/karagandy-alash_1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="sights__item--info">
+                                <div class="sights__item--title">
+                                    <a href="#">
+                                        «Гора Манырак - Блеяние овцы»
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
                 </div>
 
             </div>
