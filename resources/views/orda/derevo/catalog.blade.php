@@ -37,7 +37,7 @@
                         </div>
                         <div class="derevo__level--item derevo__level--item--mini">
                             <div class="derevo__level--img">
-                                <img src="/img/chingis.jpg" alt="">
+                                <img src="/store/test/2020/09/17/16003432269.jpg" alt="">
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="derevo__level--item derevo__level--item--mini">
                             <div class="derevo__level--img">
-                                <img src="/img/chingis.jpg" alt="">
+                                <img src="/store/test/2020/09/17/16003437137.jpeg" alt="">
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
@@ -65,7 +65,7 @@
                         </div>
                         <div class="derevo__level--item derevo__level--item--mini">
                             <div class="derevo__level--img">
-                                <img src="/img/chingis.jpg" alt="">
+                                <img src="/img/derevo-pers-6.jpg" alt="">
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
@@ -112,7 +112,7 @@
                         </div>
                         <div class="derevo__level--item">
                             <div class="derevo__level--img">
-                                <img src="/img/chingis.jpg" alt="">
+                                <img src="/img/derevo-pers-3.jpg" alt="">
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
