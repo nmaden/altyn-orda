@@ -141,7 +141,7 @@
                              </div>
                           <div class="gid__aboutprice--desc">
                             {{$item->price}} тг 
-					       @include('orda.gid.components.sposob-oplaty',$item)
+					       {{ $item->oplata ? $item->oplata : 'час' }}
                           </div>
                          </div>
                         @endif 
