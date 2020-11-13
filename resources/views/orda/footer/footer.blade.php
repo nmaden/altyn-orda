@@ -71,9 +71,10 @@
                     
 					   @include('orda'.'.footer.logotips')
 <div class='clearfix'></div>
-
-                        @include('orda'.'.footer.navigatitem',['items'=>$menu->roots()])
-
+@include('orda'.'.navigatitem',['items'=>$menu->roots()])
+<!------
+      @include('orda'.'.footer.navigatitem',['items'=>$menu->roots()])
+------->
                     </div>
                 </div>
 

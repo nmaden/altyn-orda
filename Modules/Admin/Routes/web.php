@@ -1,15 +1,4 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
   
 Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin_index');
@@ -122,7 +111,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
                 ->name('admin_sights_create');
 				
 			  Route::post('create', 'SightsController@saveCreate')
-			  	->middleware('can:create,sights')
+			    ->middleware('can:create,Modules\Entity\Model\Sights\Sights')
                 ->name('admin_sights_create_save');
 			   
 			  Route::get('update/{sights}', 'SightsController@update')

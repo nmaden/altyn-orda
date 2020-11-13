@@ -34,8 +34,7 @@ class ContentPolicy {
     public function create($user){
 		
 		
-      if (!$this->mainCheck($user))
-		  if ($this->mainCheck($user) == 'GID'){
+      if ($this->mainCheck($user) == 'GID'){
             return false;
 		  }
 		  
