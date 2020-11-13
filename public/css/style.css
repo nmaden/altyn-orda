@@ -98,6 +98,9 @@ header {
     left: 0;
     z-index: 10000;
 }
+.body--playing header{
+    transform: translateY(100%);
+}
 header:before {content: "";position: absolute;bottom: 0;width: 100%;left: 0;height: 40px;background: url(../img/header__bg.svg);background-repeat: repeat-x;background-position: bottom;background-size: contain;}
 .header__row {
     display: -webkit-box;

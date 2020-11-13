@@ -115,8 +115,8 @@
         jsvideo.addEventListener('playing',function(){
             setTimeout(function(){
                 var jsvideo1 = document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
-                var jsvideo2 = document.getElementsByClassName("body")[0].classList.add('body--playing');
-                var jsvideo3 = document.getElementsByClassName("bg__video__intro")[0].classList.add('inter__map_preloader');
+                var jsvideo2 = document.getElementsByClassName("home-page")[0].classList.add('body--playing');
+                var jsvideo3 = document.getElementsByClassName("bg__video__intro")[0].classList.add('inter__map-act');
             }, 3000);
         },false);
     </script>
