@@ -40,17 +40,19 @@ class DefaultUpdateAction {
             unset($ar['photo']);
 		}
           $ar['edited_user_id'] = $this->request->user()->id;
-		 
-	    if(isset($this->request->metr[0])){
-		
-			$ar['metr']= $this->request->metr[0];
+		  
+//dd($this->request->all());
+	    if(isset($this->request->distance[0])){
+		  $ar['distance']= serialize($this->request->distance);
 		}
-
-        //dd($this->request->all());
-	    if(isset($this->request->data['coor'][0])){
-			//dd($this->request->data['coor']);
-			$ar['coord'] = $this->request->data['coor'];
-	
+	    if(isset($this->request->data['coor'])){
+			
+			if(is_array(json_decode($this->request->data['coor']))){
+				
+			$ar['coord'] = serialize(json_decode($this->request->data['coor']));
+            }
+			
+			
 			  $ar['coord_name'] = serialize($this->request->coord_name);
 			
 

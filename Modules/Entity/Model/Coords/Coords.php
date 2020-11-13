@@ -6,7 +6,7 @@ use Modules\Entity\Traits\CheckTrans;
 
 class Coords extends ModelParent {
     protected $table = 'coord';
-	protected $fillable = [ 'coord','undex_coord','coord_name','routes_id','user_id','auto','metr'];
+	protected $fillable = [ 'coord','undex_coord','coord_name','routes_id','user_id','auto','distance'];
 	
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;

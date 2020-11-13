@@ -262,10 +262,10 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 	   @endif
 	    
 	   
-<<<<<<< HEAD
+
 	   
        <li>
-=======
+
 @if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
 RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
 RoleService::getRole(Auth::user()->type_id) =='GID' ||
@@ -275,7 +275,7 @@ RoleService::getRole(Auth::user()->type_id) =='TYROPERATOR')
 
 
 <li>
->>>>>>> master
+
        <a   style="background: {{in_array('routes',$ar) ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Маршруты
@@ -296,7 +296,7 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 		  Общие элементы страницы
 		</span>
 		</a>
-<<<<<<< HEAD
+
 	  </li>
 	  <li  style="">
          <a href="{{ route('admin_coords') }}">
@@ -305,12 +305,12 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 		</span>
 		</a>
 	  </li>
-=======
+
 		
 	</li>
 @endif	
 
->>>>>>> master
+
 	<li  style="">
       <a href="{{ route('admin_routes') }}">
 	  

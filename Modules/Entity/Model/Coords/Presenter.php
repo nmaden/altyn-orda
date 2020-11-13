@@ -34,91 +34,81 @@ trait Presenter {
 
     }
 		
-function getCheckCoordinateAttribute(){
+
+	
 	//выводим токо не пустые координаты
-	if($this->coord){
-	foreach(json_decode($this->coord) as $item){
+	function getCheckCoordinateAttribute(){
+
+	//выводим токо не пустые координаты
+	if(@unserialize($this->coord)){
+		
+	  $coord= unserialize($this->coord);
+	  if(is_array($coord)){
+	  foreach($coord as $item){
 				if($item[0]){
 					$arr[] = $item;
 				}
 			}
-						return json_encode($arr);
-
+	  return json_encode($arr);
 	}
-		return false;
+	}else{
+		 return false;
+	}
+
 }
-function getCoordinateMetrAttribute(){
-	//формируем масив для вывода километров и названий
-	
-   $arr = $this->coordinate;
-   $arr2 = json_decode($this->metr);
-   $arr3 = $this->coordinate_name;
-   $arr4=[];
- if(isset($arr2[1])){
-foreach($arr as $k=>$item){
-	  foreach($arr2 as $v){
-	   $c= explode(',',$v[1]);
-	   $c[0]=round($c[0],6);
-	      
-
-	   $c[1]=round($c[1],6);
-       $c = implode(',',$c);
-	  if($item == $c){
-		  array_push($v,$arr3[$k]);
-		  $arr4[]= $v;
-	  }
-     }
-	};
-			return $arr4;
-
-}else{
-	return false;
-}
-		//выводим расстояния
 
 
+function getDistanceNameAttribute(){
+
+      if(@unserialize($this->distance)){
+		  if(@unserialize($this->coord_name)){
+			   $coord =unserialize($this->coord);
+		       $distance = unserialize($this->distance);
+		   foreach($coord as $k=>$item_coord){
+		    if($item_coord[0]){
+				if(isset($distance[$k])){$arr2[]=$distance[$k];}
+				else{$arr2[] ='';}
+				}
+			   }
+		  return $arr2;
+		  
+		  }else{return false;}
+	 }
 }
 
 function getCoordinateAttribute(){
 	//dd($this->coordinates);
 	$arr2=[];
-	
-	   if($this->coord){
-		  $arr =json_decode($this->coord);
-		 
-		  foreach($arr as $item){
-		  if($item[0]){$arr2[]=round($item[0],6).','.round($item[1],6);}
+	      if(@unserialize($this->coord)){
+            $arr = unserialize($this->coord);
+			  if(!is_array($arr)){return false;}
+		    foreach($arr as $item){
+		     if($item[0]){$arr2[]=round($item[0],6).','.round($item[1],6);}
 		  }
-		  
-		   return $arr2;
-         }else{
-		   return false;
-		 }
+		  return $arr2;
+		   
+		  }else{
+			  return false;
+		  }
+
      }
 	 function getCoordinateNameAttribute(){
 	//dd($this->coordinates);
 	   if(@unserialize($this->coord_name)){
-		   $coord =json_decode($this->coord);
-		   $arr = unserialize($this->coord_name);
-
-            foreach($coord as $k=>$item){
-		    if($item[0]){
-				if(isset($arr[$k])){$arr2[]=$arr[$k];}
-				else{
-					$arr2[] ='';
+		  if(@unserialize($this->coord_name)){
+			  $coord =unserialize($this->coord);
+		      $name = unserialize($this->coord_name);
+              foreach($coord as $k=>$item){
+		       if($item[0]){
+				if(isset($name[$k])){$arr2[]=$name[$k];}
+				else{$arr2[] ='';}
 				}
-				}
+		      }return $arr2;
 		  }
-		  
-		   
-		   return $arr2;
-         }else{
-			
-			 
-			 return false;
 		 
-     }
-	 }
+	   } else{return false;}
+      }
+	  
 function getCoordNameAttribute($v){
    //dd($this);
 		return $this->getTransField('coord_name', $v);

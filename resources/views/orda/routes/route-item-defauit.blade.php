@@ -147,8 +147,8 @@
             <div class="route__line--block">
                 <div class="route__line">
 				@php
-				//dd($item->coords->coordinate_metr);
-				//dd($item->coords->coordinate_metr);
+			//dd($item->coords->coordinate);
+				
 				@endphp
                    @if(isset($item->coords->coordinate_metr))
 					   
@@ -157,8 +157,8 @@
 					$size= count($item->coords->coordinate);
 				    @endphp
 					
-					@if($item->coords->coordinate_metr)
-				    @foreach($item->coords->coordinate_metr as $k=>$v)
+					@if(isset($item->coords->coordinate[0]))
+				    @foreach($item->coords->coordinate as $k=>$v)
 					@php
 				    $count++;
 				    @endphp
@@ -176,11 +176,16 @@
                                
                                 </div>
                                 <div class="route__item--km" id="route{{$count}}">
-                                {{$v[0][0]}}км
+					      @if(isset($item->coords->distance_name[$k]))
+								{{$item->coords->distance_name[$k]}} км
+							@endif
 								</div>
                             </div>
                             <div class="route__item--btn">
-						       <a>{{$v[2]}}</a>
+						       <a>					  @if(isset($item->coords->coordinate_name[$k]))
+								  {{$item->coords->coordinate_name[$k]}}
+                               @endif
+                               </a>
                             </div>
                         </div>
                     </div>
@@ -196,7 +201,23 @@
     </div>
 
     <div class="route__line--maps" id="routemap">
-        <div id="maps"></div>
+        <div class="inter__map--preloader">
+            <div id="maps"></div>
+            <div class="sk-fading-circle inter__map_preloader">
+                <div class="sk-circle sk-circle-1"></div>
+                <div class="sk-circle sk-circle-2"></div>
+                <div class="sk-circle sk-circle-3"></div>
+                <div class="sk-circle sk-circle-4"></div>
+                <div class="sk-circle sk-circle-5"></div>
+                <div class="sk-circle sk-circle-6"></div>
+                <div class="sk-circle sk-circle-7"></div>
+                <div class="sk-circle sk-circle-8"></div>
+                <div class="sk-circle sk-circle-9"></div>
+                <div class="sk-circle sk-circle-10"></div>
+                <div class="sk-circle sk-circle-11"></div>
+                <div class="sk-circle sk-circle-12"></div>
+            </div>
+        </div>
     </div>
 
 

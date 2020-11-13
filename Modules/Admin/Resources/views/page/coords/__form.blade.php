@@ -22,60 +22,13 @@ if(in_array('show',$ar)){
 margin:0px;
 padding:0px;
 }
-
+.hide{
+display:none;
+}
+.show{
+ display:block;
+}
 </style>
-
-
-
-
-
-<div class='clearfix'></div>
-<div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
-
-@if($model->coordinate)
-@foreach($model->coordinate as $k=>$coord)
-<div> 
-<label for="title"><b>координата {{$k+1}}</label> 
-<input {{$page ? 'disabled': ''}} type="text" 
-value='{{isset($coord) ? $coord : ''}}' 
-name='coord[]' placeholder="координаты" class="form-control coords"
-
-/>
-</div>
-<br>
-
-@endforeach
-
-@endif
-
-</div>
-
-
-
-<div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
-
-@if($model->coordinate)
-@foreach($model->coordinate as $k=>$name)
-<div> 
-<label for="title"><b>название координаты {{$k+1}}</b></label> 
-<input  {{$page ? 'disabled': ''}} 
-type="text" value='{{isset($model->coordinate_name[$k]) ? $model->coordinate_name[$k] : ''}}' 
-name='coord_name[]' onchange="bb()" placeholder="координаты" class="form-control"/>
-
-</div>
-<br>
-@endforeach
-@endif
-
-
-</div>
-<br><br>
-
-
-
-
-
-
 
 <fieldset class="content-group">
     <legend class="text-bold">@lang('model.university.coor_block')</legend>
@@ -90,30 +43,19 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
 </fieldset>
 <input type="button" value="Завершить редактирование" id="stopEditPolyline"/>
 <input type="button" value="Начать редактирование" id="start"/>
-<input type="button" value="Расчет растояния" id="kilometr"/>
-
-
-
-    
-
-
-
-
-
-
-<br><br>
-&nbsp&nbsp
+<br>
+<br>
 <button class="add_field_button btn btn-success
 ">Добавить координату</button>
 <div class='clearfix'></div>
-
-<div style='border:1px solid white;padding:0px 10px;' class='col-md-4'>
+<br>
+<div style='border:1px solid white;padding:0px 0px;' class='col-md-4'>
 @if($model->coordinate)
 @foreach($model->coordinate as $k=>$coord)
 <div class='r'> 
 <input {{$page ? 'disabled': ''}} type="text" 
 value='{{isset($coord) ? $coord : ''}}' 
-name='coord[]' placeholder="координаты" class="form-control coords"
+name='coord' placeholder="координаты" class="form-control coords"
 />
 </div>
 @endforeach
@@ -132,17 +74,17 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
 </div>
 @endforeach
 @endif
-
 <div class="input_fields_wrap2"></div>
 </div>
 
-<div style='border:1px solid white;padding:0px 10px;' class='col-md-4'>
+
+<div id="distance" style='border:1px solid white;padding:0px 10px;' class='col-md-4'>
 @if($model->coordinate)
 @foreach($model->coordinate as $k=>$coord)
 <div class='r'> 
 <input  {{$page ? 'disabled': ''}} 
-type="text" value='{{isset($model->coordinate_name[$k]) ? $model->coordinate_name[$k] : ''}}' 
-name='coord_name[]' onchange="bb()" placeholder="координаты" class="form-control"/>
+type="text" value='{{isset($model->distance_name[$k]) ? $model->distance_name[$k] : ''}}' 
+name='distance[]' placeholder="расстояние до конечной точки" class="form-control"/>
 </div>
 @endforeach
 @endif
@@ -162,7 +104,7 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
  <label for="title"><b>ручное или автоматическое определение
 </b></label> 
 
-	   <select {{$page ? 'disabled': ''}} name="auto" id="city_id" class="form-control select2">
+	   <select {{$page ? 'disabled': ''}} name="auto" id="select" class="form-control select2">
 			<option value=""></option>
 			
 			<option value="1" {{ $model->auto == 1 ? 'selected' : '' }}>ручное определение</option>
@@ -212,6 +154,31 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
 
 <script>	
    $(document).ready(function() {
+	   	$('body').bind('input','.coords',function () {
+			
+		var arc =[];
+        $('.coords').each(function(index,v){
+			var values = v.value;
+			
+			if(values){
+
+			arc[index]=values.split(',');
+			}
+		})
+			console.log(arc);
+			$('#data_coor').val(JSON.stringify(arc));
+
+
+		 
+
+		 
+		});
+	
+	   $('#select').on('change',function(){
+		 $('#distance').removeClass('hide');
+
+		   $('#distance').addClass('show');
+	   })
     var max_fields = 10; //maximum input boxes allowed
     var wrapper = $(".input_fields_wrap"); //Fields wrapper
 	var wrapper2 = $(".input_fields_wrap2"); //Fields wrapper
@@ -229,12 +196,12 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
             x++; //text box increment
             //$("#rm").remove(); 
 
-               $(wrapper).append('<div id="divs"><input type="text" name="coord[]"  class="form-control"/><div class=" remove_field" id="rm">Remove</div>'); //add input box
+               $(wrapper).append('<div id="divs"><input type="text" name="coord"  value="" class="form-control coords" placeholder="для удаления координаты сделайте поле пустым"/><div class=" remove_field" id="rm">Remove</div>'); //add input box
                 
 				
 				//$(add_button2).trigger( "click" );
 				
-	$(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  class="form-control" placeholder="название координаты"/><div class="r"</div></div>'); //add input box
+	$(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  class="form-control " placeholder="название координаты"/><div class="r"</div></div>'); //add input box
 				 
 				 $(wrapper3).append('<div id="divs3"><input type="text" name="coord_distance[]"  class="form-control" placeholder="введите растояние"/><div class="r"</div></div>'); //add input box
                
@@ -264,23 +231,6 @@ $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
         // Как только будет загружен API и готов DOM, выполняем инициализацию
 	        
 
-		$('.coords').on('input',function () {
-		var arc =[];
-        $('.coords').each(function(index,v){
-			var values = v.value;
-			if(values){
-
-			arc[index]=values.split(',');
-			}
-		})
-			console.log(arc);
-			$('#data_coor').val(JSON.stringify(arc));
-
-
-		 
-
-		 
-		});
 	
 	   
         ymaps.ready(init);

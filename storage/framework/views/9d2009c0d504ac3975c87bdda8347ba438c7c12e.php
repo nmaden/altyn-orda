@@ -262,10 +262,10 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
 	   <?php endif; ?>
 	    
 	   
-<<<<<<< HEAD
+
 	   
        <li>
-=======
+
 <?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
 RoleService::getRole(Auth::user()->type_id) =='ADMIN' || 
 RoleService::getRole(Auth::user()->type_id) =='GID' ||
@@ -275,7 +275,7 @@ RoleService::getRole(Auth::user()->type_id) =='TYROPERATOR'): ?>
 
 
 <li>
->>>>>>> master
+
        <a   style="background: <?php echo e(in_array('routes',$ar) ? '#ccc' : ''); ?>" href="#">
 	   <i class="icon-city"></i>
 	   <span>Маршруты
@@ -296,7 +296,7 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
 		  Общие элементы страницы
 		</span>
 		</a>
-<<<<<<< HEAD
+
 	  </li>
 	  <li  style="">
          <a href="<?php echo e(route('admin_coords')); ?>">
@@ -305,12 +305,12 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
 		</span>
 		</a>
 	  </li>
-=======
+
 		
 	</li>
 <?php endif; ?>	
 
->>>>>>> master
+
 	<li  style="">
       <a href="<?php echo e(route('admin_routes')); ?>">
 	  
