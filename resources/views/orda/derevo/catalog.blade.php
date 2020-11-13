@@ -27,10 +27,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Орда-Эджен
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    правил 1227 - 1250 г.ж.
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -41,10 +41,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Бату хан
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    правил 1227 - 1255 г.ж.
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -55,10 +55,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Берке хан
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    правил 1256 - 1266 г.ж.
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -69,10 +69,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Шибан
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -83,10 +83,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Тука-Тимур
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                   
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -98,14 +98,14 @@
 
                         <div class="derevo__level--item">
                             <div class="derevo__level--img">
-                                <img src="/img/chingis.jpg" alt="">
+                                <img src="/store/test/2020/09/17/16003427737.jpg" alt="">
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Жошы (Джучи)
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    1183 - 1227 г.ж.
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -116,10 +116,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Чагатай
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    1185 - 1242 г.ж.
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -130,10 +130,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Угедей
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    1186 - 1241 г.ж.
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -144,10 +144,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Тулуй
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    1193 - 1232 г.ж.
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
@@ -163,10 +163,10 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингисхан
+                                    Чингиз-хан (Темуджин)
                                 </div>
                                 <div class="derevo__level--date">
-                                    1155 - 1227
+                                    1155 - 1227 г.ж.
                                 </div>
                             </div>
                             <a href="#" class="derevo__level--linck">Подробнее</a>
