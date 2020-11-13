@@ -172,6 +172,7 @@ body.home-page.header--fixed header{
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     background-color: #0e4f32;
     position: fixed;
+    transform: translateY(0);
 }
 body.home-page.header--fixed header:before {
     opacity: 1;
