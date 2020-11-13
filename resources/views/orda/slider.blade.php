@@ -109,7 +109,7 @@
                 smoothScrollTo(document.getElementById('sectionAbout').offsetTop-130);
 
                 var jsvideo1 = document.getElementsByClassName("section__banner")[0].classList.remove('section__banner--playing');
-                var jsvideo2 = document.getElementsByClassName("body")[0].classList.remove('body--playing');
+                var jsvideo2 = document.getElementsByClassName("home-page")[0].classList.remove('body--playing');
             }
         },false);
         jsvideo.addEventListener('playing',function(){
