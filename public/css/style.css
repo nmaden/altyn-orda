@@ -2846,6 +2846,9 @@ h1.section__title.derevo__title {
     position: relative;
     border-radius: 100%;
     overflow: hidden;
+    height: 100%;
+    padding: 12px;
+    width: 100%;
 }
 
 .derevo__level--item {
@@ -2873,6 +2876,8 @@ h1.section__title.derevo__title {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    width: 100%;
+    padding: 0 10px 10px 10px;
 }
 
 .derevo__level--img:before {content: "";background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgb(0 0 0 / 0.7) 100%);position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
@@ -2882,6 +2887,8 @@ h1.section__title.derevo__title {
     font-size: 18px;
     color: #FFFFFF;
     line-height: 1.2;
+    line-height: 1;
+    margin-bottom: 5px;
 }
 
 .derevo__level--date {
@@ -2901,6 +2908,7 @@ a.derevo__level--linck {
     font-size: 0;
     opacity: 0;
     border-radius: 100%;
+    z-index: 2;
 }
 
 .derevo__level--big {

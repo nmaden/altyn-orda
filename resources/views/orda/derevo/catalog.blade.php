@@ -126,7 +126,7 @@
                         </div>
                         <div class="derevo__level--item">
                             <div class="derevo__level--img">
-                                <img src="/img/chingis.jpg" alt="">
+                                <img src="/img/derevo-pers-2.jpg" alt="">
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
@@ -140,7 +140,7 @@
                         </div>
                         <div class="derevo__level--item">
                             <div class="derevo__level--img">
-                                <img src="/img/chingis.jpg" alt="">
+                                <img src="/img/derevo-pers-1.jpg" alt="">
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
