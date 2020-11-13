@@ -1498,13 +1498,18 @@ li.breadcrumb-item {
 .sights__item--img {
     height: 350px;
     width: 100%;
+    overflow: hidden;
 }
 
 .sights__item--img img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+.sights__item:hover .sights__item--img img {
+    transform: scale(1.2);
 }
 
 .sights__item--info {
