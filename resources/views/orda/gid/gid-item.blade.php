@@ -32,10 +32,12 @@
                 </h1>
 
                 <div class="gid__title--list">
+				<!------------------------------------
                     <div class="gid__bottom--item">
                         <div class="gid__bottom--img">
                             <img src="/img/icon-mail.svg" alt="">
                         </div>
+
                         <div class="gid__bottom--text">
 						@if(isset($item->email))
 							 <a href="mailto:{{$item->email}}">{{$item->email}}</a>
@@ -44,6 +46,7 @@
                            
                         </div>
                     </div>
+					----------------------->
                     <div class="gid__bottom--item">
                         <div class="gid__bottom--img">
                             <img src="/img/phone-icon.svg" alt="">
