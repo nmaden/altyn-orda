@@ -102,7 +102,13 @@
 
                             </div>
                             <div class="banner__infoprice--center">
-							{{$item->price}} тнг.
+							{{$item->price}} 
+							@if($item->currency)
+								{{$item->currency}}
+							@else
+								тнг.
+							@endif
+							
                             </div>
                         </div>
 						@endif

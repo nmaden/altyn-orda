@@ -59,6 +59,11 @@ function getSeoTitleAttribute($v){
 	function getSeoDescriptionAttribute($v){
 		return $this->getTransField('seo_description', $v);
     }
-	
+	function getCurrencyAttribute($v){
+		  		return $this->getTransField('currency', $v);
+
+		  
+		}
+		
 }
 
