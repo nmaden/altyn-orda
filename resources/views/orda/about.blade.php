@@ -83,7 +83,8 @@
                                     </span>
 								@endif
                                     <span class="numer__litl">
-                                        год
+                                                                                @lang('front_main.year')
+
                                     </span>
                                 </div>
                             </div>
