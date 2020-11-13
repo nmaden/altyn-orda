@@ -448,6 +448,8 @@ ul.lang__menu > li:hover ul.lang__menu--children {
     padding: 0;
     list-style: none;
     justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .header__menu--li ul.menu a {
@@ -466,7 +468,9 @@ a.header__serch--click {
     color: #0e4f32;
 }
 .header__menu--li ul.menu li {
-    margin-left: 30px;
+    white-space: nowrap;
+    margin: 10px 0;
+    margin-right: 50px;
 }
 
 .header__menu--li ul.menu li:first-child {
