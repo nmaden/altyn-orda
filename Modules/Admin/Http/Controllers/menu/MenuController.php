@@ -11,7 +11,7 @@ use Modules\Entity\Actions\Menu\DefaultUpdateAction as ModelCreateAction;
 
 use Modules\Entity\Actions\Menu\DefaultUpdateAction as ModelUpdateAction;
 
-use Modules\Entity\Actions\Menu\DefaultDeleteAction as ModelDeleteAction;
+use Modules\Entity\Actions\Defaults\DefaultDeleteAction as ModelDeleteAction;
 
 use Modules\Entity\Model\Menu\Menu as Model;
 
