@@ -114,9 +114,9 @@
         },false);
         jsvideo.addEventListener('playing',function(){
             setTimeout(function(){
-                var jsvideo = document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
-                var jsvideo2 = document.getElementsByClassName("body")[0].classList.add('body--playing');
-                document.getElementsByClassName("section__banner")[0].classList.add('inter__map_preloader');
+                document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
+                document.getElementsByClassName("body")[0].classList.add('body--playing');
+                document.getElementsByClassName("bg__video__intro")[0].classList.add('inter__map_preloader');
             }, 3000);
         },false);
     </script>
