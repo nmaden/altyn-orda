@@ -108,15 +108,15 @@
             if(jsvideo.offsetHeight > document.documentElement.scrollTop){//jsvideo.offsetHeight > document.body.scrollTop || 
                 smoothScrollTo(document.getElementById('sectionAbout').offsetTop-130);
 
-                document.getElementsByClassName("section__banner")[0].classList.remove('section__banner--playing');
-                document.getElementsByClassName("body")[0].classList.remove('body--playing');
+                var jsvideo1 = document.getElementsByClassName("section__banner")[0].classList.remove('section__banner--playing');
+                var jsvideo2 = document.getElementsByClassName("body")[0].classList.remove('body--playing');
             }
         },false);
         jsvideo.addEventListener('playing',function(){
             setTimeout(function(){
-                document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
-                document.getElementsByClassName("body")[0].classList.add('body--playing');
-                document.getElementsByClassName("bg__video__intro")[0].classList.add('inter__map_preloader');
+                var jsvideo1 = document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
+                var jsvideo2 = document.getElementsByClassName("body")[0].classList.add('body--playing');
+                var jsvideo3 = document.getElementsByClassName("bg__video__intro")[0].classList.add('inter__map_preloader');
             }, 3000);
         },false);
     </script>
