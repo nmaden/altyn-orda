@@ -58,6 +58,13 @@ class="form-control"/>
 </div>
 
 <br><br>
+<!--время посещения--->
+<div> 
+<label for="title"><b>Время посещения</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->time) ? $model->time : ''}}' 
+name='time' placeholder="Время посещения(текст)" class="form-control"/>
+</div>
+<br><br>
 
 <div style='padding:10px 5px;'> 
 <label for="text"><b>Текст</b></label> 

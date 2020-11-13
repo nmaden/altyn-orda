@@ -8,7 +8,7 @@ class TransSights extends ModelParent {
     protected $table = 'trans_sights';
 	 protected $table_ru = 'sights';
     protected $fillable = ['el_id', 'lang', 'description','name',
-	'subtitle','introtext','date','time','seo_title','seo_description'];
+	'subtitle','introtext','date','time','seo_title','seo_description','time'];
     //use CheckTrans;
 
     function getTransTableNameAttribute(){
