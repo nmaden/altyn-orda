@@ -58,6 +58,29 @@ class="form-control"/>
 </div>
 
 <br><br>
+<!--время посещения--->
+<div> 
+<label for="title"><b>Время посещения</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" value='{{isset($model->time) ? $model->time : ''}}' 
+name='time' placeholder="Время посещения(текст)" class="form-control"/>
+</div>
+<br><br>
+<div>
+<label for="title"><b>Валюта или тенге</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+ @if(old('currency'))
+  value="{{old('currency')}}"
+@else
+value="{{$model->currency ? $model->currency : old('currency')}}"
+@endif
+name='currency' placeholder="Имя(текст)" class="form-control"></input>
+@if ($errors->has('currency'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('currency') }}</strong>
+   </span>
+@endif
+</div>
+<br><br>
 
 <div style='padding:10px 5px;'> 
 <label for="text"><b>Текст</b></label> 
