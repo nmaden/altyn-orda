@@ -2536,6 +2536,10 @@ footer .header__right {
 .footer__partners--item:hover .footer__partners--text a {
     color: #000;
 }
+footer .header__menu ul.menu {
+    flex-wrap: wrap;
+}
+
 
 .modal__fixed {
     position: fixed;

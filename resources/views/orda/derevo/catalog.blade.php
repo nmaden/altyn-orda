@@ -23,7 +23,7 @@
 
                         <div class="derevo__level--item derevo__level--item--mini">
                             <div class="derevo__level--img">
-                                <img src="/img/chingis.jpg" alt="">
+                                <img src="/img/derevo-pers-9.jpg" alt="">
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
