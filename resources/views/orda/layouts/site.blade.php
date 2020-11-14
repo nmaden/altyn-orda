@@ -50,8 +50,8 @@
     <link rel="stylesheet" href="/css/nouislider.min.css?v=3.5.4">
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css?v=3.5.4" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css?v=3.5.7">
-    <link rel="stylesheet" href="/css/media.css?v=3.5.7">
+    <link rel="stylesheet" href="/css/style.css?v=3.6.0">
+    <link rel="stylesheet" href="/css/media.css?v=3.6.0">
 	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=3.5.2" />
 
@@ -84,7 +84,7 @@
 
 	</head>
     <!-- home -->
-    <body class="{{ Route::currentRouteName() == 'home' ? 'home-page' : ''}}">
+    <body class="{{ Route::currentRouteName() == 'home' ? 'home-page' : ''}}{{ Route::currentRouteName() == 'derevo' ? 'derevo-page' : ''}}{{ Route::currentRouteName() == 'legenda' ? 'legenda-page' : ''}}{{ Route::currentRouteName() == 'legenda-item' ? 'legenda-page' : ''}}">
     @yield('navigation')
  
     @yield('slider')

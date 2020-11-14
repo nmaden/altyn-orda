@@ -55,10 +55,16 @@
                       <?php $__currentLoopData = $social; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       
                         
-						<?php if(isset($v[app()->getLocale()])): ?>
-					   <div class="header__social--item tooltip__item" title="<?php echo e($v[app()->getLocale()]['hint']); ?>">
-                            <a href="<?php echo e($v[app()->getLocale()]['name']); ?>">
-                                <img src="<?php echo e(URL::asset($v[app()->getLocale()]['photo'])); ?>" alt="">
+	<?php if(isset($v[app()->getLocale()])): ?>
+	<div class="header__social--item tooltip__item" title="<?php echo e($v[app()->getLocale()]['hint']); ?>">
+				   
+	<?php if($v[app()->getLocale()]['name'] == 'vhod'): ?>
+		<a href="<?php echo e(route($v[app()->getLocale()]['name'])); ?>">				   
+    <?php else: ?>
+		<a href="<?php echo e($v[app()->getLocale()]['name']); ?>">				   
+    <?php endif; ?>
+				   
+<img src="<?php echo e(URL::asset($v[app()->getLocale()]['photo'])); ?>" alt="">
                             </a>
 						</div>
                         <?php else: ?>

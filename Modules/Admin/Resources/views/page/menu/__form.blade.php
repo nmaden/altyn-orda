@@ -67,7 +67,7 @@ class="form-control"/>
 <label for="title"><b>родительский пункт меню</b></label> 
 
     
-			<select {{$page ? 'disabled': ''}} name="city_id" id="parent" class="form-control">
+			<select {{$page ? 'disabled': ''}} name="parent" id="parent" class="form-control">
 			<option value="">@lang('model.disabled')</option>
 				
 			@if(!empty($model->getAr()) > 0)

@@ -41,7 +41,7 @@ class DefaultUpdateAction {
           $ar['edited_user_id'] = $this->request->user()->id;
 
 	  
-        
+        //dd($this->request->all());
         if(isset($this->request->name)){
           $ar['title']=$this->request->name;
        }

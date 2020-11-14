@@ -58,6 +58,20 @@
             <video width="100%" height="100%" preload="auto" muted autoplay="autoplay" playsinline id="jsvideo"> <!--  loop="loop"  -->
                 <source src="/img/video/blue.mp4" type="video/mp4"><!--/img/video/home_banner.mp4-->
             </video>
+            <div class="sk-fading-circle inter__map_preloader">
+                <div class="sk-circle sk-circle-1"></div>
+                <div class="sk-circle sk-circle-2"></div>
+                <div class="sk-circle sk-circle-3"></div>
+                <div class="sk-circle sk-circle-4"></div>
+                <div class="sk-circle sk-circle-5"></div>
+                <div class="sk-circle sk-circle-6"></div>
+                <div class="sk-circle sk-circle-7"></div>
+                <div class="sk-circle sk-circle-8"></div>
+                <div class="sk-circle sk-circle-9"></div>
+                <div class="sk-circle sk-circle-10"></div>
+                <div class="sk-circle sk-circle-11"></div>
+                <div class="sk-circle sk-circle-12"></div>
+            </div>
 
             <div class="banner__item--container">
                 <div class="container">
@@ -93,14 +107,18 @@
         jsvideo.play();
 
         jsvideo.addEventListener('ended',function(){
-            var jsvideo = document.getElementsByClassName("section__banner")[0];
-            if(jsvideo.offsetHeight > document.documentElement.scrollTop){//jsvideo.offsetHeight > document.body.scrollTop || 
-                smoothScrollTo(document.getElementById('sectionAbout').offsetTop-130)
+            var jsvideoh = document.getElementsByClassName("section__banner")[0];
+            if(jsvideoh.offsetHeight > document.documentElement.scrollTop){//jsvideo.offsetHeight > document.body.scrollTop || 
+                smoothScrollTo(document.getElementById('sectionAbout').offsetTop-130);
             }
+            document.getElementsByClassName("section__banner")[0].classList.remove('section__banner--playing');
+            document.getElementsByClassName("home-page")[0].classList.remove('body--playing');
         },false);
         jsvideo.addEventListener('playing',function(){
             setTimeout(function(){
-                var jsvideo = document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
+                document.getElementsByClassName("section__banner")[0].classList.add('section__banner--playing');
+                document.getElementsByClassName("home-page")[0].classList.add('body--playing');
+                document.getElementsByClassName("bg__video__intro")[0].classList.add('inter__map-act');
             }, 3000);
         },false);
     </script><?php /**PATH /home/vagrant/code/orda/resources/views/orda/slider.blade.php ENDPATH**/ ?>

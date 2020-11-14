@@ -1,9 +1,12 @@
 @foreach($gid as $item)
 
 @if($page =='slider')
+	<!------------слайдеры на разных страницах------------------>
+
     <div class="swiper-slide">
 @else
-	                        <div class="col-lg-4 col-md-6">
+	<!------------catalog------------------>
+ <div class="col-lg-4 col-md-6">
 
 	@endif
 	
@@ -55,7 +58,8 @@
                             @else
                                 тнг		 
                             @endif
-                            @include('orda.gid.components.sposob-oplaty',$item)
+						{{ $item->oplata ? $item->oplata : 'час' }}
+							
                         @endif
                     </div>
                 </a>

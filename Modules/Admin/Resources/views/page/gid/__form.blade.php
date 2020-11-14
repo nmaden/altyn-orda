@@ -38,7 +38,6 @@ $categories = DB::table('lib_gid_speacialisations')->get();
 @endif		
 <div>  
 <br><br>
-
 <label for="title"><b>Имя</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
  @if(old('imya'))
@@ -56,6 +55,24 @@ name='imya' placeholder="Имя(текст)" class="form-control"></input>
 
 <br><br>
 
+<div>  
+
+<label for="title"><b>Валюта или тенге</b></label> 
+<input {{$page ? 'disabled': ''}} type="text" 
+ @if(old('imya'))
+  value="{{old('currency')}}"
+@else
+value="{{$model->currency ? $model->currency : old('currency')}}"
+@endif
+name='currency' placeholder="Имя(текст)" class="form-control"></input>
+@if ($errors->has('currency'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('currency') }}</strong>
+   </span>
+@endif
+</div>
+
+<br><br>
 
 
 <div>  

@@ -1,30 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use LocalizationService;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-//'prefix' => LocalizationService::locale(),
-//efinder
+
 Route::get('efinder',['uses' => 'CkeditorController@index'])->name('efinder');
 Route::post('efinder2',['uses' => 'CkeditorController@index2'])->name('efinder2');
 Route::any('drobsone',['uses' => 'DrobsoneController@index'])->name('drobsone');
 //Route::any('drobsone-send2',['uses' => 'DrobsoneController@send'])->name('drobsone-send2');
 
 Auth::routes();
-
-
-
-
-//'prefix' => LocalizationService::locale(),
 Route::group(['prefix' => LocalizationService::locale(),'namespace' => 'Main','middleware' => 'setLocale'], function () {
 	Route::post('filter', 'FilterController@filter')->name('filter');
 
@@ -53,11 +36,16 @@ Route::get('region/{id}',['uses' => 'MapController@city'])->name('filter-map');
 Route::get('sights-map',['uses' => 'MapController@sights'])->name('sights-map');
 Route::get('routes-map',['uses' => 'MapController@routes'])->name('routes-map');
 
-//o-nas
+//o-золотой орде
 Route::get('/about/figures-item/{figure}',['uses' => 'FiguresController@item'])->name('figures-item');
 Route::get('about',['uses' => 'AboutController@index'])->name('about');
 Route::get('about/figures',['uses' => 'FiguresController@index'])->name('figures');
-
+//legenda
+Route::get('about/legenda',['uses' => 'LegendaController@index'])->name('legenda');
+Route::get('/about/legenda-item',['uses' => 'LegendaController@item'])->name('legenda-item');
+//legenda
+Route::get('about/derevo',['uses' => 'DerevoController@index'])->name('derevo');
+Route::get('/about/derevo-item',['uses' => 'DerevoController@item'])->name('derevo-item');
 
 
 //достопримечательности
@@ -84,16 +72,7 @@ Route::get('/home',['uses' => 'Admin\ArticlesController@index'])->name('home');
 		Route::any('logout', 'LoginController@logout')->name('admin_logout');
         Route::get('activate/{hash}', ['uses' => 'RegistrationController@activate'])->name('activate');
 		
-		
-		
- //Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-//Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
-//Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
-//Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('showResetForm');
-		
-		
-     
-    });
+});
 
 
 

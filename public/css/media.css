@@ -292,6 +292,8 @@
     .header__menu--container {
         background-size: 40%;
     }
+
+    .derevo__block--img img {position: relative;left: 50%;transform: translateX(-47%);}
 }
 @media screen and (max-width: 992px) {
     .banner__linck--map {
@@ -347,6 +349,59 @@
         padding: 20px 0;
     }
 
+
+    .derevo__block--tree {
+        display: flex;
+        flex-direction: column-reverse;
+        top: 0;
+        bottom: auto !important;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    h1.section__title.derevo__title {
+        font-size: 45px;
+        margin-bottom: 50px;
+    }
+
+    .derevo__level {
+        padding: 0 !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .derevo__level:before {
+        display: none;
+    }
+
+    .derevo__level--item:before {
+        display: none;
+    }
+
+    .derevo__level--item:after {
+        display: none;
+    }
+
+    .derevo__level--item {
+        margin: 0 !important;
+    }
+
+    .derevo__level--item {
+        width: 230px !important;
+        height: 230px !important;
+        min-width: 230px !important;
+        margin: 10px 20px !important;
+    }
+
+    .derevo__level.derevo__level--2 {
+        margin: 0;
+    }
+
+    .derevo__block--img {
+        display: none;
+    }
     /*-------------------*/
     .about__banner--title {
         font-size: 45px;
@@ -445,6 +500,10 @@
     
     .footer__partners--item {
         margin: 10px 0;
+    }
+
+    .derevo__level--img:after {
+        border: 10px solid #fff !important;
     }
 }
 @media screen and (max-width: 768px) {
@@ -555,6 +614,24 @@
         display: none;
     }
 
+    
+        
+    h1.section__title.derevo__title {
+        font-size: 30px;
+    }
+
+    .derevo__level--item {
+        width: 175px !important;
+        height: 175px !important;
+        min-width: 175px !important;
+        margin: 10px 20px !important;
+    }
+
+    .derevo__level--big {
+        width: 220px !important;
+        height: 220px !important;
+        min-width: 220px !important;
+    }
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
@@ -747,6 +824,34 @@
     body.home-page.header--fixed header,
     header {
         padding-bottom: 20px;
+    }
+
+    .sights__item.legenda__item {
+        height: 400px;
+    }
+    .legenda__item .sights__item--img img {
+        height: 100% !important;
+        object-fit: cover;
+    }
+    .legenda__text--title {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+    .legenda__text--title:first-letter {
+        font-size: 60px;
+    }
+    .legenda__right .legenda__item {
+        height: 360px;
+    }
+    .page__gallery--img.page__legenda--img {
+        height: 250px;
+    }
+
+    .derevo__level--item {
+        width: 130px !important;
+        height: 130px !important;
+        min-width: 130px !important;
+        margin: 10px 5px !important;
     }
 }
 @media screen and (max-width: 320px) {

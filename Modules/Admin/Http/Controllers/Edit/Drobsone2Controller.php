@@ -124,6 +124,7 @@ public $table_switch;
 	 $img = ImageInt::make($file->getRealPath());
 	 $height = $img->height();
      $width = $img->width();
+	 /*
 	 if($width > 500){
 	 $resizedImage =  $img->resize(500, null, function ($constraint) {
             $constraint->aspectRatio();
@@ -132,9 +133,10 @@ public $table_switch;
 		$file_path= $this->url;
         Storage::put($file_path,  $resizedImage);
 		
-	 }else{
-		 $this->files->storeAs('/store/'.$this->papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $this->file_name);//store
 	 }
+	 */
+		 $this->files->storeAs('/store/'.$this->papka_save.'/'.date('Y').'/'.date('m').'/'.date('d'), $this->file_name);//store
+	 
   }
 	
 	}
