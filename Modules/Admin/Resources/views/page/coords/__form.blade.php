@@ -29,6 +29,15 @@ display:none;
  display:block;
 }
 </style>
+    @if (count($errors) > 0)
+    <div class="alert alert-danger" style='text-align:center'>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <fieldset class="content-group">
     <legend class="text-bold">@lang('model.university.coor_block')</legend>
@@ -70,7 +79,7 @@ name='coord' placeholder="координаты" class="form-control coords"
 <div class='r'> 
 <input  {{$page ? 'disabled': ''}} 
 type="text" value='{{isset($model->coordinate_name[$k]) ? $model->coordinate_name[$k] : ''}}' 
-name='coord_name[]' onchange="bb()" placeholder="координаты" class="form-control"/>
+name='coord_name[]' onchange="bb()" placeholder="название координаты" class="form-control"/>
 </div>
 @endforeach
 @endif
@@ -84,7 +93,7 @@ name='coord_name[]' onchange="bb()" placeholder="координаты" class="fo
 <div class='r'> 
 <input  {{$page ? 'disabled': ''}} 
 type="text" value='{{isset($model->distance_name[$k]) ? $model->distance_name[$k] : ''}}' 
-name='distance[]' placeholder="расстояние до конечной точки" class="form-control"/>
+name='distance[]' placeholder="расстояние(для ручного определения)" class="form-control"/>
 </div>
 @endforeach
 @endif
@@ -96,8 +105,8 @@ name='distance[]' placeholder="расстояние до конечной точ
 
 
 
-
-
+<div class='clearfix'></div>
+<br></br>
 <br></br>
 <div class='clearfix'></div>
  <div>   
@@ -128,11 +137,13 @@ name='distance[]' placeholder="расстояние до конечной точ
 </b></label> 
 
 	   <select {{$page ? 'disabled': ''}} name="routes_id" id="city_id" class="form-control select2">
-			<option value=""></option>
+			<option value="0">не выбрано</option>
 				
 			@if(count($model->getCityAr()) > 0)
             @foreach ($model->getRoutersAr() as $k => $v)
+		@if($v)
                 <option value="{{ $k }}" {{ $model->routes_id == $k ? 'selected' : '' }}>{{ $v }}</option>
+			@endif
             @endforeach
 			@else
 				ничего нет
@@ -203,7 +214,7 @@ name='distance[]' placeholder="расстояние до конечной точ
 				
 	$(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  class="form-control " placeholder="название координаты"/><div class="r"</div></div>'); //add input box
 				 
-				 $(wrapper3).append('<div id="divs3"><input type="text" name="coord_distance[]"  class="form-control" placeholder="введите растояние"/><div class="r"</div></div>'); //add input box
+				 $(wrapper3).append('<div id="divs3"><input type="text" name="coord_distance[]"  class="form-control" placeholder="введите растояние(для ручного определения)"/><div class="r"</div></div>'); //add input box
                
 				
         }

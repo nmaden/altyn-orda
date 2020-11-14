@@ -28,21 +28,48 @@ class CoordController extends Controller {
 	
 	 protected function validator(array $data,$model=false)
     {
-		
-		//nullable
+	if($data['routes_id'] == 0){
+		throw new \Exception('не выбран маршрут');
+	}
+	
+	$messages = [
+      'routes_id.not_in' => 'Максимальный размер изображения 1000px' 
+	  
+     ];
+	 
+if($data['data']['coor']){
+ if(is_array(json_decode($data['data']['coor']))){
+	  $decod = json_decode($data['data']['coor']);
+	  foreach($decod as $k=>$item){
+		  if(!isset($item[0]) && !isset($item[1])){throw new \Exception('не правильный формат координат');}
+		 if(!is_numeric($item[0]) && !is_numeric($item[1])){
+			 throw new \Exception('кординаты должны быть числом');
+         }
+		 preg_match("/[<>%$#@!&()]+/i",$data['coord_name'][$k],$arr);
+		 if(isset($arr[0])){throw new \Exception('не допустимые символы');
+          }
+		if(isset($data['distance'][$k])){
+		if(!is_numeric($data['distance'][$k])){throw new \Exception('дистанция должна быть числом');
+       }}}
+      }else{throw new \Exception('не правильный формат координат');}
+
+}
+	
+	 
 		if(isset($model->id)){
+			
 			$unique = 'unique:coord,routes_id,'.$model->id;
 		}else{
 			$unique = 'unique:coord,routes_id';
 
 		}
         return \Validator::make($data, [
-		 'auto' => 'sometimes|required|string',
-         'routes_id' => 'sometimes|required|'.$unique,
+		 'auto' => 'required|string',
+         'routes_id' => 'required|not_in:0'.$unique,
 	     //'data[coor]' => 'sometimes|required',
 	     //'imya' => 'sometimes|string',
 	     //'price' => 'sometimes|nullable|numeric',
-        ]);
+        ],$messages);
 		
     }
 	

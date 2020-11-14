@@ -206,7 +206,11 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 @if(RoleService::getRole(Auth::user()->type_id) =='ADMIN')
 
 <li>
-  <a href="#" style="background: {{in_array('home',$ar) ? '#ccc' : '' }}" class="has-ul"><i class="icon-database-menu"></i><span>
+ <a style="background: {{in_array('manager',$ar) ||
+	   in_array('moderator',$ar) 
+	   || in_array('users',$ar) 
+	   ? '#ccc' : '' }}" href="#">  
+  <i class="icon-database-menu"></i><span>
 	Пользователи
 </span>
 </a>
@@ -276,7 +280,9 @@ RoleService::getRole(Auth::user()->type_id) =='TYROPERATOR')
 
 <li>
 
-       <a   style="background: {{in_array('routes',$ar) ? '#ccc' : '' }}" href="#">
+       <a   style="background: {{in_array('routes',$ar) ||
+	   in_array('coords',$ar) 
+	   ? '#ccc' : '' }}" href="#">
 	   <i class="icon-city"></i>
 	   <span>Маршруты
 	   </span></a>
@@ -301,7 +307,7 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 	  <li  style="">
          <a href="{{ route('admin_coords') }}">
          <span>
-		  Конструктор маршрутов
+		  Создать карту 
 		</span>
 		</a>
 	  </li>
@@ -314,7 +320,7 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR')
 	<li  style="">
       <a href="{{ route('admin_routes') }}">
 	  
-	   <span>Маршруты
+	   <span>Создать маршрут
 	   </span></a>
 	   
 	   

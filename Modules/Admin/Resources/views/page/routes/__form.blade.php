@@ -222,45 +222,8 @@ value="2"
 
 
 
-<br><br>
-&nbsp&nbsp
-<button class="add_field_button btn btn-success
-">Добавить координату</button>
-<div class='clearfix'></div>
-<div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
-
-@if(count($model->coords) > 0)
-@foreach($model->coords as $k=>$coord)
-<div> 
-<label for="title"><b>координата {{$k+1}} (<span style='font-size:11px;color:#ccc'>для удаления сделайте поле пустым</span>)</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($coord->coord) ? $coord->coord : ''}}' 
-name='coord[]' placeholder="координаты" class="form-control"/>
-</div>
-@endforeach
-@endif
-
-<div class="input_fields_wrap"></div>
-
-</div>
 
 
-
-
-<div style='border:1px solid white;padding:0px 10px;' class='col-md-6'>
-
-@if(count($model->coords) > 0)
-@foreach($model->coords as $k=>$coord)
-<div> 
-<label for="title"><b>название координаты {{$k+1}}</b></label> 
-<input {{$page ? 'disabled': ''}} type="text" value='{{isset($coord->coord_name) ? $coord->coord_name : ''}}' name='coord_name[]' placeholder="координаты" class="form-control"/>
-</div>
-@endforeach
-@endif
-
-<div class="input_fields_wrap2">
- 
-</div>
-</div>
 
 <div class='clearfix'></div>
 <br><br>
@@ -315,50 +278,5 @@ $('.select2').select2({
 })
 </script>
 
-<script>	
-   $(document).ready(function() {
-    var max_fields = 10; //maximum input boxes allowed
-    var wrapper = $(".input_fields_wrap"); //Fields wrapper
-	var wrapper2 = $(".input_fields_wrap2"); //Fields wrapper
 
-    var add_button = $(".add_field_button"); //Add button ID
-	var add_button2 = $(".add_field_button2"); //Add button ID
-
-
-    var x = 1; //initlal text box count
-    $(add_button).click(function(e){
-		
-        e.preventDefault();
-        if(x < max_fields){ //max input box allowed
-            x++; //text box increment
-            $("#rm").remove(); 
-
-               $(wrapper).append('<div id="divs"><input type="text" name="coord[]"  class="form-control"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
-                
-				$(add_button2).trigger( "click" );
-				
-				 $(wrapper2).append('<div id="divs2"><input type="text" name="coord_name[]"  class="form-control" placeholder="название координаты"/></div>'); //add input box
-               
-				
-        }
-    });
-	
-$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); 
-		$("#divs").remove(); x--;
-		$("#divs2").remove(); x--;
-       
-
-    })
-	
-
- 
-
-
-
-    
-});
-	
-</script>
- 
 
