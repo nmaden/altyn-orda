@@ -12,6 +12,7 @@ use Modules\Entity\Actions\Routes\CalendarUpdateAction as ModelCreateAction;
 use Modules\Entity\Actions\Routes\CalendarUpdateAction as ModelUpdateAction;
 use Modules\Entity\Actions\Tabs\DefaultDeleteAction as ModelDeleteAction;
 use Exception;
+use Illuminate\Support\Facades\Validator;
 
 use Modules\Entity\Model\Routes\Routes as Model;
 
@@ -28,12 +29,18 @@ class RoutesController extends Controller {
 
 	 protected function validator($data,$model=false)
     {
+	
 		if(isset($data['category_id'])){
-		if(!in_array($data['category_id'],$model->getCat()) && $data['category_id']){
-			throw new Exception('не верное значение категории ');
-					
+		   if(!isset($model->id)){
+			   $model = new $this->def_model();
+			  
+			 }
+       
+		if(!in_array($data['category_id'],$model->getCat())){
+			throw new Exception('нет такой категории');
+          }
 		}
-		}
+		
 		if(isset($data['groups'][0])){
 		foreach($data['groups'] as $k=>$item){
 			if($k > 1){
@@ -44,23 +51,29 @@ class RoutesController extends Controller {
 			}
 		}
 		}
-		
+	
+	
+	
+			
  $messages = [
       'personally_price.numeric'=>'Поле стоимость числовой тип поля',
-	  	  'name.required'=>'Поле Title не заполнен'
-
+	  	  'name.required'=>'Поле Title не заполнен',
+          'subtitle.required'=>'Поле обязательное'
      ];
 		
-        return \Validator::make($data, [
+        return Validator::make($data, [
 
 		 //'photo' => 'nullable|sometimes|file|mimes:jpeg,png,svg|dimensions:min_width=30,max_width=1000',
 		 'photo' => 'nullable|sometimes|file|mimes:jpeg,png,svg',
-         'name' => 'sometimes|required|string|max:255',
+         'name' => 'required|string|max:255',
 	     'subtitle' => 'sometimes|required|string|max:255',
 	     'personally_price' => 'sometimes|nullable|numeric',
-	     'price' => 'sometimes|nullable|numeric',
-		 
+	     'price' => 'requred|nullable|numeric',
+		 'category_id'=>'string',
         ],$messages);
-    }
+		
 	
+	
+    }
+   
 }

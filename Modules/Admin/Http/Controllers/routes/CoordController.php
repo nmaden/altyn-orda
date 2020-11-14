@@ -33,8 +33,9 @@ class CoordController extends Controller {
 	}
 	
 	$messages = [
-      'routes_id.not_in' => 'Максимальный размер изображения 1000px' 
-	  
+      //'routes_id.not_in' => 'Максимальный размер изображения 1000px' 
+	   'routes_id.unique' => 'Такой маршрут уже есть, можно выбрать другой' 
+
      ];
 	 
 if($data['data']['coor']){
@@ -57,7 +58,8 @@ if($data['data']['coor']){
 	
 	 
 		if(isset($model->id)){
-			
+			//$unique = 'unique:coord,routes_id';
+
 			$unique = 'unique:coord,routes_id,'.$model->id;
 		}else{
 			$unique = 'unique:coord,routes_id';
@@ -65,7 +67,7 @@ if($data['data']['coor']){
 		}
         return \Validator::make($data, [
 		 'auto' => 'required|string',
-         'routes_id' => 'required|not_in:0'.$unique,
+         'routes_id' => 'required|not_in:0|'.$unique,
 	     //'data[coor]' => 'sometimes|required',
 	     //'imya' => 'sometimes|string',
 	     //'price' => 'sometimes|nullable|numeric',

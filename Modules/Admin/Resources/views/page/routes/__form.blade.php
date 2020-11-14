@@ -106,11 +106,12 @@ class="form-control"/>
 <label for="title"><b>Подзаголовок</b></label> 
 <input {{$page ? 'disabled': ''}} 
 type="text" 
-value="{{isset($model->subtitle) ? $model->subtitle : ''}}"
+value="{{isset($model->subtitle) ? $model->subtitle : old('subtitle')}}"
 name='subtitle' 
 class="form-control"
 placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 />
+
 @if ($errors->has('subtitle'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('subtitle') }}</strong>
@@ -138,6 +139,12 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
 				ничего нет
 			@endif
         </select>
+		
+@if($errors->has('category_id'))
+  <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('category_id') }}</strong>
+   </span>
+@endif
 </div>
 
 
@@ -253,9 +260,9 @@ value="2"
  <label for="title"><b>SEO-TITLE</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
 value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' placeholder="(текст)" class="form-control"></input>
-@if ($errors->has('name'))
+@if ($errors->has('seo_title'))
   <span class="help-block">
-     <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>
+     <strong style='color:#a94442'>{{ $errors->first('seo_title') }}</strong>
    </span>
 @endif
 </div>

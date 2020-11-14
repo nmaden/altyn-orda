@@ -23,18 +23,18 @@ trait MainCreateMethod  {
 
     public function saveCreate(Request $request) {
 		
-		   $validator = $this->validator($request->all());
-        if ($validator->fails()) { 
-        return redirect()->back()->withErrors($validator)->withInput();
-        };
-	
+		try{
+			$validator = $this->validator($request->all());
+			if ($validator->fails()) { 
+		     return redirect()->back()->withErrors($validator)->withInput();
+            };
 		
-	   $validator = $this->validator($request->all());
-        if ($validator->fails()) { 
-        return redirect()->back()->withErrors($validator)->withInput();
-        };
-	
-	$model = new $this->def_model();
+		}
+		 catch (\Exception $e) {
+		return redirect()->back()->with('error', $e->getMessage());
+
+		}
+
 	//dd($request->all());
 	$action = new $this->action_create(new $this->def_model(), $request);
 

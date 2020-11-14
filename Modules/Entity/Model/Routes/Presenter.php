@@ -2,7 +2,7 @@
 namespace Modules\Entity\Model\Routes;
 
 use Modules\Entity\Model\LibCity\LibCity;
-
+use Modules\Entity\Model\Catroutes\Catroutes;
 //use Modules\Entity\Model\LibRequirement\LibRequirement;
 use Lang;
 use Cache;
@@ -18,9 +18,8 @@ trait Presenter {
 	 
 	}
 	function getCat(){
-	$categories = DB::table('routes_categories')->get();
-	return $categories->pluck('id','name')->toArray();
-    }
+		return Catroutes::pluck('id', 'name')->toArray();
+	}
 	
 	
 	function getGroupUnserializeAttribute(){

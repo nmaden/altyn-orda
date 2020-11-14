@@ -33,14 +33,19 @@ trait MainUpdateMethod  {
 
 		
 		
-       //$validator = $this->validator($request->all(),$item);
 
-		  try {$this->validator($request->all(),$item);} 
-		   catch (\Exception $e) {
-			   
-			return redirect()->back()->with('error', $e->getMessage());
-        }
-	   
+		try{
+			$validator = $this->validator($request->all(),$item);
+			if ($validator->fails()) { 
+		     return redirect()->back()->withErrors($validator)->withInput();
+            };
+		
+		}
+		 catch (\Exception $e) {
+		return redirect()->back()->with('error', $e->getMessage());
+
+		}
+
 	   
 
 	
