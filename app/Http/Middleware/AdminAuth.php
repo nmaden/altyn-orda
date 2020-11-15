@@ -18,7 +18,7 @@ class AdminAuth {
 
         if ($this->auth->guest() || !in_array($this->auth->user()->type_id, [SysUserType::ADMIN, SysUserType::GID,SysUserType::MANAGER,SysUserType::MODERATOR,SysUserType::TYROPERATOR])){
             Auth::logout();
-            return redirect()->route('login')->with('error', 'Введите email и пароль, для доступа в кабинет');
+            return redirect()->route('vhod')->with('error', 'Введите email и пароль, для доступа в кабинет');
         }
 	
         return $next($request);

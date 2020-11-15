@@ -12,12 +12,19 @@ use Modules\Entity\Model\SysUserType\SysUserType;
 use Session;
 use Lang;
 use Carbon\Carbon;
+
 class LoginController extends Controller {
     function index (Request $request){
 		
         $ar = array();
         $ar['title'] = trans('front_main.title.enter');
         $login_page = view('orda'.'.user.login')->with(['ar'=>$ar])->render();
+		if(Auth::check()) {
+			return redirect()->route('admin_index'); 
+
+		}
+		
+
         return view('orda'.'.user.index')->with(['content'=>$login_page])->render();
 
 		
