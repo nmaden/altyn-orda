@@ -16,7 +16,7 @@
                     </li>
                     <li>
                         <span>
-                            Легенды Золотой Орды
+                            Сказание об «Аксак-кулан» («Хромой кулан»)
                         </span>
                     </li>
                 </ul>
@@ -24,7 +24,7 @@
 
             <div class="section__title--desc">
                 <h1 class="section__title">
-                    Легенды Золотой Орды
+                    Сказание об «Аксак-кулан» («Хромой кулан»)
                 </h1>
             </div>
 
@@ -82,7 +82,7 @@
                             <div class="sights__item--info">
                                 <div class="sights__item--title">
                                     <a href="/about/legenda-item">
-                                        Легенды Золотой Орды
+                                        Сказание об «Аксак-кулан» («Хромой кулан»)
                                     </a>
                                 </div>
                             </div>

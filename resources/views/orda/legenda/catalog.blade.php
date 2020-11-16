@@ -40,7 +40,7 @@
                                 <div class="sights__item--info">
                                     <div class="sights__item--title">
 									    <a href="/about/legenda-item">
-                                            Легенды Золотой Орды
+                                            Сказание об «Аксак-кулан» («Хромой кулан»)
                                         </a>
 									</div>
                                 </div>
