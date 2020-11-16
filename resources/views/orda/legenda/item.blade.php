@@ -11,7 +11,7 @@
                     </li>
                     <li class="breadcrumb-item">
                         <a href="/">
-						    @lang('front_main.calendar.title')
+						    История в легендах
                         </a>
                     </li>
                     <li>
@@ -29,11 +29,12 @@
             </div>
 
             <div class="calendar__list--list">
-
+                <!-- Скрыто в верстке
                 <div class="calendar__list--item">
                     <strong>Поделиться:</strong>
                     <div class="ya-share2" data-limit="3"></div>
                 </div>
+                -->
              
             </div>
 
