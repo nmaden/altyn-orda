@@ -47,7 +47,7 @@
                                     правил 1227 - 1255 г.ж.
                                 </div>
                             </div>
-                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                            <a href="/about/figures-item/3" class="derevo__level--linck">Подробнее</a>
                         </div>
                         <div class="derevo__level--item derevo__level--item--mini">
                             <div class="derevo__level--img">
@@ -61,7 +61,7 @@
                                     правил 1256 - 1266 г.ж.
                                 </div>
                             </div>
-                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                            <a href="/about/figures-item/4" class="derevo__level--linck">Подробнее</a>
                         </div>
                         <div class="derevo__level--item derevo__level--item--mini">
                             <div class="derevo__level--img">
@@ -102,13 +102,14 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Жошы (Джучи)
+                                    Джучи хан
+                                    <!--Жошы (Джучи)-->
                                 </div>
                                 <div class="derevo__level--date">
                                     1183 - 1227 г.ж.
                                 </div>
                             </div>
-                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                            <a href="/about/figures-item/2" class="derevo__level--linck">Подробнее</a>
                         </div>
                         <div class="derevo__level--item">
                             <div class="derevo__level--img">
@@ -122,7 +123,7 @@
                                     1185 - 1242 г.ж.
                                 </div>
                             </div>
-                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                            <a href="/about/figures-item/10" class="derevo__level--linck">Подробнее</a>
                         </div>
                         <div class="derevo__level--item">
                             <div class="derevo__level--img">
@@ -136,7 +137,7 @@
                                     1186 - 1241 г.ж.
                                 </div>
                             </div>
-                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                            <a href="/about/figures-item/11" class="derevo__level--linck">Подробнее</a>
                         </div>
                         <div class="derevo__level--item">
                             <div class="derevo__level--img">
@@ -150,7 +151,7 @@
                                     1193 - 1232 г.ж.
                                 </div>
                             </div>
-                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                            <a href="/about/figures-item/12" class="derevo__level--linck">Подробнее</a>
                         </div>
                         
                     </div>
@@ -163,13 +164,13 @@
                             </div>
                             <div class="derevo__level--info">
                                 <div class="derevo__level--title">
-                                    Чингиз-хан (Темуджин)
+                                    Чингис (Темуджин)
                                 </div>
                                 <div class="derevo__level--date">
                                     1155 - 1227 г.ж.
                                 </div>
                             </div>
-                            <a href="#" class="derevo__level--linck">Подробнее</a>
+                            <a href="/about/figures-item/9" class="derevo__level--linck">Подробнее</a>
                         </div>
 
                     </div>
