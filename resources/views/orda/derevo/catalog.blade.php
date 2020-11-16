@@ -6,7 +6,7 @@
 
             <div class="section__title--block derevo__title--block">
                 <h1 class="section__title derevo__title">
-                    Генеалогические дерево
+                    Генеалогическое дерево
                 </h1>
             </div>
 
