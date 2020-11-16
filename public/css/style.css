@@ -2898,7 +2898,7 @@ h1.section__title.derevo__title {
     transform: translateX(-50%);
     z-index: 2;
     width: 100%;
-    padding: 0 10px 10px 10px;
+    padding: 0 20px 20px 20px;
     transition: all 0.5s ease;
 }
 
@@ -2949,11 +2949,11 @@ a.derevo__level--linck {
 }
 
 .derevo__level--big .derevo__level--title {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .derevo__level--big .derevo__level--date {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .derevo__level--item--mini .derevo__level--title {
