@@ -40,7 +40,7 @@
                                 <div class="sights__item--info">
                                     <div class="sights__item--title">
 									    <a href="/about/legenda-item">
-                                            «Гора Манырак - Блеяние овцы»
+                                            Легенды Золотой Орды
                                         </a>
 									</div>
                                 </div>

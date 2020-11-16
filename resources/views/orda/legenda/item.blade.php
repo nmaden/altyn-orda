@@ -16,7 +16,7 @@
                     </li>
                     <li>
                         <span>
-                            «Гора Манырак - Блеяние овцы»
+                            Легенды Золотой Орды
                         </span>
                     </li>
                 </ul>
@@ -24,7 +24,7 @@
 
             <div class="section__title--desc">
                 <h1 class="section__title">
-                    «Гора Манырак - Блеяние овцы»
+                    Легенды Золотой Орды
                 </h1>
             </div>
 
@@ -74,13 +74,27 @@
 
                         <div class="sights__item legenda__item">
                             <div class="sights__item--img">
-                                <a href="#">
+                                <a href="/about/legenda-item">
+                                    <img src="/img/karagandy-alash_10.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="sights__item--info">
+                                <div class="sights__item--title">
+                                    <a href="/about/legenda-item">
+                                        Легенды Золотой Орды
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sights__item legenda__item">
+                            <div class="sights__item--img">
+                                <a href="/about/legenda-item">
                                     <img src="/img/karagandy-alash_1.jpg" alt="">
                                 </a>
                             </div>
                             <div class="sights__item--info">
                                 <div class="sights__item--title">
-                                    <a href="#">
+                                    <a href="/about/legenda-item">
                                         «Гора Манырак - Блеяние овцы»
                                     </a>
                                 </div>
@@ -88,27 +102,13 @@
                         </div>
                         <div class="sights__item legenda__item">
                             <div class="sights__item--img">
-                                <a href="#">
+                                <a href="/about/legenda-item">
                                     <img src="/img/karagandy-alash_1.jpg" alt="">
                                 </a>
                             </div>
                             <div class="sights__item--info">
                                 <div class="sights__item--title">
-                                    <a href="#">
-                                        «Гора Манырак - Блеяние овцы»
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sights__item legenda__item">
-                            <div class="sights__item--img">
-                                <a href="#">
-                                    <img src="/img/karagandy-alash_1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="sights__item--info">
-                                <div class="sights__item--title">
-                                    <a href="#">
+                                    <a href="/about/legenda-item">
                                         «Гора Манырак - Блеяние овцы»
                                     </a>
                                 </div>
