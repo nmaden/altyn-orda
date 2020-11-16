@@ -13,7 +13,7 @@
                     </li>
                     <li>
                         <span>
-						    @lang('front_main.figures.title')
+						    История в легендах
                        </span>
                     </li>
                 </ul>
@@ -21,7 +21,7 @@
 
             <div class="section__title--block">
                 <h1 class="section__title">
-                    @lang('front_main.figures.title')
+                    История в легендах
                 </h1>
             </div>
 
