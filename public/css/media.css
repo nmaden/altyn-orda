@@ -650,6 +650,12 @@
         height: 100% !important;
         object-fit: cover;
     }
+    .sights__list--img img {
+        min-width: 24px;
+    }
+    .sights__list--item {
+        display: flex;
+    }
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
@@ -897,6 +903,18 @@
     
     .derevo__level--date {
         height: 30px;
+    }
+
+    h1.about__banner--title {
+        font-size: 20px;
+    }
+    
+    .about__banner--data br {
+        display: none;
+    }
+    
+    .about__banner--data {
+        margin-bottom: 10px;
     }
 }
 @media screen and (max-width: 320px) {
