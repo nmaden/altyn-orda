@@ -644,6 +644,10 @@
     .sights__item {
         height: auto;
     }
+    .page__description--text img {
+        height: 100% !important;
+        object-fit: cover;
+    }
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
