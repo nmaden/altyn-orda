@@ -515,6 +515,11 @@
         height: 100px !important;
         min-height: 104px;
     }
+    p#range {
+        font-size: 16px;
+        top: -20px;
+        margin-bottom: 0 !important;
+    }
 }
 @media screen and (max-width: 768px) {
     
@@ -661,11 +666,7 @@
     .filter__item {
         margin-bottom: 20px;
     }
-    p#range {
-        font-size: 16px;
-        top: -20px;
-        margin-bottom: 0 !important;
-    }
+    
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
