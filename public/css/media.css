@@ -512,6 +512,8 @@
     }
     .about__line--absol .about__line--numer {
         margin-bottom: 30px !important;
+        height: 100px !important;
+        min-height: 104px;
     }
 }
 @media screen and (max-width: 768px) {
