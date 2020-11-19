@@ -656,6 +656,16 @@
     .sights__list--item {
         display: flex;
     }
+
+
+    .filter__item {
+        margin-bottom: 20px;
+    }
+    p#range {
+        font-size: 16px;
+        top: -20px;
+        margin-bottom: 0 !important;
+    }
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
@@ -916,6 +926,24 @@
     .about__banner--data {
         margin-bottom: 10px;
     }
+
+
+    .filter__main--slider {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+        margin-bottom: 30px;
+    }
+    
+    .filter__main--slider .filter__slider {
+        position: relative;
+    }
+    
+    .filter__main--slider .filter__slider .filter {
+        margin-top: 10px;
+    }
+    
 }
 @media screen and (max-width: 320px) {
 
