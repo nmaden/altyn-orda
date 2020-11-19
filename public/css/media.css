@@ -505,6 +505,14 @@
     .derevo__level--img:after {
         border: 10px solid #fff !important;
     }
+
+    
+    .about__line {
+        padding-top: 0;
+    }
+    .about__line--absol .about__line--numer {
+        margin-bottom: 30px !important;
+    }
 }
 @media screen and (max-width: 768px) {
     
