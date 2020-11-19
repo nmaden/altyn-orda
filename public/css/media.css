@@ -779,8 +779,11 @@
     .route__page--price {
         font-size: 15px;
     }
-    
+    /*
     .route__line--maps img {
+        height: 300px;
+    }*/
+    .route__line--maps {
         height: 300px;
     }
     
