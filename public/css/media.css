@@ -666,7 +666,13 @@
     .filter__item {
         margin-bottom: 20px;
     }
-    
+    p#range {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
@@ -944,7 +950,11 @@
     .filter__main--slider .filter__slider .filter {
         margin-top: 10px;
     }
-    
+    p#range {
+        top: -25px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
 }
 @media screen and (max-width: 320px) {
 
