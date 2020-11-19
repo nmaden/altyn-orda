@@ -640,6 +640,10 @@
         height: 220px !important;
         min-width: 220px !important;
     }
+
+    .sights__item {
+        height: auto;
+    }
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
