@@ -108,7 +108,7 @@
             if(jsvideoh.offsetHeight > document.documentElement.scrollTop){//jsvideo.offsetHeight > document.body.scrollTop || 
                 smoothScrollTo(document.getElementById('sectionAbout').offsetTop-130);
             }
-            document.getElementsByClassName("section__banner")[0].classList.remove('section__banner--playing');
+            // document.getElementsByClassName("section__banner")[0].classList.remove('section__banner--playing');
             document.getElementsByClassName("home-page")[0].classList.remove('body--playing');
         },false);
         jsvideo.addEventListener('playing',function(){

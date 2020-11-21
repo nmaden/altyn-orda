@@ -12,6 +12,7 @@ use Modules\Entity\Model\Tabs\Tabs;
 use Modules\Entity\Model\Figure\Figure;
 use Modules\Entity\Model\Gid\Gid;
 use Modules\Entity\Model\About\About;
+use Modules\Entity\Model\Legenda\Legenda;
 
  use Intervention\Image\Facades\Image as ImageInt;
 
@@ -94,6 +95,9 @@ public $table_switch;
 			$this->table = About::where('id',$this->id)->first();
 			break;}
 			
+			case 'legenda':{
+			$this->table = Legenda::where('id',$this->id)->first();
+			break;}
 			
 			
 	 }}}
@@ -224,6 +228,30 @@ public $table_switch;
 		$this->table_switch ='about';
 		$this->action = 'update';
 	    $this->str = 'about';
+		$this->photo = 'gallery';
+		
+		$this->page();
+		$this->table();
+		$this->help_remove($request->path);
+	}
+	//legenda
+	 public function sendlegenda(Request $request)
+    {
+	 $this->files = $request->file('file');
+     $this->papka_save = 'drobzone';
+	 $this->photo='gallery';
+	 $this->action = 'update';
+	 $this->str = 'legenda';
+	 $this->table_switch = 'legenda';
+	 $this->collector();
+  	 return $this->respons();
+    }
+	
+	//удаление
+	public function sliderlegenda(Request $request){
+		$this->table_switch ='legenda';
+		$this->action = 'update';
+	    $this->str = 'legenda';
 		$this->photo = 'gallery';
 		
 		$this->page();

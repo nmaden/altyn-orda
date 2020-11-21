@@ -43,8 +43,24 @@ class DefaultUpdateAction {
 				 unset($ar['photo']);
 			}
 		}
-  
-        
+		if ($this->request->has('hint')){
+			dd($this->request->hint);
+			 dd(182);
+		 }
+		
+      if ($this->request->has('photo_catalog')){
+		  if(is_file(public_path($this->model->photo_catalog))){
+	          Storage::delete($this->model->photo_catalog);
+            }
+			 $ar['photo_catalog'] = UploadPhoto::upload($this->request->photo_catalog,$this->model->photo_catalog);
+		
+		  
+	  }else{
+		   unset($ar['photo_catalog']);
+	  }
+        if($this->request->social && is_array($this->request->social)){
+         $ar['social'] = serialize($this->request->social);
+       }
 		  
 		  
 		  
@@ -81,11 +97,12 @@ class DefaultUpdateAction {
 		  
 		  
 	   if($this->request->general){if($this->request->seo_description || $this->request->seo_title){
+		   $value = $this->request->general;
 		   $title= strip_tags($this->request->seo_title);
 		   $desc= strip_tags($this->request->seo_description);
 
-		   if($this->request->lang){Cache::forever('seo-figure-'.$this->request->lang,[$title,$desc]);
-          }else{Cache::forever('seo-figure-ru',[$title,$desc]);//сохранение безвременно
+		   if($this->request->lang){Cache::forever('seo-'.$value.'-'.$this->request->lang,[$title,$desc]);
+          }else{Cache::forever('seo-'.$value.'-ru',[$title,$desc]);//сохранение безвременно
 		   }}}
 	   
 	   

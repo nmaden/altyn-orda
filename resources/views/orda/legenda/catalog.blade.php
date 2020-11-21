@@ -13,7 +13,7 @@
                     </li>
                     <li>
                         <span>
-						    @lang('front_main.figures.title')
+						    @lang('front_main.legenda.title')
                        </span>
                     </li>
                 </ul>
@@ -21,7 +21,7 @@
 
             <div class="section__title--block">
                 <h1 class="section__title">
-                    @lang('front_main.figures.title')
+                    История в легендах
                 </h1>
             </div>
 
@@ -29,105 +29,26 @@
 
                 <div class="sights__block calendar__block legenda__block">
                     <div class="row">
-
+                    @foreach($items as $item)
                         <div class="col-lg-4 col-md-6">
                             <div class="sights__item legenda__item">
                                 <div class="sights__item--img">
-                                    <a href="#">
-                                        <img src="/img/karagandy-alash_1.jpg" alt="">
+                                    <a href="{{route('legenda-item',$item)}}">
+                                        <img src="{{URL::asset($item->photo_catalog)}}" alt="">
 									</a>
                                 </div>
                                 <div class="sights__item--info">
                                     <div class="sights__item--title">
-									    <a href="#">
-                                            «Гора Манырак - Блеяние овцы»
+									    <a href="{{route('legenda-item',$item)}}">
+										@if(isset($item->name))
+										{{$item->name}}
+										@endif
                                         </a>
 									</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="sights__item legenda__item">
-                                <div class="sights__item--img">
-                                    <a href="#">
-                                        <img src="/img/karagandy-alash_1.jpg" alt="">
-									</a>
-                                </div>
-                                <div class="sights__item--info">
-                                    <div class="sights__item--title">
-									    <a href="#">
-                                            «Гора Манырак - Блеяние овцы»
-                                        </a>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="sights__item legenda__item">
-                                <div class="sights__item--img">
-                                    <a href="#">
-                                        <img src="/img/karagandy-alash_1.jpg" alt="">
-									</a>
-                                </div>
-                                <div class="sights__item--info">
-                                    <div class="sights__item--title">
-									    <a href="#">
-                                            «Гора Манырак - Блеяние овцы»
-                                        </a>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="sights__item legenda__item">
-                                <div class="sights__item--img">
-                                    <a href="#">
-                                        <img src="/img/karagandy-alash_1.jpg" alt="">
-									</a>
-                                </div>
-                                <div class="sights__item--info">
-                                    <div class="sights__item--title">
-									    <a href="#">
-                                            «Гора Манырак - Блеяние овцы»
-                                        </a>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="sights__item legenda__item">
-                                <div class="sights__item--img">
-                                    <a href="#">
-                                        <img src="/img/karagandy-alash_1.jpg" alt="">
-									</a>
-                                </div>
-                                <div class="sights__item--info">
-                                    <div class="sights__item--title">
-									    <a href="#">
-                                            «Гора Манырак - Блеяние овцы»
-                                        </a>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="sights__item legenda__item">
-                                <div class="sights__item--img">
-                                    <a href="#">
-                                        <img src="/img/karagandy-alash_1.jpg" alt="">
-									</a>
-                                </div>
-                                <div class="sights__item--info">
-                                    <div class="sights__item--title">
-									    <a href="#">
-                                            «Гора Манырак - Блеяние овцы»
-                                        </a>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-                        
+                  @endforeach
                     </div>
 
                 </div>

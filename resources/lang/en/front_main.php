@@ -38,6 +38,9 @@ return [
 		'derevo' => 'Family tree',
 
 		],
+	'legenda'=>[
+	  'title' => 'History in legends',
+	],
 	'sights' => [
         'title' => 'Attractions',
 		'date' => 'Date of foundation',

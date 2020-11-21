@@ -42,7 +42,7 @@ Route::get('about',['uses' => 'AboutController@index'])->name('about');
 Route::get('about/figures',['uses' => 'FiguresController@index'])->name('figures');
 //legenda
 Route::get('about/legenda',['uses' => 'LegendaController@index'])->name('legenda');
-Route::get('/about/legenda-item',['uses' => 'LegendaController@item'])->name('legenda-item');
+Route::get('/about/legenda-item/{legenda}',['uses' => 'LegendaController@item'])->name('legenda-item');
 //legenda
 Route::get('about/derevo',['uses' => 'DerevoController@index'])->name('derevo');
 Route::get('/about/derevo-item',['uses' => 'DerevoController@item'])->name('derevo-item');

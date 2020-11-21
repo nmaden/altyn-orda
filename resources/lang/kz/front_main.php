@@ -37,9 +37,12 @@ return [
 'figures' => [
         'title' => 'Тарихи тұлғалар',
 		'derevo' => 'Отбасылық ағаш',
-
+        'title' => 'Аңыздардағы тарих',
         
       ],
+	  'legenda'=>[
+	  'title' => 'History in legends',
+	],
 'sights' => [
         'title' => 'Көрнекті орындар',
 		'date' => 'Құрылған күні',

@@ -410,6 +410,35 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
 	
 			 
 			 <?php endif; ?>
+			 
+			 
+<?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
+RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
+RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
+     <li>
+       <a style="background: <?php echo e(in_array('figure',$ar) ? '#ccc' : ''); ?>" href="#">
+	   <i class="icon-city"></i>
+	   <span>Легенды
+	   </span></a>
+	   <ul class="hidden-ul">
+	  <li>
+	<li  style="">
+         <a href="<?php echo e(route('admin_legenda_update',1)); ?>">
+         <span>
+		  Общие элементы страницы
+		</span>
+		</a>
+	</li>
+	<li  style="">
+        <a href="<?php echo e(route('admin_legenda')); ?>"><span>Легенды</span></a>
+	</li>
+</ul>
+ </li>
+<?php endif; ?>
+			 			 
+			 
+			 
+			 
     <?php if(RoleService::getRole(Auth::user()->type_id) =='MANAGER' || 
     RoleService::getRole(Auth::user()->type_id) =='ADMIN' ||
     RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
