@@ -695,7 +695,7 @@ a.modal__map--item:hover:before {
     */
     transition: all 0.5s ease;
 }
-.inter__map-act .bg__video__intro:before {
+.inter__map-act.bg__video__intro:before {
     opacity: 0;
 }
 
