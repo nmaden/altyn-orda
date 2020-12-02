@@ -505,6 +505,21 @@
     .derevo__level--img:after {
         border: 10px solid #fff !important;
     }
+
+    
+    .about__line {
+        padding-top: 0;
+    }
+    .about__line--absol .about__line--numer {
+        margin-bottom: 30px !important;
+        height: 100px !important;
+        min-height: 104px;
+    }
+    p#range {
+        font-size: 16px;
+        top: -20px;
+        margin-bottom: 0 !important;
+    }
 }
 @media screen and (max-width: 768px) {
     
@@ -632,6 +647,32 @@
         height: 220px !important;
         min-width: 220px !important;
     }
+
+    .sights__item {
+        height: auto;
+    }
+    .page__description--text img {
+        height: 100% !important;
+        object-fit: cover;
+    }
+    .sights__list--img img {
+        min-width: 24px;
+    }
+    .sights__list--item {
+        display: flex;
+    }
+
+
+    .filter__item {
+        margin-bottom: 20px;
+    }
+    p#range {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+
 }
 @media screen and (max-width: 480px) {
     .header__logo img {
@@ -771,8 +812,11 @@
     .route__page--price {
         font-size: 15px;
     }
-    
+    /*
     .route__line--maps img {
+        height: 300px;
+    }*/
+    .route__line--maps {
         height: 300px;
     }
     
@@ -852,6 +896,64 @@
         height: 130px !important;
         min-width: 130px !important;
         margin: 10px 5px !important;
+    }
+
+
+    .derevo__level--big {
+        width: 220px !important;
+        height: 220px !important;
+        min-width: 220px !important;
+    }
+    
+    .derevo__level--info {
+        bottom: 10px;
+        padding: 0 10px 10px 10px;
+    }
+    
+    .derevo__level--img:after {
+        border: 5px solid #fff !important;
+    }
+    
+    .derevo__level--img {
+        padding: 5px;
+    }
+    
+    .derevo__level--date {
+        height: 30px;
+    }
+
+    h1.about__banner--title {
+        font-size: 20px;
+    }
+    
+    .about__banner--data br {
+        display: none;
+    }
+    
+    .about__banner--data {
+        margin-bottom: 10px;
+    }
+
+
+    .filter__main--slider {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+        margin-bottom: 30px;
+    }
+    
+    .filter__main--slider .filter__slider {
+        position: relative;
+    }
+    
+    .filter__main--slider .filter__slider .filter {
+        margin-top: 10px;
+    }
+    p#range {
+        top: -25px;
+        font-size: 14px;
+        white-space: nowrap;
     }
 }
 @media screen and (max-width: 320px) {

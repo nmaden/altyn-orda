@@ -683,7 +683,7 @@ a.modal__map--item:hover:before {
     right: 0;
     bottom: 0;
     /*background: rgb(0 0 0 / 0.20);*/
-    
+    opacity: 1;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(14, 79, 50, 0.8)), to(rgba(0, 0, 0, 0)));
     background: -o-linear-gradient(top, rgb(14 79 50 / 0.8) 10%, rgba(0, 0, 0, 0) 100%);
     background: linear-gradient(180deg, rgb(14 79 50 / 0.8) 10%, rgba(0, 0, 0, 0) 100%);
@@ -695,6 +695,10 @@ a.modal__map--item:hover:before {
     */
     transition: all 0.5s ease;
 }
+.inter__map-act.bg__video__intro:before {
+    opacity: 0;
+}
+
 .bg__video__intro video {
     width: 100%;
     height: 100%;
@@ -2898,7 +2902,7 @@ h1.section__title.derevo__title {
     transform: translateX(-50%);
     z-index: 2;
     width: 100%;
-    padding: 0 10px 10px 10px;
+    padding: 0 20px 20px 20px;
     transition: all 0.5s ease;
 }
 
@@ -2949,11 +2953,11 @@ a.derevo__level--linck {
 }
 
 .derevo__level--big .derevo__level--title {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .derevo__level--big .derevo__level--date {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .derevo__level--item--mini .derevo__level--title {
@@ -3051,3 +3055,4 @@ a.derevo__level--linck {
 .derevo__level--item:hover .derevo__level--img:after{
     border-color: #B77F04;
 }
+
