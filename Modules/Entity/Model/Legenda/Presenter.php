@@ -4,35 +4,45 @@ use Cache;
 
 trait Presenter {
 	
-	function getNameAttribute($v){
-		return $this->getTransField('namefigure', $v);
-    }
+
+	function getHintUnserializeAttribute(){
+		if(@unserialize($this->gallery_title)){
+			
+			return unserialize($this->gallery_title);
+		}else{
+			return false;
+		}
+	 
+	}
+	
 	function getPhotoUnserializeAttribute(){
 		if(@unserialize($this->gallery)){
+			
 			return unserialize($this->gallery);
 		}else{
-			return $this->gallery;
+			return false;
 		}
 	 
 	}
 	
 	function getDescriptionAttribute($v){
-		return $this->getTransField('descriptionfigure', $v);
+		return $this->getTransField('description', $v);
+    }
+
+		function getNameAttribute($v){
+		return $this->getTransField('name', $v);
     }
 	
-	function getBirthAttribute($v){
-		return $this->getTransField('birth', $v);
+	
+		function getGalleryTitleAttribute($v){
+		return $this->getTransField('gallery_title', $v);
     }
 	
-	function getStatusAttribute($v){
-		return $this->getTransField('status', $v);
-    }
+
 	function getSubtitleAttribute($v){
 		return $this->getTransField('subtitle', $v);
     }
-    function getIntrotextAttribute($v){
-		return $this->getTransField('introtext', $v);
-    }
+   
 	function getSeoTitleAttribute($v){
 		return $this->getTransField('seo_title', $v);
     }

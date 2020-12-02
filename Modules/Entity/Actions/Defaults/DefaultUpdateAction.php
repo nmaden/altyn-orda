@@ -22,7 +22,6 @@ class DefaultUpdateAction {
     }
 
     private function saveMain(){
-	
         $ar = $this->request->all();
 		
         $ar['user_id'] = $this->request->user()->id;
@@ -45,7 +44,7 @@ class DefaultUpdateAction {
 		}
   
         
-		  
+
 		  
 		  
 		if($this->request->description){
@@ -77,9 +76,17 @@ class DefaultUpdateAction {
 		  }
 	    }
 
-		  
-		  
-		  
+if($this->request->hint && is_array($this->request->hint)){
+	      
+	      $gallery_keys = array_keys($this->request->gallery);
+		  $gallery_combine= array_combine($gallery_keys,$ar['hint']);
+		  $ar['gallery_title']= serialize($gallery_combine);
+		  //dd(unserialize($ar['gallery_title']));
+		 }
+
+unset($ar['gallery']);
+      
+
 	   if($this->request->general){if($this->request->seo_description || $this->request->seo_title){
 		   $title= strip_tags($this->request->seo_title);
 		   $desc= strip_tags($this->request->seo_description);
@@ -88,7 +95,12 @@ class DefaultUpdateAction {
           }else{Cache::forever('seo-figure-ru',[$title,$desc]);//сохранение безвременно
 		   }}}
 	   
-	   
+	   	if($this->request->social && is_array($this->request->social)){
+         $ar['social'] = serialize($this->request->social);
+       }
+     
+	 				  	//dd($ar);
+
         $this->model->fill($ar);
         $this->model->save();
     }

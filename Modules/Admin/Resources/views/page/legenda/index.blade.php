@@ -42,7 +42,7 @@
 							
 							
 							</td>
-							<td>{{ $i->namefigure }}</td>
+							<td>{{ $i->name }}</td>
 							<td style="color:{{$i->publish == 2 ? 'green' :'red'}}">{{ $i->publish_index }}</td>
 
 						

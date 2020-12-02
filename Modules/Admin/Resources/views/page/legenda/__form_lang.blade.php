@@ -5,75 +5,78 @@ $page = false;
 if(in_array('show',$ar)){
 	$page = true;
 }
+
 @endphp
-<!--------------------------------------
-<div style='padding:10px 5px;'> 
-<label for="text"><b>Текст</b></label> 
+@php
+//dd($model->photo_unserialize)
 
+@endphp
+<div id="drobzone-photo">
+@if(is_array($model->photo_unserialize))
+<div style="border:1px solid black;padding:10px">
+@foreach($model->photo_unserialize as $k=>$item)
+<div class='rm'>
 
-<textarea 
- {{$page ? 'disabled': ''}}
- value="" 
- name='description' 
-  rows="16" 
- cols="4" 
- class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
- {{isset($model->description) ? $model->description : ''}}
-</textarea>
-</div>
------------------------------------>
-@if($lang == 'ru' || $lang === '')
+<input type="hidden" name="gallery[{{$k}}]" value="{{$item}}"/>
 
-<div>
-<label for="photo"><b>Фото</b></label>
- <input {{$page ? 'disabled': ''}} 
-type="file" 
-value="{{$model->photo}}" 
-name='photo' 
-placeholder="Фото" 
-class="form-control"/>
-@if (isset($model->photo)) 
- уже загружено <a href="{{URL::asset($model->photo)}}" target="_blank">просмотреть</a>
+ уже загружено <a href="{{URL::asset($item)}}" target="_blank">
+просмотреть</a>&nbsp&nbsp
+<a href="{{$item}}" id="{{$model->id}}" target="_blank" class='slider_remove'>
+удалить</a>
+@if(isset($model->hint_unserialize[$k]))
+
+<input type="text" 
+placeholder="Заголовок картинки"
+name="hint[]" value="{{$model->hint_unserialize[$k]}}"
+class="form-control"
+/>
 @else
-Фото не загружено
-@endif
-</div>
+<input type="text" 
+placeholder="Заголовок картинки"
+name="hint[]" value=""
+class="form-control"
+/>
 @endif
 
-@if($lang == 'ru' || $lang != 'ru')
-<br><br>
-<div>  
- <label for="title"><b>Годы жизни(текст)</b></label> 
-<input {{$page ? 'disabled': ''}} 
-type="text" value="{{isset($model->birth) ? $model->birth: ''}}" 
-name='birth' placeholder="{{$page ? '': '1182-1225 '}} " 
-class="form-control"/>
+ </br>
+ </div>
+@endforeach
 </div>
 @endif
 
-
-
-<br><br>
-
-<div>  
-<label for="title"><b>Имя(текст)</b></label> 
-<input {{$page ? 'disabled': ''}} 
-type="text" value="{{isset($model->name ) ? $model->name : ''}}" 
-name='name' placeholder="(текст)" 
-class="form-control"/>
 </div>
-
 <br><br>
 <div>  
- <label for="title"><b>Ранг(текстовое поле)</b></label> 
+<label for="title"><b>Заголовок(текст)</b></label> 
 <input {{$page ? 'disabled': ''}} 
-type="text" value="{{isset($model->status) ? $model->status: ''}}" 
-name='status' placeholder="{{$page ? '': 'Хан'}} " 
+type="text" value="{{isset($model->name ) ? $model->name : old('name')}}" 
+name='name' placeholder="" 
 class="form-control"/>
+   @if($errors->has('name'))
+    <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>
+    </span>
+    @endif
 </div>
+<br><br>
+<div>   
+   <p><b>Опубликовать</b></p>
+	  <select {{$page ? 'disabled': ''}} name="publish" class="form-control select2">
+			<option value="">@lang('model.disabled')</option>
+				 <option  {{ $model->publish == 2 ? 'selected' : '' }} value="2">активно</option>
+				 <option {{ $model->publish == 1 ? 'selected' : '' }} value="1">черновик</option>
+
+			
+        </select>
+   @if($errors->has('publish'))
+    <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('publish') }}</strong>
+    </span>
+    @endif
+		</div>
+		
 
 <br><br>
-
 <div style='padding:10px 5px;'> 
 <label for="text"><b>Текст</b></label> 
 <textarea 
@@ -82,22 +85,12 @@ class="form-control"/>
  name='description' 
   rows="16" 
  cols="4" 
- id="editor"
- class="form-control {{$page ? '' : ''}}">
+ 
+ class="form-control {{$page ? '' : ''}} wysihtml5 wysihtml5-default">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
  </div>
  
-<br><br>
-
-<div>  
- <label for="title"><b>текстовое поле</b></label> 
-<input {{$page ? 'disabled': ''}} 
-
-type="text" value="{{isset($model->introtext) ? $model->introtext: ''}}" 
-name='introtext' placeholder="{{$page ? '': 'Место погребения гора Улытау, Казахстан'}} " 
-class="form-control"/>
-</div>
 
 <br><br>
 
@@ -112,9 +105,11 @@ class="form-control"/>
 
 
 
+
 <br><br>
 
 <div>
+
  <label for="title"><b>SEO-TITLE</b></label> 
 <input {{$page ? 'disabled': ''}} type="text" 
 value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' placeholder="(текст)" class="form-control"></input>
@@ -136,10 +131,9 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
 </div>
 
 <script>
-	
-  CKEDITOR.replace('editor', {
-  filebrowserUploadUrl: "{{route('figures')}}",
-  disallowedContent: 'a[href]',
-  height: 300, });
-	
+	$('.select2').select2({
+    minimumResultsForSearch: Infinity,
+    width: '100%'
+})
+
 </script>

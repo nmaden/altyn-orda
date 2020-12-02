@@ -22,7 +22,6 @@ if(in_array('show',$ar)){
 </textarea>
 </div>
 ----------------------------------->
-@if($lang == 'ru' || $lang === '')
 <div style="border:2px solid #ccc;padding:10px">
 
 <div>
@@ -57,13 +56,14 @@ class="form-control"/>
 </div>
 
 
-@endif
 
 
-<br><br>
-<div id="drobzone-photo" style="border:1px solid black;padding:10px">
+
+	<br><br>
+
+<div id="drobzone-photo">
 @if(is_array($model->photo_unserialize))
-
+<div style="border:1px solid black;padding:10px">
 @foreach($model->photo_unserialize as $k=>$item)
 <div class='rm'>
 
@@ -73,16 +73,28 @@ class="form-control"/>
 просмотреть</a>&nbsp&nbsp
 <a href="{{$item}}" id="{{$model->id}}" target="_blank" class='slider_remove'>
 удалить</a>
-<input type="text" name="hint[]" value=""
+@if(isset($model->hint_unserialize[$k]))
+
+<input type="text" 
+placeholder="Заголовок картинки"
+name="hint[]" value="{{$model->hint_unserialize[$k]}}"
 class="form-control"
 />
-
+@else
+<input type="text" 
+placeholder="Заголовок картинки"
+name="hint[]" value=""
+class="form-control"
+/>
+@endif
 
  </br>
  </div>
 @endforeach
+</div>
 @endif
 
+</div>
 
 @if(in_array('update',$ar))
 <div>
@@ -91,7 +103,6 @@ class="form-control"
 </div>
 <br><br>
 @endif
-</div>
 <br><br>
 <div>   
    <p><b>Опубликовать</b></p>
@@ -102,6 +113,11 @@ class="form-control"
 
 			
         </select>
+   @if($errors->has('publish'))
+    <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('publish') }}</strong>
+    </span>
+    @endif
 		</div>
 		
 
@@ -110,13 +126,17 @@ class="form-control"
 <div>  
 <label for="title"><b>Заголовок(текст)</b></label> 
 <input {{$page ? 'disabled': ''}} 
-type="text" value="{{isset($model->name ) ? $model->name : ''}}" 
+type="text" value="{{isset($model->name ) ? $model->name : old('name')}}" 
 name='name' placeholder="" 
 class="form-control"/>
+   @if($errors->has('name'))
+    <span class="help-block">
+     <strong style='color:#a94442'>{{ $errors->first('name') }}</strong>
+    </span>
+    @endif
 </div>
 
 <br><br>
-
 <div style='padding:10px 5px;'> 
 <label for="text"><b>Текст</b></label> 
 <textarea 

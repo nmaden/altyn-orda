@@ -36,9 +36,10 @@ return [
 	'figures' => [
         'title' => 'Historische Persönlichkeiten',
 		'derevo' => 'Stammbaum',
-
-        
-      ],
+    ],
+	 'legenda'=>[
+	'title'=>'Geschichte in Legenden'
+	],
 	'sights' => [
         'title' => 'Sehenswürdigkeiten',
 		 'date' => 'Gründungsdatum',

@@ -8,7 +8,7 @@ class Legenda extends ModelParent {
     protected $table = 'legenda';
 	protected $fillable = [ 'name',
 	'description','photo',
-	'edited_user_id','subtitle','editor','seo_title','seo_description','publish','photo_catalog','social','gallery','hint'];
+	'edited_user_id','subtitle','editor','seo_title','seo_description','publish','photo_catalog','social','gallery','gallery_title'];
     protected $filter_class = Filter::class; 
     use Presenter,CheckTrans;
     
@@ -27,7 +27,7 @@ class Legenda extends ModelParent {
  
 
   function relTrans(){
-        return $this->hasOne('Modules\Entity\Model\Figure\TransFigure', 'el_id');
+        return $this->hasOne('Modules\Entity\Model\Legenda\TransLegenda', 'el_id');
     }
 
     

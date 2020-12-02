@@ -58,7 +58,7 @@ class ModelParent extends Model {
 		 if(!isset($this->id)){
 			 return $v;
 		 }
-			 
+		
 		
 		$table_name = $this->getTable();
 
@@ -77,15 +77,11 @@ class ModelParent extends Model {
             
         }
         else{
-if($table_name == 'abouts'){
 			
-			//dd($table_name);
-		}
-					
 
 		
   
-          $lang = $this->relTrans()->firstOrCreate(['lang'=>'en']);
+          $lang = $this->relTrans()->firstOrCreate(['lang'=>$this->lang]);
 		
 
 		}

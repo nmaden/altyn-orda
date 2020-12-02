@@ -32,6 +32,7 @@ trait Presenter {
 	}
 	
 function getPublishIndexAttribute($v){
+
 	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
     }
 	

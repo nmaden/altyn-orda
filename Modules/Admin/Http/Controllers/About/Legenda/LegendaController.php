@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 
 use Modules\Admin\Traits\MainCrudMethod;
 
-use Modules\Entity\Actions\Defaults\DefaultSaveAction as ModelCreateAction;
+use Modules\Entity\Actions\Defaults\DefaultUpdateAction as ModelCreateAction;
 
 use Modules\Entity\Actions\Defaults\DefaultUpdateAction as ModelUpdateAction;
 
@@ -27,14 +27,21 @@ class LegendaController extends Controller {
     protected $action_delete = ModelDeleteAction::class;
 	 protected function validator(array $data)
     {
+		$messages = [
+         'publish.required'=>'Поле публикация не заполнено',
+		 'name.required'=>'Поле заголовок не заполнено',
+
+        ];
+		
 		//nullable
+		
         return \Validator::make($data, [
-		 //'name' => 'sometimes|required|string',
-         //'vosrast' => 'sometimes|nullable|numeric',
+		 'publish' => 'required|numeric',
+         'name' => 'required',
 	     //'opyt' => 'sometimes|numeric',
 	     //'imya' => 'sometimes|string',
 	     //'price' => 'sometimes|nullable|numeric',
-        ]);
+        ],$messages);
     }
 	
 }

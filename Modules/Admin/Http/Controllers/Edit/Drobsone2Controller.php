@@ -12,6 +12,7 @@ use Modules\Entity\Model\Tabs\Tabs;
 use Modules\Entity\Model\Figure\Figure;
 use Modules\Entity\Model\Gid\Gid;
 use Modules\Entity\Model\About\About;
+use Modules\Entity\Model\Legenda\Legenda;
 
  use Intervention\Image\Facades\Image as ImageInt;
 
@@ -30,6 +31,7 @@ class Drobsone2Controller extends Controller
  public $img;
  public $action;
  public $str;
+ public $hint=false;
 public $table_switch;
 	
 	
@@ -48,8 +50,23 @@ public $table_switch;
 				$img = unserialize($this->table->{$this->photo});
 				$key = array_search($path,$img);
 				unset($img[$key]);
+                if(isset($this->hint)){
+					if(@unserialize($this->table->{$this->hint})){
+						$hint = unserialize($this->table->{$this->hint});
+				        unset($hint[$key]);
+				}
+               }
+			   
+				if(isset($this->hint)){
+				if($this->hint){
+					if(@unserialize($this->table->{$this->hint})){
+                    $this->table->{$this->hint} = serialize($hint);
+					}
+				}
+				}
 				$this->table->{$this->photo} = serialize($img);
-		        $this->table->save();
+
+                $this->table->save();
 			}
 			//удаление из хранилища
 			Storage::delete($path);
@@ -93,6 +110,10 @@ public $table_switch;
 		case 'about':{
 			$this->table = About::where('id',$this->id)->first();
 			break;}
+        case 'legenda':{
+			$this->table = Legenda::where('id',$this->id)->first();
+			break;}
+			
 			
 			
 			
@@ -143,9 +164,28 @@ public $table_switch;
   
 }
    public function respons(){
-	   $photo_res = unserialize($this->table->{$this->photo});
-		$view = view('orda.response.drobzone')->with(['photo'=>$photo_res,'id'=>$this->id,'foto'=>$this->photo])->render();
-		return response($view)->header('Content-type','text/html');
+	   $photo_res = false;
+	   if(@unserialize($this->table->{$this->photo})){
+		  $photo_res = unserialize($this->table->{$this->photo});
+
+	   }
+
+		$template = 'drobzone';
+		$arr=['photo'=>$photo_res,'id'=>$this->id,'foto'=>$this->photo];
+		
+		if(isset($this->hint)){
+         if($this->hint){
+             $template = 'drobzone-hint';
+			 	if(@unserialize($this->table->{$this->hint})){
+                 $arr['hint']=unserialize($this->table->{$this->hint});
+				}else{
+					$arr['hint']=false;
+				}
+			}
+		}
+		
+		$view = view('orda.response.'.$template)->with($arr)->render();
+         return response($view)->header('Content-type','text/html');
    }
    public function collector(){
 	  
@@ -228,6 +268,32 @@ public $table_switch;
 		
 		$this->page();
 		$this->table();
+		$this->help_remove($request->path);
+	}
+	//abouts
+	 public function sendlegenda(Request $request)
+    {
+	 $this->files = $request->file('file');
+     $this->papka_save = 'drobzone';
+	 $this->photo='gallery';
+	 $this->action = 'update';
+	 $this->str = 'legenda';
+	 $this->table_switch = 'legenda';
+	 $this->hint='gallery_title';//имя поля
+     $this->collector();
+  	 return $this->respons();
+    }
+	
+	//удаление
+	public function sliderlegenda(Request $request){
+		$this->table_switch ='legenda';
+		$this->action = 'update';
+	    $this->str = 'legenda';
+		$this->photo = 'gallery';
+		
+		$this->page();
+		$this->table();
+		$this->hint='gallery_title';//имя поля
 		$this->help_remove($request->path);
 	}
 	
