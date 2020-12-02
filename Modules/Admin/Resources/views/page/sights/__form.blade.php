@@ -173,7 +173,8 @@ name='currency' placeholder="Имя(текст)" class="form-control"></input>
  name='description' 
   rows="16" 
  cols="4" 
- class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+ id='editor'
+ class="form-control {{$page ? '' : ''}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
  </div>
@@ -254,8 +255,9 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 
 <div>
  <label for="text"><b>SEO-DESCRIPTION</b></label> 
-<textarea {{$page ? 'disabled': ''}}  
-value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+<textarea {{$page ? 'disabled': ''}}
+id="editor"  
+value='' name='seo_description'  class="form-control {{$page ? '' : ''}}">
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
 
@@ -270,7 +272,13 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
   type="text/javascript"></script>
    <script type="text/javascript" src="/geo/jquery-ui-1.8.1.custom.min.js"></script> 
 
- 
+ <script>
+  CKEDITOR.replace('editor', {
+  //filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  //disallowedContent: 'a[href]',
+  height: 300, });
+</script>
+
  <script type="text/javascript">
  /*-------
 var geocoder;

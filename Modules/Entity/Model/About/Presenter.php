@@ -44,6 +44,7 @@ function getPhotoUnserializeAttribute(){
     }
 	
 	function getDescriptionAttribute($v){
+		
 		return $this->getTransField('description', $v);
     }
 	

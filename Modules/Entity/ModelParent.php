@@ -62,6 +62,8 @@ class ModelParent extends Model {
 		
 		$table_name = $this->getTable();
 
+		
+
         if (strpos($table_name, 'lib_') !== false || strpos($table_name, 'general') !== false){
 			
             $lang = $this->relTrans()->where(['lang'=>$this->lang])->first();
@@ -75,10 +77,15 @@ class ModelParent extends Model {
             
         }
         else{
-		$this->tab();
+if($table_name == 'abouts'){
+			
+			//dd($table_name);
+		}
+					
+
 		
   
-          $lang = $this->relTrans()->firstOrCreate(['lang'=>$this->lang]);
+          $lang = $this->relTrans()->firstOrCreate(['lang'=>'en']);
 		
 
 		}

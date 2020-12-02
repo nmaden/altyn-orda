@@ -39,9 +39,6 @@ return [
 
         
       ],
-	 'legenda'=>[
-	  'title' => 'Geschichte in Legenden',
-	],
 	'sights' => [
         'title' => 'Sehenswürdigkeiten',
 		 'date' => 'Gründungsdatum',

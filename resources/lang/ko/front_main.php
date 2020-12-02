@@ -37,10 +37,9 @@ return [
 	'figures' => [
         'title' => '역사적인 숫자',
 		'derevo' => '패밀리 트리',
-    ],
-	'legenda'=>[
-	  'title' => '전설의 역사',
-	],
+
+        
+      ],
 	 'sights' => [
         'title' => '관광 명소',
 		'date' => '기초 날짜',

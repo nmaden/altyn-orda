@@ -80,7 +80,9 @@ value='{{isset($model->name) ? $model->name : ''}}' name='name' placeholder="з�
 <div>
  <label for="text"><b>Текст</b></label> 
 <textarea {{$page ? 'disabled': ''}}  
-value='' name='text'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+value='' name='text'  
+id="editor"
+class="form-control {{$page ? '' : ''}}">
 {{isset($model->text) ? $model->text : ''}}</textarea>
 </div>
 
@@ -189,12 +191,16 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
 </div>
 
 
+<script>
+  CKEDITOR.replace('editor', {
+  //filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  //disallowedContent: 'a[href]',
+  height: 300, });
+</script>
 
 <script>
 $('.select2').select2({
     minimumResultsForSearch: Infinity,
     width: '100%'
 })
-
- 
-		</script>
+</script>

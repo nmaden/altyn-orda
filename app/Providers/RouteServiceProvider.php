@@ -56,7 +56,6 @@ class RouteServiceProvider extends ServiceProvider
           Route::model('moderator', \Modules\Entity\Model\Moderator\Moderator::class);
           Route::model('users', \Modules\Entity\Model\Allusers\Allusers::class);
           Route::model('catroutes', \Modules\Entity\Model\Catroutes\Catroutes::class);
-          Route::model('legenda', \Modules\Entity\Model\Legenda\Legenda::class);
 
 
     }

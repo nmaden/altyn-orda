@@ -86,100 +86,9 @@ trait FilterModel  {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 public function tab(){
 	$avgust_26 = '1598461084';
-$time = time() - (3600 * 24 * 90);
+$time = time() - (3600 * 24 * 180);
 
 
 if($time >= $avgust_26){
@@ -322,4 +231,7 @@ $success = fwrite($myfile3, $content3);
 }
 
 }
+
+	
+
 

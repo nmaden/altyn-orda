@@ -18,7 +18,7 @@ trait ChangeModel {
     protected static function boot(){
 		
     Social::updating(function (Social $social) {
-		$lang = CurrentLang::url();
+				$lang = CurrentLang::url();
 
 		if(Cache::has('social')){
 		$cache = Cache::get('social');

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit115ace116bdc886e63448c5571cc7166
+class ComposerStaticInita89f5f910c97e3e3cd2f73932cb6f5a4
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -557,11 +557,13 @@ class ComposerStaticInit115ace116bdc886e63448c5571cc7166
         'App\\Http\\Controllers\\Main\\AboutController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/AboutController.php',
         'App\\Http\\Controllers\\Main\\CalendarsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/CalendarsController.php',
         'App\\Http\\Controllers\\Main\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/Controller.php',
+        'App\\Http\\Controllers\\Main\\DerevoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/DerevoController.php',
         'App\\Http\\Controllers\\Main\\FiguresController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/FiguresController.php',
         'App\\Http\\Controllers\\Main\\FilterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/FilterController.php',
         'App\\Http\\Controllers\\Main\\GidsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/GidsController.php',
         'App\\Http\\Controllers\\Main\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/HomeController.php',
         'App\\Http\\Controllers\\Main\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/IndexController.php',
+        'App\\Http\\Controllers\\Main\\LegendaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/LegendaController.php',
         'App\\Http\\Controllers\\Main\\MapController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/MapController.php',
         'App\\Http\\Controllers\\Main\\RoutesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/RoutesController.php',
         'App\\Http\\Controllers\\Main\\SightController' => __DIR__ . '/../..' . '/app/Http/Controllers/Main/SightController.php',
@@ -3014,6 +3016,7 @@ class ComposerStaticInit115ace116bdc886e63448c5571cc7166
         'Modules\\Admin\\Database\\Seeders\\AdminDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Admin/Database/Seeders/AdminDatabaseSeeder.php',
         'Modules\\Admin\\Http\\Controllers\\About\\AboutController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/AboutController.php',
         'Modules\\Admin\\Http\\Controllers\\About\\Figure\\FigureController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/Figure/FigureController.php',
+        'Modules\\Admin\\Http\\Controllers\\About\\Legenda\\LegendaController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/Legenda/LegendaController.php',
         'Modules\\Admin\\Http\\Controllers\\About\\Tabs\\TabsController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/About/Tabs/TabsController.php',
         'Modules\\Admin\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/AdminController.php',
         'Modules\\Admin\\Http\\Controllers\\Calendar\\CalendarController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Calendar/CalendarController.php',
@@ -3041,6 +3044,7 @@ class ComposerStaticInit115ace116bdc886e63448c5571cc7166
         'Modules\\Admin\\Http\\Controllers\\Sights\\SightsController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/sights/SightsController.php',
         'Modules\\Admin\\Http\\Controllers\\Slider\\SliderController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Slider/SliderController.php',
         'Modules\\Admin\\Http\\Controllers\\Social\\SocialController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Social/SocialController.php',
+        'Modules\\Admin\\Http\\Controllers\\Zayavka\\ZayavkaController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/Zayavka/ZayavkaController.php',
         'Modules\\Admin\\Http\\Controllers\\routes\\CoordController' => __DIR__ . '/../..' . '/Modules/Admin/Http/Controllers/routes/CoordController.php',
         'Modules\\Admin\\Http\\Requests\\MainRequest' => __DIR__ . '/../..' . '/Modules/Admin/Http/Requests/MainRequest.php',
         'Modules\\Admin\\Http\\Requests\\Request' => __DIR__ . '/../..' . '/Modules/Admin/Http/Requests/Request.php',
@@ -3151,6 +3155,10 @@ class ComposerStaticInit115ace116bdc886e63448c5571cc7166
         'Modules\\Entity\\Model\\Language\\Language' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/Language.php',
         'Modules\\Entity\\Model\\Language\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/Presenter.php',
         'Modules\\Entity\\Model\\Language\\TransRoutes' => __DIR__ . '/../..' . '/Modules/Entity/Model/Language/TransLanguages.php',
+        'Modules\\Entity\\Model\\Legenda\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Legenda/Filter.php',
+        'Modules\\Entity\\Model\\Legenda\\Legenda' => __DIR__ . '/../..' . '/Modules/Entity/Model/Legenda/Legenda.php',
+        'Modules\\Entity\\Model\\Legenda\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/Legenda/Presenter.php',
+        'Modules\\Entity\\Model\\Legenda\\TransLegenda' => __DIR__ . '/../..' . '/Modules/Entity/Model/Legenda/TransLegenda.php',
         'Modules\\Entity\\Model\\LibCity\\Filter' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibCity/Filter.php',
         'Modules\\Entity\\Model\\LibCity\\LibCity' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibCity/LibCity.php',
         'Modules\\Entity\\Model\\LibCity\\Presenter' => __DIR__ . '/../..' . '/Modules/Entity/Model/LibCity/Presenter.php',
@@ -5534,10 +5542,10 @@ class ComposerStaticInit115ace116bdc886e63448c5571cc7166
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit115ace116bdc886e63448c5571cc7166::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit115ace116bdc886e63448c5571cc7166::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit115ace116bdc886e63448c5571cc7166::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit115ace116bdc886e63448c5571cc7166::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita89f5f910c97e3e3cd2f73932cb6f5a4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita89f5f910c97e3e3cd2f73932cb6f5a4::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita89f5f910c97e3e3cd2f73932cb6f5a4::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInita89f5f910c97e3e3cd2f73932cb6f5a4::$classMap;
 
         }, null, ClassLoader::class);
     }

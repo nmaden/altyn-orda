@@ -328,36 +328,6 @@ Route::group(['prefix' => 'admin','middleware' => ['auth.admin']], function () {
 	
 	
 	
-	Route::group(['prefix' => 'legenda', 'namespace' => 'Legenda'], function () {
-          Route::get('/', 'LegendaController@index')
-		  	//->middleware('can:list,Modules\Entity\Model\Figure\Figure')
-            ->name('admin_legenda');
-
-	       Route::get('create', 'LegendaController@create')
-		   	//->middleware('can:create,Modules\Entity\Model\Figure\Figure')
-            ->name('admin_legenda_create');
-				
-			  Route::post('create', 'LegendaController@saveCreate')
-	             //->middleware('can:create,Modules\Entity\Model\Figure\Figure')
-                ->name('admin_legenda_create_save');
-			   
-			  Route::get('update/{legenda}', 'LegendaController@update')
-			   	//->middleware('can:update,figure')
-                ->name('admin_legenda_update');
-			   
-			   Route::post('update/{legenda}', 'LegendaController@saveUpdate')
-			   	//->middleware('can:update,figure')
-                ->name('admin_legenda_update_save');
-			   
-			   Route::get('delete/{legenda}', 'LegendaController@delete')
-			   	//->middleware('can:delete,figure')
-                ->name('admin_legenda_delete');
-			   
-			     Route::get('view/{legenda}', 'LegendaController@show')
-				 //->middleware('can:view,figure')
-                 ->name('admin_legenda_show');
-			   });
-	
 	
 	
 	
@@ -736,9 +706,5 @@ Route::any('slider-remove-about',['uses' => 'Drobsone2Controller@sliderabout'])-
 //gid
 Route::any('drobsone-send-gid',['uses' => 'Drobsone2Controller@sendgids'])->name('drobsone-send-gid');
 Route::any('slider-remove-gid',['uses' => 'Drobsone2Controller@slidergids'])->name('slider-remove-gid');
-//legenda
-Route::any('drobsone-send-legenda',['uses' => 'Drobsone2Controller@sendlegenda'])->name('drobsone-send-legenda');
-Route::any('slider-remove-legenda',['uses' => 'Drobsone2Controller@sliderlegenda'])->name('slider-remove-legenda');
-
-
+  
 });

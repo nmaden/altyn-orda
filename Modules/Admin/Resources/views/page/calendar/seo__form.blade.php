@@ -25,8 +25,20 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 <div>
  <label for="text"><b>SEO-DESCRIPTION</b></label> 
 <textarea {{$page ? 'disabled': ''}}  
-value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+value='' name='seo_description'  
+id="editor"
+class="form-control {{$page ? '' : ''}}
+
+">
+
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
-<input name='general' value='1' type="hidden" 
+<input name='general' value='1' type="hidden">
+<script>
+  CKEDITOR.replace('editor', {
+  //filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  //disallowedContent: 'a[href]',
+  height: 300, });
+</script>
+
 

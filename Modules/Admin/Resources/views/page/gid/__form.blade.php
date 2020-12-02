@@ -259,7 +259,8 @@ value=1
 name='description'
 rows="14" 
 cols="4" 
-class="{{$page ? 'form-control' : 'wysihtml5 wysihtml5-default form-control'}} ">
+id="editor"
+class="{{$page ? 'form-control' : ''}} ">
 @if(isset(Session::get('old')['description']))
 {{Session::get('old')['description']}}
 @else
@@ -353,10 +354,16 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
 @endif
 
 
+<script>
+  CKEDITOR.replace('editor', {
+  //filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  //disallowedContent: 'a[href]',
+  height: 300, });
+</script>
 
-		<script>
+<script>
 $('.select2').select2({
     minimumResultsForSearch: Infinity,
     width: '100%'
 })
-		</script>
+</script>

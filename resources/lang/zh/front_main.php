@@ -39,10 +39,6 @@ return [
 
         
       ],
-	'legenda'=>[
-	  'title' => '传说中的历史',
-	],
-	  
 	 'sights' => [
         'title' => '渡假村',
 		 'date' => '成立日期',

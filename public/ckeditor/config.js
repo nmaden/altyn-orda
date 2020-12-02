@@ -34,11 +34,11 @@ CKEDITOR.editorConfig = function( config ) {
 	config.format_tags = 'p;h1;h2;h3;pre';
 
 	// Simplify the dialog windows.
-	config.removeDialogTabs = 'image:advanced;link:advanced';
+	//config.removeDialogTabs = 'image:advanced;link:advanced';
 
-	config.extraPlugins = 'youtube';
-		
-		config.extraPlugins = ['justify','btgrid'];
+	//config.extraPlugins = 'youtube';
+		    //config.removePlugins = 'spellchecker, about, save, newpage, print, templates, scayt, flash, pagebreak, smiley,preview,find'
+		config.extraPlugins = ['justify','btgrid','link'];
 		//config.extraPlugins = 'btgrid';
 
 };

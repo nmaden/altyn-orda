@@ -106,7 +106,7 @@ class="form-control"/>
 	
   CKEDITOR.replace('editor', {
   filebrowserUploadUrl: "{{route('uploads2')}}",
-  disallowedContent: 'a[href]',
+  //disallowedContent: 'a[href]',
   height: 300, });
 	
 </script>
