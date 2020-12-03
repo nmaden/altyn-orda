@@ -48,9 +48,7 @@
                       </ul>
                   </div>
                     <div class="header__social">
-					<?php
-					//dd($social)
-					?>
+					
 					<?php if(is_array($social)): ?>
                       <?php $__currentLoopData = $social; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       
@@ -69,7 +67,15 @@
 						</div>
                         <?php else: ?>
 							 <div class="header__social--item tooltip__item" title="<?php echo e($v['ru']['hint']); ?>">
-                            <a href="<?php echo e($v['ru']['name']); ?>">
+                            <?php if($v['ru']['name'] == 'vhod'): ?>
+		<a href="<?php echo e(route($v['ru']['name'])); ?>">				   
+    <?php else: ?>
+		<a href="<?php echo e($v['ru']['name']); ?>">				   
+    <?php endif; ?>
+		
+							
+							
+							
                                 <img src="<?php echo e(URL::asset($v['ru']['photo'])); ?>" alt="">
                             </a>
 						</div>

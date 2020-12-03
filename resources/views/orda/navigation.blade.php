@@ -47,9 +47,7 @@
                       </ul>
                   </div>
                     <div class="header__social">
-					@php
-					//dd($social)
-					@endphp
+					
 					@if(is_array($social))
                       @foreach($social as $v)
                       
@@ -68,7 +66,15 @@
 						</div>
                         @else
 							 <div class="header__social--item tooltip__item" title="{{$v['ru']['hint']}}">
-                            <a href="{{ $v['ru']['name'] }}">
+                            @if($v['ru']['name'] == 'vhod')
+		<a href="{{route($v['ru']['name']) }}">				   
+    @else
+		<a href="{{ $v['ru']['name'] }}">				   
+    @endif
+		
+							
+							
+							
                                 <img src="{{ URL::asset($v['ru']['photo']) }}" alt="">
                             </a>
 						</div>
