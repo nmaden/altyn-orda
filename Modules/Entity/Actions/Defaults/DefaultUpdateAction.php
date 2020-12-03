@@ -77,7 +77,7 @@ class DefaultUpdateAction {
 	    }
 
 if($this->request->hint && is_array($this->request->hint)){
-	      
+	     
 	      $gallery_keys = array_keys($this->request->gallery);
 		  $gallery_combine= array_combine($gallery_keys,$ar['hint']);
 		  $ar['gallery_title']= serialize($gallery_combine);

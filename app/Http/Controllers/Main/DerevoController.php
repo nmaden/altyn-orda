@@ -26,6 +26,8 @@ class DerevoController extends SiteController
     
     public function index(Request $request,Figure $model)
 	{
+
+		dd($model);
        $items = $model::filter($request)->latest()->paginate(6);
 	    $items=0;
 	   //if(isset($model)){$this->getSeo($model,'figure');}

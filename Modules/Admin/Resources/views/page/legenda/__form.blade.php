@@ -67,7 +67,7 @@ class="form-control"/>
 @foreach($model->photo_unserialize as $k=>$item)
 <div class='rm'>
 
-<input type="hidden" name="gallery[]" value="{{$item}}"/>
+<input type="hidden" name="gallery[{{$k}}]" value="{{$item}}"/>
 
  уже загружено <a href="{{URL::asset($item)}}" target="_blank">
 просмотреть</a>&nbsp&nbsp
