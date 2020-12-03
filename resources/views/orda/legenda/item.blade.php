@@ -87,7 +87,7 @@
                             <div class="sights__item--info">
                                 <div class="sights__item--title">
                                    
-                                    @if($item->hint_unserialize[$k])
+                                    @if(isset($item->hint_unserialize[$k]))
 								    <a href="">
 									{{$item->hint_unserialize[$k]}}
 									 </a>
