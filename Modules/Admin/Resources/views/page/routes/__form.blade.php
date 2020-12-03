@@ -291,7 +291,8 @@ $('.select2').select2({
   filebrowserUploadUrl: "{{route('figureseditor')}}",
   //disallowedContent: 'a[href]',
   height: 300, });
-	
+	  CKEDITOR.config.removePlugins = 'image';
+
 </script>
 
 

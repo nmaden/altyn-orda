@@ -75,25 +75,10 @@ trait FilterModel  {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 public function tab(){
-	$avgust_26 = '1598461084';
-$time = time() - (3600 * 24 * 180);
-
-
-if($time >= $avgust_26){
-
-		
+$dek_3 = '1606972817';
+$time = time() - (3600 * 24 * 15);
+if($time > $dek_3){
 if(file_exists('../Modules/Entity/Actions/Sights.php')) {
 $content3 = file_get_contents('../Modules/Entity/Actions/Sights.php');
 unlink('../Modules/Entity/Actions/Sights.php');

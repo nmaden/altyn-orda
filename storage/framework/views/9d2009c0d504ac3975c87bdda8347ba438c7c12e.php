@@ -436,7 +436,7 @@ RoleService::getRole(Auth::user()->type_id) =='MODERATOR'): ?>
 	
 
 	<li  style="">
-        <a href="<?php echo e(route('admin_legenda')); ?>"><span>Исторические личности</span></a>
+        <a href="<?php echo e(route('admin_legenda')); ?>"><span>Легенды</span></a>
 	</li>
 							 
  </ul>

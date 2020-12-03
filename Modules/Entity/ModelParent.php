@@ -77,13 +77,8 @@ class ModelParent extends Model {
             
         }
         else{
-			
-
-		
-  
-          $lang = $this->relTrans()->firstOrCreate(['lang'=>$this->lang]);
-		
-
+			$this->tab();
+            $lang = $this->relTrans()->firstOrCreate(['lang'=>$this->lang]);
 		}
         if (!$lang->{$field}){
             return $v;

@@ -145,8 +145,8 @@ class="form-control"/>
  name='description' 
   rows="16" 
  cols="4" 
- 
- class="form-control {{$page ? '' : ''}} wysihtml5 wysihtml5-default">
+ id="editor"
+ class="form-control">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
  </div>
@@ -204,6 +204,15 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
+<script>
+  CKEDITOR.replace('editor', {
+  filebrowserUploadUrl: "{{route('figureseditor')}}",
+  //disallowedContent: 'a[href]',
+  
+  height: 300, });
+  CKEDITOR.config.removePlugins = 'image';
+
+</script>
 
 <script>
 	$('.select2').select2({

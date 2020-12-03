@@ -37,4 +37,6 @@ class="form-control {{$page ? '' : ''}}">
   //filebrowserUploadUrl: "{{route('aboutseditor')}}",
   //disallowedContent: 'a[href]',
   height: 300, });
+    CKEDITOR.config.removePlugins = 'image';
+
 </script>

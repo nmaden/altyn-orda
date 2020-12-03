@@ -359,6 +359,8 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
   //filebrowserUploadUrl: "{{route('aboutseditor')}}",
   //disallowedContent: 'a[href]',
   height: 300, });
+    CKEDITOR.config.removePlugins = 'image';
+
 </script>
 
 <script>
