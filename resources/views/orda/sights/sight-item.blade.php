@@ -18,8 +18,10 @@
                            </a>
                         </li>
                         <li>
-                            <span>				
+                            <span>	
+                            <a href="{{route('sights')}}">							
 							@lang('front_main.sights.title')
+							</a>
                            </span>
                         </li>
 						&nbsp&nbsp&nbsp&nbsp

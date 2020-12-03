@@ -9,7 +9,7 @@
                          </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/">						
+                        <a href="{{route('routes')}}">							
 						@lang('front_main.routes.title')
                        </a>
                     </li>

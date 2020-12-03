@@ -10,7 +10,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/">
+                        <a href="{{route('calendars')}}">	
 						    @lang('front_main.calendar.title')
                         </a>
                     </li>
