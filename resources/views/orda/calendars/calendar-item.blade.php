@@ -138,8 +138,9 @@
                                     </div>
 										</a>
 									@endif
+								
                                     <div class="calendar__item--title">
-                                        <a href="/calendar-item.html">
+                                <a href="{{route('calendars-item',$v)}}">
 										{!! mb_substr($v->name,0,65) !!}
 
                                         </a>

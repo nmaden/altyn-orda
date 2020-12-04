@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="sights__item--info">
                                     <div class="sights__item--title">
-									    <a href="route('legenda-item',$item)}}">
+									    <a href="{{route('legenda-item',$item)}}">
 										{{$item->name}}
                                         </a>
 									</div>
