@@ -16,11 +16,12 @@ trait Presenter {
 	}
 	
 	function getPhotoUnserializeAttribute(){
+		
 		if(@unserialize($this->gallery)){
 			
 			return unserialize($this->gallery);
 		}else{
-			return false;
+			return null;
 		}
 	 
 	}
