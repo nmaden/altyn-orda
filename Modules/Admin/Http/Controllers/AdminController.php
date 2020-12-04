@@ -13,20 +13,13 @@ use Auth;
 class AdminController extends Controller
 {
     public function index() {
-        //alert()->message('Message', 'Optional Title');
-		
-		$informs= User::where('id','=',Auth::user()->id)->first();
+        $informs= User::where('id','=',Auth::user()->id)->first();
 		     $content = view('admin::page.profile')->with(['info'=>$informs])->render();
-         
-	
         return view('admin::index')->with(['content'=>$content])->render();
     }
 	
-	
-	
-	  public function filter(Request $request){
-		
-		  if($request->q){
+	public function filter(Request $request){
+		if($request->q){
 			  $q = $request->q;
 		  }
 		  switch($request->model){
@@ -45,12 +38,10 @@ class AdminController extends Controller
 			  
 		  }
 		  
-		  $result = $model::filter($request)->latest()->paginate(24);
-		  
-		  $syslang = new SysLang();
+		$result = $model::filter($request)->latest()->paginate(24);
+		$syslang = new SysLang();
 		 if(count($result) > 0){
-        //$result = DB::table('galleries')->where("name","LIKE","%$q%")->get();
-		 $view = view('admin::page.components.search.index')->with(['items'=>$result,
+          $view = view('admin::page.components.search.index')->with(['items'=>$result,
 		 'model'=>$model,'sys_lang'=>$syslang,'route_path'=>$route_path,
 		 'request'=>$request,'name'=>$name])->render();
 		 return response($view)->header('Content-type','text/html');

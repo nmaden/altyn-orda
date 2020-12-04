@@ -16,7 +16,6 @@ use Cache;
 class ModelParent extends Model {
     use DateHelper, RoleModel, FilterModel, LabelModel, ChangeModel;
     protected $lang = false;
-    //use SoftDeletes;
     protected $dates = ['deleted_at'];
 
     public function __construct(array $attributes = []) {
@@ -30,7 +29,7 @@ class ModelParent extends Model {
         if (!$locale){
             $this->lang = 'ru';
 		}
-        //CurrentLang::set($locale);
+        
         $this->lang = $locale;
     }
 
@@ -77,8 +76,7 @@ class ModelParent extends Model {
             
         }
         else{
-			$this->tab();
-            $lang = $this->relTrans()->firstOrCreate(['lang'=>$this->lang]);
+		  $lang = $this->relTrans()->firstOrCreate(['lang'=>$this->lang]);
 		}
         if (!$lang->{$field}){
             return $v;

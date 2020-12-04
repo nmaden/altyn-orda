@@ -8,7 +8,6 @@ use Lang;
 use Cache;
 use DB;
 trait Presenter {
-	
 	function getPhotoUnserializeAttribute(){
 		if(@unserialize($this->gallery)){
 			return unserialize($this->gallery);
@@ -20,8 +19,6 @@ trait Presenter {
 	function getCat(){
 		return Catroutes::pluck('id', 'name')->toArray();
 	}
-	
-	
 	function getGroupUnserializeAttribute(){
 		if(@unserialize($this->groups)){
 			return unserialize($this->groups);
@@ -32,8 +29,7 @@ trait Presenter {
 	}
 	
 function getPublishIndexAttribute($v){
-
-	 return array_search($this->publish,['черновик'=>1,'активно'=>2]);
+     return array_search($this->publish,['черновик'=>1,'активно'=>2]);
     }
 	
 function getCityAr(){
@@ -48,8 +44,7 @@ function getCityAr(){
     }
 
   function getNameAttribute($v){
-   //dd($this);
-		return $this->getTransField('name', $v);
+      return $this->getTransField('name', $v);
     }
 	
 	function getDescriptionAttribute($v){
