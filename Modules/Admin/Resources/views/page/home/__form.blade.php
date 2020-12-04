@@ -90,7 +90,8 @@ value="{{ $k }}"
  name='description' 
   rows="16" 
  cols="4" 
- class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+ id="editor"
+ class="form-control {{$page ? '' : ''}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
 </div>
@@ -188,6 +189,14 @@ $('.select2').select2({
     width: '100%'
 })
 		</script>
+<script>
+  CKEDITOR.replace('editor', {
+  filebrowserUploadUrl: "{{route('figureseditor')}}",
+  //disallowedContent: 'a[href]',
+  height: 300, });
+	  CKEDITOR.config.removePlugins = 'image';
+
+</script>
 
 
 
