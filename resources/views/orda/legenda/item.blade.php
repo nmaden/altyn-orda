@@ -79,7 +79,7 @@
                      @foreach($item->photo_unserialize as $k=>$val)
                         <div class="sights__item legenda__item">
                             <div class="sights__item--img">
-                                <a href="/about/legenda-item">
+                                <a href="#">
 								 
                                     <img src="{{URL::asset($val)}}" alt="">
                                 </a>
@@ -88,7 +88,7 @@
                                 <div class="sights__item--title">
                                    
                                     @if(isset($item->hint_unserialize[$k]))
-								    <a href="">
+								    <a href="#">
 									{{$item->hint_unserialize[$k]}}
 									 </a>
                                     @endif
