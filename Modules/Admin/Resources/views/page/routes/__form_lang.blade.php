@@ -50,7 +50,8 @@ placeholder="{{$page ? '': 'О маршруте(текст)'}} "
  name='description' 
   rows="16" 
  cols="4" 
- class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+ id="editor"
+ class="form-control {{$page ? '' : ''}}">
  {{isset($model->description) ? $model->description : ''}}
 </textarea>
  </div>
@@ -84,6 +85,14 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
 
 
 
+<script>
+  CKEDITOR.replace('editor', {
+  //filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  //disallowedContent: 'a[href]',
+  height: 300, });
+    CKEDITOR.config.removePlugins = 'image';
+
+</script>
 
 
 

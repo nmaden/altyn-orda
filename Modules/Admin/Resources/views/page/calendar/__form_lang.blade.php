@@ -61,8 +61,9 @@ value='{{isset($model->name) ? $model->name : ''}}' name='name' placeholder="з�
 
 <div>
  <label for="text"><b>Текст</b></label> 
-<textarea {{$page ? 'disabled': ''}}  
-value='' name='text'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
+<textarea {{$page ? 'disabled': ''}}
+id="editor"  
+value='' name='text'  class="form-control {{$page ? '' : ''}}">
 {{isset($model->text) ? $model->text : ''}}</textarea>
 </div>
 <br><br>
@@ -87,3 +88,11 @@ placeholder="title-seo(текст)" class="form-control"></input>
 @endif
 </div>
 @endif
+<script>
+  CKEDITOR.replace('editor', {
+  //filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  //disallowedContent: 'a[href]',
+  height: 300, });
+    CKEDITOR.config.removePlugins = 'image';
+
+</script>

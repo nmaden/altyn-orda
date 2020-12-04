@@ -29,7 +29,7 @@ $categories = DB::table('lib_gid_speacialisations')->get();
 @else
 value='{{$model->imya ? $model->imya : ''}}' 
 @endif
-name='imya' placeholder="Имя(текс)" class="form-control"></input>
+name='imya' placeholder="Имя(текст)" class="form-control"></input>
 @if ($errors->has('imya'))
   <span class="help-block">
      <strong style='color:#a94442'>{{ $errors->first('imya') }}</strong>
@@ -139,7 +139,8 @@ name='name' placeholder="{{$page ? '': 'Туристический гид(тек
 name='description'
 rows="14" 
 cols="4" 
-class="{{$page ? 'form-control' : 'wysihtml5 wysihtml5-default form-control'}} ">
+id="editor"
+class="{{$page ? 'form-control' : 'form-control'}} ">
 @if(isset(Session::get('old')['description']))
 {{Session::get('old')['description']}}
 @else
@@ -173,3 +174,11 @@ value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 w
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
 @endif
+<script>
+  CKEDITOR.replace('editor', {
+  //filebrowserUploadUrl: "{{route('aboutseditor')}}",
+  //disallowedContent: 'a[href]',
+  height: 300, });
+    CKEDITOR.config.removePlugins = 'image';
+
+</script>
