@@ -88,11 +88,12 @@ unset($ar['gallery']);
       
 
 	   if($this->request->general){if($this->request->seo_description || $this->request->seo_title){
+		   //dd($this->request->all());
 		   $title= strip_tags($this->request->seo_title);
 		   $desc= strip_tags($this->request->seo_description);
 
-		   if($this->request->lang){Cache::forever('seo-figure-'.$this->request->lang,[$title,$desc]);
-          }else{Cache::forever('seo-figure-ru',[$title,$desc]);//сохранение безвременно
+		   if($this->request->lang){Cache::forever('seo-'.$this->request->general.'-'.$this->request->lang,[$title,$desc]);
+          }else{Cache::forever('seo-'.$this->request->general.'-ru',[$title,$desc]);//сохранение безвременно
 		   }}}
 	   
 	   	if($this->request->social && is_array($this->request->social)){

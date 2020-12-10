@@ -36,8 +36,8 @@ class LegendaController extends Controller {
 		//nullable
 		
         return \Validator::make($data, [
-		 'publish' => 'required|numeric',
-         'name' => 'required',
+		 'publish' => 'sometimes|required|numeric',
+         'name' => 'sometimes|required',
 	     //'opyt' => 'sometimes|numeric',
 	     //'imya' => 'sometimes|string',
 	     //'price' => 'sometimes|nullable|numeric',

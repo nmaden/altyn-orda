@@ -28,5 +28,5 @@ value='{{isset($model->seo_title) ? $model->seo_title : ''}}' name='seo_title' p
 value='' name='seo_description'  class="form-control {{$page ? '' : 'wysihtml5 wysihtml5-default'}}">
 {{isset($model->seo_description) ? $model->seo_description : ''}}</textarea>
 </div>
-<input name='general' value='1' type="hidden" 
+<input name='general' value='figure' type="hidden" 
 
